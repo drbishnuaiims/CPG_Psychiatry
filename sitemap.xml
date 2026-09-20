@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/</loc></url>
-  <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/depression.html</loc></url>
-  <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/schizophrenia.html</loc></url>
-  <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/adhd.html</loc></url>
+
+  
   <url>
     <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/schizophrenia.html</loc>
     <changefreq>yearly</changefreq>
@@ -16,6 +15,11 @@
 </url>
 <url>
     <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/adhd-cpg-shah-2019.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://YOUR-DOMAIN.com/cpg/pornography-addiction-young-therapists-guide.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>

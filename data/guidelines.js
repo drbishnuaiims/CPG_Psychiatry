@@ -471,49 +471,41 @@ const GUIDELINES = [
      NEW CPG SLOT — 10
   ===================================================== */
 
-  /*
+  
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
-    tags: [
-      "tag 1",
-      "tag 2",
-      "tag 3"
-    ],
-
+    title: "A Therapist’s Guide to Assess and Treat Internet Addiction",
+    shortTitle: "Internet / Cybersexual Addiction",
+    authors: "Young KS",
+    year: "1998",
+    journal: "A Therapist’s Guide to Assess and Treat Internet Addiction",
+    category: "Behavioral Addictions",
+    url: "cpg/pornography-addiction-young-therapists-guide.html",
     keywords: [
-      "keyword 1",
-      "keyword 2",
-      "keyword 3",
-      "keyword 4"
-    ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
-  },
-  */
+        "internet addiction",
+        "internet use disorder",
+        "cybersexual addiction",
+        "pornography addiction",
+        "problematic pornography use",
+        "online pornography",
+        "cybersex",
+        "sexual compulsivity",
+        "behavioral addiction",
+        "Young Internet Addiction Test",
+        "Internet Addiction Impairment Index",
+        "ACE model",
+        "anonymity",
+        "convenience",
+        "escape",
+        "craving",
+        "withdrawal",
+        "relapse prevention",
+        "cognitive behavioral therapy",
+        "cybersexual addiction treatment",
+        "Internet addiction treatment",
+        "couples counseling",
+        "support groups"
+    ]
+},
 
 
   /* =====================================================
