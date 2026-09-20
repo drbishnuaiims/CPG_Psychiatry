@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-DOMAIN.com/cpg/example-guideline.html</loc>
+    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/example-guideline.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

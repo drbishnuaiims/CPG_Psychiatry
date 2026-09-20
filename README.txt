@@ -24,7 +24,7 @@ cpg/
 
 Replace every occurrence of:
 
-https://YOUR-DOMAIN.com/
+https://drbishnuaiims.github.io/CPG_Psychiatry/
 
 with your actual website domain.
 
@@ -34,4 +34,4 @@ The day/night preference is saved in the browser.
 
 For Google Search Console, submit:
 
-https://YOUR-DOMAIN.com/sitemap.xml
+https://drbishnuaiims.github.io/CPG_Psychiatry/sitemap.xml
