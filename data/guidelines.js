@@ -60,6 +60,33 @@ const GUIDELINES = [
     readTime: "15 min read"
   },
 
+  {
+    title: "Clinical Practice Guidelines for the Assessment and Management of ADHD",
+    shortTitle: "ADHD",
+    authors: "Shah R, Grover S, Avasthi A",
+    year: "2019",
+    journal: "Indian Journal of Psychiatry",
+    category: "Child & Adolescent Psychiatry",
+    url: "cpg/adhd-cpg-shah-2019.html",
+    keywords: [
+        "ADHD",
+        "attention-deficit hyperactivity disorder",
+        "attention deficit hyperactivity disorder",
+        "child psychiatry",
+        "adolescent psychiatry",
+        "hyperactivity",
+        "inattention",
+        "impulsivity",
+        "methylphenidate",
+        "atomoxetine",
+        "clonidine",
+        "parent training",
+        "behavioral management",
+        "rating scales",
+        "comorbidity",
+        "Indian Psychiatric Society"
+    ]
+},
 
   /* =====================================================
      AUTISM SPECTRUM DISORDER
