@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://zlibbishnu.github.io/drbishnu/sitemap.xml
+Sitemap: https://drbishnuaiims.github.io/cpg_psychiatry/sitemap.xml

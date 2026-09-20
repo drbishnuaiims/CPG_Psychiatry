@@ -3,516 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Psychiatry CPG Notes | Clinical Practice Guidelines</title>
-  <meta name="description" content="A simple, searchable collection of psychiatry clinical practice guidelines, consensus statements and clinical resources.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Dr Bishnu Prasad Sahoo">
-  <link rel="canonical" href="https://zlibbishnu.github.io/drbishnu/">
-
-  <meta property="og:type" content="website">
+  <meta name="description" content="A practical, searchable library of psychiatry clinical practice guidelines, recommendations, scales and evidence-based clinical notes.">
+  <meta name="keywords" content="psychiatry clinical practice guidelines, CPG, psychiatry guidelines, clinical notes, mental health guidelines">
+  <link rel="canonical" href="https://drbishnuaiims.github.io/cpg_psychiatry/">
   <meta property="og:title" content="Psychiatry CPG Notes">
-  <meta property="og:description" content="Searchable collection of psychiatry clinical practice guidelines and clinical resources.">
-  <meta property="og:url" content="https://zlibbishnu.github.io/drbishnu/">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Psychiatry CPG Notes">
-  <meta name="twitter:description" content="Searchable psychiatry clinical practice guidelines and clinical resources.">
-
-  <style>
-    :root {
-      --bg: #f7f8f7;
-      --surface: #ffffff;
-      --surface-2: #f0f3f1;
-      --text: #1d2926;
-      --muted: #687570;
-      --border: #e2e7e4;
-      --accent: #397d70;
-      --accent-soft: #e4f0ed;
-      --shadow: 0 6px 24px rgba(28, 48, 43, .06);
+  <meta property="og:description" content="A practical library of psychiatry clinical practice guidelines and clinical notes.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Psychiatry CPG Notes",
+    "url":"https://drbishnuaiims.github.io/cpg_psychiatry/",
+    "description":"Searchable library of psychiatry clinical practice guidelines and clinical notes.",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://drbishnuaiims.github.io/cpg_psychiatry/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
     }
-
-    [data-theme="dark"] {
-      --bg: #111615;
-      --surface: #191e1d;
-      --surface-2: #222927;
-      --text: #edf2f0;
-      --muted: #a6b1ad;
-      --border: #303936;
-      --accent: #76b7aa;
-      --accent-soft: #203b35;
-      --shadow: 0 8px 28px rgba(0,0,0,.22);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--border);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      backdrop-filter: blur(12px);
-    }
-
-    .header-inner {
-      max-width: 1050px;
-      margin: auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      text-decoration: none;
-      font-weight: 750;
-      letter-spacing: -.3px;
-    }
-
-    .brand span { color: var(--accent); }
-
-    .theme-btn {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 8px 11px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 54px 20px 80px;
-    }
-
-    .intro {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(34px, 6vw, 54px);
-      line-height: 1.08;
-      letter-spacing: -1.8px;
-    }
-
-    .intro p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 680px;
-    }
-
-    .search {
-      margin: 28px 0 38px;
-      position: relative;
-    }
-
-    #searchInput {
-      width: 100%;
-      padding: 15px 46px 15px 16px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      outline: none;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    #searchInput:focus {
-      border-color: var(--accent);
-    }
-
-    #clearSearch {
-      display: none;
-      position: absolute;
-      right: 10px;
-      top: 9px;
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 8px;
-      background: var(--surface-2);
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 21px;
-    }
-
-    #status {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      display: block;
-      min-width: 0;
-      padding: 16px 18px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform .18s ease, border-color .18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-
-    .card-title {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.35;
-      font-weight: 700;
-    }
-
-    .card-path {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 11px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .empty, .loading, .error {
-      padding: 42px 20px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    #topBtn {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--text);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      display: none;
-      z-index: 30;
-    }
-
-    @media (max-width: 700px) {
-      main { padding-top: 38px; }
-      .cards { grid-template-columns: 1fr; }
-      .header-inner { padding-inline: 16px; }
-      main { padding-inline: 16px; }
-    }
-  </style>
-
-  <script>
-    (function () {
-      const saved = localStorage.getItem("cpg-theme");
-      const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme = saved || (preferred ? "dark" : "light");
-    })();
+  }
   </script>
 </head>
-
 <body>
-<header>
-  <div class="header-inner">
-    <a class="brand" href="./">Psychiatry <span>CPG Notes</span></a>
-    <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle day and night mode">☾ / ☀</button>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="brand-mark">P</span><span>Psychiatry <em>CPG Notes</em></span></a>
+    <nav><a href="#guidelines">Guidelines</a><a href="#about">About</a></nav>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle day and night mode" title="Toggle theme">☾</button>
   </div>
 </header>
 
-<main id="top">
-  <section class="intro">
-    <span class="eyebrow">Clinical Practice Guidelines</span>
-    <h1>Psychiatry CPG Notes</h1>
-    <p>A simple, searchable library of clinical practice guidelines and related clinical resources.</p>
-  </section>
-
-  <section class="search" aria-label="Search guidelines">
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search guidelines..."
-      autocomplete="off"
-      aria-label="Search clinical practice guidelines"
-    >
-    <button id="clearSearch" type="button" aria-label="Clear search">×</button>
-  </section>
-
-  <section aria-labelledby="guidelines-heading">
-    <div class="section-head">
-      <h2 id="guidelines-heading">Recently added</h2>
-      <span id="status">Loading…</span>
+<main>
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow">CLINICAL PRACTICE GUIDELINE LIBRARY</p>
+      <h1>Psychiatry, <span>structured for practice.</span></h1>
+      <p class="hero-copy">A clean, searchable collection of psychiatry clinical practice guidelines, recommendations and evidence summaries — built for quick clinical reference.</p>
+      <div class="search-wrap">
+        <label class="sr-only" for="searchInput">Search guidelines</label>
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search schizophrenia, depression, ADHD, lithium..." autocomplete="off">
+        <kbd>⌘ K</kbd>
+      </div>
+      <div id="searchMeta" class="search-meta" aria-live="polite"></div>
     </div>
+  </section>
 
-    <div id="cards" class="cards">
-      <div class="loading">Loading guidelines…</div>
+  <section id="guidelines" class="container content-section">
+    <div class="section-head">
+      <div><p class="eyebrow">LIBRARY</p><h2>Recently added</h2></div>
+      <span id="resultCount" class="result-count"></span>
+    </div>
+    <div id="guidelineGrid" class="guideline-grid"></div>
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">⌕</div>
+      <h3>No guideline found</h3>
+      <p>Try a broader term such as <strong>psychosis</strong>, <strong>mood</strong>, or <strong>addiction</strong>.</p>
+    </div>
+  </section>
+
+  <section id="about" class="container about-section">
+    <div class="about-card">
+      <p class="eyebrow">ABOUT THIS LIBRARY</p>
+      <h2>Fast reference, without the clutter.</h2>
+      <p>Each guideline is presented as an individual, SEO-ready HTML article. Add a new page whenever you finish converting a guideline PDF, then add one entry to <code>data/guidelines.js</code>.</p>
+      <div class="mini-stats"><span><b>01</b> Searchable index</span><span><b>02</b> Individual CPG pages</span><span><b>03</b> Lightweight &amp; fast</span></div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div>© <span id="year"></span> Psychiatry CPG Notes</div>
-</footer>
-
-<button id="topBtn" type="button" aria-label="Go to top">↑</button>
-
-<script>
-  /*
-    ============================================================
-    ONLY CHANGE THESE 3 VALUES
-    ============================================================
-  */
-  const GITHUB_USERNAME = "zlibbishnu";
-  const GITHUB_REPOSITORY = "drbishnu";
-  const GITHUB_BRANCH = "main";
-
-  /*
-    ============================================================
-    HOW THIS WORKS
-    ============================================================
-    Add any new .html CPG page to the repository.
-    The index automatically finds it through the GitHub API.
-    You do NOT need to edit this index page for every new CPG.
-  */
-
-  const cards = document.getElementById("cards");
-  const status = document.getElementById("status");
-  const searchInput = document.getElementById("searchInput");
-  const clearSearch = document.getElementById("clearSearch");
-  const themeBtn = document.getElementById("themeBtn");
-  const topBtn = document.getElementById("topBtn");
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function titleFromFilename(path) {
-    let filename = path.split("/").pop().replace(/\.(html|htm)$/i, "");
-    return filename
-      .replace(/[-_]+/g, " ")
-      .replace(/\s+/g, " ")
-      .trim()
-      .replace(/\b\w/g, c => c.toUpperCase());
-  }
-
-  function pageUrl(path) {
-    /*
-      Relative URLs work on both:
-      https://username.github.io/repository/
-      and
-      https://username.github.io/
-    */
-    return path.split("/").map(encodeURIComponent).join("/");
-  }
-
-  function escapeHTML(value) {
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-  function isGuidelinePage(path) {
-    const p = path.toLowerCase();
-
-    if (!p.endsWith(".html") && !p.endsWith(".htm")) return false;
-
-    /*
-      Ignore the website infrastructure pages.
-      Any other HTML file is treated as a CPG/resource page.
-    */
-    const ignored = [
-      "index.html",
-      "404.html",
-      "about.html",
-      "contact.html"
-    ];
-
-    const filename = p.split("/").pop();
-    if (ignored.includes(filename)) return false;
-
-    if (
-      p.startsWith(".github/") ||
-      p.includes("node_modules/") ||
-      p.includes("dist/") ||
-      p.includes("build/")
-    ) return false;
-
-    return true;
-  }
-
-  async function loadGuidelines() {
-    const api =
-      `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPOSITORY}` +
-      `/git/trees/${GITHUB_BRANCH}?recursive=1`;
-
-    try {
-      const response = await fetch(api);
-
-      if (!response.ok) {
-        throw new Error("GitHub repository could not be accessed.");
-      }
-
-      const data = await response.json();
-
-      const pages = (data.tree || [])
-        .filter(file => file.type === "blob" && isGuidelinePage(file.path))
-        .map(file => ({
-          title: titleFromFilename(file.path),
-          path: file.path,
-          url: pageUrl(file.path)
-        }))
-        .sort((a, b) => a.title.localeCompare(b.title));
-
-      window.cpgPages = pages;
-
-      render(pages);
-      status.textContent = `${pages.length} guideline${pages.length === 1 ? "" : "s"}`;
-    } catch (error) {
-      console.error(error);
-      status.textContent = "Unable to load";
-      cards.innerHTML = `
-        <div class="error">
-          <strong>Could not load the guideline list.</strong><br>
-          Check the GitHub username, repository and branch in this file.
-        </div>
-      `;
-    }
-  }
-
-  function render(list) {
-    if (!list.length) {
-      cards.innerHTML = `<div class="empty">No matching guidelines found.</div>`;
-      return;
-    }
-
-    cards.innerHTML = list.map(page => `
-      <a class="card" href="${escapeHTML(page.url)}">
-        <h3 class="card-title">${escapeHTML(page.title)}</h3>
-        <div class="card-path">${escapeHTML(page.path)}</div>
-      </a>
-    `).join("");
-  }
-
-  function search() {
-    const query = searchInput.value.trim().toLowerCase();
-    clearSearch.style.display = query ? "block" : "none";
-
-    if (!query) {
-      render(window.cpgPages || []);
-      status.textContent = `${(window.cpgPages || []).length} guidelines`;
-      return;
-    }
-
-    const terms = query.split(/\s+/).filter(Boolean);
-
-    const filtered = (window.cpgPages || []).filter(page => {
-      const text = `${page.title} ${page.path}`.toLowerCase();
-      return terms.every(term => text.includes(term));
-    });
-
-    render(filtered);
-    status.textContent = `${filtered.length} result${filtered.length === 1 ? "" : "s"}`;
-  }
-
-  searchInput.addEventListener("input", search);
-
-  clearSearch.addEventListener("click", () => {
-    searchInput.value = "";
-    search();
-    searchInput.focus();
-  });
-
-  document.addEventListener("keydown", event => {
-    if (
-      event.key === "/" &&
-      document.activeElement !== searchInput &&
-      !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)
-    ) {
-      event.preventDefault();
-      searchInput.focus();
-    }
-
-    if (event.key === "Escape" && document.activeElement === searchInput) {
-      searchInput.value = "";
-      search();
-    }
-  });
-
-  themeBtn.addEventListener("click", () => {
-    const current = document.documentElement.dataset.theme;
-    const next = current === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("cpg-theme", next);
-  });
-
-  window.addEventListener("scroll", () => {
-    topBtn.style.display = window.scrollY > 400 ? "block" : "none";
-  });
-
-  topBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  loadGuidelines();
-</script>
+<footer class="site-footer"><div class="container footer-inner"><span>© <span id="year"></span> Psychiatry CPG Notes</span><span>Clinical reference • Educational use</span></div></footer>
+<button id="topBtn" class="top-btn" aria-label="Go to top" title="Go to top">↑</button>
+<script src="data/guidelines.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>

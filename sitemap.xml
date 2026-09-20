@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://zlibbishnu.github.io/drbishnu/</loc>
-  </url>
+  <url><loc>https://drbishnuaiims.github.io/cpg_psychiatry/</loc></url>
+  <url><loc>https://drbishnuaiims.github.io/cpg_psychiatry/cpg/depression.html</loc></url>
+  <url><loc>https://drbishnuaiims.github.io/cpg_psychiatry/cpg/schizophrenia.html</loc></url>
+  <url><loc>https://drbishnuaiims.github.io/cpg_psychiatry/cpg/adhd.html</loc></url>
 </urlset>
