@@ -22,7 +22,14 @@ const CPG_ARTICLES = [
     year: "2026",
     url: "cpg/schizophrenia.html"
   }
-  
+  {
+  title: "Bipolar Disorder",
+  description: "Clinical practice guideline notes on bipolar disorder.",
+  category: "Mood Disorders",
+  year: "2026",
+  url: "cpg/bipolar-disorder.html"
+}
+
 ];
 
 const input = document.getElementById("searchInput");
