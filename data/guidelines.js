@@ -1,4 +1,4 @@
-```javascript
+
 /*
 =========================================================
   CPG PSYCHIATRY — GUIDELINE REGISTRY
@@ -181,4 +181,4 @@ const GUIDELINES = [
   }
 
 ];
-```
+
