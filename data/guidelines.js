@@ -1,3 +1,4 @@
+```javascript
 /*
 =========================================================
   CPG PSYCHIATRY — GUIDELINE REGISTRY
@@ -60,33 +61,60 @@ const GUIDELINES = [
     readTime: "15 min read"
   },
 
+
+  /* =====================================================
+     ADHD
+  ===================================================== */
+
   {
     title: "Clinical Practice Guidelines for the Assessment and Management of ADHD",
+
     shortTitle: "ADHD",
-    authors: "Shah R, Grover S, Avasthi A",
+
+    authors:
+      "Shah R, Grover S, Avasthi A",
+
     year: "2019",
+
     journal: "Indian Journal of Psychiatry",
+
     category: "Child & Adolescent Psychiatry",
-    url: "cpg/adhd-cpg-shah-2019.html",
+
+    description:
+      "Clinical Practice Guidelines for the assessment and management of attention-deficit hyperactivity disorder, covering diagnosis, rating scales, comorbidities, behavioural interventions and pharmacological treatment.",
+
+    tags: [
+      "ADHD",
+      "attention-deficit hyperactivity disorder",
+      "child psychiatry",
+      "adolescent psychiatry",
+      "methylphenidate"
+    ],
+
     keywords: [
-        "ADHD",
-        "attention-deficit hyperactivity disorder",
-        "attention deficit hyperactivity disorder",
-        "child psychiatry",
-        "adolescent psychiatry",
-        "hyperactivity",
-        "inattention",
-        "impulsivity",
-        "methylphenidate",
-        "atomoxetine",
-        "clonidine",
-        "parent training",
-        "behavioral management",
-        "rating scales",
-        "comorbidity",
-        "Indian Psychiatric Society"
-    ]
-},
+      "ADHD",
+      "attention-deficit hyperactivity disorder",
+      "attention deficit hyperactivity disorder",
+      "child psychiatry",
+      "adolescent psychiatry",
+      "hyperactivity",
+      "inattention",
+      "impulsivity",
+      "methylphenidate",
+      "atomoxetine",
+      "clonidine",
+      "parent training",
+      "behavioral management",
+      "rating scales",
+      "comorbidity",
+      "Indian Psychiatric Society"
+    ],
+
+    url: "cpg/adhd-cpg-shah-2019.html",
+
+    readTime: "15 min read"
+  },
+
 
   /* =====================================================
      AUTISM SPECTRUM DISORDER
@@ -150,9 +178,7 @@ const GUIDELINES = [
     url: "cpg/autism-spectrum-disorder-subramanyam-2019.html",
 
     readTime: "20 min read"
-  },
-
-
-
+  }
 
 ];
+```
