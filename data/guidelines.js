@@ -32,6 +32,33 @@ const GUIDELINES = [
         "Indian Psychiatric Society"
     ]
 },
+{
+    title: "Clinical Practice Guidelines for Autism Spectrum Disorders",
+    shortTitle: "Autism Spectrum Disorder",
+    authors: "Subramanyam AA, Mukherjee A, Dave M, Chavda K",
+    year: "2019",
+    journal: "Indian Journal of Psychiatry",
+    category: "Autism Spectrum Disorder",
+    url: "cpg/autism-spectrum-disorder-subramanyam-2019.html",
+    keywords: [
+        "autism spectrum disorder",
+        "ASD",
+        "autism",
+        "child psychiatry",
+        "neurodevelopmental disorders",
+        "M-CHAT",
+        "ADOS",
+        "ISAA",
+        "ABA",
+        "PECS",
+        "TEACCH",
+        "risperidone",
+        "aripiprazole",
+        "ADHD",
+        "intellectual disability",
+        "Indian Psychiatric Society"
+    ]
+},
   {
     title: "Attention-Deficit/Hyperactivity Disorder",
     shortTitle: "ADHD",
