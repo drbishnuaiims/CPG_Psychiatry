@@ -1,8 +1,10 @@
+
 /*
 =========================================================
   CPG PSYCHIATRY — GUIDELINE REGISTRY
 
   ORDER:
+
   -------------------------------------------------------
   NEWEST CPG
       ↓
@@ -32,48 +34,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 02
@@ -81,48 +63,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 03
@@ -130,48 +92,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 04
@@ -179,48 +121,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 05
@@ -228,48 +150,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 06
@@ -277,48 +179,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 07
@@ -326,48 +208,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 08
@@ -375,48 +237,28 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 09
@@ -424,54 +266,33 @@ const GUIDELINES = [
 
   /*
   {
-    title:
-      "FULL GUIDELINE TITLE",
-
-    shortTitle:
-      "SHORT TITLE",
-
-    authors:
-      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
-
-    year:
-      "YEAR",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "CATEGORY",
-
-    description:
-      "Brief description of the guideline and the major clinical areas covered.",
-
+    title: "FULL GUIDELINE TITLE",
+    shortTitle: "SHORT TITLE",
+    authors: "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+    year: "YEAR",
+    journal: "Indian Journal of Psychiatry",
+    category: "CATEGORY",
+    description: "Brief description of the guideline and the major clinical areas covered.",
     tags: [
       "tag 1",
       "tag 2",
       "tag 3"
     ],
-
     keywords: [
       "keyword 1",
       "keyword 2",
       "keyword 3",
       "keyword 4"
     ],
-
-    url:
-      "cpg/your-guideline-filename.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/your-guideline-filename.html",
+    readTime: "15 min read"
   },
   */
-
 
   /* =====================================================
      NEW CPG SLOT — 10
   ===================================================== */
 
-  
   {
     title: "A Therapist’s Guide to Assess and Treat Internet Addiction",
     shortTitle: "Internet / Cybersexual Addiction",
@@ -479,66 +300,60 @@ const GUIDELINES = [
     year: "1998",
     journal: "A Therapist’s Guide to Assess and Treat Internet Addiction",
     category: "Behavioral Addictions",
-    url: "cpg/pornography-addiction-young-therapists-guide.html",
+    description: "A clinical guide addressing problematic internet use and cybersexual addiction, including assessment, behavioural patterns, treatment approaches and relapse prevention.",
+    tags: [
+      "internet addiction",
+      "internet use disorder",
+      "cybersexual addiction",
+      "pornography addiction",
+      "problematic pornography use",
+      "behavioral addiction"
+    ],
     keywords: [
-        "internet addiction",
-        "internet use disorder",
-        "cybersexual addiction",
-        "pornography addiction",
-        "problematic pornography use",
-        "online pornography",
-        "cybersex",
-        "sexual compulsivity",
-        "behavioral addiction",
-        "Young Internet Addiction Test",
-        "Internet Addiction Impairment Index",
-        "ACE model",
-        "anonymity",
-        "convenience",
-        "escape",
-        "craving",
-        "withdrawal",
-        "relapse prevention",
-        "cognitive behavioral therapy",
-        "cybersexual addiction treatment",
-        "Internet addiction treatment",
-        "couples counseling",
-        "support groups"
-    ]
-},
-
+      "internet addiction",
+      "internet use disorder",
+      "cybersexual addiction",
+      "pornography addiction",
+      "problematic pornography use",
+      "online pornography",
+      "cybersex",
+      "sexual compulsivity",
+      "behavioral addiction",
+      "Young Internet Addiction Test",
+      "Internet Addiction Impairment Index",
+      "ACE model",
+      "anonymity",
+      "convenience",
+      "escape",
+      "craving",
+      "withdrawal",
+      "relapse prevention",
+      "cognitive behavioral therapy",
+      "cybersexual addiction treatment",
+      "Internet addiction treatment",
+      "couples counseling",
+      "support groups"
+    ],
+    url: "cpg/pornography-addiction-young-therapists-guide.html",
+    readTime: "15 min read"
+  },
 
   /* =====================================================
      CURRENT GUIDELINES
   ===================================================== */
-
 
   /* =====================================================
      ADHD — CURRENT NEWEST CPG
   ===================================================== */
 
   {
-    title:
-      "Clinical Practice Guidelines for the Assessment and Management of ADHD",
-
-    shortTitle:
-      "ADHD",
-
-    authors:
-      "Shah R, Grover S, Avasthi A",
-
-    year:
-      "2019",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "Child & Adolescent Psychiatry",
-
-    description:
-      "Clinical Practice Guidelines for the assessment and management of attention-deficit hyperactivity disorder, covering diagnosis, rating scales, comorbidities, behavioural interventions and pharmacological treatment.",
-
+    title: "Clinical Practice Guidelines for the Assessment and Management of ADHD",
+    shortTitle: "ADHD",
+    authors: "Shah R, Grover S, Avasthi A",
+    year: "2019",
+    journal: "Indian Journal of Psychiatry",
+    category: "Child & Adolescent Psychiatry",
+    description: "Clinical Practice Guidelines for the assessment and management of attention-deficit hyperactivity disorder, covering diagnosis, rating scales, comorbidities, behavioural interventions and pharmacological treatment.",
     tags: [
       "ADHD",
       "attention-deficit hyperactivity disorder",
@@ -546,7 +361,6 @@ const GUIDELINES = [
       "adolescent psychiatry",
       "methylphenidate"
     ],
-
     keywords: [
       "ADHD",
       "attention-deficit hyperactivity disorder",
@@ -565,41 +379,22 @@ const GUIDELINES = [
       "comorbidity",
       "Indian Psychiatric Society"
     ],
-
-    url:
-      "cpg/adhd-cpg-shah-2019.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/adhd-cpg-shah-2019.html",
+    readTime: "15 min read"
   },
-
 
   /* =====================================================
      AUTISM SPECTRUM DISORDER — CURRENT 2ND NEWEST
   ===================================================== */
 
   {
-    title:
-      "Clinical Practice Guidelines for Autism Spectrum Disorders",
-
-    shortTitle:
-      "Autism Spectrum Disorder",
-
-    authors:
-      "Subramanyam AA, Mukherjee A, Dave M, Chavda K",
-
-    year:
-      "2019",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "Autism Spectrum Disorder",
-
-    description:
-      "Clinical Practice Guidelines covering assessment, screening, diagnosis, comorbidities, behavioural and educational interventions, pharmacological management and long-term care in autism spectrum disorders.",
-
+    title: "Clinical Practice Guidelines for Autism Spectrum Disorders",
+    shortTitle: "Autism Spectrum Disorder",
+    authors: "Subramanyam AA, Mukherjee A, Dave M, Chavda K",
+    year: "2019",
+    journal: "Indian Journal of Psychiatry",
+    category: "Autism Spectrum Disorder",
+    description: "Clinical Practice Guidelines covering assessment, screening, diagnosis, comorbidities, behavioural and educational interventions, pharmacological management and long-term care in autism spectrum disorders.",
     tags: [
       "autism",
       "ASD",
@@ -607,7 +402,6 @@ const GUIDELINES = [
       "child psychiatry",
       "neurodevelopmental disorders"
     ],
-
     keywords: [
       "autism spectrum disorder",
       "ASD",
@@ -637,41 +431,22 @@ const GUIDELINES = [
       "intellectual disability",
       "Indian Psychiatric Society"
     ],
-
-    url:
-      "cpg/autism-spectrum-disorder-subramanyam-2019.html",
-
-    readTime:
-      "20 min read"
+    url: "cpg/autism-spectrum-disorder-subramanyam-2019.html",
+    readTime: "20 min read"
   },
-
 
   /* =====================================================
      SCHIZOPHRENIA — OLDEST CURRENT CPG
   ===================================================== */
 
   {
-    title:
-      "Clinical Practice Guidelines for Management of Schizophrenia",
-
-    shortTitle:
-      "Schizophrenia",
-
-    authors:
-      "Grover S, Chakrabarti S, Kulhara P, Avasthi A",
-
-    year:
-      "2017",
-
-    journal:
-      "Indian Journal of Psychiatry",
-
-    category:
-      "Schizophrenia",
-
-    description:
-      "Clinical Practice Guidelines for the assessment and management of schizophrenia, including pharmacological, psychosocial and treatment-resistant illness management.",
-
+    title: "Clinical Practice Guidelines for Management of Schizophrenia",
+    shortTitle: "Schizophrenia",
+    authors: "Grover S, Chakrabarti S, Kulhara P, Avasthi A",
+    year: "2017",
+    journal: "Indian Journal of Psychiatry",
+    category: "Schizophrenia",
+    description: "Clinical Practice Guidelines for the assessment and management of schizophrenia, including pharmacological, psychosocial and treatment-resistant illness management.",
     tags: [
       "schizophrenia",
       "psychosis",
@@ -679,7 +454,6 @@ const GUIDELINES = [
       "clozapine",
       "treatment resistance"
     ],
-
     keywords: [
       "schizophrenia",
       "psychosis",
@@ -690,12 +464,8 @@ const GUIDELINES = [
       "psychosocial interventions",
       "Indian Psychiatric Society"
     ],
-
-    url:
-      "cpg/schizophrenia.html",
-
-    readTime:
-      "15 min read"
+    url: "cpg/schizophrenia.html",
+    readTime: "15 min read"
   }
 
 ];
