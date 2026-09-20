@@ -22,6 +22,7 @@ const CPG_ARTICLES = [
     year: "2026",
     url: "cpg/schizophrenia.html"
   }
+  
 ];
 
 const input = document.getElementById("searchInput");
