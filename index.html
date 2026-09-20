@@ -4,98 +4,129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Psychiatry Clinical Practice Guidelines | CPG Notes</title>
-  <meta name="description" content="A practical library of psychiatry clinical practice guideline notes covering assessment, diagnosis, treatment, monitoring and follow-up.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Psychiatry CPG Notes | Clinical Practice Guidelines</title>
+  <meta name="description" content="A simple, searchable collection of psychiatry clinical practice guidelines, CPG notes, recommendations and practical clinical summaries.">
+  <meta name="keywords" content="psychiatry guidelines, clinical practice guidelines, psychiatry CPG, psychiatric guidelines, mental health guidelines">
   <meta name="author" content="Psychiatry CPG Notes">
-
-  <!-- Replace this with your actual domain before publishing -->
-  <link rel="canonical" href="https://drbishnuaiims.github.io/CPG_Psychiatry/">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Psychiatry Clinical Practice Guidelines | CPG Notes">
-  <meta property="og:description" content="A practical library of psychiatry clinical practice guideline notes.">
-  <meta property="og:url" content="https://drbishnuaiims.github.io/CPG_Psychiatry/">
-  <meta property="og:site_name" content="Psychiatry CPG Notes">
+  <meta property="og:title" content="Psychiatry CPG Notes | Clinical Practice Guidelines">
+  <meta property="og:description" content="Searchable psychiatry clinical practice guidelines and practical CPG notes.">
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Psychiatry Clinical Practice Guidelines | CPG Notes">
-  <meta name="twitter:description" content="A practical library of psychiatry clinical practice guideline notes.">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Psychiatry CPG Notes",
-    "description": "A practical library of psychiatry clinical practice guideline notes.",
-    "url": "https://drbishnuaiims.github.io/CPG_Psychiatry/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://drbishnuaiims.github.io/CPG_Psychiatry/search.html?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html" aria-label="Psychiatry CPG Notes home">
-      <div class="brand-mark">CPG</div>
-      <div>
-        <div class="brand-name">Psychiatry CPG Notes</div>
-        <div class="brand-subtitle">Clinical Practice Guideline Notes</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Psychiatry CPG Notes home">
+        <span class="brand-mark">CPG</span>
+        <span>
+          <strong>Psychiatry CPG Notes</strong>
+          <small>Clinical Practice Guidelines</small>
+        </span>
+      </a>
+
+      <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle day and night mode">
+        <span id="themeIcon">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Psychiatry • Evidence • Practice</p>
+        <h1>Clinical Practice Guidelines</h1>
+        <p class="hero-text">
+          A simple reference library for psychiatry guidelines, recommendations and practical clinical notes.
+        </p>
+
+        <div class="search-box">
+          <label for="searchInput" class="sr-only">Search clinical practice guidelines</label>
+          <span class="search-icon">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search guidelines, disorders, organisations..."
+            autocomplete="off"
+          >
+          <button id="clearSearch" class="clear-button" type="button" aria-label="Clear search">×</button>
+        </div>
+        <p id="searchStatus" class="search-status"></p>
       </div>
-    </a>
+    </section>
 
-    <div class="header-actions">
-      <a class="nav-link" href="search.html">Search</a>
-      <button class="theme-toggle" id="themeToggle" type="button">☾ Dark</button>
+    <section class="content-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Library</p>
+            <h2>Recently Added</h2>
+          </div>
+          <span id="guidelineCount" class="count-badge"></span>
+        </div>
+
+        <div id="guidelineGrid" class="guideline-grid">
+
+          <!--
+            ADD NEW GUIDELINE CARDS HERE.
+
+            Copy this card, change the title/description/tags/link,
+            and create the corresponding HTML file inside /cpg/.
+
+            Example:
+            <article class="guideline-card"
+              data-title="Schizophrenia"
+              data-tags="schizophrenia psychosis antipsychotic">
+              <a href="cpg/schizophrenia.html">
+                <span class="card-category">Schizophrenia</span>
+                <h3>Schizophrenia Clinical Practice Guideline</h3>
+                <p>Practical recommendations for assessment and management.</p>
+                <span class="card-link">Read guideline →</span>
+              </a>
+            </article>
+          -->
+
+          <article class="guideline-card"
+            data-title="Example Psychiatry Guideline"
+            data-tags="psychiatry mental health example">
+            <a href="cpg/example-guideline.html">
+              <span class="card-category">Example</span>
+              <h3>Example Psychiatry Guideline</h3>
+              <p>Replace this card with your first guideline.</p>
+              <span class="card-link">Read guideline →</span>
+            </a>
+          </article>
+
+        </div>
+
+        <div id="noResults" class="no-results" hidden>
+          <h3>No guidelines found</h3>
+          <p>Try another keyword, disorder, guideline name or organisation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Psychiatry CPG Notes</strong>
+        <p>A practical reference library for clinical practice guidelines.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
     </div>
-  </div>
-</header>
+  </footer>
 
-<main class="home">
-  <div class="container">
-    <div class="eyebrow">Psychiatry · Clinical Practice</div>
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
-    <h1>Clinical Practice Guidelines in Psychiatry</h1>
-
-    <p class="home-intro">
-      Concise, clinically oriented notes on psychiatric clinical practice
-      guidelines, organized for quick reading and reference.
-    </p>
-
-    <form class="search-box" action="search.html" method="get" role="search">
-      <label class="sr-only" for="homepageSearch">Search clinical practice guidelines</label>
-      <input
-        id="homepageSearch"
-        type="search"
-        name="q"
-        placeholder="Search a guideline, disorder or topic..."
-        autocomplete="off"
-      >
-      <button class="search-button" type="submit">Search</button>
-    </form>
-
-    <div class="home-note">
-      Educational reference notes. Always consult the original guideline
-      and applicable local clinical, regulatory and prescribing requirements.
-    </div>
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    Psychiatry CPG Notes
-  </div>
-</footer>
-
-<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
-
-<script src="js/site.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
