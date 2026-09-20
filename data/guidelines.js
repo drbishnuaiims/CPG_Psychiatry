@@ -1,84 +1,548 @@
-
 /*
 =========================================================
   CPG PSYCHIATRY — GUIDELINE REGISTRY
 
-  ADD NEW GUIDELINES HERE.
-
-  Copy one object, change the fields, and create the
-  matching HTML page inside the /cpg/ folder.
+  ORDER:
+  -------------------------------------------------------
+  NEWEST CPG
+      ↓
+  2nd NEWEST
+      ↓
+  3rd NEWEST
+      ↓
+  ...
+      ↓
+  OLDEST CPG
 
   IMPORTANT:
+  - Always add the newest CPG at the TOP.
+  - Use the next available "NEW CPG SLOT".
+  - Do not change the order of older CPGs.
   - "url" must exactly match the HTML filename.
-  - Keep URLs relative to the website root.
+  - URLs must be relative to the website root.
 =========================================================
 */
 
 const GUIDELINES = [
 
   /* =====================================================
-     SCHIZOPHRENIA
+     NEW CPG SLOT — 01
+     >>> ADD THE NEXT NEWEST CPG HERE <<<
   ===================================================== */
 
+  /*
   {
-    title: "Clinical Practice Guidelines for Management of Schizophrenia",
+    title:
+      "FULL GUIDELINE TITLE",
 
-    shortTitle: "Schizophrenia",
+    shortTitle:
+      "SHORT TITLE",
 
     authors:
-      "Grover S, Chakrabarti S, Kulhara P, Avasthi A",
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
 
-    year: "2017",
+    year:
+      "YEAR",
 
-    journal: "Indian Journal of Psychiatry",
+    journal:
+      "Indian Journal of Psychiatry",
 
-    category: "Schizophrenia",
+    category:
+      "CATEGORY",
 
     description:
-      "Clinical Practice Guidelines for the assessment and management of schizophrenia, including pharmacological, psychosocial and treatment-resistant illness management.",
+      "Brief description of the guideline and the major clinical areas covered.",
 
     tags: [
-      "schizophrenia",
-      "psychosis",
-      "antipsychotics",
-      "clozapine",
-      "treatment resistance"
+      "tag 1",
+      "tag 2",
+      "tag 3"
     ],
 
     keywords: [
-      "schizophrenia",
-      "psychosis",
-      "antipsychotics",
-      "clozapine",
-      "treatment resistance",
-      "ECT",
-      "psychosocial interventions",
-      "Indian Psychiatric Society"
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
     ],
 
-    url: "cpg/schizophrenia.html",
+    url:
+      "cpg/your-guideline-filename.html",
 
-    readTime: "15 min read"
+    readTime:
+      "15 min read"
   },
+  */
 
 
   /* =====================================================
-     ADHD
+     NEW CPG SLOT — 02
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 03
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 04
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 05
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 06
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 07
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 08
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 09
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     NEW CPG SLOT — 10
+  ===================================================== */
+
+  /*
+  {
+    title:
+      "FULL GUIDELINE TITLE",
+
+    shortTitle:
+      "SHORT TITLE",
+
+    authors:
+      "AUTHOR 1, AUTHOR 2, AUTHOR 3",
+
+    year:
+      "YEAR",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "CATEGORY",
+
+    description:
+      "Brief description of the guideline and the major clinical areas covered.",
+
+    tags: [
+      "tag 1",
+      "tag 2",
+      "tag 3"
+    ],
+
+    keywords: [
+      "keyword 1",
+      "keyword 2",
+      "keyword 3",
+      "keyword 4"
+    ],
+
+    url:
+      "cpg/your-guideline-filename.html",
+
+    readTime:
+      "15 min read"
+  },
+  */
+
+
+  /* =====================================================
+     CURRENT GUIDELINES
+  ===================================================== */
+
+
+  /* =====================================================
+     ADHD — CURRENT NEWEST CPG
   ===================================================== */
 
   {
-    title: "Clinical Practice Guidelines for the Assessment and Management of ADHD",
+    title:
+      "Clinical Practice Guidelines for the Assessment and Management of ADHD",
 
-    shortTitle: "ADHD",
+    shortTitle:
+      "ADHD",
 
     authors:
       "Shah R, Grover S, Avasthi A",
 
-    year: "2019",
+    year:
+      "2019",
 
-    journal: "Indian Journal of Psychiatry",
+    journal:
+      "Indian Journal of Psychiatry",
 
-    category: "Child & Adolescent Psychiatry",
+    category:
+      "Child & Adolescent Psychiatry",
 
     description:
       "Clinical Practice Guidelines for the assessment and management of attention-deficit hyperactivity disorder, covering diagnosis, rating scales, comorbidities, behavioural interventions and pharmacological treatment.",
@@ -110,29 +574,36 @@ const GUIDELINES = [
       "Indian Psychiatric Society"
     ],
 
-    url: "cpg/adhd-cpg-shah-2019.html",
+    url:
+      "cpg/adhd-cpg-shah-2019.html",
 
-    readTime: "15 min read"
+    readTime:
+      "15 min read"
   },
 
 
   /* =====================================================
-     AUTISM SPECTRUM DISORDER
+     AUTISM SPECTRUM DISORDER — CURRENT 2ND NEWEST
   ===================================================== */
 
   {
-    title: "Clinical Practice Guidelines for Autism Spectrum Disorders",
+    title:
+      "Clinical Practice Guidelines for Autism Spectrum Disorders",
 
-    shortTitle: "Autism Spectrum Disorder",
+    shortTitle:
+      "Autism Spectrum Disorder",
 
     authors:
       "Subramanyam AA, Mukherjee A, Dave M, Chavda K",
 
-    year: "2019",
+    year:
+      "2019",
 
-    journal: "Indian Journal of Psychiatry",
+    journal:
+      "Indian Journal of Psychiatry",
 
-    category: "Autism Spectrum Disorder",
+    category:
+      "Autism Spectrum Disorder",
 
     description:
       "Clinical Practice Guidelines covering assessment, screening, diagnosis, comorbidities, behavioural and educational interventions, pharmacological management and long-term care in autism spectrum disorders.",
@@ -175,10 +646,64 @@ const GUIDELINES = [
       "Indian Psychiatric Society"
     ],
 
-    url: "cpg/autism-spectrum-disorder-subramanyam-2019.html",
+    url:
+      "cpg/autism-spectrum-disorder-subramanyam-2019.html",
 
-    readTime: "20 min read"
+    readTime:
+      "20 min read"
+  },
+
+
+  /* =====================================================
+     SCHIZOPHRENIA — OLDEST CURRENT CPG
+  ===================================================== */
+
+  {
+    title:
+      "Clinical Practice Guidelines for Management of Schizophrenia",
+
+    shortTitle:
+      "Schizophrenia",
+
+    authors:
+      "Grover S, Chakrabarti S, Kulhara P, Avasthi A",
+
+    year:
+      "2017",
+
+    journal:
+      "Indian Journal of Psychiatry",
+
+    category:
+      "Schizophrenia",
+
+    description:
+      "Clinical Practice Guidelines for the assessment and management of schizophrenia, including pharmacological, psychosocial and treatment-resistant illness management.",
+
+    tags: [
+      "schizophrenia",
+      "psychosis",
+      "antipsychotics",
+      "clozapine",
+      "treatment resistance"
+    ],
+
+    keywords: [
+      "schizophrenia",
+      "psychosis",
+      "antipsychotics",
+      "clozapine",
+      "treatment resistance",
+      "ECT",
+      "psychosocial interventions",
+      "Indian Psychiatric Society"
+    ],
+
+    url:
+      "cpg/schizophrenia.html",
+
+    readTime:
+      "15 min read"
   }
 
 ];
-
