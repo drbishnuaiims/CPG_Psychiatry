@@ -16,49 +16,6 @@
 const GUIDELINES = [
 
   /* =====================================================
-     MAJOR DEPRESSIVE DISORDER
-  ===================================================== */
-
-  {
-    title: "Major Depressive Disorder",
-
-    shortTitle: "Depression",
-
-    authors: "",
-
-    year: "2026",
-
-    journal: "",
-
-    category: "Mood Disorders",
-
-    description:
-      "Practical clinical recommendations for assessment and management of major depressive disorder.",
-
-    tags: [
-      "depression",
-      "MDD",
-      "major depressive disorder",
-      "mood disorders",
-      "antidepressants"
-    ],
-
-    keywords: [
-      "depression",
-      "major depressive disorder",
-      "MDD",
-      "antidepressants",
-      "SSRIs",
-      "mood disorders"
-    ],
-
-    url: "cpg/depression.html",
-
-    readTime: "8 min read"
-  },
-
-
-  /* =====================================================
      SCHIZOPHRENIA
   ===================================================== */
 
@@ -169,50 +126,6 @@ const GUIDELINES = [
   },
 
 
-  /* =====================================================
-     ADHD
-  ===================================================== */
 
-  {
-    title: "Attention-Deficit/Hyperactivity Disorder",
-
-    shortTitle: "ADHD",
-
-    authors: "",
-
-    year: "2026",
-
-    journal: "",
-
-    category: "Neurodevelopmental Disorders",
-
-    description:
-      "Clinical practice notes for assessment and management of ADHD across age groups.",
-
-    tags: [
-      "ADHD",
-      "attention",
-      "hyperactivity",
-      "neurodevelopmental",
-      "stimulants"
-    ],
-
-    keywords: [
-      "ADHD",
-      "attention deficit hyperactivity disorder",
-      "inattention",
-      "hyperactivity",
-      "impulsivity",
-      "stimulants",
-      "methylphenidate",
-      "atomoxetine",
-      "alpha-2 agonists",
-      "neurodevelopmental disorders"
-    ],
-
-    url: "cpg/adhd.html",
-
-    readTime: "7 min read"
-  }
 
 ];
