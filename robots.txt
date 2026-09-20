@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://drbishnuaiims.github.io/cpg_psychiatry/sitemap.xml
+Sitemap: https://drbishnuaiims.github.io/CPG_Psychiatry/sitemap.xml
