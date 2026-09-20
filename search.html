@@ -1558,209 +1558,6 @@
 
 <script>
 
-const CPG_DATABASE = [
-
-    {
-        id: "schizophrenia",
-
-        title:
-            "Schizophrenia: Assessment and Management",
-
-        disorder:
-            "Schizophrenia",
-
-        category:
-            "Schizophrenia & Psychosis",
-
-        organization:
-            "NICE",
-
-        year:
-            "2014",
-
-        tags: [
-            "Schizophrenia",
-            "Psychosis",
-            "Antipsychotics",
-            "NICE"
-        ],
-
-        description:
-            "Clinical approach to assessment, pharmacological treatment, psychological interventions and long-term management of schizophrenia.",
-
-        url:
-            "cpg/schizophrenia.html"
-    },
-
-
-    {
-        id: "bipolar-disorder",
-
-        title:
-            "Bipolar Disorder: Clinical Practice Guideline",
-
-        disorder:
-            "Bipolar Disorder",
-
-        category:
-            "Bipolar Disorders",
-
-        organization:
-            "CANMAT / ISBD",
-
-        year:
-            "2023",
-
-        tags: [
-            "Bipolar",
-            "Mania",
-            "Depression",
-            "Mood stabilizers"
-        ],
-
-        description:
-            "Evidence-based recommendations covering assessment, acute mania, bipolar depression and maintenance treatment.",
-
-        url:
-            "cpg/bipolar-disorder.html"
-    },
-
-
-    {
-        id: "major-depression",
-
-        title:
-            "Depression in Adults: Treatment and Management",
-
-        disorder:
-            "Major Depressive Disorder",
-
-        category:
-            "Depressive Disorders",
-
-        organization:
-            "NICE",
-
-        year:
-            "2022",
-
-        tags: [
-            "Depression",
-            "MDD",
-            "Antidepressants",
-            "Psychotherapy"
-        ],
-
-        description:
-            "Clinical guidance covering assessment and treatment of depression in adults across different levels of severity.",
-
-        url:
-            "cpg/major-depression.html"
-    },
-
-
-    {
-        id: "panic-disorder",
-
-        title:
-            "Panic Disorder and Generalised Anxiety Disorder",
-
-        disorder:
-            "Anxiety Disorders",
-
-        category:
-            "Anxiety Disorders",
-
-        organization:
-            "NICE",
-
-        year:
-            "2020",
-
-        tags: [
-            "Anxiety",
-            "Panic disorder",
-            "GAD",
-            "CBT"
-        ],
-
-        description:
-            "Clinical assessment and management of panic disorder and generalised anxiety disorder in adults.",
-
-        url:
-            "cpg/panic-disorder.html"
-    },
-
-
-    {
-        id: "alcohol-use-disorder",
-
-        title:
-            "Alcohol Use Disorders: Clinical Management",
-
-        disorder:
-            "Alcohol Use Disorder",
-
-        category:
-            "Addiction Psychiatry",
-
-        organization:
-            "WHO",
-
-        year:
-            "2019",
-
-        tags: [
-            "Alcohol",
-            "Addiction",
-            "Withdrawal",
-            "Relapse prevention"
-        ],
-
-        description:
-            "Clinical principles for assessment, withdrawal management and treatment of alcohol use disorders.",
-
-        url:
-            "cpg/alcohol-use-disorder.html"
-    },
-
-
-    {
-        id: "adhd",
-
-        title:
-            "Attention Deficit Hyperactivity Disorder",
-
-        disorder:
-            "ADHD",
-
-        category:
-            "Child & Adolescent Psychiatry",
-
-        organization:
-            "NICE",
-
-        year:
-            "2018",
-
-        tags: [
-            "ADHD",
-            "Child psychiatry",
-            "Adolescent psychiatry",
-            "Stimulants"
-        ],
-
-        description:
-            "Assessment and management of ADHD across childhood, adolescence and adulthood.",
-
-        url:
-            "cpg/adhd.html"
-    }
-
-];
-
-
-
 /* =========================================================
    DOM
 ========================================================== */
@@ -2582,7 +2379,340 @@ loadURLQuery();
 renderResults();
 
 </script>
+<script src="js/cpg-data.js"></script>
 
+<script>
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const resultsList =
+    document.getElementById("resultsList");
+
+const resultsCount =
+    document.getElementById("resultsCount");
+
+const categoryFilter =
+    document.getElementById("categoryFilter");
+
+const yearFilter =
+    document.getElementById("yearFilter");
+
+
+/* ================================
+   CREATE FILTER OPTIONS
+================================ */
+
+function createFilters() {
+
+    const categories = [
+        ...new Set(
+            CPG_DATABASE.map(
+                cpg => cpg.category
+            )
+        )
+    ].sort();
+
+
+    const years = [
+        ...new Set(
+            CPG_DATABASE.map(
+                cpg => cpg.year
+            )
+        )
+    ].sort(
+        (a, b) => b - a
+    );
+
+
+    categories.forEach(category => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = category;
+
+        option.textContent = category;
+
+        categoryFilter.appendChild(option);
+
+    });
+
+
+    years.forEach(year => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = year;
+
+        option.textContent = year;
+
+        yearFilter.appendChild(option);
+
+    });
+
+}
+
+
+/* ================================
+   SEARCH
+================================ */
+
+function searchCPGs() {
+
+    const query =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    const category =
+        categoryFilter.value;
+
+
+    const year =
+        yearFilter.value;
+
+
+    let results =
+        CPG_DATABASE.filter(cpg => {
+
+
+            const searchableText = [
+
+                cpg.title,
+
+                cpg.category,
+
+                cpg.subcategory,
+
+                cpg.description,
+
+                cpg.population,
+
+                ...cpg.keywords
+
+            ]
+            .join(" ")
+            .toLowerCase();
+
+
+            const matchesSearch =
+                !query ||
+                searchableText.includes(
+                    query
+                );
+
+
+            const matchesCategory =
+                !category ||
+                cpg.category === category;
+
+
+            const matchesYear =
+                !year ||
+                cpg.year === year;
+
+
+            return (
+                matchesSearch &&
+                matchesCategory &&
+                matchesYear
+            );
+
+        });
+
+
+    renderResults(results);
+
+}
+
+
+/* ================================
+   RENDER RESULTS
+================================ */
+
+function renderResults(results) {
+
+    resultsList.innerHTML = "";
+
+
+    resultsCount.textContent =
+        `${results.length} ${
+            results.length === 1
+                ? "guideline"
+                : "guidelines"
+        } found`;
+
+
+    if (!results.length) {
+
+        resultsList.innerHTML = `
+
+            <div class="empty-state">
+
+                <strong>
+                    No guidelines found
+                </strong>
+
+                <p>
+                    Try another search term
+                    or remove a filter.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    results.forEach(cpg => {
+
+        const card =
+            document.createElement("a");
+
+
+        card.href =
+            cpg.url;
+
+
+        card.className =
+            "result-card";
+
+
+        card.innerHTML = `
+
+            <div class="result-top">
+
+                <div class="result-title">
+
+                    ${cpg.title}
+
+                </div>
+
+                <div class="result-year">
+
+                    ${cpg.year}
+
+                </div>
+
+            </div>
+
+
+            <div class="result-description">
+
+                ${cpg.description}
+
+            </div>
+
+
+            <div class="result-meta">
+
+                <span class="meta-tag">
+                    ${cpg.category}
+                </span>
+
+                <span class="meta-tag">
+                    ${cpg.subcategory}
+                </span>
+
+                <span class="meta-tag">
+                    ${cpg.population}
+                </span>
+
+            </div>
+
+
+            <div class="result-footer">
+
+                <span class="result-source">
+
+                    Psychiatry CPG Notes
+
+                </span>
+
+
+                <span class="read-link">
+
+                    Read guideline →
+
+                </span>
+
+            </div>
+
+        `;
+
+
+        resultsList.appendChild(card);
+
+    });
+
+}
+
+
+/* ================================
+   URL QUERY
+================================ */
+
+function loadSearchQuery() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const query =
+        params.get("q");
+
+
+    if (query) {
+
+        searchInput.value =
+            query;
+
+    }
+
+}
+
+
+/* ================================
+   EVENTS
+================================ */
+
+searchInput.addEventListener(
+    "input",
+    searchCPGs
+);
+
+
+categoryFilter.addEventListener(
+    "change",
+    searchCPGs
+);
+
+
+yearFilter.addEventListener(
+    "change",
+    searchCPGs
+);
+
+
+/* ================================
+   START
+================================ */
+
+createFilters();
+
+loadSearchQuery();
+
+searchCPGs();
+
+</script>
 
 </body>
 

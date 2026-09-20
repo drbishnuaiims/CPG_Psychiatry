@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,86 +8,106 @@
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+
+name="viewport"
+
+content="width=device-width, initial-scale=1.0"
+
 >
 
 <title>
+
     CPG Title | Psychiatry CPG Notes
+
 </title>
 
 <meta
-    name="description"
-    content="Clinical practice guideline notes in psychiatry."
+
+name="description"
+
+content="Clinical practice guideline notes in psychiatry."
+
 >
+
 
 
 <style>
 
-/* =========================================================
+/* =========================================================*
+
    DESIGN SYSTEM
-========================================================= */
+
+*========================================================= */
 
 :root {
 
-    --bg: #f7f8fa;
+    \--bg: #f7f8fa;
 
-    --surface: #ffffff;
+    \--surface: #ffffff;
 
-    --surface-soft: #f2f5f7;
+    \--surface-soft: #f2f5f7;
 
-    --surface-blue: #edf4f8;
+    \--surface-blue: #edf4f8;
 
-    --text: #182630;
+    \--text: #182630;
 
-    --text-secondary: #5e6b75;
+    \--text-secondary: #5e6b75;
 
-    --text-muted: #8a959e;
+    \--text-muted: #8a959e;
 
-    --primary: #183b56;
+    \--primary: #183b56;
 
-    --primary-dark: #102d43;
+    \--primary-dark: #102d43;
 
-    --primary-light: #dfeaf1;
+    \--primary-light: #dfeaf1;
 
-    --border: #dfe5e9;
+    \--border: #dfe5e9;
 
-    --border-light: #e9edf0;
+    \--border-light: #e9edf0;
 
-    --success-bg: #eef6f1;
+    \--success-bg: #eef6f1;
 
-    --success-text: #326149;
+    \--success-text: #326149;
 
-    --warning-bg: #faf5e9;
+    \--warning-bg: #faf5e9;
 
-    --warning-text: #765b24;
+    \--warning-text: #765b24;
 
-    --danger-bg: #fbefef;
+    \--danger-bg: #fbefef;
 
-    --danger-text: #8a3d3d;
+    \--danger-text: #8a3d3d;
 
-    --radius: 12px;
+    \--radius: 12px;
 
-    --max-width: 1280px;
+    \--max-width: 1280px;
 
-    --sidebar-width: 250px;
+    \--sidebar-width: 250px;
 
-    --shadow:
+    \--shadow:
+
         0 8px 30px rgba(
+
             20,
+
             42,
+
             58,
+
             0.055
+
         );
 
 }
 
 
-/* =========================================================
-   RESET
-========================================================= */
 
-* {
+/* =========================================================*
+
+   RESET
+
+*========================================================= */
+
+\* {
 
     box-sizing: border-box;
 
@@ -107,13 +128,21 @@ html {
 body {
 
     font-family:
+
         Inter,
+
         -apple-system,
+
         BlinkMacSystemFont,
+
         "Segoe UI",
+
         Roboto,
+
         Helvetica,
+
         Arial,
+
         sans-serif;
 
     background: var(--bg);
@@ -135,6 +164,7 @@ a {
 }
 
 button,
+
 input {
 
     font: inherit;
@@ -142,25 +172,36 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    HEADER
-========================================================= */
+
+*========================================================= */
 
 .site-header {
 
     height: 70px;
 
     background:
-        rgba(
+
+rgba(
+
             255,
+
             255,
+
             255,
+
             0.96
+
         );
 
     border-bottom:
+
         1px solid
-        var(--border-light);
+
+var(--border-light);
 
     position: sticky;
 
@@ -173,14 +214,19 @@ input {
 }
 
 
+
 .header-inner {
 
     height: 100%;
 
     width:
-        min(
-            calc(100% - 40px),
-            var(--max-width)
+
+min(
+
+calc(100% - 40px),
+
+var(--max-width)
+
         );
 
     margin: auto;
@@ -190,9 +236,11 @@ input {
     align-items: center;
 
     justify-content:
+
         space-between;
 
 }
+
 
 
 .brand {
@@ -206,6 +254,7 @@ input {
 }
 
 
+
 .brand-mark {
 
     width: 38px;
@@ -215,7 +264,8 @@ input {
     border-radius: 10px;
 
     background:
-        var(--primary);
+
+var(--primary);
 
     color: white;
 
@@ -232,6 +282,7 @@ input {
 }
 
 
+
 .brand-name {
 
     font-size: 15px;
@@ -243,16 +294,19 @@ input {
 }
 
 
+
 .brand-subtitle {
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     font-size: 10px;
 
     margin-top: 2px;
 
 }
+
 
 
 .header-actions {
@@ -266,24 +320,30 @@ input {
 }
 
 
+
 .header-button {
 
     height: 36px;
 
     padding:
+
         0 12px;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     background:
+
         white;
 
     border-radius: 8px;
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
     cursor: pointer;
 
@@ -294,15 +354,19 @@ input {
 }
 
 
+
 .header-button:hover {
 
     border-color:
+
         #b9c8d2;
 
     color:
-        var(--primary);
+
+var(--primary);
 
 }
+
 
 
 .mobile-menu-button {
@@ -312,35 +376,51 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    PAGE HEADER
-========================================================= */
+
+*========================================================= */
 
 .cpg-header {
 
     background:
-        linear-gradient(
+
+linear-gradient(
+
             180deg,
+
             #ffffff 0%,
+
             #f7f9fb 100%
+
         );
 
     border-bottom:
+
         1px solid
-        var(--border-light);
+
+var(--border-light);
 
     padding:
+
         48px 0 42px;
 
 }
 
 
+
 .container {
 
     width:
-        min(
-            calc(100% - 40px),
-            var(--max-width)
+
+min(
+
+calc(100% - 40px),
+
+var(--max-width)
+
         );
 
     margin: auto;
@@ -348,10 +428,12 @@ input {
 }
 
 
+
 .breadcrumb {
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     font-size: 11px;
 
@@ -360,14 +442,17 @@ input {
 }
 
 
+
 .breadcrumb a {
 
     color:
-        var(--primary);
+
+var(--primary);
 
     font-weight: 650;
 
 }
+
 
 
 .cpg-label {
@@ -377,13 +462,16 @@ input {
     align-items: center;
 
     padding:
+
         5px 9px;
 
     background:
-        var(--primary-light);
+
+var(--primary-light);
 
     color:
-        var(--primary);
+
+var(--primary);
 
     border-radius: 6px;
 
@@ -392,9 +480,11 @@ input {
     font-weight: 750;
 
     text-transform:
+
         uppercase;
 
     letter-spacing:
+
         0.5px;
 
     margin-bottom: 13px;
@@ -402,25 +492,33 @@ input {
 }
 
 
+
 .cpg-title {
 
     max-width: 900px;
 
     font-size:
-        clamp(
+
+clamp(
+
             31px,
+
             4vw,
+
             47px
+
         );
 
     line-height: 1.12;
 
     letter-spacing:
+
         -1.3px;
 
     font-weight: 760;
 
     color:
+
         #152d3e;
 
     margin-bottom: 13px;
@@ -428,12 +526,14 @@ input {
 }
 
 
+
 .cpg-subtitle {
 
     max-width: 760px;
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
     font-size: 14px;
 
@@ -442,9 +542,12 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    METADATA
-========================================================= */
+
+*========================================================= */
 
 .cpg-meta {
 
@@ -459,6 +562,7 @@ input {
 }
 
 
+
 .meta-item {
 
     display: flex;
@@ -468,14 +572,18 @@ input {
     gap: 5px;
 
     padding:
+
         6px 9px;
 
     background:
+
         white;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius: 7px;
 
@@ -484,45 +592,60 @@ input {
 }
 
 
+
 .meta-label {
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
 }
+
 
 
 .meta-value {
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
     font-weight: 650;
 
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    MAIN READER
-========================================================= */
+
+*========================================================= */
 
 .reader {
 
     width:
-        min(
-            calc(100% - 40px),
-            var(--max-width)
+
+min(
+
+calc(100% - 40px),
+
+var(--max-width)
+
         );
 
     margin:
+
         32px auto
+
         90px;
 
     display: grid;
 
     grid-template-columns:
-        var(--sidebar-width)
-        minmax(0, 1fr);
+
+var(--sidebar-width)
+
+minmax(0, 1fr);
 
     gap: 42px;
 
@@ -531,9 +654,12 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    SIDEBAR
-========================================================= */
+
+*========================================================= */
 
 .sidebar {
 
@@ -542,7 +668,8 @@ input {
     top: 92px;
 
     max-height:
-        calc(100vh - 115px);
+
+calc(100vh - 115px);
 
     overflow-y: auto;
 
@@ -551,17 +678,21 @@ input {
 }
 
 
+
 .sidebar-title {
 
     font-size: 10px;
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     text-transform:
+
         uppercase;
 
     letter-spacing:
+
         0.8px;
 
     font-weight: 750;
@@ -569,6 +700,7 @@ input {
     margin-bottom: 10px;
 
 }
+
 
 
 .toc {
@@ -582,59 +714,75 @@ input {
 }
 
 
+
 .toc a {
 
     display: block;
 
     padding:
+
         7px 10px;
 
     border-left:
+
         2px solid
+
         transparent;
 
     border-radius: 0 6px 6px 0;
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
     font-size: 11px;
 
     line-height: 1.4;
 
     transition:
+
         background 0.15s ease,
+
         color 0.15s ease,
+
         border-color 0.15s ease;
 
 }
 
 
+
 .toc a:hover {
 
     color:
-        var(--primary);
+
+var(--primary);
 
     background:
-        var(--surface-soft);
+
+var(--surface-soft);
 
 }
+
 
 
 .toc a.active {
 
     color:
-        var(--primary);
+
+var(--primary);
 
     background:
-        var(--primary-light);
+
+var(--primary-light);
 
     border-left-color:
-        var(--primary);
+
+var(--primary);
 
     font-weight: 700;
 
 }
+
 
 
 .toc .toc-sub {
@@ -646,15 +794,19 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    CONTENT
-========================================================= */
+
+*========================================================= */
 
 .content {
 
     min-width: 0;
 
 }
+
 
 
 .content-section {
@@ -666,24 +818,29 @@ input {
 }
 
 
+
 .section-number {
 
     color:
-        var(--primary);
+
+var(--primary);
 
     font-size: 10px;
 
     font-weight: 750;
 
     letter-spacing:
+
         0.8px;
 
     text-transform:
+
         uppercase;
 
     margin-bottom: 6px;
 
 }
+
 
 
 .content h2 {
@@ -693,14 +850,17 @@ input {
     line-height: 1.25;
 
     letter-spacing:
+
         -0.5px;
 
     margin-bottom: 17px;
 
     color:
+
         #182f40;
 
 }
+
 
 
 .content h3 {
@@ -710,12 +870,15 @@ input {
     line-height: 1.35;
 
     margin:
+
         30px 0 10px;
 
     color:
+
         #20394b;
 
 }
+
 
 
 .content h4 {
@@ -723,9 +886,11 @@ input {
     font-size: 14px;
 
     margin:
+
         22px 0 8px;
 
 }
+
 
 
 .content p {
@@ -733,6 +898,7 @@ input {
     font-size: 14px;
 
     color:
+
         #42515c;
 
     margin-bottom: 14px;
@@ -740,18 +906,23 @@ input {
 }
 
 
+
 .content ul,
+
 .content ol {
 
     margin:
+
         0 0 17px 22px;
 
     color:
+
         #42515c;
 
     font-size: 13px;
 
 }
+
 
 
 .content li {
@@ -761,39 +932,51 @@ input {
 }
 
 
+
 .content strong {
 
     color:
+
         #263b4a;
 
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    INTRO / SUMMARY CARD
-========================================================= */
+
+*========================================================= */
 
 .summary-card {
 
     background:
+
         white;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius:
-        var(--radius);
+
+var(--radius);
 
     padding:
+
         23px;
 
     margin-bottom: 38px;
 
     box-shadow:
-        var(--shadow);
+
+var(--shadow);
 
 }
+
 
 
 .summary-heading {
@@ -813,6 +996,7 @@ input {
 }
 
 
+
 .summary-icon {
 
     width: 28px;
@@ -822,10 +1006,12 @@ input {
     border-radius: 7px;
 
     background:
-        var(--primary-light);
+
+var(--primary-light);
 
     color:
-        var(--primary);
+
+var(--primary);
 
     display: flex;
 
@@ -840,14 +1026,19 @@ input {
 }
 
 
+
 .summary-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(
+
+repeat(
+
             2,
-            minmax(0, 1fr)
+
+minmax(0, 1fr)
+
         );
 
     gap: 9px;
@@ -855,17 +1046,21 @@ input {
 }
 
 
+
 .summary-item {
 
     background:
-        var(--surface-soft);
+
+var(--surface-soft);
 
     border-radius: 8px;
 
     padding:
+
         11px;
 
 }
+
 
 
 .summary-item-label {
@@ -873,12 +1068,15 @@ input {
     font-size: 9px;
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     text-transform:
+
         uppercase;
 
     letter-spacing:
+
         0.5px;
 
     margin-bottom: 3px;
@@ -886,45 +1084,59 @@ input {
 }
 
 
+
 .summary-item-value {
 
     font-size: 12px;
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
     font-weight: 650;
 
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    RECOMMENDATION BLOCK
-========================================================= */
+
+*========================================================= */
 
 .recommendation {
 
     border:
+
         1px solid
+
         #d7e3ea;
 
     background:
+
         #f7fafc;
 
     border-left:
+
         4px solid
-        var(--primary);
+
+var(--primary);
 
     border-radius:
+
         0 10px 10px 0;
 
     padding:
+
         17px 19px;
 
     margin:
+
         18px 0;
 
 }
+
 
 
 .recommendation-header {
@@ -934,6 +1146,7 @@ input {
     align-items: center;
 
     justify-content:
+
         space-between;
 
     gap: 15px;
@@ -943,22 +1156,27 @@ input {
 }
 
 
+
 .recommendation-label {
 
     font-size: 10px;
 
     color:
-        var(--primary);
+
+var(--primary);
 
     font-weight: 800;
 
     text-transform:
+
         uppercase;
 
     letter-spacing:
+
         0.6px;
 
 }
+
 
 
 .recommendation-strength {
@@ -966,9 +1184,11 @@ input {
     font-size: 10px;
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
 }
+
 
 
 .recommendation p {
@@ -976,6 +1196,7 @@ input {
     margin: 0;
 
     color:
+
         #344955;
 
     font-size: 13px;
@@ -983,49 +1204,63 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    CLINICAL PEARL
-========================================================= */
+
+*========================================================= */
 
 .pearl {
 
     background:
-        var(--success-bg);
+
+var(--success-bg);
 
     border:
+
         1px solid
+
         #dce9e0;
 
     border-radius:
+
         10px;
 
     padding:
+
         16px 18px;
 
     margin:
+
         20px 0;
 
 }
 
 
+
 .pearl-label {
 
     color:
-        var(--success-text);
+
+var(--success-text);
 
     font-size: 10px;
 
     font-weight: 800;
 
     text-transform:
+
         uppercase;
 
     letter-spacing:
+
         0.6px;
 
     margin-bottom: 6px;
 
 }
+
 
 
 .pearl p {
@@ -1035,46 +1270,59 @@ input {
     font-size: 13px;
 
     color:
+
         #42594b;
 
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    WARNING
-========================================================= */
+
+*========================================================= */
 
 .warning {
 
     background:
-        var(--warning-bg);
+
+var(--warning-bg);
 
     border:
+
         1px solid
+
         #eadfbd;
 
     border-radius:
+
         10px;
 
     padding:
+
         16px 18px;
 
     margin:
+
         20px 0;
 
 }
 
 
+
 .warning-label {
 
     color:
-        var(--warning-text);
+
+var(--warning-text);
 
     font-size: 10px;
 
     font-weight: 800;
 
     text-transform:
+
         uppercase;
 
     margin-bottom: 5px;
@@ -1082,11 +1330,13 @@ input {
 }
 
 
+
 .warning p {
 
     margin: 0;
 
     color:
+
         #655633;
 
     font-size: 13px;
@@ -1094,28 +1344,37 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    TABLES
-========================================================= */
+
+*========================================================= */
 
 .table-wrapper {
 
     overflow-x: auto;
 
     margin:
+
         20px 0 25px;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius:
+
         10px;
 
     background:
+
         white;
 
 }
+
 
 
 .cpg-table {
@@ -1125,6 +1384,7 @@ input {
     min-width: 620px;
 
     border-collapse:
+
         collapse;
 
     font-size: 12px;
@@ -1132,44 +1392,57 @@ input {
 }
 
 
+
 .cpg-table th {
 
     text-align: left;
 
     background:
-        var(--surface-soft);
+
+var(--surface-soft);
 
     color:
+
         #41515d;
 
     font-weight: 750;
 
     padding:
+
         11px 13px;
 
     border-bottom:
+
         1px solid
-        var(--border);
+
+var(--border);
 
 }
+
 
 
 .cpg-table td {
 
     padding:
+
         11px 13px;
 
     border-bottom:
+
         1px solid
-        var(--border-light);
+
+var(--border-light);
 
     color:
+
         #4b5962;
 
     vertical-align:
+
         top;
 
 }
+
 
 
 .cpg-table tr:last-child td {
@@ -1179,29 +1452,39 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    ALGORITHM / FIGURE
-========================================================= */
+
+*========================================================= */
 
 .algorithm {
 
     background:
+
         white;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius:
-        var(--radius);
+
+var(--radius);
 
     padding:
+
         22px;
 
     margin:
+
         22px 0;
 
 }
+
 
 
 .algorithm-title {
@@ -1215,14 +1498,17 @@ input {
 }
 
 
+
 .algorithm-flow {
 
     display: flex;
 
     flex-direction:
+
         column;
 
     align-items:
+
         center;
 
     gap: 8px;
@@ -1230,41 +1516,55 @@ input {
 }
 
 
+
 .algorithm-box {
 
     width:
-        min(
+
+min(
+
             100%,
+
             560px
+
         );
 
     padding:
+
         12px 15px;
 
     border:
+
         1px solid
+
         #cfdbe2;
 
     border-radius:
+
         8px;
 
     background:
+
         #f8fafb;
 
     color:
+
         #40525e;
 
     font-size: 12px;
 
     text-align:
+
         center;
 
 }
 
 
+
 .algorithm-arrow {
 
     color:
+
         #8b9aa4;
 
     font-size: 15px;
@@ -1272,13 +1572,16 @@ input {
 }
 
 
+
 .figure-caption {
 
     text-align:
+
         center;
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     font-size: 10px;
 
@@ -1287,20 +1590,27 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    REFERENCES
-========================================================= */
+
+*========================================================= */
 
 .references {
 
     border-top:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     padding-top:
+
         28px;
 
 }
+
 
 
 .reference-item {
@@ -1310,24 +1620,30 @@ input {
     gap: 12px;
 
     padding:
+
         9px 0;
 
     border-bottom:
+
         1px solid
-        var(--border-light);
+
+var(--border-light);
 
     font-size: 11px;
 
     color:
-        var(--text-secondary);
+
+var(--text-secondary);
 
 }
+
 
 
 .reference-number {
 
     color:
-        var(--primary);
+
+var(--primary);
 
     font-weight: 750;
 
@@ -1336,9 +1652,12 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    SEARCH IN ARTICLE
-========================================================= */
+
+*========================================================= */
 
 .article-search {
 
@@ -1349,23 +1668,33 @@ input {
     z-index: 50;
 
     background:
-        rgba(
+
+rgba(
+
             247,
+
             248,
+
             250,
+
             0.96
+
         );
 
     padding:
+
         12px 0;
 
     margin-bottom:
+
         10px;
 
     backdrop-filter:
-        blur(8px);
+
+blur(8px);
 
 }
+
 
 
 .article-search-box {
@@ -1375,19 +1704,25 @@ input {
     align-items: center;
 
     background:
+
         white;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius:
+
         9px;
 
     min-height:
+
         42px;
 
 }
+
 
 
 .article-search-box svg {
@@ -1397,11 +1732,13 @@ input {
     height: 17px;
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     margin-left: 13px;
 
 }
+
 
 
 .article-search-input {
@@ -1413,23 +1750,28 @@ input {
     flex: 1;
 
     padding:
+
         0 12px;
 
     background:
+
         transparent;
 
     font-size: 12px;
 
     color:
-        var(--text);
+
+var(--text);
 
 }
+
 
 
 .search-match-count {
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     font-size: 10px;
 
@@ -1438,31 +1780,43 @@ input {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    FOOTER
-========================================================= */
+
+*========================================================= */
 
 footer {
 
     border-top:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     background:
+
         white;
 
     padding:
+
         30px 0;
 
 }
 
 
+
 .footer-inner {
 
     width:
-        min(
-            calc(100% - 40px),
-            var(--max-width)
+
+min(
+
+calc(100% - 40px),
+
+var(--max-width)
+
         );
 
     margin: auto;
@@ -1470,6 +1824,7 @@ footer {
     display: flex;
 
     justify-content:
+
         space-between;
 
     gap: 20px;
@@ -1477,19 +1832,24 @@ footer {
 }
 
 
+
 .footer-text {
 
     color:
-        var(--text-muted);
+
+var(--text-muted);
 
     font-size: 10px;
 
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    BACK TO TOP
-========================================================= */
+
+*========================================================= */
 
 .back-top {
 
@@ -1504,19 +1864,24 @@ footer {
     height: 40px;
 
     border:
+
         1px solid
-        var(--border);
+
+var(--border);
 
     border-radius: 50%;
 
     background:
+
         white;
 
     color:
-        var(--primary);
+
+var(--primary);
 
     box-shadow:
-        var(--shadow);
+
+var(--shadow);
 
     cursor: pointer;
 
@@ -1525,9 +1890,11 @@ footer {
     pointer-events: none;
 
     transition:
+
         opacity 0.2s ease;
 
 }
+
 
 
 .back-top.visible {
@@ -1539,22 +1906,31 @@ footer {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    PRINT
-========================================================= */
+
+*========================================================= */
 
 @media print {
 
     .site-header,
+
     .sidebar,
+
     .article-search,
+
     .header-actions,
+
     .back-top,
+
     footer {
 
         display: none !important;
 
     }
+
 
 
     .reader {
@@ -1568,6 +1944,7 @@ footer {
     }
 
 
+
     .content {
 
         max-width: 100%;
@@ -1575,11 +1952,13 @@ footer {
     }
 
 
+
     .content-section {
 
         break-inside: avoid;
 
     }
+
 
 
     body {
@@ -1591,17 +1970,22 @@ footer {
 }
 
 
-/* =========================================================
+
+/* =========================================================*
+
    RESPONSIVE
-========================================================= */
+
+*========================================================= */
 
 @media (max-width: 950px) {
 
     .reader {
 
         grid-template-columns:
+
             205px
-            minmax(0, 1fr);
+
+minmax(0, 1fr);
 
         gap: 28px;
 
@@ -1610,19 +1994,27 @@ footer {
 }
 
 
+
 @media (max-width: 760px) {
 
     .container,
+
     .reader,
+
     .footer-inner {
 
         width:
-            min(
-                calc(100% - 28px),
-                var(--max-width)
+
+min(
+
+calc(100% - 28px),
+
+var(--max-width)
+
             );
 
     }
+
 
 
     .site-header {
@@ -1632,11 +2024,13 @@ footer {
     }
 
 
+
     .header-actions {
 
         display: none;
 
     }
+
 
 
     .mobile-menu-button {
@@ -1648,10 +2042,13 @@ footer {
         height: 35px;
 
         border:
+
             1px solid
-            var(--border);
+
+var(--border);
 
         background:
+
             white;
 
         border-radius: 8px;
@@ -1661,12 +2058,15 @@ footer {
     }
 
 
+
     .cpg-header {
 
         padding:
+
             38px 0 32px;
 
     }
+
 
 
     .cpg-title {
@@ -1676,6 +2076,7 @@ footer {
     }
 
 
+
     .reader {
 
         display: block;
@@ -1683,6 +2084,7 @@ footer {
         margin-top: 20px;
 
     }
+
 
 
     .sidebar {
@@ -1700,31 +2102,45 @@ footer {
         top: 75px;
 
         max-height:
-            calc(100vh - 90px);
+
+calc(100vh - 90px);
 
         background:
+
             white;
 
         border:
+
             1px solid
-            var(--border);
+
+var(--border);
 
         border-radius:
+
             12px;
 
         padding:
+
             18px;
 
         box-shadow:
+
             0 20px 50px
-            rgba(
+
+rgba(
+
                 20,
+
                 42,
+
                 58,
+
                 0.15
+
             );
 
     }
+
 
 
     .sidebar.open {
@@ -1734,11 +2150,13 @@ footer {
     }
 
 
+
     .summary-grid {
 
         grid-template-columns: 1fr;
 
     }
+
 
 
     .content h2 {
@@ -1748,11 +2166,13 @@ footer {
     }
 
 
+
     .content h3 {
 
         font-size: 17px;
 
     }
+
 
 
     .content p {
@@ -1762,6 +2182,7 @@ footer {
     }
 
 
+
     .article-search {
 
         top: 62px;
@@ -1769,9 +2190,11 @@ footer {
     }
 
 
+
     .footer-inner {
 
         flex-direction:
+
             column;
 
     }
@@ -1784,35 +2207,50 @@ footer {
 
 
 
-<body>
 
 
-<!-- =========================================================
+<body data-cpg-id="schizophrenia">
+
+
+
+*<!-- =========================================================*
+
      HEADER
-========================================================= -->
+
+*========================================================= -->*
 
 <header class="site-header">
 
 <div class="header-inner">
 
 
+
 <a
-    href="../index.html"
-    class="brand"
+
+href="../index.html"
+
+class="brand"
+
 >
 
     <div class="brand-mark">
+
         CPG
+
     </div>
 
     <div>
 
         <div class="brand-name">
+
             Psychiatry CPG Notes
+
         </div>
 
         <div class="brand-subtitle">
+
             Clinical Practice Guideline Library
+
         </div>
 
     </div>
@@ -1820,32 +2258,51 @@ footer {
 </a>
 
 
+
 <div class="header-actions">
 
     <button
-        class="header-button"
-        onclick="window.print()"
+
+class="header-button"
+
+onclick="window.print()"
+
     >
+
         Print
+
     </button>
 
     <a
-        href="../search.html"
-        class="header-button"
+
+href="../search.html"
+
+class="header-button"
+
     >
+
         Search Library
+
     </a>
 
 </div>
 
 
+
 <button
-    id="mobileMenuButton"
-    class="mobile-menu-button"
-    aria-label="Open navigation"
+
+id="mobileMenuButton"
+
+class="mobile-menu-button"
+
+aria-label="Open navigation"
+
 >
+
     ☰
+
 </button>
+
 
 
 </div>
@@ -1854,25 +2311,34 @@ footer {
 
 
 
-<!-- =========================================================
+
+
+*<!-- =========================================================*
+
      CPG HEADER
-========================================================= -->
+
+*========================================================= -->*
 
 <section class="cpg-header">
 
 <div class="container">
 
 
+
 <div class="breadcrumb">
 
     <a href="../index.html">
+
         Psychiatry CPG Notes
+
     </a>
 
     &nbsp; / &nbsp;
 
     <a href="../search.html">
+
         CPG Library
+
     </a>
 
     &nbsp; / &nbsp;
@@ -1882,9 +2348,13 @@ footer {
 </div>
 
 
+
 <div class="cpg-label">
+
     Clinical Practice Guideline
+
 </div>
+
 
 
 <h1 class="cpg-title">
@@ -1894,71 +2364,97 @@ footer {
 </h1>
 
 
+
 <p class="cpg-subtitle">
 
     [One or two sentence description of the guideline.
+
     Briefly describe the disorder, clinical population
+
     and scope of this note.]
 
 </p>
 
 
+
 <div class="cpg-meta">
 
 
+
     <div class="meta-item">
 
         <span class="meta-label">
+
             Source
+
         </span>
 
         <span class="meta-value">
+
             [Guideline Organization]
+
         </span>
 
     </div>
 
 
+
     <div class="meta-item">
 
         <span class="meta-label">
+
             Year
+
         </span>
 
         <span class="meta-value">
+
             [2026]
+
         </span>
 
     </div>
 
 
+
     <div class="meta-item">
 
         <span class="meta-label">
+
             Population
+
         </span>
 
         <span class="meta-value">
+
             [Adults / Children / General]
+
         </span>
 
     </div>
+
 
 
     <div class="meta-item">
 
         <span class="meta-label">
+
             Last updated
+
         </span>
 
         <span class="meta-value">
+
             [Date]
+
         </span>
 
     </div>
+
 
 
 </div>
+
 
 
 </div>
@@ -1967,185 +2463,304 @@ footer {
 
 
 
-<!-- =========================================================
+
+
+*<!-- =========================================================*
+
      READER
-========================================================= -->
+
+*========================================================= -->*
 
 <main class="reader">
 
 
-<!-- =========================================================
+
+*<!-- =========================================================*
+
      SIDEBAR / TABLE OF CONTENTS
-========================================================= -->
+
+*========================================================= -->*
 
 <aside
-    id="sidebar"
-    class="sidebar"
+
+id="sidebar"
+
+class="sidebar"
+
 >
 
 <div class="sidebar-title">
+
     Contents
+
 </div>
+
 
 
 <nav class="toc">
 
 
+
 <a
-    href="#overview"
-    class="active"
+
+href="#overview"
+
+class="active"
+
 >
+
     Overview
+
 </a>
+
 
 
 <a href="#introduction">
+
     1. Introduction
+
 </a>
+
 
 
 <a href="#scope">
+
     2. Scope and Clinical Context
+
 </a>
+
 
 
 <a href="#assessment">
+
     3. Assessment & Evaluation
+
 </a>
 
 
+
 <a
-    href="#diagnosis"
-    class="toc-sub"
+
+href="#diagnosis"
+
+class="toc-sub"
+
 >
+
     Diagnostic approach
+
 </a>
 
 
+
 <a
-    href="#differential"
-    class="toc-sub"
+
+href="#differential"
+
+class="toc-sub"
+
 >
+
     Differential diagnosis
+
 </a>
+
 
 
 <a
-    href="#risk"
-    class="toc-sub"
+
+href="#risk"
+
+class="toc-sub"
+
 >
+
     Risk assessment
+
 </a>
+
 
 
 <a href="#formulation">
+
     4. Clinical Formulation
+
 </a>
+
 
 
 <a href="#treatment-plan">
+
     5. Treatment Planning
+
 </a>
 
 
+
 <a
-    href="#setting"
-    class="toc-sub"
+
+href="#setting"
+
+class="toc-sub"
+
 >
+
     Treatment setting
+
 </a>
+
 
 
 <a
-    href="#shared"
-    class="toc-sub"
+
+href="#shared"
+
+class="toc-sub"
+
 >
+
     Shared decision-making
+
 </a>
+
 
 
 <a href="#treatment">
+
     6. Treatment
+
 </a>
 
 
+
 <a
-    href="#pharmacological"
-    class="toc-sub"
+
+href="#pharmacological"
+
+class="toc-sub"
+
 >
+
     Pharmacological treatment
+
 </a>
 
 
+
 <a
-    href="#psychological"
-    class="toc-sub"
+
+href="#psychological"
+
+class="toc-sub"
+
 >
+
     Psychological interventions
+
 </a>
+
 
 
 <a
-    href="#somatic"
-    class="toc-sub"
+
+href="#somatic"
+
+class="toc-sub"
+
 >
+
     Somatic treatments
+
 </a>
+
 
 
 <a href="#acute">
+
     7. Acute Treatment
+
 </a>
+
 
 
 <a href="#continuation">
+
     8. Continuation Treatment
+
 </a>
+
 
 
 <a href="#maintenance">
+
     9. Maintenance Treatment
+
 </a>
+
 
 
 <a href="#relapse">
+
     10. Relapse Prevention
+
 </a>
+
 
 
 <a href="#nonresponse">
+
     11. Inadequate Response / Treatment Resistance
+
 </a>
+
 
 
 <a href="#special">
+
     12. Special Clinical Situations
+
 </a>
+
 
 
 <a href="#special-populations">
+
     13. Special Populations
+
 </a>
+
 
 
 <a href="#monitoring">
+
     14. Monitoring & Follow-up
+
 </a>
+
 
 
 <a href="#algorithm">
+
     15. Clinical Algorithm
+
 </a>
+
 
 
 <a href="#key-points">
+
     16. Key Clinical Points
+
 </a>
+
 
 
 <a href="#references">
+
     17. References
+
 </a>
+
 
 
 </nav>
@@ -2154,79 +2769,120 @@ footer {
 
 
 
-<!-- =========================================================
+
+
+*<!-- =========================================================*
+
      CONTENT
-========================================================= -->
+
+*========================================================= -->*
 
 <article class="content">
 
 
-<!-- =====================================================
+
+*<!-- =====================================================*
+
      ARTICLE SEARCH
-====================================================== -->
+
+*====================================================== -->*
 
 <div class="article-search">
 
 <div class="article-search-box">
 
 
+
 <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
+
+viewBox="0 0 24 24"
+
+fill="none"
+
+stroke="currentColor"
+
+stroke-width="2"
+
 >
 
     <circle
-        cx="11"
-        cy="11"
-        r="7"
+
+cx="11"
+
+cy="11"
+
+r="7"
+
     ></circle>
 
     <path
-        d="M20 20l-4-4"
+
+d="M20 20l-4-4"
+
     ></path>
 
 </svg>
 
 
+
 <input
-    id="articleSearch"
-    class="article-search-input"
-    type="search"
-    placeholder="Search within this guideline..."
+
+id="articleSearch"
+
+class="article-search-input"
+
+type="search"
+
+placeholder="Search within this guideline..."
+
 >
+
 
 
 <span
-    id="matchCount"
-    class="search-match-count"
+
+id="matchCount"
+
+class="search-match-count"
+
 >
+
 </span>
 
 
-</div>
 
 </div>
 
+</div>
 
 
-<!-- =====================================================
+
+
+
+*<!-- =====================================================*
+
      OVERVIEW
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="overview"
-    class="content-section"
+
+id="overview"
+
+class="content-section"
+
 >
 
 <div class="summary-card">
 
 
+
 <div class="summary-heading">
 
     <div class="summary-icon">
+
         CPG
+
     </div>
 
     Clinical overview
@@ -2234,90 +2890,125 @@ footer {
 </div>
 
 
+
 <div class="summary-grid">
 
 
+
 <div class="summary-item">
 
     <div class="summary-item-label">
+
         Condition
+
     </div>
 
     <div class="summary-item-value">
+
         [Disorder]
+
     </div>
 
 </div>
 
 
+
 <div class="summary-item">
 
     <div class="summary-item-label">
+
         Population
+
     </div>
 
     <div class="summary-item-value">
+
         [Population]
+
     </div>
 
 </div>
 
 
+
 <div class="summary-item">
 
     <div class="summary-item-label">
+
         Primary clinical question
+
     </div>
 
     <div class="summary-item-value">
+
         [Clinical question]
+
     </div>
 
 </div>
+
 
 
 <div class="summary-item">
 
     <div class="summary-item-label">
+
         Guideline source
+
     </div>
 
     <div class="summary-item-value">
+
         [Organization / publication]
+
     </div>
 
 </div>
 
 
+
 </div>
 
 </div>
+
 
 
 <div class="section-number">
+
     QUICK REFERENCE
+
 </div>
 
 
+
 <h2>
+
     At a glance
+
 </h2>
+
 
 
 <p>
 
     [Provide a concise clinical orientation to the
+
     guideline. This should help a clinician understand
+
     what the page covers before reading the detailed
+
     recommendations.]
 
 </p>
 
 
+
 <div class="pearl">
 
     <div class="pearl-label">
+
         Clinical focus
+
     </div>
 
     <p>
@@ -2332,23 +3023,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      INTRODUCTION
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="introduction"
-    class="content-section"
+
+id="introduction"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 01
+
 </div>
 
 
+
 <h2>
+
     Introduction
+
 </h2>
+
 
 
 <p>
@@ -2358,31 +3062,43 @@ footer {
 </p>
 
 
+
 <p>
 
     [Burden, clinical relevance, treatment context,
+
     or rationale for developing/updating the guideline.]
 
 </p>
 
 
+
 <h3>
+
     Objectives
+
 </h3>
+
 
 
 <ul>
 
     <li>
+
         [Objective 1]
+
     </li>
 
     <li>
+
         [Objective 2]
+
     </li>
 
     <li>
+
         [Objective 3]
+
     </li>
 
 </ul>
@@ -2391,23 +3107,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      SCOPE
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="scope"
-    class="content-section"
+
+id="scope"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 02
+
 </div>
 
 
+
 <h2>
+
     Scope and Clinical Context
+
 </h2>
+
 
 
 <p>
@@ -2417,8 +3146,11 @@ footer {
 </p>
 
 
+
 <h3>
+
     Included population
+
 </h3>
 
 <p>
@@ -2428,18 +3160,25 @@ footer {
 </p>
 
 
+
 <h3>
+
     Exclusions and limitations
+
 </h3>
 
 <ul>
 
     <li>
+
         [Population / clinical scenario not covered]
+
     </li>
 
     <li>
+
         [Important limitation]
+
     </li>
 
 </ul>
@@ -2448,23 +3187,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      ASSESSMENT
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="assessment"
-    class="content-section"
+
+id="assessment"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 03
+
 </div>
 
 
+
 <h2>
+
     Assessment & Evaluation
+
 </h2>
+
 
 
 <p>
@@ -2474,17 +3226,23 @@ footer {
 </p>
 
 
+
 <h3 id="diagnosis">
+
     Diagnostic Approach
+
 </h3>
+
 
 
 <p>
 
     [Diagnostic criteria, clinical assessment,
+
     history, examination and relevant investigations.]
 
 </p>
+
 
 
 <div class="recommendation">
@@ -2492,11 +3250,15 @@ footer {
     <div class="recommendation-header">
 
         <span class="recommendation-label">
+
             Recommendation
+
         </span>
 
         <span class="recommendation-strength">
+
             [Strength / grade]
+
         </span>
 
     </div>
@@ -2510,45 +3272,63 @@ footer {
 </div>
 
 
+
 <h3 id="differential">
+
     Differential Diagnosis
+
 </h3>
+
 
 
 <ul>
 
     <li>
+
         [Differential diagnosis]
+
     </li>
 
     <li>
+
         [Medical / neurological condition]
+
     </li>
 
     <li>
+
         [Substance / medication-related condition]
+
     </li>
 
 </ul>
 
 
+
 <h3 id="risk">
+
     Risk Assessment
+
 </h3>
+
 
 
 <p>
 
     [Suicide, self-harm, violence, vulnerability,
+
     safeguarding or other disorder-specific risks.]
 
 </p>
 
 
+
 <div class="warning">
 
     <div class="warning-label">
+
         Safety consideration
+
     </div>
 
     <p>
@@ -2563,36 +3343,52 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      FORMULATION
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="formulation"
-    class="content-section"
+
+id="formulation"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 04
+
 </div>
 
 
+
 <h2>
+
     Clinical Formulation
+
 </h2>
+
 
 
 <p>
 
     [Summarize how assessment findings should be
+
     integrated into a clinical formulation.]
 
 </p>
 
 
+
 <table-placeholder>
 
 </table-placeholder>
+
 
 
 <div class="table-wrapper">
@@ -2604,15 +3400,21 @@ footer {
 <tr>
 
     <th>
+
         Domain
+
     </th>
 
     <th>
+
         Clinical considerations
+
     </th>
 
     <th>
+
         Action
+
     </th>
 
 </tr>
@@ -2620,54 +3422,75 @@ footer {
 </thead>
 
 
+
 <tbody>
 
 <tr>
 
     <td>
+
         Symptoms
+
     </td>
 
     <td>
+
         [Relevant features]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         Comorbidity
+
     </td>
 
     <td>
+
         [Relevant comorbidity]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         Risk
+
     </td>
 
     <td>
+
         [Risk factors]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
@@ -2682,23 +3505,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      TREATMENT PLANNING
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="treatment-plan"
-    class="content-section"
+
+id="treatment-plan"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 05
+
 </div>
 
 
+
 <h2>
+
     Treatment Planning
+
 </h2>
+
 
 
 <p>
@@ -2708,30 +3544,41 @@ footer {
 </p>
 
 
+
 <h3 id="setting">
+
     Treatment Setting
+
 </h3>
+
 
 
 <p>
 
     [Outpatient, day-care, inpatient or other
+
     treatment-setting considerations.]
 
 </p>
 
 
+
 <h3 id="shared">
+
     Shared Decision-Making
+
 </h3>
+
 
 
 <p>
 
     [Patient preferences, family involvement,
+
     treatment goals and feasibility.]
 
 </p>
+
 
 
 <div class="recommendation">
@@ -2739,11 +3586,15 @@ footer {
     <div class="recommendation-header">
 
         <span class="recommendation-label">
+
             Recommendation
+
         </span>
 
         <span class="recommendation-strength">
+
             [Strength / grade]
+
         </span>
 
     </div>
@@ -2751,6 +3602,7 @@ footer {
     <p>
 
         [Guideline recommendation regarding treatment
+
         planning.]
 
     </p>
@@ -2761,23 +3613,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      TREATMENT
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="treatment"
-    class="content-section"
+
+id="treatment"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 06
+
 </div>
 
 
+
 <h2>
+
     Treatment
+
 </h2>
+
 
 
 <p>
@@ -2787,17 +3652,23 @@ footer {
 </p>
 
 
+
 <h3 id="pharmacological">
+
     Pharmacological Treatment
+
 </h3>
+
 
 
 <p>
 
     [Medication classes, treatment principles,
+
     selection factors, dosing framework and monitoring.]
 
 </p>
+
 
 
 <div class="table-wrapper">
@@ -2809,19 +3680,27 @@ footer {
 <tr>
 
     <th>
+
         Treatment option
+
     </th>
 
     <th>
+
         Clinical role
+
     </th>
 
     <th>
+
         Key considerations
+
     </th>
 
     <th>
+
         Monitoring
+
     </th>
 
 </tr>
@@ -2829,45 +3708,63 @@ footer {
 </thead>
 
 
+
 <tbody>
 
 <tr>
 
     <td>
+
         [Option 1]
+
     </td>
 
     <td>
+
         [Role]
+
     </td>
 
     <td>
+
         [Considerations]
+
     </td>
 
     <td>
+
         [Monitoring]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         [Option 2]
+
     </td>
 
     <td>
+
         [Role]
+
     </td>
 
     <td>
+
         [Considerations]
+
     </td>
 
     <td>
+
         [Monitoring]
+
     </td>
 
 </tr>
@@ -2879,27 +3776,37 @@ footer {
 </div>
 
 
+
 <h3 id="psychological">
+
     Psychological Interventions
+
 </h3>
+
 
 
 <p>
 
     [Psychological and psychotherapeutic interventions
+
     relevant to the disorder.]
 
 </p>
 
 
+
 <h3 id="somatic">
+
     Somatic Treatments
+
 </h3>
+
 
 
 <p>
 
     [ECT, rTMS, neuromodulation or other somatic
+
     interventions where relevant.]
 
 </p>
@@ -2908,31 +3815,46 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      ACUTE
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="acute"
-    class="content-section"
+
+id="acute"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 07
+
 </div>
 
 
+
 <h2>
+
     Acute Treatment
+
 </h2>
+
 
 
 <p>
 
     [Goals of acute treatment and recommended
+
     initial management.]
 
 </p>
+
 
 
 <div class="recommendation">
@@ -2940,11 +3862,15 @@ footer {
     <div class="recommendation-header">
 
         <span class="recommendation-label">
+
             First-line approach
+
         </span>
 
         <span class="recommendation-strength">
+
             [Evidence / recommendation]
+
         </span>
 
     </div>
@@ -2958,26 +3884,37 @@ footer {
 </div>
 
 
+
 <h3>
+
     Monitoring during acute treatment
+
 </h3>
 
 <ul>
 
     <li>
+
         [Clinical response]
+
     </li>
 
     <li>
+
         [Adverse effects]
+
     </li>
 
     <li>
+
         [Risk]
+
     </li>
 
     <li>
+
         [Adherence]
+
     </li>
 
 </ul>
@@ -2986,23 +3923,36 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      CONTINUATION
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="continuation"
-    class="content-section"
+
+id="continuation"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 08
+
 </div>
 
 
+
 <h2>
+
     Continuation Treatment
+
 </h2>
+
 
 
 <p>
@@ -3012,10 +3962,13 @@ footer {
 </p>
 
 
+
 <div class="pearl">
 
     <div class="pearl-label">
+
         Clinical principle
+
     </div>
 
     <p>
@@ -3030,58 +3983,86 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      MAINTENANCE
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="maintenance"
-    class="content-section"
+
+id="maintenance"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 09
+
 </div>
 
 
+
 <h2>
+
     Maintenance Treatment
+
 </h2>
+
 
 
 <p>
 
     [Indications, treatment options and duration
+
     of maintenance treatment.]
 
 </p>
 
 
+
 <h3>
+
     Factors influencing maintenance treatment
+
 </h3>
+
 
 
 <ul>
 
     <li>
+
         [Previous episodes / recurrence]
+
     </li>
 
     <li>
+
         [Severity]
+
     </li>
 
     <li>
+
         [Residual symptoms]
+
     </li>
 
     <li>
+
         [Comorbidity]
+
     </li>
 
     <li>
+
         [Patient preference]
+
     </li>
 
 </ul>
@@ -3090,31 +4071,46 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      RELAPSE
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="relapse"
-    class="content-section"
+
+id="relapse"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 10
+
 </div>
 
 
+
 <h2>
+
     Relapse Prevention
+
 </h2>
+
 
 
 <p>
 
     [Early warning signs, monitoring, psychoeducation,
+
     adherence and relapse-prevention strategies.]
 
 </p>
+
 
 
 <div class="recommendation">
@@ -3122,11 +4118,15 @@ footer {
     <div class="recommendation-header">
 
         <span class="recommendation-label">
+
             Relapse prevention
+
         </span>
 
         <span class="recommendation-strength">
+
             [Grade]
+
         </span>
 
     </div>
@@ -3143,71 +4143,104 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      NON RESPONSE
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="nonresponse"
-    class="content-section"
+
+id="nonresponse"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 11
+
 </div>
 
 
+
 <h2>
+
     Inadequate Response / Treatment Resistance
+
 </h2>
+
 
 
 <p>
 
     [Define inadequate response or treatment resistance
+
     according to the relevant guideline.]
 
 </p>
 
 
+
 <h3>
+
     Reassessment
+
 </h3>
+
 
 
 <ul>
 
     <li>
+
         [Reconfirm diagnosis]
+
     </li>
 
     <li>
+
         [Assess adherence]
+
     </li>
 
     <li>
+
         [Check dose and duration]
+
     </li>
 
     <li>
+
         [Review comorbidity]
+
     </li>
 
     <li>
+
         [Review psychosocial factors]
+
     </li>
 
 </ul>
 
 
+
 <h3>
+
     Subsequent treatment strategies
+
 </h3>
+
 
 
 <p>
 
     [Switching, augmentation, combination treatment,
+
     psychotherapy, neuromodulation or referral.]
 
 </p>
@@ -3216,31 +4249,46 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      SPECIAL SITUATIONS
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="special"
-    class="content-section"
+
+id="special"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 12
+
 </div>
 
 
+
 <h2>
+
     Special Clinical Situations
+
 </h2>
+
 
 
 <p>
 
     [Disorder-specific situations requiring modification
+
     of the standard treatment approach.]
 
 </p>
+
 
 
 <div class="table-wrapper">
@@ -3252,15 +4300,21 @@ footer {
 <tr>
 
     <th>
+
         Clinical situation
+
     </th>
 
     <th>
+
         Key considerations
+
     </th>
 
     <th>
+
         Recommended approach
+
     </th>
 
 </tr>
@@ -3268,54 +4322,75 @@ footer {
 </thead>
 
 
+
 <tbody>
 
 <tr>
 
     <td>
+
         [Situation 1]
+
     </td>
 
     <td>
+
         [Considerations]
+
     </td>
 
     <td>
+
         [Approach]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         [Situation 2]
+
     </td>
 
     <td>
+
         [Considerations]
+
     </td>
 
     <td>
+
         [Approach]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         [Situation 3]
+
     </td>
 
     <td>
+
         [Considerations]
+
     </td>
 
     <td>
+
         [Approach]
+
     </td>
 
 </tr>
@@ -3330,27 +4405,42 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      SPECIAL POPULATIONS
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="special-populations"
-    class="content-section"
+
+id="special-populations"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 13
+
 </div>
 
 
+
 <h2>
+
     Special Populations
+
 </h2>
 
 
+
 <h3>
+
     Children & Adolescents
+
 </h3>
 
 <p>
@@ -3360,8 +4450,11 @@ footer {
 </p>
 
 
+
 <h3>
+
     Older Adults
+
 </h3>
 
 <p>
@@ -3371,8 +4464,11 @@ footer {
 </p>
 
 
+
 <h3>
+
     Pregnancy & Lactation
+
 </h3>
 
 <p>
@@ -3382,8 +4478,11 @@ footer {
 </p>
 
 
+
 <h3>
+
     Medical / Neurological Comorbidity
+
 </h3>
 
 <p>
@@ -3396,31 +4495,46 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      MONITORING
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="monitoring"
-    class="content-section"
+
+id="monitoring"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 14
+
 </div>
 
 
+
 <h2>
+
     Monitoring & Follow-up
+
 </h2>
+
 
 
 <p>
 
     [What should be monitored, when, and how treatment
+
     response should be assessed.]
 
 </p>
+
 
 
 <div class="table-wrapper">
@@ -3432,19 +4546,27 @@ footer {
 <tr>
 
     <th>
+
         Parameter
+
     </th>
 
     <th>
+
         Baseline
+
     </th>
 
     <th>
+
         During treatment
+
     </th>
 
     <th>
+
         Action if abnormal
+
     </th>
 
 </tr>
@@ -3452,66 +4574,93 @@ footer {
 </thead>
 
 
+
 <tbody>
 
 <tr>
 
     <td>
+
         Clinical response
+
     </td>
 
     <td>
+
         [Baseline]
+
     </td>
 
     <td>
+
         [Monitoring]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         Adverse effects
+
     </td>
 
     <td>
+
         [Baseline]
+
     </td>
 
     <td>
+
         [Monitoring]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
 
 
+
 <tr>
 
     <td>
+
         Risk
+
     </td>
 
     <td>
+
         [Baseline]
+
     </td>
 
     <td>
+
         [Monitoring]
+
     </td>
 
     <td>
+
         [Action]
+
     </td>
 
 </tr>
@@ -3526,41 +4675,60 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      ALGORITHM
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="algorithm"
-    class="content-section"
+
+id="algorithm"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 15
+
 </div>
 
 
+
 <h2>
+
     Clinical Algorithm
+
 </h2>
+
 
 
 <p>
 
     [Use this section for a simplified web-native
+
     representation of the guideline's clinical pathway.]
 
 </p>
 
 
+
 <div class="algorithm">
 
     <div class="algorithm-title">
+
         Clinical decision pathway
+
     </div>
 
 
+
     <div class="algorithm-flow">
+
 
 
         <div class="algorithm-box">
@@ -3570,9 +4738,13 @@ footer {
         </div>
 
 
+
         <div class="algorithm-arrow">
+
             ↓
+
         </div>
+
 
 
         <div class="algorithm-box">
@@ -3582,9 +4754,13 @@ footer {
         </div>
 
 
+
         <div class="algorithm-arrow">
+
             ↓
+
         </div>
+
 
 
         <div class="algorithm-box">
@@ -3594,9 +4770,13 @@ footer {
         </div>
 
 
+
         <div class="algorithm-arrow">
+
             ↓
+
         </div>
+
 
 
         <div class="algorithm-box">
@@ -3606,9 +4786,13 @@ footer {
         </div>
 
 
+
         <div class="algorithm-arrow">
+
             ↓
+
         </div>
+
 
 
         <div class="algorithm-box">
@@ -3618,9 +4802,13 @@ footer {
         </div>
 
 
+
         <div class="algorithm-arrow">
+
             ↓
+
         </div>
+
 
 
         <div class="algorithm-box">
@@ -3630,12 +4818,15 @@ footer {
         </div>
 
 
+
     </div>
+
 
 
     <div class="figure-caption">
 
         Figure: Simplified clinical decision pathway.
+
         Replace with disorder-specific algorithm.
 
     </div>
@@ -3646,59 +4837,86 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      KEY POINTS
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="key-points"
-    class="content-section"
+
+id="key-points"
+
+class="content-section"
+
 >
 
 <div class="section-number">
+
     SECTION 16
+
 </div>
+
 
 
 <h2>
+
     Key Clinical Points
+
 </h2>
 
 
+
 <div class="pearl">
 
     <div class="pearl-label">
+
         Key point 01
+
     </div>
 
     <p>
+
         [High-yield clinical recommendation.]
+
     </p>
 
 </div>
 
 
+
 <div class="pearl">
 
     <div class="pearl-label">
+
         Key point 02
+
     </div>
 
     <p>
+
         [High-yield clinical recommendation.]
+
     </p>
 
 </div>
 
 
+
 <div class="pearl">
 
     <div class="pearl-label">
+
         Key point 03
+
     </div>
 
     <p>
+
         [High-yield clinical recommendation.]
+
     </p>
 
 </div>
@@ -3707,66 +4925,96 @@ footer {
 
 
 
-<!-- =====================================================
+
+
+*<!-- =====================================================*
+
      REFERENCES
-====================================================== -->
+
+*====================================================== -->*
 
 <section
-    id="references"
-    class="content-section references"
+
+id="references"
+
+class="content-section references"
+
 >
 
 <div class="section-number">
+
     SECTION 17
+
 </div>
+
 
 
 <h2>
+
     References
+
 </h2>
 
 
+
 <div class="reference-item">
 
     <span class="reference-number">
+
         1.
+
     </span>
 
     <span>
+
         [Guideline / systematic review / primary
+
         reference.]
+
     </span>
 
 </div>
 
 
+
 <div class="reference-item">
 
     <span class="reference-number">
+
         2.
+
     </span>
 
     <span>
+
         [Reference.]
+
     </span>
 
 </div>
+
 
 
 <div class="reference-item">
 
     <span class="reference-number">
+
         3.
+
     </span>
 
     <span>
+
         [Reference.]
+
     </span>
 
 </div>
+
 
 
 </section>
+
 
 
 </article>
@@ -3775,9 +5023,13 @@ footer {
 
 
 
-<!-- =========================================================
+
+
+*<!-- =========================================================*
+
      FOOTER
-========================================================= -->
+
+*========================================================= -->*
 
 <footer>
 
@@ -3786,15 +5038,19 @@ footer {
     <div class="footer-text">
 
         Psychiatry CPG Notes ·
+
         Clinical Practice Guideline Library
 
     </div>
 
 
+
     <div class="footer-text">
 
         Educational clinical reference.
+
         Clinical decisions should be based on
+
         current evidence and individual patient factors.
 
     </div>
@@ -3805,140 +5061,217 @@ footer {
 
 
 
-<!-- =========================================================
+
+
+*<!-- =========================================================*
+
      BACK TO TOP
-========================================================= -->
+
+*========================================================= -->*
 
 <button
-    id="backTop"
-    class="back-top"
-    aria-label="Back to top"
+
+id="backTop"
+
+class="back-top"
+
+aria-label="Back to top"
+
 >
+
     ↑
+
 </button>
 
 
 
+
+
+<script src="../js/cpg-data.js"></script>
+<script src="../js/cpg-loader.js"></script>
+
 <script>
 
-/* =========================================================
+/* =========================================================*
+
    ELEMENTS
-========================================================= */
+
+*========================================================= */
 
 const sidebar =
+
     document.getElementById(
+
         "sidebar"
+
     );
 
 const mobileMenuButton =
+
     document.getElementById(
+
         "mobileMenuButton"
+
     );
 
 const backTop =
+
     document.getElementById(
+
         "backTop"
+
     );
 
 const articleSearch =
+
     document.getElementById(
+
         "articleSearch"
+
     );
 
 const matchCount =
+
     document.getElementById(
+
         "matchCount"
+
     );
 
 const tocLinks =
+
     document.querySelectorAll(
+
         ".toc a"
+
     );
 
 const sections =
+
     document.querySelectorAll(
+
         ".content-section"
+
     );
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    MOBILE MENU
-========================================================= */
+
+*========================================================= */
 
 mobileMenuButton.addEventListener(
+
     "click",
+
     () => {
 
         sidebar.classList.toggle(
+
             "open"
+
         );
 
     }
+
 );
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    CLOSE MOBILE MENU AFTER TOC CLICK
-========================================================= */
+
+*========================================================= */
 
 tocLinks.forEach(link => {
 
     link.addEventListener(
+
         "click",
+
         () => {
 
             sidebar.classList.remove(
+
                 "open"
+
             );
 
         }
+
     );
 
 });
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    ACTIVE TABLE OF CONTENTS
-========================================================= */
+
+*========================================================= */
 
 const observer =
+
     new IntersectionObserver(
+
         entries => {
 
             entries.forEach(entry => {
 
                 if (
+
                     entry.isIntersecting
+
                 ) {
 
                     const id =
+
                         entry.target.id;
 
 
+
                     tocLinks.forEach(
+
                         link => {
 
                             link.classList.remove(
+
                                 "active"
+
                             );
 
                         }
+
                     );
 
 
+
                     const activeLink =
+
                         document.querySelector(
+
                             `.toc a[href="#${id}"]`
+
                         );
+
 
 
                     if (activeLink) {
 
                         activeLink.classList.add(
+
                             "active"
+
                         );
 
                     }
@@ -3948,98 +5281,149 @@ const observer =
             });
 
         },
+
         {
+
             rootMargin:
+
                 "-100px 0px -65% 0px",
 
             threshold: 0
+
         }
+
     );
 
 
+
 sections.forEach(
+
     section =>
-        observer.observe(section)
+
+        observer.*observe*(section)
+
 );
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    BACK TO TOP
-========================================================= */
+
+*========================================================= */
 
 window.addEventListener(
+
     "scroll",
+
     () => {
 
         if (
+
             window.scrollY > 500
+
         ) {
 
             backTop.classList.add(
+
                 "visible"
+
             );
 
         } else {
 
             backTop.classList.remove(
+
                 "visible"
+
             );
 
         }
 
     }
+
 );
+
 
 
 backTop.addEventListener(
+
     "click",
+
     () => {
 
         window.scrollTo({
+
             top: 0,
+
             behavior: "smooth"
+
         });
 
     }
+
 );
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    IN-PAGE SEARCH
-========================================================= */
+
+*========================================================= */
 
 articleSearch.addEventListener(
+
     "input",
+
     () => {
 
         const query =
+
             articleSearch.value
+
                 .trim()
+
                 .toLowerCase();
 
 
-        /*
+
+/**
+
            Remove previous highlights
-        */
+
+        **/
 
         document
+
             .querySelectorAll(
+
                 "mark.cpg-highlight"
+
             )
+
             .forEach(
+
                 mark => {
 
                     mark.outerHTML =
+
                         mark.innerHTML;
 
                 }
+
             );
 
 
+
         matchCount.textContent =
+
             "";
+
 
 
         if (!query) {
@@ -4049,32 +5433,49 @@ articleSearch.addEventListener(
         }
 
 
+
         let count = 0;
 
 
-        /*
+
+/**
+
            Search visible article text.
-           Avoid searching scripts,
+
+           *Avoid searching scripts,*
+
            navigation and form controls.
-        */
+
+        **/
 
         const textElements =
+
             document.querySelectorAll(
+
                 ".content p, .content li, .content td, .content h2, .content h3, .content h4"
+
             );
 
 
+
         textElements.forEach(
+
             element => {
 
                 const text =
+
                     element.textContent;
 
 
+
                 if (
+
                     text
+
                         .toLowerCase()
+
                         .includes(query)
+
                 ) {
 
                     count++;
@@ -4082,47 +5483,65 @@ articleSearch.addEventListener(
                 }
 
             }
+
         );
 
 
+
         matchCount.textContent =
+
             count
+
                 ? `${count} matches`
+
                 : "No matches";
 
     }
+
 );
 
 
 
-/* =========================================================
+
+
+/* =========================================================*
+
    KEYBOARD SHORTCUT
-   "/" focuses article search
-========================================================= */
+
+   *"/" focuses article search*
+
+*========================================================= */
 
 document.addEventListener(
+
     "keydown",
+
     event => {
 
         if (
+
             event.key === "/" &&
+
             document.activeElement.tagName !==
+
             "INPUT"
+
         ) {
 
-            event.preventDefault();
+            event.*preventDefault*();
 
-            articleSearch.focus();
+            articleSearch.*focus*();
 
         }
 
     }
+
 );
 
 </script>
 
 
+
 </body>
 
 </html>
-

@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
     >
 
     <style>
+
         /* =========================================================
            GLOBAL
         ========================================================= */
@@ -39,15 +40,18 @@
             --max-width: 1180px;
         }
 
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family:
@@ -66,15 +70,18 @@
             -webkit-font-smoothing: antialiased;
         }
 
+
         a {
             color: inherit;
             text-decoration: none;
         }
 
+
         button,
         input {
             font: inherit;
         }
+
 
         .container {
             width: min(100% - 40px, var(--max-width));
@@ -88,6 +95,7 @@
 
         .site-header {
             height: 72px;
+
             background: rgba(255, 255, 255, 0.94);
             border-bottom: 1px solid var(--border-light);
 
@@ -96,10 +104,12 @@
 
             position: sticky;
             top: 0;
+
             z-index: 100;
 
             backdrop-filter: blur(12px);
         }
+
 
         .header-inner {
             width: min(100% - 40px, var(--max-width));
@@ -110,11 +120,13 @@
             justify-content: space-between;
         }
 
+
         .brand {
             display: flex;
             align-items: center;
             gap: 11px;
         }
+
 
         .brand-mark {
             width: 38px;
@@ -123,7 +135,6 @@
             border-radius: 10px;
 
             background: var(--primary);
-
             color: white;
 
             display: flex;
@@ -132,26 +143,34 @@
 
             font-weight: 700;
             font-size: 15px;
+
             letter-spacing: -0.5px;
         }
+
 
         .brand-text {
             display: flex;
             flex-direction: column;
+
             line-height: 1.15;
         }
+
 
         .brand-name {
             font-size: 16px;
             font-weight: 700;
+
             letter-spacing: -0.2px;
         }
+
 
         .brand-subtitle {
             font-size: 11px;
             color: var(--text-muted);
+
             margin-top: 3px;
         }
+
 
         .header-nav {
             display: flex;
@@ -159,13 +178,16 @@
             gap: 28px;
 
             color: var(--text-secondary);
+
             font-size: 14px;
             font-weight: 500;
         }
 
+
         .header-nav a {
             transition: color 0.2s ease;
         }
+
 
         .header-nav a:hover {
             color: var(--primary);
@@ -178,6 +200,7 @@
 
         .hero {
             padding: 92px 0 76px;
+
             background:
                 linear-gradient(
                     180deg,
@@ -188,11 +211,14 @@
             border-bottom: 1px solid var(--border-light);
         }
 
+
         .hero-content {
             max-width: 850px;
             margin: 0 auto;
+
             text-align: center;
         }
+
 
         .eyebrow {
             display: inline-flex;
@@ -204,21 +230,22 @@
             border-radius: 999px;
 
             background: #f5f8fa;
-
             color: var(--primary);
 
             font-size: 12px;
             font-weight: 700;
+
             letter-spacing: 0.6px;
             text-transform: uppercase;
 
             margin-bottom: 20px;
         }
 
+
         .hero h1 {
             font-size: clamp(34px, 5vw, 54px);
-            line-height: 1.08;
 
+            line-height: 1.08;
             letter-spacing: -1.8px;
 
             font-weight: 750;
@@ -228,8 +255,10 @@
             margin-bottom: 18px;
         }
 
+
         .hero-description {
             max-width: 650px;
+
             margin: 0 auto 34px;
 
             color: var(--text-secondary);
@@ -245,20 +274,20 @@
 
         .search-wrapper {
             max-width: 760px;
+
             margin: 0 auto;
 
             position: relative;
         }
 
+
         .search-box {
             width: 100%;
-
             min-height: 64px;
 
             background: white;
 
             border: 1px solid #ccd7df;
-
             border-radius: 14px;
 
             display: flex;
@@ -272,6 +301,7 @@
                 box-shadow 0.2s ease;
         }
 
+
         .search-box:focus-within {
             border-color: #7e9bb0;
 
@@ -279,6 +309,7 @@
                 0 10px 35px rgba(25, 56, 75, 0.12),
                 0 0 0 4px rgba(24, 59, 86, 0.05);
         }
+
 
         .search-icon {
             width: 22px;
@@ -290,6 +321,7 @@
 
             flex-shrink: 0;
         }
+
 
         .search-input {
             flex: 1;
@@ -306,9 +338,11 @@
             font-size: 16px;
         }
 
+
         .search-input::placeholder {
             color: #9aa4ad;
         }
+
 
         .clear-search {
             width: 34px;
@@ -318,7 +352,6 @@
             border-radius: 50%;
 
             background: transparent;
-
             color: #7d8891;
 
             cursor: pointer;
@@ -326,16 +359,17 @@
             margin-right: 9px;
 
             display: none;
-
             align-items: center;
             justify-content: center;
 
             font-size: 18px;
         }
 
+
         .clear-search:hover {
             background: var(--surface-soft);
         }
+
 
         .search-hint {
             margin-top: 12px;
@@ -355,44 +389,51 @@
             display: none;
         }
 
+
         .search-results-section.visible {
             display: block;
         }
 
+
         .results-header {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
 
             margin-bottom: 18px;
         }
 
+
         .results-title {
             font-size: 15px;
             font-weight: 700;
         }
+
 
         .results-count {
             color: var(--text-muted);
             font-size: 13px;
         }
 
+
         .results-list {
             display: grid;
             gap: 10px;
         }
 
+
         .result-card {
             background: white;
 
             border: 1px solid var(--border);
-
             border-radius: 12px;
 
             padding: 19px 20px;
 
             display: flex;
             justify-content: space-between;
+
             gap: 25px;
 
             transition:
@@ -400,6 +441,7 @@
                 border-color 0.18s ease,
                 box-shadow 0.18s ease;
         }
+
 
         .result-card:hover {
             transform: translateY(-1px);
@@ -409,9 +451,11 @@
             box-shadow: var(--shadow);
         }
 
+
         .result-main {
             min-width: 0;
         }
+
 
         .result-title {
             font-size: 15px;
@@ -422,6 +466,7 @@
             margin-bottom: 5px;
         }
 
+
         .result-description {
             color: var(--text-secondary);
 
@@ -430,13 +475,16 @@
             max-width: 760px;
         }
 
+
         .result-meta {
             display: flex;
             flex-wrap: wrap;
+
             gap: 7px;
 
             margin-top: 11px;
         }
+
 
         .meta-tag {
             display: inline-flex;
@@ -453,6 +501,7 @@
             font-weight: 600;
         }
 
+
         .result-arrow {
             flex-shrink: 0;
 
@@ -460,7 +509,6 @@
             height: 32px;
 
             border: 1px solid var(--border);
-
             border-radius: 8px;
 
             display: flex;
@@ -475,6 +523,7 @@
                 background 0.2s ease,
                 color 0.2s ease;
         }
+
 
         .result-card:hover .result-arrow {
             background: var(--primary);
@@ -492,13 +541,13 @@
             padding: 35px 20px;
 
             border: 1px dashed var(--border);
-
             border-radius: 12px;
 
             color: var(--text-secondary);
 
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
         }
+
 
         .empty-state strong {
             display: block;
@@ -517,13 +566,16 @@
             padding: 65px 0 90px;
         }
 
+
         .section-header {
             display: flex;
+
             justify-content: space-between;
             align-items: flex-end;
 
             margin-bottom: 25px;
         }
+
 
         .section-label {
             font-size: 12px;
@@ -539,6 +591,7 @@
             margin-bottom: 7px;
         }
 
+
         .section-title {
             font-size: 25px;
 
@@ -546,6 +599,7 @@
 
             font-weight: 720;
         }
+
 
         .section-description {
             max-width: 550px;
@@ -556,6 +610,7 @@
 
             margin-top: 6px;
         }
+
 
         .view-all {
             color: var(--primary);
@@ -579,6 +634,7 @@
             gap: 14px;
         }
 
+
         .category-card {
             background: white;
 
@@ -596,6 +652,7 @@
                 box-shadow 0.2s ease;
         }
 
+
         .category-card:hover {
             transform: translateY(-2px);
 
@@ -604,6 +661,7 @@
             box-shadow: var(--shadow);
         }
 
+
         .category-icon {
             width: 38px;
             height: 38px;
@@ -611,7 +669,6 @@
             border-radius: 9px;
 
             background: var(--primary-soft);
-
             color: var(--primary);
 
             display: flex;
@@ -624,6 +681,7 @@
             font-weight: 700;
         }
 
+
         .category-title {
             font-size: 14px;
 
@@ -631,6 +689,7 @@
 
             margin-bottom: 4px;
         }
+
 
         .category-count {
             color: var(--text-muted);
@@ -647,6 +706,7 @@
             padding: 0 0 90px;
         }
 
+
         .featured-grid {
             display: grid;
 
@@ -655,6 +715,7 @@
 
             gap: 15px;
         }
+
 
         .featured-card {
             background: white;
@@ -670,19 +731,24 @@
                 box-shadow 0.2s ease;
         }
 
+
         .featured-card:hover {
             transform: translateY(-2px);
 
             box-shadow: var(--shadow);
         }
 
+
         .featured-top {
             display: flex;
+
             justify-content: space-between;
+
             gap: 15px;
 
             margin-bottom: 17px;
         }
+
 
         .featured-label {
             color: var(--primary);
@@ -702,11 +768,13 @@
             letter-spacing: 0.5px;
         }
 
+
         .featured-year {
             color: var(--text-muted);
 
             font-size: 12px;
         }
+
 
         .featured-title {
             font-size: 16px;
@@ -718,6 +786,7 @@
             margin-bottom: 7px;
         }
 
+
         .featured-source {
             color: var(--text-secondary);
 
@@ -725,6 +794,7 @@
 
             margin-bottom: 14px;
         }
+
 
         .read-link {
             display: inline-flex;
@@ -753,21 +823,27 @@
             padding: 30px 0;
         }
 
+
         .footer-inner {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
 
             gap: 20px;
         }
 
+
         .footer-copy {
             font-size: 12px;
+
             color: var(--text-muted);
         }
 
+
         .footer-note {
             font-size: 12px;
+
             color: var(--text-muted);
         }
 
@@ -785,6 +861,7 @@
 
         }
 
+
         @media (max-width: 700px) {
 
             .container,
@@ -792,60 +869,77 @@
                 width: min(100% - 28px, var(--max-width));
             }
 
+
             .site-header {
                 height: 64px;
             }
+
 
             .brand-subtitle {
                 display: none;
             }
 
+
             .header-nav {
                 gap: 15px;
+
                 font-size: 12px;
             }
+
 
             .hero {
                 padding: 65px 0 55px;
             }
 
+
             .hero h1 {
                 font-size: 37px;
             }
+
 
             .hero-description {
                 font-size: 14px;
             }
 
+
             .search-box {
                 min-height: 58px;
             }
+
 
             .category-grid,
             .featured-grid {
                 grid-template-columns: 1fr;
             }
 
+
             .section-header {
                 align-items: flex-start;
+
                 flex-direction: column;
+
                 gap: 10px;
             }
+
 
             .result-card {
                 padding: 16px;
             }
 
+
             .result-arrow {
                 display: none;
             }
 
+
             .footer-inner {
                 flex-direction: column;
+
                 align-items: flex-start;
             }
 
         }
+
 
         @media (max-width: 450px) {
 
@@ -853,9 +947,11 @@
                 display: none;
             }
 
+
             .hero h1 {
                 font-size: 32px;
             }
+
 
             .search-input {
                 font-size: 14px;
@@ -864,1004 +960,1063 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ============================================================
-     HEADER
-============================================================= -->
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
 
-<header class="site-header">
+    <header class="site-header">
 
-    <div class="header-inner">
+        <div class="header-inner">
 
-        <a href="index.html" class="brand">
+            <a href="index.html" class="brand">
 
-            <div class="brand-mark">
-                CPG
-            </div>
-
-            <div class="brand-text">
-
-                <div class="brand-name">
-                    Psychiatry CPG Notes
+                <div class="brand-mark">
+                    CPG
                 </div>
 
-                <div class="brand-subtitle">
-                    Clinical Practice Guideline Library
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        Psychiatry CPG Notes
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Clinical Practice Guideline Library
+                    </div>
+
                 </div>
 
-            </div>
-
-        </a>
-
-
-        <nav class="header-nav">
-
-            <a href="#library">
-                Library
             </a>
 
-            <a href="#featured">
-                Featured
-            </a>
 
-        </nav>
+            <nav class="header-nav">
 
-    </div>
+                <a href="#library">
+                    Library
+                </a>
 
-</header>
+                <a href="#featured">
+                    Featured
+                </a>
 
-
-
-<!-- ============================================================
-     HERO / SEARCH
-============================================================= -->
-
-<main>
-
-<section class="hero">
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-                Psychiatry · Clinical Practice
-            </div>
-
-
-            <h1>
-                Clinical Practice<br>
-                Guidelines in Psychiatry
-            </h1>
-
-
-            <p class="hero-description">
-                A structured library of concise, clinically oriented
-                notes on evidence-based guidelines for psychiatric
-                disorders and related clinical conditions.
-            </p>
-
-
-            <div class="search-wrapper">
-
-                <div class="search-box">
-
-                    <svg
-                        class="search-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    >
-                        <circle cx="11" cy="11" r="7"></circle>
-                        <path d="M20 20l-4-4"></path>
-                    </svg>
-
-
-                    <input
-                        id="searchInput"
-                        class="search-input"
-                        type="search"
-                        autocomplete="off"
-                        placeholder="Search schizophrenia, bipolar disorder, NICE, APA..."
-                        aria-label="Search clinical practice guidelines"
-                    >
-
-
-                    <button
-                        id="clearSearch"
-                        class="clear-search"
-                        aria-label="Clear search"
-                    >
-                        ×
-                    </button>
-
-                </div>
-
-
-                <div class="search-hint">
-                    Search by disorder, guideline, organization,
-                    year or keyword
-                </div>
-
-            </div>
+            </nav>
 
         </div>
 
+    </header>
 
-        <!-- =====================================================
-             LIVE SEARCH RESULTS
-        ====================================================== -->
 
-        <section
-            id="searchResultsSection"
-            class="search-results-section"
-        >
+    <!-- =========================================================
+         HERO / SEARCH
+    ========================================================= -->
 
-            <div class="results-header">
+    <main>
 
-                <div class="results-title">
-                    Search results
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        Psychiatry · Clinical Practice
+                    </div>
+
+
+                    <h1>
+                        Clinical Practice<br>
+                        Guidelines in Psychiatry
+                    </h1>
+
+
+                    <p class="hero-description">
+                        A structured library of concise, clinically oriented
+                        notes on evidence-based guidelines for psychiatric
+                        disorders and related clinical conditions.
+                    </p>
+
+
+                    <form id="homepageSearchForm">
+
+                        <div class="search-wrapper">
+
+                            <div class="search-box">
+
+                                <svg
+                                    class="search-icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+
+                                    <circle
+                                        cx="11"
+                                        cy="11"
+                                        r="7"
+                                    ></circle>
+
+                                    <path
+                                        d="M20 20l-4-4"
+                                    ></path>
+
+                                </svg>
+
+
+                                <input
+                                    id="searchInput"
+                                    class="search-input"
+                                    type="search"
+                                    autocomplete="off"
+                                    placeholder="Search schizophrenia, bipolar disorder, NICE, APA..."
+                                    aria-label="Search clinical practice guidelines"
+                                >
+
+
+                                <button
+                                    id="clearSearch"
+                                    class="clear-search"
+                                    type="button"
+                                    aria-label="Clear search"
+                                >
+                                    ×
+                                </button>
+
+                            </div>
+
+
+                            <div class="search-hint">
+                                Search by disorder, guideline, organization,
+                                year or keyword
+                            </div>
+
+                        </div>
+
+                    </form>
+
                 </div>
 
-                <div
-                    id="resultsCount"
-                    class="results-count"
+
+                <!-- =================================================
+                     LIVE SEARCH RESULTS
+                ================================================= -->
+
+                <section
+                    id="searchResultsSection"
+                    class="search-results-section"
                 >
-                </div>
 
-            </div>
+                    <div class="results-header">
+
+                        <div class="results-title">
+                            Search results
+                        </div>
+
+                        <div
+                            id="resultsCount"
+                            class="results-count"
+                        ></div>
+
+                    </div>
 
 
-            <div
-                id="resultsList"
-                class="results-list"
-            >
+                    <div
+                        id="resultsList"
+                        class="results-list"
+                    ></div>
+
+                </section>
+
             </div>
 
         </section>
 
-    </div>
 
-</section>
+        <!-- =========================================================
+             LIBRARY CATEGORIES
+        ========================================================= -->
 
-
-
-<!-- ============================================================
-     LIBRARY CATEGORIES
-============================================================= -->
-
-<section
-    id="library"
-    class="library"
->
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="section-label">
-                    Browse library
-                </div>
-
-                <h2 class="section-title">
-                    Psychiatry by clinical domain
-                </h2>
-
-                <p class="section-description">
-                    Browse the guideline library by major areas
-                    of psychiatric practice.
-                </p>
-
-            </div>
-
-
-            <a
-                href="search.html"
-                class="view-all"
-            >
-                View all guidelines →
-            </a>
-
-        </div>
-
-
-        <div class="category-grid">
-
-
-            <a
-                href="search.html?q=schizophrenia"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    SC
-                </div>
-
-                <div class="category-title">
-                    Schizophrenia & Psychosis
-                </div>
-
-                <div class="category-count">
-                    Antipsychotics · Acute care · Maintenance
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=bipolar"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    BP
-                </div>
-
-                <div class="category-title">
-                    Bipolar Disorders
-                </div>
-
-                <div class="category-count">
-                    Mania · Depression · Maintenance
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=depression"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    DP
-                </div>
-
-                <div class="category-title">
-                    Depressive Disorders
-                </div>
-
-                <div class="category-count">
-                    MDD · Treatment resistance · Relapse
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=anxiety"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    AN
-                </div>
-
-                <div class="category-title">
-                    Anxiety Disorders
-                </div>
-
-                <div class="category-count">
-                    GAD · Panic · OCD · PTSD
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=addiction"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    SU
-                </div>
-
-                <div class="category-title">
-                    Addiction Psychiatry
-                </div>
-
-                <div class="category-count">
-                    Alcohol · Tobacco · Drugs
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=child"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    CA
-                </div>
-
-                <div class="category-title">
-                    Child & Adolescent
-                </div>
-
-                <div class="category-count">
-                    ADHD · Autism · Conduct disorders
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=dementia"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    NP
-                </div>
-
-                <div class="category-title">
-                    Neuropsychiatry
-                </div>
-
-                <div class="category-count">
-                    Dementia · Delirium · Movement disorders
-                </div>
-
-            </a>
-
-
-            <a
-                href="search.html?q=sleep"
-                class="category-card"
-            >
-
-                <div class="category-icon">
-                    SL
-                </div>
-
-                <div class="category-title">
-                    Sleep Disorders
-                </div>
-
-                <div class="category-count">
-                    Insomnia · Circadian · Parasomnias
-                </div>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     FEATURED
-============================================================= -->
-
-<section
-    id="featured"
-    class="featured"
->
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="section-label">
-                    Featured notes
-                </div>
-
-                <h2 class="section-title">
-                    Recently added guidelines
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div
-            id="featuredGrid"
-            class="featured-grid"
+        <section
+            id="library"
+            class="library"
         >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            Browse library
+                        </div>
+
+                        <h2 class="section-title">
+                            Psychiatry by clinical domain
+                        </h2>
+
+                        <p class="section-description">
+                            Browse the guideline library by major areas
+                            of psychiatric practice.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="search.html"
+                        class="view-all"
+                    >
+                        View all guidelines →
+                    </a>
+
+                </div>
+
+
+                <div class="category-grid">
+
+
+                    <a
+                        href="search.html?q=schizophrenia"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            SC
+                        </div>
+
+                        <div class="category-title">
+                            Schizophrenia & Psychosis
+                        </div>
+
+                        <div class="category-count">
+                            Antipsychotics · Acute care · Maintenance
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=bipolar"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            BP
+                        </div>
+
+                        <div class="category-title">
+                            Bipolar Disorders
+                        </div>
+
+                        <div class="category-count">
+                            Mania · Depression · Maintenance
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=depression"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            DP
+                        </div>
+
+                        <div class="category-title">
+                            Depressive Disorders
+                        </div>
+
+                        <div class="category-count">
+                            MDD · Treatment resistance · Relapse
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=anxiety"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            AN
+                        </div>
+
+                        <div class="category-title">
+                            Anxiety Disorders
+                        </div>
+
+                        <div class="category-count">
+                            GAD · Panic · OCD · PTSD
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=addiction"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            SU
+                        </div>
+
+                        <div class="category-title">
+                            Addiction Psychiatry
+                        </div>
+
+                        <div class="category-count">
+                            Alcohol · Tobacco · Drugs
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=child"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            CA
+                        </div>
+
+                        <div class="category-title">
+                            Child & Adolescent
+                        </div>
+
+                        <div class="category-count">
+                            ADHD · Autism · Conduct disorders
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=dementia"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            NP
+                        </div>
+
+                        <div class="category-title">
+                            Neuropsychiatry
+                        </div>
+
+                        <div class="category-count">
+                            Dementia · Delirium · Movement disorders
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="search.html?q=sleep"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            SL
+                        </div>
+
+                        <div class="category-title">
+                            Sleep Disorders
+                        </div>
+
+                        <div class="category-count">
+                            Insomnia · Circadian · Parasomnias
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             FEATURED GUIDELINES
+        ========================================================= -->
+
+        <section
+            id="featured"
+            class="featured"
+        >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            Featured notes
+                        </div>
+
+                        <h2 class="section-title">
+                            Recently added guidelines
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="featuredGrid"
+                    class="featured-grid"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-inner">
+
+                <div class="footer-copy">
+                    © 2026 Psychiatry CPG Notes
+                </div>
+
+                <div class="footer-note">
+                    Educational clinical reference · Not a substitute
+                    for professional judgment
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- ============================================================
-     FOOTER
-============================================================= -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-inner">
-
-            <div class="footer-copy">
-                © 2026 Psychiatry CPG Notes
-            </div>
-
-            <div class="footer-note">
-                Educational clinical reference · Not a substitute
-                for professional judgment
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- ============================================================
-     CPG DATABASE
-============================================================= -->
-
-<script>
-
-const CPG_DATABASE = [
-
-    {
-        id: "schizophrenia",
-        title: "Schizophrenia: Assessment and Management",
-        disorder: "Schizophrenia",
-        category: "Schizophrenia & Psychosis",
-        organization: "NICE",
-        year: "2014",
-        tags: [
-            "Schizophrenia",
-            "Psychosis",
-            "Antipsychotics",
-            "NICE"
-        ],
-        description:
-            "Clinical approach to assessment, pharmacological treatment, psychological interventions and long-term management of schizophrenia.",
-        url: "cpg/schizophrenia.html"
-    },
-
-
-    {
-        id: "bipolar-disorder",
-        title: "Bipolar Disorder: Clinical Practice Guideline",
-        disorder: "Bipolar Disorder",
-        category: "Bipolar Disorders",
-        organization: "CANMAT / ISBD",
-        year: "2023",
-        tags: [
-            "Bipolar",
-            "Mania",
-            "Depression",
-            "Mood stabilizers"
-        ],
-        description:
-            "Evidence-based recommendations covering assessment, acute mania, bipolar depression and maintenance treatment.",
-        url: "cpg/bipolar-disorder.html"
-    },
-
-
-    {
-        id: "major-depression",
-        title: "Depression in Adults: Treatment and Management",
-        disorder: "Major Depressive Disorder",
-        category: "Depressive Disorders",
-        organization: "NICE",
-        year: "2022",
-        tags: [
-            "Depression",
-            "MDD",
-            "Antidepressants",
-            "Psychotherapy"
-        ],
-        description:
-            "Clinical guidance covering assessment and treatment of depression in adults across different levels of severity.",
-        url: "cpg/major-depression.html"
-    },
-
-
-    {
-        id: "panic-disorder",
-        title: "Panic Disorder and Generalised Anxiety Disorder",
-        disorder: "Anxiety Disorders",
-        category: "Anxiety Disorders",
-        organization: "NICE",
-        year: "2020",
-        tags: [
-            "Anxiety",
-            "Panic disorder",
-            "GAD",
-            "CBT"
-        ],
-        description:
-            "Clinical assessment and management of panic disorder and generalised anxiety disorder in adults.",
-        url: "cpg/panic-disorder.html"
-    },
-
-
-    {
-        id: "alcohol-use-disorder",
-        title: "Alcohol Use Disorders: Clinical Management",
-        disorder: "Alcohol Use Disorder",
-        category: "Addiction Psychiatry",
-        organization: "WHO",
-        year: "2019",
-        tags: [
-            "Alcohol",
-            "Addiction",
-            "Withdrawal",
-            "Relapse prevention"
-        ],
-        description:
-            "Clinical principles for assessment, withdrawal management and treatment of alcohol use disorders.",
-        url: "cpg/alcohol-use-disorder.html"
-    },
+    </footer>
 
 
-    {
-        id: "adhd",
-        title: "Attention Deficit Hyperactivity Disorder",
-        disorder: "ADHD",
-        category: "Child & Adolescent Psychiatry",
-        organization: "NICE",
-        year: "2018",
-        tags: [
-            "ADHD",
-            "Child psychiatry",
-            "Adolescent psychiatry",
-            "Stimulants"
-        ],
-        description:
-            "Assessment and management of ADHD across childhood, adolescence and adulthood.",
-        url: "cpg/adhd.html"
-    }
+    <!-- =========================================================
+         CENTRAL CPG DATABASE
+         
+         IMPORTANT:
+         This is now loaded from js/cpg-data.js.
+         Do NOT add another CPG_DATABASE here.
+    ========================================================= -->
 
-];
+    <script src="js/cpg-data.js"></script>
 
 
+    <script>
 
-/* ============================================================
-   DOM ELEMENTS
-============================================================ */
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const clearSearch =
-    document.getElementById("clearSearch");
-
-const resultsSection =
-    document.getElementById("searchResultsSection");
-
-const resultsList =
-    document.getElementById("resultsList");
-
-const resultsCount =
-    document.getElementById("resultsCount");
+        /* =========================================================
+           DOM ELEMENTS
+        ========================================================= */
 
-const featuredGrid =
-    document.getElementById("featuredGrid");
-
-
+        const searchInput =
+            document.getElementById("searchInput");
 
-/* ============================================================
-   SEARCH NORMALIZATION
-============================================================ */
+        const clearSearch =
+            document.getElementById("clearSearch");
 
-function normalizeText(text) {
+        const resultsSection =
+            document.getElementById("searchResultsSection");
 
-    return String(text || "")
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        const resultsList =
+            document.getElementById("resultsList");
 
-}
+        const resultsCount =
+            document.getElementById("resultsCount");
 
+        const featuredGrid =
+            document.getElementById("featuredGrid");
 
+        const homepageSearchForm =
+            document.getElementById("homepageSearchForm");
 
-/* ============================================================
-   SEARCH FUNCTION
-============================================================ */
 
-function searchCPGs(query) {
+        /* =========================================================
+           SEARCH NORMALIZATION
+        ========================================================= */
 
-    const normalizedQuery =
-        normalizeText(query).trim();
+        function normalizeText(text) {
 
-    if (!normalizedQuery) {
-        return [];
-    }
-
-
-    const terms =
-        normalizedQuery
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    return CPG_DATABASE
-        .map(item => {
-
-            const searchableText =
-                normalizeText([
-                    item.title,
-                    item.disorder,
-                    item.category,
-                    item.organization,
-                    item.year,
-                    item.description,
-                    ...(item.tags || [])
-                ].join(" "));
-
-
-            let score = 0;
-
-
-            terms.forEach(term => {
-
-                if (normalizeText(item.title).includes(term)) {
-                    score += 10;
-                }
-
-                if (normalizeText(item.disorder).includes(term)) {
-                    score += 8;
-                }
-
-                if (normalizeText(item.organization).includes(term)) {
-                    score += 6;
-                }
-
-                if (normalizeText(item.category).includes(term)) {
-                    score += 5;
-                }
-
-                if (
-                    (item.tags || [])
-                        .some(tag =>
-                            normalizeText(tag).includes(term)
-                        )
-                ) {
-                    score += 5;
-                }
-
-                if (
-                    normalizeText(item.description)
-                        .includes(term)
-                ) {
-                    score += 2;
-                }
-
-                if (searchableText.includes(term)) {
-                    score += 1;
-                }
-
-            });
-
-
-            return {
-                item,
-                score
-            };
-
-        })
-
-        .filter(result => result.score > 0)
-
-        .sort((a, b) => b.score - a.score)
-
-        .map(result => result.item);
-
-}
-
-
-
-/* ============================================================
-   RENDER SEARCH RESULTS
-============================================================ */
-
-function renderSearchResults(query) {
-
-    const results =
-        searchCPGs(query);
-
-
-    resultsList.innerHTML = "";
-
-
-    if (!query.trim()) {
-
-        resultsSection.classList.remove("visible");
-
-        return;
-
-    }
-
-
-    resultsSection.classList.add("visible");
-
-
-    resultsCount.textContent =
-        `${results.length} ${
-            results.length === 1
-                ? "result"
-                : "results"
-        }`;
-
-
-    if (!results.length) {
-
-        resultsList.innerHTML = `
-
-            <div class="empty-state">
-
-                <strong>
-                    No matching guidelines found
-                </strong>
-
-                Try searching by disorder,
-                organization, treatment or keyword.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    results.forEach(item => {
-
-        const card =
-            document.createElement("a");
-
-        card.className =
-            "result-card";
-
-        card.href =
-            item.url;
-
-
-        card.innerHTML = `
-
-            <div class="result-main">
-
-                <div class="result-title">
-                    ${item.title}
-                </div>
-
-                <div class="result-description">
-                    ${item.description}
-                </div>
-
-                <div class="result-meta">
-
-                    <span class="meta-tag">
-                        ${item.disorder}
-                    </span>
-
-                    <span class="meta-tag">
-                        ${item.organization}
-                    </span>
-
-                    <span class="meta-tag">
-                        ${item.year}
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="result-arrow">
-                →
-            </div>
-
-        `;
-
-
-        resultsList.appendChild(card);
-
-    });
-
-}
-
-
-
-/* ============================================================
-   SEARCH INPUT
-============================================================ */
-
-searchInput.addEventListener(
-    "input",
-    () => {
-
-        const query =
-            searchInput.value;
-
-        clearSearch.style.display =
-            query
-                ? "flex"
-                : "none";
-
-        renderSearchResults(query);
-
-    }
-);
-
-
-
-/* ============================================================
-   CLEAR SEARCH
-============================================================ */
-
-clearSearch.addEventListener(
-    "click",
-    () => {
-
-        searchInput.value = "";
-
-        clearSearch.style.display =
-            "none";
-
-        resultsSection.classList.remove(
-            "visible"
-        );
-
-        searchInput.focus();
-
-    }
-);
-
-
-
-/* ============================================================
-   ENTER → SEARCH PAGE
-============================================================ */
-
-searchInput.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Enter" &&
-            searchInput.value.trim()
-        ) {
-
-            const query =
-                encodeURIComponent(
-                    searchInput.value.trim()
-                );
-
-
-            window.location.href =
-                `search.html?q=${query}`;
+            return String(text || "")
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
 
         }
 
-    }
-);
+
+        /* =========================================================
+           GET SEARCHABLE TAGS / KEYWORDS
+        ========================================================= */
+
+        function getKeywords(item) {
+
+            if (Array.isArray(item.keywords)) {
+                return item.keywords;
+            }
+
+            if (Array.isArray(item.tags)) {
+                return item.tags;
+            }
+
+            return [];
+
+        }
 
 
+        /* =========================================================
+           GET DISPLAY ORGANIZATION
+        ========================================================= */
 
-/* ============================================================
-   FEATURED GUIDELINES
-============================================================ */
+        function getOrganization(item) {
 
-function renderFeatured() {
+            return (
+                item.organization ||
+                item.source ||
+                "Clinical guideline"
+            );
 
-    const featured =
-        CPG_DATABASE.slice(0, 4);
-
-
-    featuredGrid.innerHTML = "";
-
-
-    featured.forEach(item => {
-
-        const card =
-            document.createElement("a");
-
-        card.href =
-            item.url;
-
-        card.className =
-            "featured-card";
+        }
 
 
-        card.innerHTML = `
+        /* =========================================================
+           GET DISPLAY DISORDER
+        ========================================================= */
 
-            <div class="featured-top">
+        function getDisorder(item) {
 
-                <span class="featured-label">
-                    ${item.category}
-                </span>
+            return (
+                item.disorder ||
+                item.subcategory ||
+                item.category ||
+                ""
+            );
 
-                <span class="featured-year">
-                    ${item.year}
-                </span>
-
-            </div>
-
-
-            <div class="featured-title">
-                ${item.title}
-            </div>
+        }
 
 
-            <div class="featured-source">
-                ${item.organization}
-            </div>
+        /* =========================================================
+           SEARCH FUNCTION
+        ========================================================= */
+
+        function searchCPGs(query) {
+
+            const normalizedQuery =
+                normalizeText(query).trim();
 
 
-            <span class="read-link">
-                Read guideline →
-            </span>
-
-        `;
+            if (!normalizedQuery) {
+                return [];
+            }
 
 
-        featuredGrid.appendChild(card);
-
-    });
-
-}
-
+            const terms =
+                normalizedQuery
+                    .split(/\s+/)
+                    .filter(Boolean);
 
 
-/* ============================================================
-   INITIALIZE
-============================================================ */
+            return CPG_DATABASE
 
-renderFeatured();
+                .map(item => {
 
-
-
-/* ============================================================
-   SUPPORT ?q= SEARCH URL
-============================================================ */
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const initialQuery =
-    params.get("q");
+                    const keywords =
+                        getKeywords(item);
 
 
-if (initialQuery) {
+                    const searchableText =
+                        normalizeText([
 
-    searchInput.value =
-        initialQuery;
+                            item.title,
 
-    clearSearch.style.display =
-        "flex";
+                            item.disorder,
 
-    renderSearchResults(
-        initialQuery
-    );
+                            item.category,
 
-}
+                            item.subcategory,
 
-</script>
+                            item.organization,
+
+                            item.source,
+
+                            item.year,
+
+                            item.population,
+
+                            item.description,
+
+                            ...keywords
+
+                        ].join(" "));
+
+
+                    let score = 0;
+
+
+                    terms.forEach(term => {
+
+                        if (
+                            normalizeText(item.title)
+                                .includes(term)
+                        ) {
+                            score += 10;
+                        }
+
+
+                        if (
+                            normalizeText(
+                                getDisorder(item)
+                            ).includes(term)
+                        ) {
+                            score += 8;
+                        }
+
+
+                        if (
+                            normalizeText(
+                                getOrganization(item)
+                            ).includes(term)
+                        ) {
+                            score += 6;
+                        }
+
+
+                        if (
+                            normalizeText(item.category)
+                                .includes(term)
+                        ) {
+                            score += 5;
+                        }
+
+
+                        if (
+                            normalizeText(item.subcategory)
+                                .includes(term)
+                        ) {
+                            score += 5;
+                        }
+
+
+                        if (
+                            keywords.some(keyword =>
+                                normalizeText(keyword)
+                                    .includes(term)
+                            )
+                        ) {
+                            score += 5;
+                        }
+
+
+                        if (
+                            normalizeText(item.description)
+                                .includes(term)
+                        ) {
+                            score += 2;
+                        }
+
+
+                        if (
+                            searchableText.includes(term)
+                        ) {
+                            score += 1;
+                        }
+
+                    });
+
+
+                    return {
+                        item,
+                        score
+                    };
+
+                })
+
+                .filter(result => result.score > 0)
+
+                .sort(
+                    (a, b) => b.score - a.score
+                )
+
+                .map(result => result.item);
+
+        }
+
+
+        /* =========================================================
+           RENDER SEARCH RESULTS
+        ========================================================= */
+
+        function renderSearchResults(query) {
+
+            const results =
+                searchCPGs(query);
+
+
+            resultsList.innerHTML = "";
+
+
+            if (!query.trim()) {
+
+                resultsSection.classList.remove("visible");
+
+                return;
+            }
+
+
+            resultsSection.classList.add("visible");
+
+
+            resultsCount.textContent =
+                `${results.length} ${
+                    results.length === 1
+                        ? "result"
+                        : "results"
+                }`;
+
+
+            if (!results.length) {
+
+                resultsList.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <strong>
+                            No matching guidelines found
+                        </strong>
+
+                        Try searching by disorder,
+                        organization, treatment or keyword.
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            results.forEach(item => {
+
+                const card =
+                    document.createElement("a");
+
+
+                card.className =
+                    "result-card";
+
+
+                card.href =
+                    item.url;
+
+
+                const disorder =
+                    getDisorder(item);
+
+
+                const organization =
+                    getOrganization(item);
+
+
+                const keywords =
+                    getKeywords(item);
+
+
+                const keywordPreview =
+                    keywords
+                        .slice(0, 2)
+                        .join(" · ");
+
+
+                card.innerHTML = `
+
+                    <div class="result-main">
+
+                        <div class="result-title">
+                            ${item.title}
+                        </div>
+
+
+                        <div class="result-description">
+                            ${item.description || ""}
+                        </div>
+
+
+                        <div class="result-meta">
+
+                            ${
+                                disorder
+                                    ? `
+                                        <span class="meta-tag">
+                                            ${disorder}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+
+                            ${
+                                organization
+                                    ? `
+                                        <span class="meta-tag">
+                                            ${organization}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+
+                            ${
+                                item.year
+                                    ? `
+                                        <span class="meta-tag">
+                                            ${item.year}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+
+                            ${
+                                keywordPreview
+                                    ? `
+                                        <span class="meta-tag">
+                                            ${keywordPreview}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-arrow">
+                        →
+                    </div>
+
+                `;
+
+
+                resultsList.appendChild(card);
+
+            });
+
+        }
+
+
+        /* =========================================================
+           SEARCH INPUT
+        ========================================================= */
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                const query =
+                    searchInput.value;
+
+
+                clearSearch.style.display =
+                    query
+                        ? "flex"
+                        : "none";
+
+
+                renderSearchResults(query);
+
+            }
+        );
+
+
+        /* =========================================================
+           CLEAR SEARCH
+        ========================================================= */
+
+        clearSearch.addEventListener(
+            "click",
+            () => {
+
+                searchInput.value = "";
+
+                clearSearch.style.display =
+                    "none";
+
+                resultsSection.classList.remove(
+                    "visible"
+                );
+
+                resultsList.innerHTML = "";
+
+                resultsCount.textContent = "";
+
+                searchInput.focus();
+
+            }
+        );
+
+
+        /* =========================================================
+           ENTER → SEARCH PAGE
+        ========================================================= */
+
+        homepageSearchForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const query =
+                    searchInput.value.trim();
+
+
+                if (!query) {
+                    return;
+                }
+
+
+                window.location.href =
+                    `search.html?q=${encodeURIComponent(query)}`;
+
+            }
+        );
+
+
+        /* =========================================================
+           FEATURED GUIDELINES
+        ========================================================= */
+
+        function renderFeatured() {
+
+            const featured =
+                CPG_DATABASE.slice(0, 4);
+
+
+            featuredGrid.innerHTML = "";
+
+
+            featured.forEach(item => {
+
+                const card =
+                    document.createElement("a");
+
+
+                card.href =
+                    item.url;
+
+
+                card.className =
+                    "featured-card";
+
+
+                const organization =
+                    getOrganization(item);
+
+
+                card.innerHTML = `
+
+                    <div class="featured-top">
+
+                        <span class="featured-label">
+                            ${item.category || "Psychiatry"}
+                        </span>
+
+
+                        <span class="featured-year">
+                            ${item.year || ""}
+                        </span>
+
+                    </div>
+
+
+                    <div class="featured-title">
+                        ${item.title}
+                    </div>
+
+
+                    <div class="featured-source">
+                        ${organization}
+                    </div>
+
+
+                    <span class="read-link">
+                        Read guideline →
+                    </span>
+
+                `;
+
+
+                featuredGrid.appendChild(card);
+
+            });
+
+        }
+
+
+        /* =========================================================
+           INITIALIZE
+        ========================================================= */
+
+        renderFeatured();
+
+
+        /* =========================================================
+           SUPPORT ?q= SEARCH URL
+        ========================================================= */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const initialQuery =
+            params.get("q");
+
+
+        if (initialQuery) {
+
+            searchInput.value =
+                initialQuery;
+
+
+            clearSearch.style.display =
+                "flex";
+
+
+            renderSearchResults(
+                initialQuery
+            );
+
+        }
+
+    </script>
+
 
 </body>
+
 </html>
