@@ -2,2318 +2,1866 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Psychiatry CPG Library</title>
-
-<meta name="description"
-      content="Clinical Practice Guidelines and evidence-based psychiatry notes.">
-
-<style>
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-:root {
-    --bg: #f6f8fb;
-    --surface: rgba(255,255,255,0.82);
-    --surface-solid: #ffffff;
-    --surface-soft: #eef3f8;
-
-    --text: #152033;
-    --text-soft: #657084;
-    --text-muted: #8b95a5;
-
-    --primary: #3157d5;
-    --primary-dark: #233fa8;
-    --secondary: #6576e8;
-
-    --border: rgba(20,35,60,0.10);
-
-    --shadow:
-        0 20px 60px rgba(30,50,90,0.08);
-
-    --shadow-hover:
-        0 25px 70px rgba(40,65,130,0.15);
-
-    --radius-xl: 28px;
-    --radius-lg: 20px;
-    --radius-md: 14px;
-
-    --transition: 0.3s cubic-bezier(.2,.8,.2,1);
-}
-
-body.dark {
-    --bg: #0a0f1b;
-    --surface: rgba(18,25,40,0.78);
-    --surface-solid: #121927;
-    --surface-soft: #182234;
-
-    --text: #edf2fa;
-    --text-soft: #aeb9ca;
-    --text-muted: #7f8ba0;
-
-    --primary: #8094ff;
-    --primary-dark: #6c82ee;
-    --secondary: #8d9cff;
-
-    --border: rgba(255,255,255,0.09);
-
-    --shadow:
-        0 25px 70px rgba(0,0,0,0.28);
-
-    --shadow-hover:
-        0 30px 80px rgba(0,0,0,0.40);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family:
-        Inter,
-        ui-sans-serif,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(79,104,220,0.07),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(99,120,235,0.07),
-            transparent 28%
-        ),
-        var(--bg);
-
-    color: var(--text);
-    min-height: 100vh;
-
-    transition:
-        background .4s ease,
-        color .4s ease;
-
-    overflow-x: hidden;
-}
-
-button,
-input {
-    font: inherit;
-}
-
-button {
-    border: none;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   NEURAL BACKGROUND
-========================================================= */
-
-.neural-background {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.neuron {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--primary);
-    opacity: .20;
-
-    animation:
-        neuronFloat 8s ease-in-out infinite alternate;
-}
-
-.neuron::after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        transparent
-    );
-    transform-origin: left center;
-    opacity: .25;
-}
-
-.neuron:nth-child(1) {
-    top: 18%;
-    left: 8%;
-    animation-delay: -1s;
-}
-
-.neuron:nth-child(2) {
-    top: 32%;
-    left: 23%;
-    animation-delay: -3s;
-}
-
-.neuron:nth-child(3) {
-    top: 15%;
-    right: 18%;
-    animation-delay: -5s;
-}
-
-.neuron:nth-child(4) {
-    top: 52%;
-    right: 8%;
-    animation-delay: -2s;
-}
-
-.neuron:nth-child(5) {
-    top: 75%;
-    left: 13%;
-    animation-delay: -6s;
-}
-
-.neuron:nth-child(6) {
-    top: 70%;
-    right: 28%;
-    animation-delay: -4s;
-}
-
-@keyframes neuronFloat {
-    from {
-        transform: translateY(-12px);
-    }
-
-    to {
-        transform: translateY(15px);
-    }
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    height: 76px;
-
-    display: flex;
-    align-items: center;
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    background: color-mix(
-        in srgb,
-        var(--surface-solid) 75%,
-        transparent
-    );
-
-    border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-    width: min(1180px, calc(100% - 40px));
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.brand-icon {
-    width: 40px;
-    height: 40px;
-
-    border-radius: 12px;
-
-    display: grid;
-    place-items: center;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
-
-    box-shadow:
-        0 8px 25px rgba(60,80,200,.22);
-}
-
-.brand-icon svg {
-    width: 23px;
-}
-
-.brand-text strong {
-    display: block;
-    font-size: 15px;
-    letter-spacing: -.2px;
-}
-
-.brand-text span {
-    display: block;
-    color: var(--text-muted);
-    font-size: 11px;
-    margin-top: 1px;
-}
-
-.theme-toggle {
-    width: 44px;
-    height: 44px;
-
-    border-radius: 50%;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Psychiatry CPG Notes | Clinical Practice Guidelines</title>
+
+    <meta
+        name="description"
+        content="A curated library of clinical practice guideline notes in psychiatry."
+    >
+
+    <style>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        :root {
+            --bg: #f7f8fa;
+            --surface: #ffffff;
+            --surface-soft: #f1f4f7;
+
+            --text: #17212b;
+            --text-secondary: #5d6873;
+            --text-muted: #89939d;
+
+            --primary: #183b56;
+            --primary-dark: #102d43;
+            --primary-soft: #eaf1f6;
+
+            --border: #dfe5ea;
+            --border-light: #e9edf1;
+
+            --shadow: 0 8px 30px rgba(20, 42, 58, 0.06);
+
+            --radius: 14px;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+            height: 72px;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border-light);
+
+            display: flex;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            width: min(100% - 40px, var(--max-width));
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
 
-    background: var(--surface-soft);
-    color: var(--text);
+            background: var(--primary);
 
-    display: grid;
-    place-items: center;
+            color: white;
 
-    cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    transition: var(--transition);
-}
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: -0.5px;
+        }
 
-.theme-toggle:hover {
-    transform: rotate(15deg) scale(1.05);
-}
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
 
-.theme-toggle svg {
-    width: 19px;
-}
+        .brand-name {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
 
+        .brand-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
 
-/* =========================================================
-   HERO
-========================================================= */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
 
-.hero {
-    width: min(1000px, calc(100% - 40px));
-    margin: auto;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-    min-height: 620px;
+        .header-nav a {
+            transition: color 0.2s ease;
+        }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        .header-nav a:hover {
+            color: var(--primary);
+        }
 
-    text-align: center;
 
-    padding: 90px 0 80px;
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-    position: relative;
-}
+        .hero {
+            padding: 92px 0 76px;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f7f9fb 100%
+                );
 
-.hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+            border-bottom: 1px solid var(--border-light);
+        }
 
-    padding: 7px 13px;
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    border-radius: 999px;
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
 
-    background: var(--surface);
-    border: 1px solid var(--border);
+            padding: 6px 11px;
 
-    color: var(--primary);
+            border: 1px solid #d9e3ea;
+            border-radius: 999px;
 
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .5px;
+            background: #f5f8fa;
 
-    backdrop-filter: blur(12px);
+            color: var(--primary);
 
-    animation: fadeUp .7s ease both;
-}
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
 
-.pulse {
-    width: 7px;
-    height: 7px;
+            margin-bottom: 20px;
+        }
 
-    border-radius: 50%;
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.08;
 
-    background: #48b77a;
+            letter-spacing: -1.8px;
 
-    box-shadow:
-        0 0 0 0 rgba(72,183,122,.5);
+            font-weight: 750;
 
-    animation: pulse 2s infinite;
-}
+            color: #142b3d;
 
-@keyframes pulse {
-    70% {
-        box-shadow:
-            0 0 0 7px rgba(72,183,122,0);
-    }
+            margin-bottom: 18px;
+        }
 
-    100% {
-        box-shadow:
-            0 0 0 0 rgba(72,183,122,0);
-    }
-}
+        .hero-description {
+            max-width: 650px;
+            margin: 0 auto 34px;
 
-.hero h1 {
-    margin-top: 25px;
+            color: var(--text-secondary);
 
-    max-width: 850px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
 
-    font-size:
-        clamp(42px, 6vw, 76px);
 
-    line-height: 1.02;
+        /* =========================================================
+           SEARCH
+        ========================================================= */
 
-    letter-spacing: -3.5px;
+        .search-wrapper {
+            max-width: 760px;
+            margin: 0 auto;
 
-    font-weight: 700;
+            position: relative;
+        }
 
-    animation: fadeUp .8s .05s ease both;
-}
+        .search-box {
+            width: 100%;
 
-.hero h1 span {
-    background:
-        linear-gradient(
-            120deg,
-            var(--primary),
-            var(--secondary)
-        );
+            min-height: 64px;
 
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
+            background: white;
 
-.hero-description {
-    max-width: 650px;
+            border: 1px solid #ccd7df;
 
-    margin-top: 24px;
+            border-radius: 14px;
 
-    font-size: 17px;
-    line-height: 1.7;
+            display: flex;
+            align-items: center;
 
-    color: var(--text-soft);
+            box-shadow:
+                0 10px 35px rgba(25, 56, 75, 0.08);
 
-    animation: fadeUp .8s .12s ease both;
-}
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
+        .search-box:focus-within {
+            border-color: #7e9bb0;
 
-/* =========================================================
-   SEARCH
-========================================================= */
+            box-shadow:
+                0 10px 35px rgba(25, 56, 75, 0.12),
+                0 0 0 4px rgba(24, 59, 86, 0.05);
+        }
 
-.search-container {
-    width: min(760px, 100%);
+        .search-icon {
+            width: 22px;
+            height: 22px;
 
-    margin-top: 40px;
+            margin-left: 21px;
 
-    position: relative;
+            color: #7b8791;
 
-    animation: fadeUp .8s .2s ease both;
-}
+            flex-shrink: 0;
+        }
 
-.search-box {
-    height: 68px;
+        .search-input {
+            flex: 1;
 
-    display: flex;
-    align-items: center;
+            border: none;
+            outline: none;
 
-    padding: 0 10px 0 22px;
+            background: transparent;
 
-    background: var(--surface);
+            padding: 0 14px;
 
-    border: 1px solid var(--border);
+            color: var(--text);
 
-    border-radius: 20px;
+            font-size: 16px;
+        }
 
-    box-shadow: var(--shadow);
+        .search-input::placeholder {
+            color: #9aa4ad;
+        }
 
-    backdrop-filter: blur(20px);
+        .clear-search {
+            width: 34px;
+            height: 34px;
 
-    transition: var(--transition);
-}
+            border: none;
+            border-radius: 50%;
 
-.search-box:focus-within {
-    border-color:
-        color-mix(
-            in srgb,
-            var(--primary) 55%,
-            transparent
-        );
+            background: transparent;
 
-    box-shadow:
-        0 20px 70px
-        color-mix(
-            in srgb,
-            var(--primary) 12%,
-            transparent
-        );
-}
+            color: #7d8891;
 
-.search-icon {
-    flex: 0 0 auto;
+            cursor: pointer;
 
-    width: 22px;
+            margin-right: 9px;
 
-    color: var(--text-muted);
-}
+            display: none;
 
-.search-input {
-    flex: 1;
+            align-items: center;
+            justify-content: center;
 
-    height: 100%;
+            font-size: 18px;
+        }
 
-    border: none;
-    outline: none;
+        .clear-search:hover {
+            background: var(--surface-soft);
+        }
 
-    padding: 0 15px;
+        .search-hint {
+            margin-top: 12px;
 
-    background: transparent;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
 
-    color: var(--text);
 
-    font-size: 16px;
-}
+        /* =========================================================
+           SEARCH RESULTS
+        ========================================================= */
 
-.search-input::placeholder {
-    color: var(--text-muted);
-}
+        .search-results-section {
+            padding: 34px 0 20px;
 
-.search-submit {
-    height: 48px;
+            display: none;
+        }
 
-    padding: 0 19px;
+        .search-results-section.visible {
+            display: block;
+        }
 
-    border-radius: 13px;
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
+            margin-bottom: 18px;
+        }
 
-    color: white;
+        .results-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
 
-    font-size: 13px;
-    font-weight: 600;
+        .results-count {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
 
-    cursor: pointer;
+        .results-list {
+            display: grid;
+            gap: 10px;
+        }
 
-    transition: var(--transition);
-}
+        .result-card {
+            background: white;
 
-.search-submit:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 10px 25px
-        rgba(50,75,190,.25);
-}
+            border: 1px solid var(--border);
 
+            border-radius: 12px;
 
-/* =========================================================
-   SEARCH DROPDOWN
-========================================================= */
+            padding: 19px 20px;
 
-.live-results {
-    position: absolute;
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
 
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                box-shadow 0.18s ease;
+        }
 
-    z-index: 20;
+        .result-card:hover {
+            transform: translateY(-1px);
 
-    display: none;
+            border-color: #c8d4dc;
 
-    background: var(--surface-solid);
+            box-shadow: var(--shadow);
+        }
 
-    border:
-        1px solid var(--border);
+        .result-main {
+            min-width: 0;
+        }
 
-    border-radius: 18px;
+        .result-title {
+            font-size: 15px;
+            font-weight: 700;
 
-    box-shadow: var(--shadow-hover);
+            color: #1b3448;
 
-    overflow: hidden;
+            margin-bottom: 5px;
+        }
 
-    text-align: left;
-}
+        .result-description {
+            color: var(--text-secondary);
 
-.live-results.visible {
-    display: block;
+            font-size: 13px;
 
-    animation:
-        dropdownIn .25s ease both;
-}
+            max-width: 760px;
+        }
 
-@keyframes dropdownIn {
-    from {
-        opacity: 0;
-        transform: translateY(-7px);
-    }
+        .result-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            margin-top: 11px;
+        }
 
-.result-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+        .meta-tag {
+            display: inline-flex;
 
-    gap: 20px;
+            padding: 4px 8px;
 
-    padding: 17px 20px;
+            background: var(--surface-soft);
 
-    border-bottom:
-        1px solid var(--border);
+            border-radius: 6px;
 
-    cursor: pointer;
+            color: #5c6974;
 
-    transition: var(--transition);
-}
+            font-size: 11px;
+            font-weight: 600;
+        }
 
-.result-item:last-child {
-    border-bottom: none;
-}
+        .result-arrow {
+            flex-shrink: 0;
 
-.result-item:hover {
-    background: var(--surface-soft);
-}
+            width: 32px;
+            height: 32px;
 
-.result-title {
-    font-weight: 600;
-    font-size: 14px;
-}
+            border: 1px solid var(--border);
 
-.result-meta {
-    margin-top: 4px;
+            border-radius: 8px;
 
-    font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    color: var(--text-muted);
-}
+            color: var(--primary);
 
-.result-arrow {
-    color: var(--primary);
-}
+            align-self: center;
 
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
 
-/* =========================================================
-   CONTENT
-========================================================= */
+        .result-card:hover .result-arrow {
+            background: var(--primary);
+            color: white;
+        }
 
-.section {
-    width: min(1180px, calc(100% - 40px));
 
-    margin: auto;
+        /* =========================================================
+           EMPTY SEARCH STATE
+        ========================================================= */
 
-    padding: 50px 0;
-}
+        .empty-state {
+            text-align: center;
 
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+            padding: 35px 20px;
 
-    margin-bottom: 23px;
-}
+            border: 1px dashed var(--border);
 
-.section-heading h2 {
-    font-size: 25px;
-    letter-spacing: -.8px;
-}
+            border-radius: 12px;
 
-.section-heading p {
-    margin-top: 5px;
+            color: var(--text-secondary);
 
-    color: var(--text-muted);
+            background: rgba(255,255,255,0.6);
+        }
 
-    font-size: 13px;
-}
+        .empty-state strong {
+            display: block;
 
-.view-all {
-    color: var(--primary);
+            color: var(--text);
 
-    font-size: 13px;
-    font-weight: 600;
-}
+            margin-bottom: 4px;
+        }
 
 
-/* =========================================================
-   HORIZONTAL CATEGORY RAIL
-========================================================= */
+        /* =========================================================
+           LIBRARY
+        ========================================================= */
 
-.horizontal-rail {
-    display: flex;
+        .library {
+            padding: 65px 0 90px;
+        }
 
-    gap: 15px;
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
 
-    overflow-x: auto;
+            margin-bottom: 25px;
+        }
 
-    padding: 4px 2px 16px;
+        .section-label {
+            font-size: 12px;
 
-    scroll-snap-type: x mandatory;
+            color: var(--primary);
 
-    scrollbar-width: thin;
-}
+            font-weight: 700;
 
-.horizontal-rail::-webkit-scrollbar {
-    height: 5px;
-}
+            text-transform: uppercase;
 
-.horizontal-rail::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 999px;
-}
+            letter-spacing: 1px;
 
-.category-card {
-    min-width: 250px;
+            margin-bottom: 7px;
+        }
 
-    scroll-snap-align: start;
+        .section-title {
+            font-size: 25px;
 
-    padding: 23px;
+            letter-spacing: -0.6px;
 
-    border-radius: var(--radius-lg);
+            font-weight: 720;
+        }
 
-    background: var(--surface);
+        .section-description {
+            max-width: 550px;
 
-    border: 1px solid var(--border);
+            color: var(--text-secondary);
 
-    backdrop-filter: blur(12px);
+            font-size: 14px;
 
-    cursor: pointer;
+            margin-top: 6px;
+        }
 
-    transition: var(--transition);
-}
+        .view-all {
+            color: var(--primary);
 
-.category-card:hover {
-    transform: translateY(-5px);
+            font-size: 13px;
 
-    box-shadow: var(--shadow-hover);
+            font-weight: 650;
+        }
 
-    border-color:
-        color-mix(
-            in srgb,
-            var(--primary) 30%,
-            transparent
-        );
-}
 
-.category-icon {
-    width: 46px;
-    height: 46px;
+        /* =========================================================
+           CATEGORY GRID
+        ========================================================= */
 
-    border-radius: 14px;
+        .category-grid {
+            display: grid;
 
-    display: grid;
-    place-items: center;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
 
-    background:
-        color-mix(
-            in srgb,
-            var(--primary) 10%,
-            transparent
-        );
+            gap: 14px;
+        }
 
-    color: var(--primary);
+        .category-card {
+            background: white;
 
-    margin-bottom: 17px;
-}
+            border: 1px solid var(--border);
 
-.category-icon svg {
-    width: 22px;
-}
+            border-radius: var(--radius);
 
-.category-card h3 {
-    font-size: 15px;
-}
+            padding: 22px;
 
-.category-card p {
-    margin-top: 7px;
+            min-height: 135px;
 
-    font-size: 12px;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-    line-height: 1.55;
+        .category-card:hover {
+            transform: translateY(-2px);
 
-    color: var(--text-muted);
-}
+            border-color: #c8d5de;
 
+            box-shadow: var(--shadow);
+        }
 
-/* =========================================================
-   FEATURED CPG CARDS
-========================================================= */
+        .category-icon {
+            width: 38px;
+            height: 38px;
 
-.cpg-card {
-    min-width: 315px;
+            border-radius: 9px;
 
-    scroll-snap-align: start;
+            background: var(--primary-soft);
 
-    padding: 25px;
+            color: var(--primary);
 
-    border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    background: var(--surface);
+            margin-bottom: 17px;
 
-    border: 1px solid var(--border);
+            font-size: 15px;
+            font-weight: 700;
+        }
 
-    backdrop-filter: blur(14px);
+        .category-title {
+            font-size: 14px;
 
-    transition: var(--transition);
+            font-weight: 700;
 
-    cursor: pointer;
-}
+            margin-bottom: 4px;
+        }
 
-.cpg-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
+        .category-count {
+            color: var(--text-muted);
 
-.cpg-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            font-size: 12px;
+        }
 
-    margin-bottom: 22px;
-}
 
-.cpg-type {
-    padding: 6px 9px;
+        /* =========================================================
+           FEATURED GUIDELINES
+        ========================================================= */
 
-    border-radius: 8px;
+        .featured {
+            padding: 0 0 90px;
+        }
 
-    background: var(--surface-soft);
+        .featured-grid {
+            display: grid;
 
-    color: var(--primary);
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
-    font-size: 10px;
+            gap: 15px;
+        }
 
-    font-weight: 700;
+        .featured-card {
+            background: white;
 
-    text-transform: uppercase;
+            border: 1px solid var(--border);
 
-    letter-spacing: .6px;
-}
+            border-radius: var(--radius);
 
-.cpg-year {
-    color: var(--text-muted);
-    font-size: 11px;
-}
+            padding: 24px;
 
-.cpg-card h3 {
-    font-size: 18px;
-    line-height: 1.35;
-}
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-.cpg-card p {
-    margin-top: 10px;
+        .featured-card:hover {
+            transform: translateY(-2px);
 
-    color: var(--text-soft);
+            box-shadow: var(--shadow);
+        }
 
-    font-size: 13px;
-    line-height: 1.6;
-}
+        .featured-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
 
-.cpg-tags {
-    display: flex;
-    flex-wrap: wrap;
+            margin-bottom: 17px;
+        }
 
-    gap: 6px;
+        .featured-label {
+            color: var(--primary);
 
-    margin-top: 20px;
-}
+            background: var(--primary-soft);
 
-.tag {
-    padding: 5px 8px;
+            border-radius: 6px;
 
-    border-radius: 7px;
+            padding: 5px 8px;
 
-    background: var(--surface-soft);
+            font-size: 10px;
 
-    color: var(--text-muted);
+            font-weight: 700;
 
-    font-size: 10px;
-}
+            text-transform: uppercase;
 
-.read-link {
-    display: inline-flex;
+            letter-spacing: 0.5px;
+        }
 
-    align-items: center;
+        .featured-year {
+            color: var(--text-muted);
 
-    gap: 6px;
+            font-size: 12px;
+        }
 
-    margin-top: 22px;
+        .featured-title {
+            font-size: 16px;
 
-    color: var(--primary);
+            font-weight: 700;
 
-    font-size: 12px;
-    font-weight: 700;
-}
+            line-height: 1.4;
 
+            margin-bottom: 7px;
+        }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+        .featured-source {
+            color: var(--text-secondary);
 
-.footer {
-    width: min(1180px, calc(100% - 40px));
+            font-size: 12px;
 
-    margin: 60px auto 0;
+            margin-bottom: 14px;
+        }
 
-    padding: 30px 0 40px;
+        .read-link {
+            display: inline-flex;
 
-    border-top: 1px solid var(--border);
+            align-items: center;
 
-    display: flex;
+            gap: 7px;
 
-    justify-content: space-between;
-    gap: 20px;
+            color: var(--primary);
 
-    color: var(--text-muted);
+            font-size: 12px;
 
-    font-size: 11px;
-}
+            font-weight: 700;
+        }
 
 
-/* =========================================================
-   SEARCH PAGE MODE
-========================================================= */
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
-.search-page {
-    display: none;
+        footer {
+            border-top: 1px solid var(--border);
 
-    width: min(1000px, calc(100% - 40px));
+            background: #ffffff;
 
-    margin: auto;
+            padding: 30px 0;
+        }
 
-    padding: 70px 0 100px;
-}
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-.search-page.active {
-    display: block;
+            gap: 20px;
+        }
 
-    animation: fadeUp .35s ease both;
-}
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
 
-.home-content.hidden {
-    display: none;
-}
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
 
-.search-page-header {
-    margin-bottom: 30px;
-}
 
-.search-page-header h1 {
-    font-size: 34px;
-    letter-spacing: -1.3px;
-}
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
-.search-page-header p {
-    margin-top: 7px;
+        @media (max-width: 900px) {
 
-    color: var(--text-muted);
-}
+            .category-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
-.full-results {
-    display: grid;
+        }
 
-    gap: 12px;
-}
+        @media (max-width: 700px) {
 
-.full-result-card {
-    padding: 23px;
+            .container,
+            .header-inner {
+                width: min(100% - 28px, var(--max-width));
+            }
 
-    background: var(--surface);
+            .site-header {
+                height: 64px;
+            }
 
-    border: 1px solid var(--border);
+            .brand-subtitle {
+                display: none;
+            }
 
-    border-radius: var(--radius-lg);
+            .header-nav {
+                gap: 15px;
+                font-size: 12px;
+            }
 
-    transition: var(--transition);
-}
+            .hero {
+                padding: 65px 0 55px;
+            }
 
-.full-result-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-}
+            .hero h1 {
+                font-size: 37px;
+            }
 
-.full-result-card h3 {
-    font-size: 17px;
-}
+            .hero-description {
+                font-size: 14px;
+            }
 
-.full-result-card p {
-    margin-top: 8px;
+            .search-box {
+                min-height: 58px;
+            }
 
-    color: var(--text-soft);
+            .category-grid,
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
 
-    font-size: 13px;
-    line-height: 1.6;
-}
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
 
-.full-result-meta {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+            .result-card {
+                padding: 16px;
+            }
 
-    margin-top: 13px;
-}
+            .result-arrow {
+                display: none;
+            }
 
-.back-home {
-    display: inline-flex;
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    align-items: center;
+        }
 
-    gap: 7px;
+        @media (max-width: 450px) {
 
-    margin-bottom: 25px;
+            .header-nav a:not(:last-child) {
+                display: none;
+            }
 
-    color: var(--primary);
+            .hero h1 {
+                font-size: 32px;
+            }
 
-    font-size: 13px;
+            .search-input {
+                font-size: 14px;
+            }
 
-    font-weight: 600;
+        }
 
-    cursor: pointer;
-}
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.no-results {
-    padding: 50px 20px;
-
-    text-align: center;
-
-    color: var(--text-muted);
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-lg);
-}
-
-.no-results strong {
-    display: block;
-
-    color: var(--text);
-
-    margin-bottom: 7px;
-}
-
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .header {
-        height: 68px;
-    }
-
-    .header-inner {
-        width: calc(100% - 28px);
-    }
-
-    .hero {
-        width: calc(100% - 28px);
-
-        min-height: 570px;
-
-        padding-top: 65px;
-    }
-
-    .hero h1 {
-        font-size: 43px;
-        letter-spacing: -2px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .search-box {
-        height: 60px;
-        border-radius: 17px;
-
-        padding-left: 16px;
-    }
-
-    .search-submit {
-        width: 42px;
-        padding: 0;
-
-        font-size: 0;
-    }
-
-    .search-submit::after {
-        content: "→";
-
-        font-size: 18px;
-    }
-
-    .section {
-        width: calc(100% - 28px);
-
-        padding: 38px 0;
-    }
-
-    .section-heading h2 {
-        font-size: 21px;
-    }
-
-    .section-heading p {
-        display: none;
-    }
-
-    .category-card {
-        min-width: 225px;
-    }
-
-    .cpg-card {
-        min-width: 290px;
-    }
-
-    .footer {
-        width: calc(100% - 28px);
-
-        flex-direction: column;
-    }
-}
-</style>
+    </style>
 </head>
 
 
 <body>
 
-<!-- =====================================================
-     NEURAL BACKGROUND
-====================================================== -->
 
-<div class="neural-background">
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-</div>
-
-
-<!-- =====================================================
+<!-- ============================================================
      HEADER
-====================================================== -->
+============================================================= -->
 
-<header class="header">
+<header class="site-header">
 
     <div class="header-inner">
 
-        <a href="#" class="brand" onclick="showHome()">
+        <a href="index.html" class="brand">
 
-            <div class="brand-icon">
-
-                <!-- Brain / neural icon -->
-                <svg viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="1.8"
-                     stroke-linecap="round"
-                     stroke-linejoin="round">
-
-                    <path d="M9.5 3.5a3 3 0 0 0-3 3v.5a3.5 3.5 0 0 0-3 3.5c0 1.5.8 2.8 2 3.5A3.5 3.5 0 0 0 9 19.5c.7.7 1.6 1 2.5 1"/>
-
-                    <path d="M14.5 3.5a3 3 0 0 1 3 3v.5a3.5 3.5 0 0 1 3 3.5c0 1.5-.8 2.8-2 3.5a3.5 3.5 0 0 1-3.5 5.5c-.7.7-1.6 1-2.5 1"/>
-
-                    <path d="M12 4v16"/>
-                    <path d="M7 8h2"/>
-                    <path d="M15 8h2"/>
-                    <path d="M7 13h2"/>
-                    <path d="M15 13h2"/>
-                </svg>
-
+            <div class="brand-mark">
+                CPG
             </div>
 
             <div class="brand-text">
-                <strong>Psychiatry CPG Library</strong>
-                <span>Clinical Practice Guidelines & Notes</span>
+
+                <div class="brand-name">
+                    Psychiatry CPG Notes
+                </div>
+
+                <div class="brand-subtitle">
+                    Clinical Practice Guideline Library
+                </div>
+
             </div>
 
         </a>
 
 
-        <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle dark mode">
+        <nav class="header-nav">
 
-            <svg id="themeIcon"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round">
+            <a href="#library">
+                Library
+            </a>
 
-                <circle cx="12"
-                        cy="12"
-                        r="4"/>
+            <a href="#featured">
+                Featured
+            </a>
 
-                <path d="M12 2v2"/>
-                <path d="M12 20v2"/>
-                <path d="M4.93 4.93l1.42 1.42"/>
-                <path d="M17.65 17.65l1.42 1.42"/>
-                <path d="M2 12h2"/>
-                <path d="M20 12h2"/>
-                <path d="M4.93 19.07l1.42-1.42"/>
-                <path d="M17.65 6.35l1.42-1.42"/>
-
-            </svg>
-
-        </button>
+        </nav>
 
     </div>
 
 </header>
 
 
-<!-- =====================================================
-     HOME CONTENT
-====================================================== -->
 
-<main class="home-content" id="homeContent">
+<!-- ============================================================
+     HERO / SEARCH
+============================================================= -->
 
-    <!-- HERO -->
+<main>
 
-    <section class="hero">
+<section class="hero">
 
-        <div class="hero-eyebrow">
-            <span class="pulse"></span>
-            Evidence-informed psychiatry
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Psychiatry · Clinical Practice
+            </div>
+
+
+            <h1>
+                Clinical Practice<br>
+                Guidelines in Psychiatry
+            </h1>
+
+
+            <p class="hero-description">
+                A structured library of concise, clinically oriented
+                notes on evidence-based guidelines for psychiatric
+                disorders and related clinical conditions.
+            </p>
+
+
+            <div class="search-wrapper">
+
+                <div class="search-box">
+
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M20 20l-4-4"></path>
+                    </svg>
+
+
+                    <input
+                        id="searchInput"
+                        class="search-input"
+                        type="search"
+                        autocomplete="off"
+                        placeholder="Search schizophrenia, bipolar disorder, NICE, APA..."
+                        aria-label="Search clinical practice guidelines"
+                    >
+
+
+                    <button
+                        id="clearSearch"
+                        class="clear-search"
+                        aria-label="Clear search"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="search-hint">
+                    Search by disorder, guideline, organization,
+                    year or keyword
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>
-            Clinical knowledge,
-            <span>structured for practice.</span>
-        </h1>
 
-        <p class="hero-description">
-            A searchable library of clinical practice guidelines,
-            treatment algorithms and evidence-based notes across
-            psychiatry and neuropsychiatry.
-        </p>
+        <!-- =====================================================
+             LIVE SEARCH RESULTS
+        ====================================================== -->
 
+        <section
+            id="searchResultsSection"
+            class="search-results-section"
+        >
 
-        <!-- SEARCH -->
+            <div class="results-header">
 
-        <div class="search-container">
+                <div class="results-title">
+                    Search results
+                </div>
 
-            <form
-                class="search-box"
-                id="searchForm">
+                <div
+                    id="resultsCount"
+                    class="results-count"
+                >
+                </div>
 
-                <svg class="search-icon"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="2"
-                     stroke-linecap="round"
-                     stroke-linejoin="round">
+            </div>
 
-                    <circle cx="11"
-                            cy="11"
-                            r="7"/>
-
-                    <path d="m20 20-4-4"/>
-
-                </svg>
-
-                <input
-                    id="searchInput"
-                    class="search-input"
-                    type="search"
-                    autocomplete="off"
-                    placeholder="Search schizophrenia, bipolar disorder, ADHD...">
-
-                <button
-                    class="search-submit"
-                    type="submit">
-
-                    Search
-
-                </button>
-
-            </form>
-
-
-            <!-- LIVE RESULTS -->
 
             <div
-                class="live-results"
-                id="liveResults">
+                id="resultsList"
+                class="results-list"
+            >
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- =================================================
-         CATEGORIES
-    ================================================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <div>
-                <h2>Browse by clinical domain</h2>
-                <p>Explore the library by major areas of psychiatry.</p>
-            </div>
-
-            <span class="view-all">
-                Scroll →
-            </span>
-
-        </div>
-
-
-        <div class="horizontal-rail">
-
-            <article class="category-card"
-                     data-category="Psychotic Disorders">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <circle cx="12" cy="12" r="8"/>
-                        <path d="M8 12h8"/>
-                        <path d="M12 8v8"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Psychotic Disorders</h3>
-
-                <p>
-                    Schizophrenia, first-episode psychosis,
-                    antipsychotic treatment and relapse prevention.
-                </p>
-
-            </article>
-
-
-            <article class="category-card"
-                     data-category="Mood Disorders">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <path d="M7 15c1.5 2 3 3 5 3s3.5-1 5-3"/>
-                        <circle cx="8" cy="9" r="1"/>
-                        <circle cx="16" cy="9" r="1"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Mood Disorders</h3>
-
-                <p>
-                    Depression, bipolar disorder, maintenance
-                    treatment and treatment-resistant illness.
-                </p>
-
-            </article>
-
-
-            <article class="category-card"
-                     data-category="Anxiety Disorders">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <path d="M12 3l8 4v5c0 5-3.5 7.8-8 9-4.5-1.2-8-4-8-9V7l8-4z"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Anxiety Disorders</h3>
-
-                <p>
-                    GAD, panic disorder, OCD, PTSD and
-                    related anxiety-spectrum conditions.
-                </p>
-
-            </article>
-
-
-            <article class="category-card"
-                     data-category="Child & Adolescent">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <circle cx="12" cy="8" r="3"/>
-                        <path d="M5 20c.7-4 3-6 7-6s6.3 2 7 6"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Child & Adolescent</h3>
-
-                <p>
-                    ADHD, autism, developmental disorders and
-                    common childhood psychiatric conditions.
-                </p>
-
-            </article>
-
-
-            <article class="category-card"
-                     data-category="Addiction Psychiatry">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <path d="M8 4h8"/>
-                        <path d="M9 4v5l-3 7a3 3 0 0 0 3 4h6a3 3 0 0 0 3-4l-3-7V4"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Addiction Psychiatry</h3>
-
-                <p>
-                    Alcohol, tobacco, opioids, stimulants and
-                    substance-use treatment strategies.
-                </p>
-
-            </article>
-
-
-            <article class="category-card"
-                     data-category="Neuropsychiatry">
-
-                <div class="category-icon">
-
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8">
-
-                        <path d="M12 3v18"/>
-                        <path d="M7 6h10"/>
-                        <path d="M5 12h14"/>
-                        <path d="M7 18h10"/>
-
-                    </svg>
-
-                </div>
-
-                <h3>Neuropsychiatry</h3>
-
-                <p>
-                    Cognitive disorders, epilepsy, Parkinsonism,
-                    dementia and behavioural neurology.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         FEATURED CPGs
-    ================================================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <div>
-                <h2>Featured guidelines</h2>
-                <p>Selected clinical practice topics.</p>
-            </div>
-
-            <span class="view-all">
-                Explore library
-            </span>
-
-        </div>
-
-
-        <div
-            class="horizontal-rail"
-            id="featuredCPGs">
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- =====================================================
-     SEARCH RESULTS PAGE
-====================================================== -->
-
-<section
-    class="search-page"
-    id="searchPage">
-
-    <div
-        class="back-home"
-        onclick="showHome()">
-
-        ← Back to library
-
-    </div>
-
-    <div class="search-page-header">
-
-        <h1 id="searchPageTitle">
-            Search results
-        </h1>
-
-        <p id="searchPageSubtitle">
-            Search the complete CPG library.
-        </p>
-
-    </div>
-
-
-    <div
-        class="full-results"
-        id="fullResults">
     </div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- ============================================================
+     LIBRARY CATEGORIES
+============================================================= -->
+
+<section
+    id="library"
+    class="library"
+>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-label">
+                    Browse library
+                </div>
+
+                <h2 class="section-title">
+                    Psychiatry by clinical domain
+                </h2>
+
+                <p class="section-description">
+                    Browse the guideline library by major areas
+                    of psychiatric practice.
+                </p>
+
+            </div>
+
+
+            <a
+                href="search.html"
+                class="view-all"
+            >
+                View all guidelines →
+            </a>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <a
+                href="search.html?q=schizophrenia"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    SC
+                </div>
+
+                <div class="category-title">
+                    Schizophrenia & Psychosis
+                </div>
+
+                <div class="category-count">
+                    Antipsychotics · Acute care · Maintenance
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=bipolar"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    BP
+                </div>
+
+                <div class="category-title">
+                    Bipolar Disorders
+                </div>
+
+                <div class="category-count">
+                    Mania · Depression · Maintenance
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=depression"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    DP
+                </div>
+
+                <div class="category-title">
+                    Depressive Disorders
+                </div>
+
+                <div class="category-count">
+                    MDD · Treatment resistance · Relapse
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=anxiety"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    AN
+                </div>
+
+                <div class="category-title">
+                    Anxiety Disorders
+                </div>
+
+                <div class="category-count">
+                    GAD · Panic · OCD · PTSD
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=addiction"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    SU
+                </div>
+
+                <div class="category-title">
+                    Addiction Psychiatry
+                </div>
+
+                <div class="category-count">
+                    Alcohol · Tobacco · Drugs
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=child"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    CA
+                </div>
+
+                <div class="category-title">
+                    Child & Adolescent
+                </div>
+
+                <div class="category-count">
+                    ADHD · Autism · Conduct disorders
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=dementia"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    NP
+                </div>
+
+                <div class="category-title">
+                    Neuropsychiatry
+                </div>
+
+                <div class="category-count">
+                    Dementia · Delirium · Movement disorders
+                </div>
+
+            </a>
+
+
+            <a
+                href="search.html?q=sleep"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    SL
+                </div>
+
+                <div class="category-title">
+                    Sleep Disorders
+                </div>
+
+                <div class="category-count">
+                    Insomnia · Circadian · Parasomnias
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     FEATURED
+============================================================= -->
+
+<section
+    id="featured"
+    class="featured"
+>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-label">
+                    Featured notes
+                </div>
+
+                <h2 class="section-title">
+                    Recently added guidelines
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="featuredGrid"
+            class="featured-grid"
+        >
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ============================================================
      FOOTER
-====================================================== -->
+============================================================= -->
 
-<footer class="footer">
+<footer>
 
-    <span>
-        Psychiatry CPG Library
-    </span>
+    <div class="container">
 
-    <span>
-        Clinical education · Evidence-based practice
-    </span>
+        <div class="footer-inner">
+
+            <div class="footer-copy">
+                © 2026 Psychiatry CPG Notes
+            </div>
+
+            <div class="footer-note">
+                Educational clinical reference · Not a substitute
+                for professional judgment
+            </div>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
+
+<!-- ============================================================
+     CPG DATABASE
+============================================================= -->
+
 <script>
 
-/* =========================================================
-   CPG DATABASE
-   ---------------------------------------------------------
-   ADD NEW CPG PAGES HERE
-========================================================= */
-
-const cpgDatabase = [
+const CPG_DATABASE = [
 
     {
         id: "schizophrenia",
-        title: "Schizophrenia",
-        subtitle: "Assessment, pharmacological treatment and relapse prevention",
-        category: "Psychotic Disorders",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
+        title: "Schizophrenia: Assessment and Management",
+        disorder: "Schizophrenia",
+        category: "Schizophrenia & Psychosis",
+        organization: "NICE",
+        year: "2014",
         tags: [
+            "Schizophrenia",
+            "Psychosis",
             "Antipsychotics",
-            "Relapse prevention",
-            "First episode"
+            "NICE"
         ],
-        file: "cpg/schizophrenia.html"
+        description:
+            "Clinical approach to assessment, pharmacological treatment, psychological interventions and long-term management of schizophrenia.",
+        url: "cpg/schizophrenia.html"
     },
 
-    {
-        id: "major-depressive-disorder",
-        title: "Major Depressive Disorder",
-        subtitle: "Assessment and evidence-based treatment of depressive disorders",
-        category: "Mood Disorders",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
-        tags: [
-            "Depression",
-            "Antidepressants",
-            "Treatment resistance"
-        ],
-        file: "cpg/major-depression.html"
-    },
 
     {
         id: "bipolar-disorder",
-        title: "Bipolar Disorder",
-        subtitle: "Acute mania, bipolar depression and maintenance treatment",
-        category: "Mood Disorders",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
+        title: "Bipolar Disorder: Clinical Practice Guideline",
+        disorder: "Bipolar Disorder",
+        category: "Bipolar Disorders",
+        organization: "CANMAT / ISBD",
+        year: "2023",
         tags: [
+            "Bipolar",
             "Mania",
-            "Bipolar depression",
-            "Maintenance"
+            "Depression",
+            "Mood stabilizers"
         ],
-        file: "cpg/bipolar-disorder.html"
+        description:
+            "Evidence-based recommendations covering assessment, acute mania, bipolar depression and maintenance treatment.",
+        url: "cpg/bipolar-disorder.html"
     },
 
+
     {
-        id: "ocd",
-        title: "Obsessive-Compulsive Disorder",
-        subtitle: "Assessment and treatment of OCD across clinical settings",
+        id: "major-depression",
+        title: "Depression in Adults: Treatment and Management",
+        disorder: "Major Depressive Disorder",
+        category: "Depressive Disorders",
+        organization: "NICE",
+        year: "2022",
+        tags: [
+            "Depression",
+            "MDD",
+            "Antidepressants",
+            "Psychotherapy"
+        ],
+        description:
+            "Clinical guidance covering assessment and treatment of depression in adults across different levels of severity.",
+        url: "cpg/major-depression.html"
+    },
+
+
+    {
+        id: "panic-disorder",
+        title: "Panic Disorder and Generalised Anxiety Disorder",
+        disorder: "Anxiety Disorders",
         category: "Anxiety Disorders",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
+        organization: "NICE",
+        year: "2020",
         tags: [
-            "OCD",
-            "ERP",
-            "SSRIs"
+            "Anxiety",
+            "Panic disorder",
+            "GAD",
+            "CBT"
         ],
-        file: "cpg/ocd.html"
+        description:
+            "Clinical assessment and management of panic disorder and generalised anxiety disorder in adults.",
+        url: "cpg/panic-disorder.html"
     },
 
-    {
-        id: "adhd",
-        title: "Attention-Deficit/Hyperactivity Disorder",
-        subtitle: "Assessment and multimodal treatment of ADHD",
-        category: "Child & Adolescent",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
-        tags: [
-            "ADHD",
-            "Stimulants",
-            "Children"
-        ],
-        file: "cpg/adhd.html"
-    },
 
     {
         id: "alcohol-use-disorder",
-        title: "Alcohol Use Disorder",
-        subtitle: "Assessment, withdrawal management and relapse prevention",
+        title: "Alcohol Use Disorders: Clinical Management",
+        disorder: "Alcohol Use Disorder",
         category: "Addiction Psychiatry",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
+        organization: "WHO",
+        year: "2019",
         tags: [
             "Alcohol",
+            "Addiction",
             "Withdrawal",
             "Relapse prevention"
         ],
-        file: "cpg/alcohol-use-disorder.html"
+        description:
+            "Clinical principles for assessment, withdrawal management and treatment of alcohol use disorders.",
+        url: "cpg/alcohol-use-disorder.html"
     },
 
+
     {
-        id: "dementia",
-        title: "Dementia & Major Neurocognitive Disorders",
-        subtitle: "Assessment and management of cognitive and behavioural symptoms",
-        category: "Neuropsychiatry",
-        organization: "Clinical Practice Guideline",
-        year: "2026",
+        id: "adhd",
+        title: "Attention Deficit Hyperactivity Disorder",
+        disorder: "ADHD",
+        category: "Child & Adolescent Psychiatry",
+        organization: "NICE",
+        year: "2018",
         tags: [
-            "Dementia",
-            "Cognition",
-            "BPSD"
+            "ADHD",
+            "Child psychiatry",
+            "Adolescent psychiatry",
+            "Stimulants"
         ],
-        file: "cpg/dementia.html"
+        description:
+            "Assessment and management of ADHD across childhood, adolescence and adulthood.",
+        url: "cpg/adhd.html"
     }
 
 ];
 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+
+/* ============================================================
+   DOM ELEMENTS
+============================================================ */
 
 const searchInput =
     document.getElementById("searchInput");
 
-const liveResults =
-    document.getElementById("liveResults");
+const clearSearch =
+    document.getElementById("clearSearch");
 
-const searchForm =
-    document.getElementById("searchForm");
+const resultsSection =
+    document.getElementById("searchResultsSection");
 
-const featuredCPGs =
-    document.getElementById("featuredCPGs");
+const resultsList =
+    document.getElementById("resultsList");
 
-const homeContent =
-    document.getElementById("homeContent");
+const resultsCount =
+    document.getElementById("resultsCount");
 
-const searchPage =
-    document.getElementById("searchPage");
-
-const fullResults =
-    document.getElementById("fullResults");
-
-const searchPageTitle =
-    document.getElementById("searchPageTitle");
-
-const searchPageSubtitle =
-    document.getElementById("searchPageSubtitle");
-
-const themeToggle =
-    document.getElementById("themeToggle");
-
-const themeIcon =
-    document.getElementById("themeIcon");
+const featuredGrid =
+    document.getElementById("featuredGrid");
 
 
-/* =========================================================
-   SEARCH ENGINE
-========================================================= */
+
+/* ============================================================
+   SEARCH NORMALIZATION
+============================================================ */
+
+function normalizeText(text) {
+
+    return String(text || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+
+/* ============================================================
+   SEARCH FUNCTION
+============================================================ */
 
 function searchCPGs(query) {
 
-    query =
-        query
-            .trim()
-            .toLowerCase();
+    const normalizedQuery =
+        normalizeText(query).trim();
 
-    if (!query) {
+    if (!normalizedQuery) {
         return [];
     }
 
-    return cpgDatabase.filter(cpg => {
 
-        const searchableText = [
+    const terms =
+        normalizedQuery
+            .split(/\s+/)
+            .filter(Boolean);
 
-            cpg.title,
-            cpg.subtitle,
-            cpg.category,
-            cpg.organization,
-            cpg.year,
-            ...cpg.tags
 
-        ]
-        .join(" ")
-        .toLowerCase();
+    return CPG_DATABASE
+        .map(item => {
 
-        return searchableText.includes(query);
+            const searchableText =
+                normalizeText([
+                    item.title,
+                    item.disorder,
+                    item.category,
+                    item.organization,
+                    item.year,
+                    item.description,
+                    ...(item.tags || [])
+                ].join(" "));
 
-    });
 
-}
+            let score = 0;
 
 
-/* =========================================================
-   LIVE SEARCH
-========================================================= */
+            terms.forEach(term => {
 
-searchInput.addEventListener("input", () => {
+                if (normalizeText(item.title).includes(term)) {
+                    score += 10;
+                }
 
-    const query =
-        searchInput.value.trim();
+                if (normalizeText(item.disorder).includes(term)) {
+                    score += 8;
+                }
 
-    if (!query) {
+                if (normalizeText(item.organization).includes(term)) {
+                    score += 6;
+                }
 
-        liveResults.classList.remove("visible");
+                if (normalizeText(item.category).includes(term)) {
+                    score += 5;
+                }
 
-        return;
+                if (
+                    (item.tags || [])
+                        .some(tag =>
+                            normalizeText(tag).includes(term)
+                        )
+                ) {
+                    score += 5;
+                }
 
-    }
+                if (
+                    normalizeText(item.description)
+                        .includes(term)
+                ) {
+                    score += 2;
+                }
 
-    const results =
-        searchCPGs(query);
+                if (searchableText.includes(term)) {
+                    score += 1;
+                }
 
-    renderLiveResults(results);
-
-});
-
-
-function renderLiveResults(results) {
-
-    if (!results.length) {
-
-        liveResults.innerHTML = `
-            <div class="result-item">
-                <div>
-                    <div class="result-title">
-                        No matching CPG found
-                    </div>
-
-                    <div class="result-meta">
-                        Try another disorder, category or keyword.
-                    </div>
-                </div>
-            </div>
-        `;
-
-        liveResults.classList.add("visible");
-
-        return;
-    }
-
-
-    const limited =
-        results.slice(0, 5);
-
-
-    liveResults.innerHTML =
-        limited.map(cpg => `
-
-            <div
-                class="result-item"
-                onclick="openCPG('${cpg.file}')">
-
-                <div>
-
-                    <div class="result-title">
-                        ${cpg.title}
-                    </div>
-
-                    <div class="result-meta">
-                        ${cpg.category}
-                        ·
-                        ${cpg.year}
-                    </div>
-
-                </div>
-
-                <div class="result-arrow">
-                    →
-                </div>
-
-            </div>
-
-        `).join("");
-
-
-    liveResults.classList.add("visible");
-
-}
-
-
-/* =========================================================
-   FORM SUBMIT
-========================================================= */
-
-searchForm.addEventListener("submit", event => {
-
-    event.preventDefault();
-
-    const query =
-        searchInput.value.trim();
-
-    if (!query) {
-
-        searchInput.focus();
-
-        return;
-
-    }
-
-    showSearchPage(query);
-
-});
-
-
-/* =========================================================
-   SEARCH RESULTS PAGE
-========================================================= */
-
-function showSearchPage(query) {
-
-    const results =
-        searchCPGs(query);
-
-    homeContent.classList.add("hidden");
-
-    searchPage.classList.add("active");
-
-    liveResults.classList.remove("visible");
-
-    searchPageTitle.textContent =
-        `Search results for "${query}"`;
-
-    searchPageSubtitle.textContent =
-        `${results.length} CPG ${
-            results.length === 1
-                ? "topic"
-                : "topics"
-        } found`;
-
-
-    if (!results.length) {
-
-        fullResults.innerHTML = `
-
-            <div class="no-results">
-
-                <strong>
-                    No CPGs found
-                </strong>
-
-                Try searching for a disorder,
-                symptom, treatment or clinical domain.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    fullResults.innerHTML =
-        results.map(cpg => `
-
-            <article
-                class="full-result-card"
-                onclick="openCPG('${cpg.file}')">
-
-                <h3>
-                    ${cpg.title}
-                </h3>
-
-                <p>
-                    ${cpg.subtitle}
-                </p>
-
-                <div class="full-result-meta">
-
-                    <span class="tag">
-                        ${cpg.category}
-                    </span>
-
-                    <span class="tag">
-                        ${cpg.organization}
-                    </span>
-
-                    <span class="tag">
-                        ${cpg.year}
-                    </span>
-
-                    ${cpg.tags.map(tag => `
-                        <span class="tag">
-                            ${tag}
-                        </span>
-                    `).join("")}
-
-                </div>
-
-            </article>
-
-        `).join("");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   HOME
-========================================================= */
-
-function showHome() {
-
-    homeContent.classList.remove("hidden");
-
-    searchPage.classList.remove("active");
-
-    liveResults.classList.remove("visible");
-
-    searchInput.value = "";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   OPEN INDIVIDUAL CPG
-========================================================= */
-
-function openCPG(file) {
-
-    window.location.href = file;
-
-}
-
-
-/* =========================================================
-   FEATURED CPG CARDS
-========================================================= */
-
-function renderFeaturedCPGs() {
-
-    const featured =
-        cpgDatabase.slice(0, 6);
-
-    featuredCPGs.innerHTML =
-        featured.map(cpg => `
-
-            <article
-                class="cpg-card"
-                onclick="openCPG('${cpg.file}')">
-
-                <div class="cpg-top">
-
-                    <span class="cpg-type">
-                        ${cpg.category}
-                    </span>
-
-                    <span class="cpg-year">
-                        ${cpg.year}
-                    </span>
-
-                </div>
-
-                <h3>
-                    ${cpg.title}
-                </h3>
-
-                <p>
-                    ${cpg.subtitle}
-                </p>
-
-                <div class="cpg-tags">
-
-                    ${cpg.tags.map(tag => `
-                        <span class="tag">
-                            ${tag}
-                        </span>
-                    `).join("")}
-
-                </div>
-
-                <span class="read-link">
-                    Read guideline →
-                </span>
-
-            </article>
-
-        `).join("");
-
-}
-
-renderFeaturedCPGs();
-
-
-/* =========================================================
-   CATEGORY CLICK
-========================================================= */
-
-document
-    .querySelectorAll(".category-card")
-    .forEach(card => {
-
-        card.addEventListener("click", () => {
-
-            const category =
-                card.dataset.category;
-
-            const results =
-                cpgDatabase.filter(
-                    cpg =>
-                        cpg.category === category
-                );
-
-            homeContent.classList.add("hidden");
-
-            searchPage.classList.add("active");
-
-            searchPageTitle.textContent =
-                category;
-
-            searchPageSubtitle.textContent =
-                `${results.length} CPG ${
-                    results.length === 1
-                        ? "topic"
-                        : "topics"
-                }`;
-
-
-            if (!results.length) {
-
-                fullResults.innerHTML = `
-
-                    <div class="no-results">
-
-                        <strong>
-                            No CPGs added yet
-                        </strong>
-
-                        More guidelines will be
-                        added to this section.
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            fullResults.innerHTML =
-                results.map(cpg => `
-
-                    <article
-                        class="full-result-card"
-                        onclick="openCPG('${cpg.file}')">
-
-                        <h3>
-                            ${cpg.title}
-                        </h3>
-
-                        <p>
-                            ${cpg.subtitle}
-                        </p>
-
-                        <div class="full-result-meta">
-
-                            <span class="tag">
-                                ${cpg.category}
-                            </span>
-
-                            <span class="tag">
-                                ${cpg.year}
-                            </span>
-
-                            ${cpg.tags.map(tag => `
-                                <span class="tag">
-                                    ${tag}
-                                </span>
-                            `).join("")}
-
-                        </div>
-
-                    </article>
-
-                `).join("");
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
             });
 
-        });
 
-    });
+            return {
+                item,
+                score
+            };
 
+        })
 
-/* =========================================================
-   DARK / LIGHT MODE
-========================================================= */
+        .filter(result => result.score > 0)
 
-function setTheme(theme) {
+        .sort((a, b) => b.score - a.score)
 
-    if (theme === "dark") {
-
-        document.body.classList.add("dark");
-
-        localStorage.setItem(
-            "cpg-theme",
-            "dark"
-        );
-
-        /* Moon icon */
-
-        themeIcon.innerHTML = `
-            <path
-                d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5
-                   8.5 8.5 0 1 0 20.5 15.5Z"/>
-        `;
-
-    } else {
-
-        document.body.classList.remove("dark");
-
-        localStorage.setItem(
-            "cpg-theme",
-            "light"
-        );
-
-        /* Sun icon */
-
-        themeIcon.innerHTML = `
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2"/>
-            <path d="M12 20v2"/>
-            <path d="M4.93 4.93l1.42 1.42"/>
-            <path d="M17.65 17.65l1.42 1.42"/>
-            <path d="M2 12h2"/>
-            <path d="M20 12h2"/>
-            <path d="M4.93 19.07l1.42-1.42"/>
-            <path d="M17.65 6.35l1.42-1.42"/>
-        `;
-
-    }
+        .map(result => result.item);
 
 }
 
 
-const savedTheme =
-    localStorage.getItem("cpg-theme");
 
-setTheme(
-    savedTheme ||
-    (
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches
-            ? "dark"
-            : "light"
-    )
+/* ============================================================
+   RENDER SEARCH RESULTS
+============================================================ */
+
+function renderSearchResults(query) {
+
+    const results =
+        searchCPGs(query);
+
+
+    resultsList.innerHTML = "";
+
+
+    if (!query.trim()) {
+
+        resultsSection.classList.remove("visible");
+
+        return;
+
+    }
+
+
+    resultsSection.classList.add("visible");
+
+
+    resultsCount.textContent =
+        `${results.length} ${
+            results.length === 1
+                ? "result"
+                : "results"
+        }`;
+
+
+    if (!results.length) {
+
+        resultsList.innerHTML = `
+
+            <div class="empty-state">
+
+                <strong>
+                    No matching guidelines found
+                </strong>
+
+                Try searching by disorder,
+                organization, treatment or keyword.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    results.forEach(item => {
+
+        const card =
+            document.createElement("a");
+
+        card.className =
+            "result-card";
+
+        card.href =
+            item.url;
+
+
+        card.innerHTML = `
+
+            <div class="result-main">
+
+                <div class="result-title">
+                    ${item.title}
+                </div>
+
+                <div class="result-description">
+                    ${item.description}
+                </div>
+
+                <div class="result-meta">
+
+                    <span class="meta-tag">
+                        ${item.disorder}
+                    </span>
+
+                    <span class="meta-tag">
+                        ${item.organization}
+                    </span>
+
+                    <span class="meta-tag">
+                        ${item.year}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-arrow">
+                →
+            </div>
+
+        `;
+
+
+        resultsList.appendChild(card);
+
+    });
+
+}
+
+
+
+/* ============================================================
+   SEARCH INPUT
+============================================================ */
+
+searchInput.addEventListener(
+    "input",
+    () => {
+
+        const query =
+            searchInput.value;
+
+        clearSearch.style.display =
+            query
+                ? "flex"
+                : "none";
+
+        renderSearchResults(query);
+
+    }
 );
 
 
-themeToggle.addEventListener(
+
+/* ============================================================
+   CLEAR SEARCH
+============================================================ */
+
+clearSearch.addEventListener(
     "click",
     () => {
 
-        setTheme(
-            document.body.classList.contains("dark")
-                ? "light"
-                : "dark"
+        searchInput.value = "";
+
+        clearSearch.style.display =
+            "none";
+
+        resultsSection.classList.remove(
+            "visible"
         );
 
-    }
-);
-
-
-/* =========================================================
-   CLOSE SEARCH WHEN CLICKING OUTSIDE
-========================================================= */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        if (
-            !event.target.closest(
-                ".search-container"
-            )
-        ) {
-
-            liveResults.classList.remove(
-                "visible"
-            );
-
-        }
+        searchInput.focus();
 
     }
 );
 
 
-/* =========================================================
-   ESC KEY
-========================================================= */
 
-document.addEventListener(
+/* ============================================================
+   ENTER → SEARCH PAGE
+============================================================ */
+
+searchInput.addEventListener(
     "keydown",
     event => {
 
-        if (event.key === "Escape") {
+        if (
+            event.key === "Enter" &&
+            searchInput.value.trim()
+        ) {
 
-            liveResults.classList.remove(
-                "visible"
-            );
+            const query =
+                encodeURIComponent(
+                    searchInput.value.trim()
+                );
 
-            searchInput.blur();
+
+            window.location.href =
+                `search.html?q=${query}`;
 
         }
 
     }
 );
+
+
+
+/* ============================================================
+   FEATURED GUIDELINES
+============================================================ */
+
+function renderFeatured() {
+
+    const featured =
+        CPG_DATABASE.slice(0, 4);
+
+
+    featuredGrid.innerHTML = "";
+
+
+    featured.forEach(item => {
+
+        const card =
+            document.createElement("a");
+
+        card.href =
+            item.url;
+
+        card.className =
+            "featured-card";
+
+
+        card.innerHTML = `
+
+            <div class="featured-top">
+
+                <span class="featured-label">
+                    ${item.category}
+                </span>
+
+                <span class="featured-year">
+                    ${item.year}
+                </span>
+
+            </div>
+
+
+            <div class="featured-title">
+                ${item.title}
+            </div>
+
+
+            <div class="featured-source">
+                ${item.organization}
+            </div>
+
+
+            <span class="read-link">
+                Read guideline →
+            </span>
+
+        `;
+
+
+        featuredGrid.appendChild(card);
+
+    });
+
+}
+
+
+
+/* ============================================================
+   INITIALIZE
+============================================================ */
+
+renderFeatured();
+
+
+
+/* ============================================================
+   SUPPORT ?q= SEARCH URL
+============================================================ */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const initialQuery =
+    params.get("q");
+
+
+if (initialQuery) {
+
+    searchInput.value =
+        initialQuery;
+
+    clearSearch.style.display =
+        "flex";
+
+    renderSearchResults(
+        initialQuery
+    );
+
+}
 
 </script>
 
 </body>
 </html>
-
-
