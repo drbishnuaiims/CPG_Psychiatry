@@ -14,15 +14,24 @@ const GUIDELINES = [
     readTime: "8 min read"
   },
   {
-    title: "Schizophrenia and Psychotic Disorders",
+    title: "Clinical Practice Guidelines for Management of Schizophrenia",
     shortTitle: "Schizophrenia",
-    category: "Psychotic Disorders",
-    year: "2026",
-    description: "A concise clinical reference covering assessment, pharmacotherapy, psychosocial interventions and follow-up.",
-    tags: ["schizophrenia", "psychosis", "antipsychotics"],
+    authors: "Grover S, Chakrabarti S, Kulhara P, Avasthi A",
+    year: "2017",
+    journal: "Indian Journal of Psychiatry",
+    category: "Schizophrenia",
     url: "cpg/schizophrenia.html",
-    readTime: "10 min read"
-  },
+    keywords: [
+        "schizophrenia",
+        "psychosis",
+        "antipsychotics",
+        "clozapine",
+        "treatment resistance",
+        "ECT",
+        "psychosocial interventions",
+        "Indian Psychiatric Society"
+    ]
+},
   {
     title: "Attention-Deficit/Hyperactivity Disorder",
     shortTitle: "ADHD",
