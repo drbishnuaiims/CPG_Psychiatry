@@ -28,4 +28,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
+<url>
+    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/organic_differentials_anxiety.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
