@@ -292,6 +292,124 @@ const GUIDELINES = [
   /* =====================================================
      NEW CPG SLOT — 10
   ===================================================== */
+{
+    title: "Parkinson’s Disease: Etiopathogenesis and Treatment",
+
+    shortTitle: "Parkinson’s Disease",
+
+    authors: "Jankovic J, Tan EK",
+
+    year: "2020",
+
+    journal:
+      "Journal of Neurology, Neurosurgery & Psychiatry",
+
+    category:
+      "Neurology / Movement Disorders",
+
+    description:
+      "A comprehensive review of Parkinson’s disease covering the prodromal phase, clinical syndrome, genetic and environmental factors, molecular pathogenesis, motor and non-motor manifestations, levodopa therapy, motor complications, pharmacological treatment, rehabilitation, deep brain stimulation and emerging disease-modifying therapies.",
+
+    tags: [
+      "Parkinson’s disease",
+      "Parkinson disease",
+      "Parkinsonism",
+      "movement disorders",
+      "neurology",
+      "levodopa",
+      "deep brain stimulation",
+      "non-motor symptoms"
+    ],
+
+    keywords: [
+      "Parkinson’s disease",
+      "Parkinson disease",
+      "Parkinsonism",
+      "movement disorders",
+      "bradykinesia",
+      "rigidity",
+      "rest tremor",
+      "postural instability",
+      "PIGD",
+      "tremor dominant Parkinson disease",
+      "prodromal Parkinson disease",
+      "REM sleep behaviour disorder",
+      "anosmia",
+      "hyposmia",
+      "constipation",
+      "autonomic dysfunction",
+      "depression",
+      "cognitive impairment",
+      "dementia",
+      "dysautonomia",
+      "alpha synuclein",
+      "α-synuclein",
+      "Lewy bodies",
+      "oxidative stress",
+      "mitochondrial dysfunction",
+      "neuroinflammation",
+      "autophagy",
+      "lysosomal dysfunction",
+      "ubiquitin proteasome system",
+      "SNCA",
+      "PRKN",
+      "PARKIN",
+      "LRRK2",
+      "GBA",
+      "PINK1",
+      "DJ-1",
+      "genetics of Parkinson disease",
+      "environmental risk factors",
+      "pesticide exposure",
+      "caffeine",
+      "exercise",
+      "levodopa",
+      "carbidopa",
+      "benserazide",
+      "wearing off",
+      "motor fluctuations",
+      "dyskinesia",
+      "peak dose dyskinesia",
+      "dopamine agonists",
+      "pramipexole",
+      "ropinirole",
+      "rotigotine",
+      "apomorphine",
+      "MAO-B inhibitors",
+      "selegiline",
+      "rasagiline",
+      "safinamide",
+      "COMT inhibitors",
+      "entacapone",
+      "tolcapone",
+      "opicapone",
+      "amantadine",
+      "istradefylline",
+      "anticholinergics",
+      "non-motor symptoms Parkinson disease",
+      "psychosis Parkinson disease",
+      "depression Parkinson disease",
+      "sleep disorders Parkinson disease",
+      "orthostatic hypotension",
+      "constipation Parkinson disease",
+      "deep brain stimulation",
+      "DBS",
+      "subthalamic nucleus",
+      "STN DBS",
+      "globus pallidus internus",
+      "GPi DBS",
+      "focused ultrasound",
+      "gene therapy Parkinson disease",
+      "cell replacement therapy",
+      "disease modifying therapy",
+      "neuroprotective therapy",
+      "movement disorder treatment"
+    ],
+
+    url: "parkinsons-note.html",
+
+    readTime: "25 min read"
+  },
 
   {
     title: "A Therapist’s Guide to Assess and Treat Internet Addiction",
