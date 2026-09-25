@@ -406,7 +406,7 @@ const GUIDELINES = [
       "movement disorder treatment"
     ],
 
-    url: "/cpg/parkinsons_note.html",
+    url: "/CPG_Psychiatry/cpg/parkinsons_note.html",
 
     readTime: "25 min read"
   },
