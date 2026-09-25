@@ -406,7 +406,7 @@ const GUIDELINES = [
       "movement disorder treatment"
     ],
 
-    url: "parkinsons-note.html",
+    url: "/cpg/parkinsons-note.html",
 
     readTime: "25 min read"
   },
