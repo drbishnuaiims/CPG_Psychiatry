@@ -292,6 +292,130 @@ const GUIDELINES = [
   /* =====================================================
      NEW CPG SLOT — 10
   ===================================================== */
+  /* =====================================================
+     BIPOLAR DISORDER — NEWEST CPG
+     CANMAT / ISBD 2018
+   ===================================================== */
+
+  {
+    title:
+      "Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) 2018 Guidelines for the Management of Patients with Bipolar Disorder",
+
+    shortTitle:
+      "CANMAT/ISBD Bipolar Disorder Guidelines",
+
+    authors:
+      "Yatham LN, Kennedy SH, Parikh SV, Schaffer A, Bond DJ, Frey BN, Sharma V, Goldstein BI, Rej S, Beaulieu S, Alda M, MacQueen G, Milev RV, Ravindran A, O'Donovan C, McIntosh D, Lam RW, Vazquez G, Kapczinski F, McIntyre RS, Kozicky J, Kanba S, Lafer B, Suppes T, Calabrese JR, Vieta E, Malhi GS",
+
+    year:
+      "2018",
+
+    journal:
+      "Bipolar Disorders",
+
+    category:
+      "Mood Disorders / Bipolar Disorder",
+
+    description:
+      "Comprehensive CANMAT and ISBD evidence-based guidelines for the assessment and management of bipolar disorder. Covers diagnosis and differential diagnosis, suicide risk assessment, psychosocial interventions, acute mania, acute bipolar I depression, maintenance treatment, bipolar II disorder, special populations including pregnancy, postpartum, children, adolescents and older adults, psychiatric and medical comorbidities, pharmacological treatment, electroconvulsive therapy, and medication safety and monitoring.",
+
+    tags: [
+      "bipolar disorder",
+      "bipolar I disorder",
+      "bipolar II disorder",
+      "mania",
+      "hypomania",
+      "bipolar depression",
+      "maintenance treatment",
+      "mood disorders",
+      "psychopharmacology",
+      "psychiatry",
+      "CANMAT",
+      "ISBD"
+    ],
+
+    keywords: [
+      "bipolar disorder",
+      "bipolar I disorder",
+      "bipolar II disorder",
+      "mania",
+      "hypomania",
+      "acute mania",
+      "acute bipolar depression",
+      "bipolar depression",
+      "maintenance treatment",
+      "mood stabilizers",
+      "lithium",
+      "divalproex",
+      "valproate",
+      "quetiapine",
+      "lurasidone",
+      "lamotrigine",
+      "asenapine",
+      "aripiprazole",
+      "risperidone",
+      "paliperidone",
+      "cariprazine",
+      "olanzapine",
+      "carbamazepine",
+      "ziprasidone",
+      "haloperidol",
+      "clozapine",
+      "antidepressants bipolar disorder",
+      "antidepressant-induced mania",
+      "mixed features",
+      "rapid cycling",
+      "psychotic mania",
+      "psychotic depression",
+      "suicide risk bipolar disorder",
+      "suicide prevention",
+      "electroconvulsive therapy",
+      "ECT",
+      "rTMS",
+      "psychoeducation",
+      "cognitive behavioral therapy",
+      "CBT",
+      "family-focused therapy",
+      "FFT",
+      "interpersonal and social rhythm therapy",
+      "IPSRT",
+      "substance use disorder",
+      "anxiety disorder",
+      "ADHD",
+      "metabolic syndrome",
+      "pregnancy bipolar disorder",
+      "postpartum bipolar disorder",
+      "postpartum psychosis",
+      "children bipolar disorder",
+      "adolescent bipolar disorder",
+      "geriatric bipolar disorder",
+      "older adults bipolar disorder",
+      "lithium monitoring",
+      "lithium toxicity",
+      "thyroid monitoring",
+      "renal monitoring",
+      "valproate monitoring",
+      "lamotrigine rash",
+      "Stevens-Johnson syndrome",
+      "antipsychotic monitoring",
+      "metabolic monitoring",
+      "EPS",
+      "akathisia",
+      "tardive dyskinesia",
+      "neuroleptic malignant syndrome",
+      "prolactin",
+      "mood charting",
+      "relapse prevention",
+      "psychoeducation bipolar disorder",
+      "clinical decision making bipolar disorder"
+    ],
+
+    url:
+      "cpg/canmat-isbd-bipolar-disorder-2018.html",
+
+    readTime:
+      "35 min read"
+  },
 {
     title: "Medical / Organic Differentials of Anxiety: Approach to Diagnosis",
 

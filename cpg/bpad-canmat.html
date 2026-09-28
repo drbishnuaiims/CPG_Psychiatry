@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CANMAT/ISBD 2018 Bipolar Disorder — OPD/IPD Clinical Decision Note</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#dfe4ec;
+  --accent:#315efb;--accent2:#e8efff;--danger:#c62828;--danger-bg:#fff0f0;
+  --warn:#8a5a00;--warn-bg:#fff8df;--good:#16794c;--good-bg:#eaf8f0;
+  --purple:#6841c6;--purple-bg:#f2edff;--shadow:0 8px 24px rgba(18,32,56,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+button,input{font:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-inner{max-width:1500px;margin:auto;padding:12px 20px;display:flex;gap:14px;align-items:center}
+.brand{font-weight:800;white-space:nowrap}
+.search{flex:1;min-width:160px;border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:#fff}
+.btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:650}
+.btn:hover{background:#f2f4f8}
+.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:270px 1fr;gap:22px;padding:22px 18px}
+.sidebar{position:sticky;top:74px;height:calc(100vh - 92px);overflow:auto;padding-right:5px}
+.sidebar h4{margin:8px 0;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.nav a{display:block;padding:8px 10px;border-radius:8px;color:#344054;font-size:13px}
+.nav a:hover{background:#eaf0ff;color:#173ea5}
+main{min-width:0}
+.hero{background:linear-gradient(135deg,#14213d,#294b9a);color:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(25px,3vw,40px);margin:0 0 10px;line-height:1.1}
+.hero p{max-width:1000px;color:#e8edf9;margin:7px 0}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.badge{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:5px 9px;border-radius:999px;font-size:12px}
+.notice{margin:16px 0;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#fff}
+.notice.warn{background:var(--warn-bg);border-color:#f0d98c}
+.notice.danger{background:var(--danger-bg);border-color:#efb0b0}
+.notice.good{background:var(--good-bg);border-color:#a8dec0}
+.section{margin-top:28px;scroll-margin-top:90px}
+.section>h2{font-size:24px;margin:0 0 12px}
+.section>h3{font-size:18px;margin:22px 0 10px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:var(--shadow)}
+.card h3,.card h4{margin:0 0 7px}
+.card p:last-child{margin-bottom:0}
+.kpi{font-size:26px;font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.muted{color:var(--muted)}
+mark,.hl{background:#fff1a8;padding:1px 4px;border-radius:4px}
+.red{color:var(--danger);font-weight:700}
+.green{color:var(--good);font-weight:700}
+.purple{color:var(--purple);font-weight:700}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;font-size:13px}
+th{background:#f2f5f9;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:21px}
+li{margin:4px 0}
+.callout{border-left:4px solid var(--accent);background:var(--accent2);padding:13px 15px;border-radius:0 10px 10px 0;margin:12px 0}
+.callout.danger{border-left-color:var(--danger);background:var(--danger-bg)}
+.callout.warn{border-left-color:#d89a00;background:var(--warn-bg)}
+.callout.good{border-left-color:var(--good);background:var(--good-bg)}
+details{background:#fff;border:1px solid var(--line);border-radius:11px;margin:9px 0;padding:0 13px}
+summary{cursor:pointer;font-weight:750;padding:12px 0}
+details .inside{padding:0 0 13px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:12px 0}
+.step{flex:1 1 160px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:13px;position:relative}
+.step strong{display:block;margin-bottom:5px}
+.arrow{align-self:center;font-weight:900;color:var(--accent)}
+.chip{display:inline-block;padding:3px 7px;border-radius:999px;background:#eef2f7;color:#344054;font-size:11px;font-weight:700;margin:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.tab{padding:8px 11px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px}
+.tab.active{background:#172d63;color:#fff;border-color:#172d63}
+.tabpanel{display:none}.tabpanel.active{display:block}
+.checklist label{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed var(--line)}
+.checklist input{margin-top:5px}
+.footer{margin:35px 0;padding:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.print-only{display:none}
+@media(max-width:1000px){
+  .layout{grid-template-columns:1fr}.sidebar{display:none}
+}
+@media print{
+  .topbar,.sidebar,.no-print{display:none!important}
+  .layout{display:block;padding:0}.hero{color:#000;background:#fff;border:1px solid #ccc;box-shadow:none}
+  .section{break-inside:auto}.card,.table-wrap,details{box-shadow:none}
+  .print-only{display:block}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="topbar-inner">
+    <div class="brand">CANMAT/ISBD 2018 • Bipolar Clinical Note</div>
+    <input id="search" class="search" type="search" placeholder="Search: lithium, mania, pregnancy, suicide, monitoring…">
+    <button class="btn" onclick="expandAll()">Expand</button>
+    <button class="btn" onclick="collapseAll()">Collapse</button>
+    <button class="btn" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<div class="layout">
+<aside class="sidebar no-print">
+  <h4>Clinical navigation</h4>
+  <nav class="nav">
+    <a href="#quick">01. Quick clinical dashboard</a>
+    <a href="#evidence">02. Evidence & line ratings</a>
+    <a href="#diagnosis">03. Diagnosis & assessment</a>
+    <a href="#suicide">04. Suicide risk</a>
+    <a href="#foundations">05. Long-term foundations</a>
+    <a href="#psychosocial">06. Psychosocial treatment</a>
+    <a href="#mania">07. Acute mania</a>
+    <a href="#depression">08. Bipolar I depression</a>
+    <a href="#maintenance">09. Bipolar I maintenance</a>
+    <a href="#bd2">10. Bipolar II</a>
+    <a href="#special">11. Special populations</a>
+    <a href="#comorbidity">12. Comorbidities</a>
+    <a href="#monitoring">13. Safety & monitoring</a>
+    <a href="#rounds">14. OPD/IPD round checklists</a>
+    <a href="#pearls">15. High-yield clinical pearls</a>
+    <a href="#sources">16. Source & limitations</a>
+  </nav>
+</aside>
+
+<main id="content">
+<section class="hero">
+  <h1>Bipolar Disorder — OPD / IPD Clinical Decision Note</h1>
+  <p><strong>Source:</strong> CANMAT and ISBD 2018 Guidelines for the Management of Patients with Bipolar Disorder.</p>
+  <p>Designed as a bedside decision-support note: <strong>diagnose → risk-stratify → identify polarity → select treatment → monitor → prevent recurrence</strong>.</p>
+  <div class="badges">
+    <span class="badge">Bipolar I</span><span class="badge">Bipolar II</span><span class="badge">Mania</span>
+    <span class="badge">Bipolar depression</span><span class="badge">Maintenance</span><span class="badge">Suicide risk</span>
+    <span class="badge">Special populations</span><span class="badge">Safety monitoring</span>
+  </div>
+</section>
+
+<div class="notice warn">
+  <strong>Clinical-use warning:</strong> this page is a structured rendering of the <strong>2018</strong> source document, not a replacement for current prescribing information, local regulatory requirements, product labels, or individual clinical judgment. The guideline itself advises clinicians to follow local regulatory bodies. Always verify current doses, contraindications, interactions and reproductive-safety requirements before prescribing.
+</div>
+
+<section id="quick" class="section">
+<h2>01. Quick Clinical Dashboard</h2>
+<div class="card-grid">
+  <div class="card"><div class="small">Acute mania — first-line</div><div class="kpi">8 core options</div><p>Lithium, quetiapine, divalproex, asenapine, aripiprazole, paliperidone, risperidone, cariprazine; hierarchy is modified by patient-specific factors.</p></div>
+  <div class="card"><div class="small">Bipolar I depression — first-line</div><div class="kpi">6 options</div><p>Quetiapine; lurasidone + lithium/divalproex; lithium; lamotrigine; lurasidone; adjunctive lamotrigine.</p></div>
+  <div class="card"><div class="small">Maintenance — first-line</div><div class="kpi">Core agents</div><p>Lithium, quetiapine, divalproex, lamotrigine, asenapine, aripiprazole; selected combinations also have first-line evidence.</p></div>
+  <div class="card"><div class="small">Suicide-risk principle</div><div class="kpi">Every contact</div><p>Assess suicidal ideation and modifiable risk factors at every clinical interaction; risk scales do not replace clinical assessment.</p></div>
+</div>
+
+<div class="flow">
+  <div class="step"><strong>1. Is this bipolar?</strong>Confirm longitudinal episodes, collateral history, substances/medications and medical mimics.</div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>2. What polarity?</strong>Mania / hypomania / depression / mixed features / euthymia.</div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>3. How dangerous?</strong>Suicide, violence, psychosis, inability to care, severe agitation, medical compromise.</div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>4. What has worked before?</strong>Prior response, non-response, adverse effects, adherence and current medication.</div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>5. Acute + longitudinal fit</strong>Prefer treatments with evidence across the illness when otherwise comparable.</div>
+</div>
+
+<div class="callout good"><strong>Core principle:</strong> the guideline's hierarchy is not a rigid “one drug fits all” ladder. Patient preference, previous response/non-response, tolerability, comorbidity, current treatment and clinical features can justify choosing an option lower in the hierarchy.</div>
+</section>
+
+<section id="evidence" class="section">
+<h2>02. Evidence Levels and Meaning of “First-/Second-/Third-line”</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Evidence level</th><th>Source definition</th><th>Clinical interpretation</th></tr></thead>
+<tbody>
+<tr><td><strong>Level 1</strong></td><td>Meta-analysis with narrow confidence interval or replicated double-blind RCT with placebo/active control; ≥30 participants in each active arm.</td><td>Strongest evidence category in this guideline.</td></tr>
+<tr><td><strong>Level 2</strong></td><td>Meta-analysis with wide confidence interval or one double-blind RCT with placebo/active control; ≥30 participants in each active arm.</td><td>Good but less robust evidence than level 1.</td></tr>
+<tr><td><strong>Level 3</strong></td><td>At least one double-blind RCT with 10–29 participants per active arm or health-system administrative data.</td><td>Limited evidence.</td></tr>
+<tr><td><strong>Level 4</strong></td><td>Uncontrolled trial, anecdotal reports or expert opinion.</td><td>Weakest evidence category.</td></tr>
+</tbody></table></div>
+
+<div class="table-wrap" style="margin-top:14px"><table>
+<thead><tr><th>Recommendation</th><th>How CANMAT/ISBD defines it</th></tr></thead>
+<tbody>
+<tr><td><strong>First-line</strong></td><td>Level 1 or 2 efficacy evidence + clinical support for safety/tolerability + no treatment-emergent switch concern.</td></tr>
+<tr><td><strong>Second-line</strong></td><td>Level 3 or higher efficacy evidence + clinical support for safety/tolerability + low switch risk.</td></tr>
+<tr><td><strong>Third-line</strong></td><td>Level 4 or higher efficacy evidence + clinical support for safety/tolerability.</td></tr>
+<tr><td><strong>Not recommended</strong></td><td>Level 1 evidence for lack of efficacy, or level 2 negative evidence plus expert opinion.</td></tr>
+</tbody></table></div>
+
+<div class="callout"><strong>Important terminology:</strong> the guideline deliberately avoids the term <em>“mood stabilizer”</em> because it is used inconsistently in the literature. “Divalproex” encompasses valproate, valpromide, valproic acid and divalproex sodium. “Maintenance” means prophylactic treatment after stabilization of acute mania or depression.</div>
+</section>
+
+<section id="diagnosis" class="section">
+<h2>03. Diagnostic Assessment — Do Not Diagnose Bipolarity from a Checklist Alone</h2>
+
+<div class="card-grid">
+  <div class="card"><h3>Bipolar I</h3><p>Defined by the occurrence of a <strong>threshold manic episode</strong>. Mania may include inflated self-esteem/grandiosity, decreased need for sleep, pressured speech, racing thoughts, distractibility, psychomotor agitation and risky behaviour, with marked functional impairment and possible psychosis or hospitalization.</p></div>
+  <div class="card"><h3>Bipolar II</h3><p>Requires <strong>hypomania + threshold major depressive episodes</strong>. Hypomania is qualitatively similar to mania but is not sufficiently severe/durable to cause marked functional impairment, hospitalization or psychosis.</p></div>
+  <div class="card"><h3>Cyclothymia</h3><p>Chronic subthreshold hypomanic and depressive symptoms that do not meet full criteria for hypomanic/manic or major depressive episodes.</p></div>
+  <div class="card"><h3>DSM-5 related categories</h3><p>DSM-5 replaced bipolar NOS with <strong>other specified bipolar and related disorder</strong> and <strong>unspecified bipolar and related disorder</strong>, and includes substance/medication-induced bipolar and related disorder and bipolar/related disorder due to another medical condition.</p></div>
+</div>
+
+<h3>What to actively look for in a depressed patient</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Feature</th><th>Why it should raise suspicion of bipolarity</th></tr></thead>
+<tbody>
+<tr><td><strong>Early onset</strong></td><td>First depression before ~25 years.</td></tr>
+<tr><td><strong>High recurrence</strong></td><td>Multiple prior depressive episodes, particularly ≥5.</td></tr>
+<tr><td><strong>Atypical/reverse vegetative features</strong></td><td>Hypersomnia, hyperphagia/weight gain, leaden paralysis.</td></tr>
+<tr><td><strong>Activation</strong></td><td>Lability, irritability, psychomotor agitation, racing thoughts, reduced sleep.</td></tr>
+<tr><td><strong>Psychosis</strong></td><td>Depressive psychotic features increase suspicion.</td></tr>
+<tr><td><strong>Postpartum history</strong></td><td>Postpartum depression or psychosis is a bipolarity signal.</td></tr>
+<tr><td><strong>Family history</strong></td><td>First-degree family history of bipolar disorder.</td></tr>
+<tr><td><strong>Antidepressant history</strong></td><td>Antidepressant-induced mania/hypomania or rapid cycling.</td></tr>
+</tbody></table></div>
+
+<h3>Common diagnostic traps</h3>
+<ul>
+<li><strong>MDD:</strong> actively probe for past mania/hypomania before assigning unipolar depression.</li>
+<li><strong>Schizophrenia/schizoaffective disorder:</strong> establish whether psychosis occurs outside prominent mood episodes; assess longitudinal course and family history.</li>
+<li><strong>Borderline personality disorder:</strong> chronic interpersonal instability, unstable self-image, abandonment fears and impulsivity; true sustained euphoria and prolonged well-functioning intervals are uncommon.</li>
+<li><strong>ADHD:</strong> lifelong trait-like symptoms and developmental history can mimic distractibility/activation but differ from episodic mania.</li>
+<li><strong>Substance/medication-induced states:</strong> ask specifically about stimulants, steroids, L-dopa, antidepressants, illicit drugs and withdrawal/intoxication.</li>
+<li><strong>Medical/neurological causes:</strong> consider thyroid disease, Cushing disease, stroke, MS, traumatic brain injury, frontal lesions and other relevant disorders.</li>
+<li><strong>Late first mania:</strong> a first manic presentation after age 50 warrants careful assessment for an organic cause.</li>
+</ul>
+
+<div class="callout warn"><strong>MDQ:</strong> useful only as an adjunctive screening tool in clinical populations. The guideline notes poor sensitivity/specificity, especially in community/highly comorbid populations. <mark>Do not use an MDQ score as a diagnostic or treatment-planning substitute.</mark></div>
+
+<h3>Collateral + longitudinal diagnosis</h3>
+<ul>
+<li>Obtain collateral from family/friends whenever possible.</li>
+<li>Ask first-degree relatives about periods of increased activity, irritability and behavioural change.</li>
+<li>Use prospective <strong>mood charting</strong> where diagnosis is uncertain.</li>
+<li>Do not rely only on the patient's recall during severe depression; concentration and memory may be impaired.</li>
+</ul>
+
+<h3>DSM-5 specifiers worth documenting</h3>
+<div class="card-grid">
+  <div class="card"><strong>Anxious distress</strong><br>Relevant to persistence, suicide risk and treatment selection.</div>
+  <div class="card"><strong>Mixed features</strong><br>High clinical importance; can change antidepressant decisions.</div>
+  <div class="card"><strong>Rapid cycling</strong><br>≥4 mood episodes/year; investigate contributors.</div>
+  <div class="card"><strong>Melancholic / atypical</strong><br>May influence treatment selection.</div>
+  <div class="card"><strong>Psychotic features</strong><br>Consider antipsychotic/ECT and diagnostic differentials.</div>
+  <div class="card"><strong>Catatonia</strong><br>Major acute safety/treatment implication.</div>
+  <div class="card"><strong>Peripartum onset</strong><br>Requires reproductive/postpartum strategy.</div>
+  <div class="card"><strong>Seasonal pattern</strong><br>Document longitudinally rather than assuming seasonality.</div>
+</div>
+
+<h3>Clinical progression / staging concept</h3>
+<div class="table-wrap"><table>
+<tr><th>Stage</th><th>Concept</th></tr>
+<tr><td>I</td><td>Increased risk for BD due to family history/subsyndromal symptoms predictive of conversion.</td></tr>
+<tr><td>II</td><td>Fewer episodes with relatively optimal inter-episode functioning.</td></tr>
+<tr><td>III</td><td>Recurrent episodes with functional and cognitive decline.</td></tr>
+</table></div>
+<p class="small">The guideline emphasizes that staging remains an emerging concept and is not sufficiently validated for routine prognostic/treatment decisions.</p>
+</section>
+
+<section id="suicide" class="section">
+<h2>04. Suicide Risk — Mandatory in Every Clinical Interaction</h2>
+<div class="card-grid">
+  <div class="card"><div class="kpi">6–7%</div><p>Approximate proportion of identified patients with BD reported in the guideline as dying by suicide.</p></div>
+  <div class="card"><div class="kpi">43%</div><p>Reported suicidal ideation within the past year in the cited worldwide survey.</p></div>
+  <div class="card"><div class="kpi">21%</div><p>Reported suicide plan within the past year.</p></div>
+  <div class="card"><div class="kpi">16%</div><p>Reported suicide attempt within the past year.</p></div>
+</div>
+
+<div class="callout danger"><strong>High-risk windows:</strong> the guideline reports that 14% of suicides occurred during an inpatient stay and another 26% within 6 weeks of discharge. Discharge planning therefore needs to be treated as an active suicide-prevention intervention, not an administrative endpoint.</div>
+
+<h3>Risk factors to document</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Domain</th><th>Examples from guideline</th></tr></thead>
+<tbody>
+<tr><td>Episode</td><td>Current/recent depression, mixed features, severe/recurrent episodes, rapid cycling, manic episode with psychosis.</td></tr>
+<tr><td>Symptoms</td><td>Suicidal ideation, hopelessness, psychomotor agitation, atypical features.</td></tr>
+<tr><td>History</td><td>Previous suicide attempt, early life trauma/childhood abuse, first-degree family history of suicide.</td></tr>
+<tr><td>Comorbidity</td><td>Substance use disorder, anxiety, eating disorder, personality disorder—especially borderline/cluster B.</td></tr>
+<tr><td>Social</td><td>Interpersonal conflict, occupational problems, bereavement, social isolation.</td></tr>
+<tr><td>Physical</td><td>Obesity/high BMI and other medical burden.</td></tr>
+</tbody></table></div>
+
+<h3>Bedside suicide assessment</h3>
+<div class="checklist">
+<label><input type="checkbox">Current suicidal thoughts: passive vs active.</label>
+<label><input type="checkbox">Intent: desire to die; expectation of acting.</label>
+<label><input type="checkbox">Plan: method, access, preparation and timing.</label>
+<label><input type="checkbox">Past attempts and medically serious attempts.</label>
+<label><input type="checkbox">Agitation, mixed features, psychosis, intoxication/withdrawal.</label>
+<label><input type="checkbox">Protective factors and reasons for living.</label>
+<label><input type="checkbox">Family/social supervision and ability to engage in treatment.</label>
+<label><input type="checkbox">Access to potentially lethal medications/means.</label>
+<label><input type="checkbox">Written safety plan shared with patient/support person where appropriate.</label>
+<label><input type="checkbox">Treatment setting: outpatient vs inpatient; observation needs.</label>
+</div>
+<p><strong>Do not substitute a numerical risk score for clinical formulation.</strong> The guideline specifically states that risk-stratification tools are not sufficiently accurate for clinical prediction; focus on modifiable risk factors and safety interventions.</p>
+
+<div class="callout good"><strong>Lithium and suicide:</strong> the guideline cites evidence suggesting lithium may contribute to prevention of suicide attempts/deaths, with anticonvulsants possibly contributing to a lesser extent; it also stresses that more comparative data are needed.</div>
+</section>
+
+<section id="foundations" class="section">
+<h2>05. Foundations of Long-Term Management</h2>
+<div class="card-grid">
+<div class="card"><h3>Chronic disease model</h3><p>BD is chronic, recurrent and remitting. Management therefore requires a <strong>multidisciplinary, longitudinal system</strong>, not episode-only prescribing.</p></div>
+<div class="card"><h3>Shared decision-making</h3><p>Discuss options with the patient and caregiver where appropriate, incorporating preference, previous response, safety, tolerability and practical adherence.</p></div>
+<div class="card"><h3>Team-based care</h3><p>Ideally involve at least one additional health professional, commonly nursing, for psychoeducation, monitoring, psychosocial support and community linkage.</p></div>
+<div class="card"><h3>Primary care integration</h3><p>Stable patients may be followed in primary care with mental-health-system support and continuity of care.</p></div>
+</div>
+
+<h3>What should be tracked longitudinally?</h3>
+<ul>
+<li>Mood polarity and subsyndromal symptoms.</li>
+<li><strong>Sleep/wake rhythm.</strong></li>
+<li>Cognition.</li>
+<li>Occupational/social functioning.</li>
+<li>Quality of life.</li>
+<li>Medication adherence and adverse effects.</li>
+<li>Substance use.</li>
+<li>Early warning signs and individualized relapse signature.</li>
+</ul>
+
+<div class="callout"><strong>Mood diary / life chart:</strong> can help identify early relapse signals and relationships between mood and treatment/lifestyle factors such as diet, exercise and stress. The guideline acknowledges that daily completion can be burdensome; simplify the monitoring plan when needed.</div>
+
+<h3>Illness burden</h3>
+<p>The guideline reports that people with BD experience syndromal or subsyndromal symptoms—especially depression—for approximately half of their lives and have substantial functional and quality-of-life impairment. Depression, greater episode burden/duration and lower cognition are associated with greater impairment.</p>
+
+<h3>Stigma</h3>
+<p>Stigma may reduce help-seeking, social support, treatment engagement, functioning and quality of life. Psychoeducation should address self-stigma, coping, empowerment and help-seeking rather than framing BD as personal weakness or moral failure.</p>
+</section>
+
+<section id="psychosocial" class="section">
+<h2>06. Psychosocial Treatment</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Intervention</th><th>Acute depression</th><th>Maintenance</th><th>Key point</th></tr></thead>
+<tbody>
+<tr><td><strong>Psychoeducation</strong></td><td>Insufficient evidence as an acute treatment</td><td><span class="green">First-line, Level 2</span></td><td>Teach illness model, prodrome detection, stress management, problem solving, adherence and healthy lifestyle.</td></tr>
+<tr><td><strong>CBT</strong></td><td>Second-line, Level 2</td><td>Second-line, Level 2</td><td>Evidence is mixed for relapse prevention; more useful in selected patients, especially fewer/less severe episodes.</td></tr>
+<tr><td><strong>Family-focused therapy</strong></td><td>Second-line, Level 2</td><td>Second-line, Level 2</td><td>Communication, relationship functioning, family involvement; particularly relevant with high expressed emotion.</td></tr>
+<tr><td><strong>IPSRT</strong></td><td>Third-line, Level 2</td><td>Third-line, Level 2</td><td>Targets interpersonal issues plus regularization of sleep/social rhythms.</td></tr>
+<tr><td><strong>Peer support</strong></td><td>Insufficient evidence</td><td>Third-line, Level 2</td><td>May improve self-efficacy/self-stigma; ensure peers are trained and do not promote substance use or treatment non-adherence.</td></tr>
+<tr><td>DBT / MBCT / online interventions / caregiver interventions / cognitive-functional remediation</td><td>Insufficient evidence</td><td>Insufficient evidence</td><td>Not enough evidence in this guideline for a specific recommendation.</td></tr>
+</tbody></table></div>
+
+<div class="card-grid">
+<div class="card"><h3>Psychoeducation content</h3><ul><li>Nature and course of BD</li><li>Medication purpose and adherence</li><li>Prodrome detection</li><li>Stress management</li><li>Problem solving</li><li>Stigma/denial</li><li>Sleep regularity</li><li>Exercise and lifestyle</li><li>Reduce alcohol, tobacco, drugs and excess caffeine</li></ul></div>
+<div class="card"><h3>Evidence-based formats</h3><p><strong>Barcelona BDs Program:</strong> 21 sessions over 6 months.</p><p><strong>Life Goals Program:</strong> phase I six weekly sessions.</p><p>Individual psychoeducation of at least five sessions was also supported as a first-line relapse-prevention intervention.</p></div>
+</div>
+</section>
+
+<section id="mania" class="section">
+<h2>07. Acute Mania — OPD/IPD Algorithm</h2>
+
+<div class="callout danger"><strong>Step 1 is not “pick a drug”.</strong> First determine violence/aggression risk, suicide risk (especially mixed features), psychosis, insight, ability to adhere, substance use, social support and the need for inpatient care.</div>
+
+<h3>Step 1 — Rule out contributors</h3>
+<ul>
+<li>Drugs of abuse/intoxication/withdrawal.</li>
+<li>Medication-induced symptoms: particularly antidepressants and other activating agents.</li>
+<li>Medical/endocrine/neurological causes.</li>
+<li>Review current medication, dose, adherence and trough levels where relevant.</li>
+<li>For established BD: start antimanic treatment promptly when clinically indicated.</li>
+<li>For first-ever manic symptoms: confirm longitudinal diagnosis after stopping possible offending antidepressants and obtaining collateral.</li>
+<li>Support cessation of stimulant use, including excessive caffeine, and reduce/stop alcohol/drugs as clinically appropriate.</li>
+</ul>
+
+<h3>First-line pharmacological options</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Monotherapy</th><th>Evidence</th><th>Clinical decision notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Lithium</strong></td><td>Level 1</td><td>Guideline places it high in the hierarchy; reconsider in prominent mixed features, comorbid substance use or prior non-response.</td></tr>
+<tr><td><strong>Quetiapine</strong></td><td>Level 1</td><td>Broad-spectrum option with acute and maintenance relevance.</td></tr>
+<tr><td><strong>Divalproex</strong></td><td>Level 1</td><td>Useful particularly when mixed features are present; reproductive safety is critical.</td></tr>
+<tr><td><strong>Asenapine</strong></td><td>Level 1</td><td>Antimanic option with maintenance evidence.</td></tr>
+<tr><td><strong>Aripiprazole</strong></td><td>Level 1</td><td>Lower metabolic burden than some antipsychotics; monitor akathisia/EPS.</td></tr>
+<tr><td><strong>Paliperidone</strong></td><td>Level 1 for doses &gt;6 mg</td><td>Combination with lithium/divalproex is not specifically recommended because of lack of evidence for added efficacy.</td></tr>
+<tr><td><strong>Risperidone</strong></td><td>Level 1</td><td>Monitor EPS/prolactin.</td></tr>
+<tr><td><strong>Cariprazine</strong></td><td>Level 1</td><td>Antimanic option; monitor EPS/akathisia.</td></tr>
+</tbody></table></div>
+
+<h3>First-line combination therapy</h3>
+<div class="card-grid">
+<div class="card"><strong>Quetiapine + lithium/divalproex</strong><p>Level 1 combination evidence; greater efficacy than lithium/divalproex monotherapy, particularly with greater index severity.</p></div>
+<div class="card"><strong>Risperidone + lithium/divalproex</strong><p>Level 1 combination evidence.</p></div>
+<div class="card"><strong>Aripiprazole + lithium/divalproex</strong><p>Level 2 combination evidence.</p></div>
+<div class="card"><strong>Asenapine + lithium/divalproex</strong><p>Level 2 combination evidence.</p></div>
+</div>
+
+<div class="callout"><strong>When combination therapy makes sense:</strong> need for faster response, severe mania, prior partial response to monotherapy, or need for greater efficacy. The guideline notes that combination therapy produced about 20% more responders on average than mood-stabilizer monotherapy in clinical trials, but also causes more adverse events.</div>
+
+<h3>Stepwise response algorithm</h3>
+<div class="flow">
+<div class="step"><strong>Step 1</strong>Risk, diagnosis, contributors, current drugs, adherence, setting.</div><div class="arrow">→</div>
+<div class="step"><strong>Step 2</strong>Start/optimize first-line monotherapy or combination; reassess adherence and tolerability.</div><div class="arrow">→</div>
+<div class="step"><strong>Step 3</strong>If inadequate/intolerant: switch to or add another first-line agent.</div><div class="arrow">→</div>
+<div class="step"><strong>Step 4</strong>After multiple unsuccessful first-line strategies: second-line agents / ECT.</div><div class="arrow">→</div>
+<div class="step"><strong>Step 5</strong>Third-line strategies only after adequate first- and second-line trials alone and in combination.</div>
+</div>
+
+<p><strong>Timing:</strong> most antimanic agents separate from placebo within about 1 week; some response is expected within 1–2 weeks. If no response after 2 weeks at therapeutic doses and contributors have been excluded, switch/add-on should be considered.</p>
+
+<h3>Second-line mania</h3>
+<div class="table-wrap"><table><tr><th>Option</th><th>Evidence</th><th>Why second-line</th></tr>
+<tr><td>Olanzapine</td><td>Level 1</td><td>Safety/tolerability, particularly metabolic burden.</td></tr>
+<tr><td>Carbamazepine</td><td>Level 1</td><td>Safety/tolerability and interactions.</td></tr>
+<tr><td>Ziprasidone</td><td>Level 1</td><td>Safety/tolerability considerations.</td></tr>
+<tr><td>Haloperidol</td><td>Level 1</td><td>Higher EPS/tardive dyskinesia burden.</td></tr>
+<tr><td>Olanzapine + lithium/divalproex</td><td>Level 1</td><td>Combination efficacy but metabolic/tolerability concerns.</td></tr>
+<tr><td>Lithium + divalproex</td><td>Level 3</td><td>Widely used clinically, but controlled efficacy evidence is limited.</td></tr>
+<tr><td>ECT</td><td>Level 3</td><td>Useful in severe/treatment-resistant mania; guideline cites marked improvement in up to ~80% in available evidence.</td></tr>
+</table></div>
+
+<h3>Third-line mania</h3>
+<ul>
+<li>Chlorpromazine monotherapy.</li>
+<li>Clonazepam monotherapy.</li>
+<li>Clozapine monotherapy or adjunctive therapy.</li>
+<li>Tamoxifen monotherapy; downgraded because of uterine-cancer risk and limited clinical experience.</li>
+<li>Carbamazepine/oxcarbazepine + lithium/divalproex.</li>
+<li>Haloperidol + lithium/divalproex.</li>
+<li>Tamoxifen + lithium/divalproex.</li>
+<li>Right prefrontal rTMS as an adjunctive strategy in selected cases.</li>
+</ul>
+
+<h3>Agents not recommended for acute mania in the source</h3>
+<p><span class="red">Allopurinol, eslicarbazepine/licarbazepine, gabapentin, lamotrigine, omega-3 fatty acids, topiramate, valnoctamide and zonisamide</span> were listed as not recommended because of negative efficacy evidence. Paliperidone or ziprasidone adjunctive combinations with lithium/divalproex lacked sufficient supportive evidence for a specific recommendation.</p>
+
+<h3>Mania: clinical features that direct selection</h3>
+<div class="table-wrap"><table>
+<tr><th>Feature</th><th>Source-based treatment implication</th></tr>
+<tr><td><strong>Mixed features</strong></td><td>Atypical antipsychotics and divalproex have supportive evidence; combination therapy is frequently needed. Antidepressants should be avoided/cautious.</td></tr>
+<tr><td><strong>Psychosis</strong></td><td>Antipsychotic + lithium/divalproex is often clinically appropriate, particularly for mood-incongruent psychosis.</td></tr>
+<tr><td><strong>Rapid cycling</strong></td><td>Assess hypothyroidism, antidepressants, stimulants and substance use. Choose treatment with maintenance efficacy in mind.</td></tr>
+<tr><td><strong>Substance use</strong></td><td>Address substance use early; it can perpetuate mania and destabilization.</td></tr>
+<tr><td><strong>Anxiety</strong></td><td>Divalproex, quetiapine and olanzapine may have useful anxiolytic effects.</td></tr>
+</table></div>
+
+<h3>Acute agitation — short-term options from Table 11</h3>
+<div class="table-wrap"><table>
+<tr><th>Tier</th><th>Agent / route</th><th>Study dose information reported by guideline</th></tr>
+<tr><td>First-line</td><td>Aripiprazole IM</td><td>9.75 mg single dose; max 15 mg/24 h in cited studies.</td></tr>
+<tr><td>First-line</td><td>Lorazepam IM</td><td>2 mg IM.</td></tr>
+<tr><td>First-line</td><td>Loxapine inhaled</td><td>5 mg single dose; max 10 mg/24 h.</td></tr>
+<tr><td>First-line</td><td>Olanzapine IM</td><td>2.5–10 mg; some subjects received 2–3 × 10 mg injections.</td></tr>
+<tr><td>Second-line</td><td>Asenapine SL</td><td>10 mg.</td></tr>
+<tr><td>Second-line</td><td>Haloperidol IM</td><td>5 mg single; max 15 mg/24 h in cited studies.</td></tr>
+<tr><td>Second-line</td><td>Haloperidol + midazolam IM</td><td>2.5 mg + 7.5 mg initially; up to 5 mg + 15 mg/24 h in cited studies.</td></tr>
+<tr><td>Second-line</td><td>Haloperidol + promethazine IM</td><td>2.5 mg + 25 mg initially; up to 5 mg + 50 mg/24 h in cited studies.</td></tr>
+<tr><td>Second-line</td><td>Risperidone ODT</td><td>2 mg single; max 4 mg/24 h in cited studies.</td></tr>
+<tr><td>Second-line</td><td>Ziprasidone IM</td><td>20 mg maximum in cited studies.</td></tr>
+</table></div>
+<p class="small">These are study doses reported in the 2018 guideline, not individualized prescriptions. Follow current product labeling, local protocols, route-specific contraindications and monitoring requirements.</p>
+</section>
+
+<section id="depression" class="section">
+<h2>08. Acute Bipolar I Depression</h2>
+
+<div class="callout danger"><strong>Step 1:</strong> assess severity, suicidality/self-harm, mixed symptoms, psychosis, catatonia, functional impairment, adherence, support network and need for inpatient care. Exclude alcohol/drug, medication and medical causes.</div>
+
+<h3>First-line treatment</h3>
+<div class="table-wrap"><table>
+<tr><th>Agent / strategy</th><th>Evidence</th><th>Practical note from guideline</th></tr>
+<tr><td><strong>Quetiapine</strong></td><td>Level 1</td><td>Monotherapy; target dose in trials/guideline discussion <strong>300 mg/day</strong>. 300 and 600 mg/day showed no efficacy difference; lower doses were not studied for bipolar depression.</td></tr>
+<tr><td><strong>Lurasidone + lithium/divalproex</strong></td><td>Level 1</td><td>Adjunctive first-line option.</td></tr>
+<tr><td><strong>Lithium</strong></td><td>Level 2</td><td>Guideline opinion: trough 0.8–1.2 mEq/L for acute bipolar depression; also valuable for antimanic and maintenance prophylaxis.</td></tr>
+<tr><td><strong>Lamotrigine</strong></td><td>Level 2</td><td>Monotherapy; target at least <strong>200 mg/day</strong>, but slow titration limits rapid-response utility.</td></tr>
+<tr><td><strong>Lurasidone</strong></td><td>Level 2</td><td>Monotherapy; early separation from placebo makes it useful when rapid response is important.</td></tr>
+<tr><td><strong>Adjunctive lamotrigine</strong></td><td>Level 2</td><td>Useful particularly when already on lithium or another evidence-based agent.</td></tr>
+</table></div>
+
+<div class="callout"><strong>Hierarchy matters longitudinally:</strong> the guideline explicitly considers efficacy across acute and maintenance phases, safety/tolerability and switch risk. Patient-specific prior response/non-response and clinical features can justify a different choice.</div>
+
+<h3>Step 3 — switch vs add-on</h3>
+<ul>
+<li>Optimize dose first and address adherence.</li>
+<li>Assess whether the current drug is serving another long-term goal (e.g., lithium for antimanic prophylaxis).</li>
+<li>If the current drug remains useful for another component of BD, <strong>add-on therapy</strong> may be rational.</li>
+<li>If another agent is already adequately providing the needed prophylaxis, a <strong>switch</strong> can reduce polypharmacy.</li>
+<li>When all else is equal, the guideline favors switching to limit polypharmacy, but rational combination therapy is often required in real patients.</li>
+<li>Switch medications with an overlap/taper approach unless abrupt discontinuation is medically necessary.</li>
+</ul>
+
+<h3>Second-line bipolar depression</h3>
+<div class="table-wrap"><table>
+<tr><th>Option</th><th>Evidence / role</th></tr>
+<tr><td><strong>Divalproex monotherapy</strong></td><td>Level 2.</td></tr>
+<tr><td><strong>Adjunctive SSRI or bupropion</strong></td><td>Level 1 meta-analysis supports a small benefit when combined with lithium/divalproex or an atypical antipsychotic.</td></tr>
+<tr><td><strong>ECT</strong></td><td>Level 3; especially treatment-resistant depression, imminent suicidal risk, catatonia or psychotic depression, or when rapid response is needed.</td></tr>
+<tr><td><strong>Cariprazine</strong></td><td>Level 2; rapid separation from placebo in some trials.</td></tr>
+<tr><td><strong>Olanzapine-fluoxetine combination</strong></td><td>Level 2.</td></tr>
+</table></div>
+
+<div class="callout danger"><strong>Antidepressants:</strong> antidepressant monotherapy should <span class="red">NOT</span> be used for bipolar I depression. Adjunctive antidepressants should be avoided or used cautiously in patients with prior antidepressant-induced mania/hypomania, current/predominant mixed features or recent rapid cycling. Educate patient/caregiver about switch/cycle-acceleration warning signs and discontinue the antidepressant if these emerge.</div>
+
+<h3>Third-line bipolar depression</h3>
+<ul>
+<li>Carbamazepine monotherapy.</li>
+<li>Olanzapine monotherapy.</li>
+<li>Adjunctive aripiprazole, armodafinil, asenapine, levothyroxine, modafinil or pramipexole.</li>
+<li>Adjunctive rTMS.</li>
+<li>Adjunctive SNRI/MAOI only with adequate antimanic prophylaxis; these classes have higher switch potential than SSRIs/bupropion.</li>
+<li>Adjunctive EPA, N-acetylcysteine and light therapy ± total sleep deprivation in selected cases.</li>
+<li>IV ketamine as an adjunctive third-line strategy for severe/refractory depression or significant suicidal ideation; may be considered earlier if rapid response is imperative, but long-term data are limited and abuse/misuse and possible switch need consideration.</li>
+</ul>
+
+<h3>Not recommended for acute bipolar I depression in the source</h3>
+<ul>
+<li>Antidepressant monotherapy — Level 2 negative.</li>
+<li>Aripiprazole monotherapy — Level 1 negative.</li>
+<li>Ziprasidone monotherapy or adjunctive therapy — Level 1 negative.</li>
+<li>Lamotrigine + folic acid — Level 2 negative.</li>
+<li>Adjunctive mifepristone — Level 2 negative.</li>
+</ul>
+
+<h3>Depression: features that should influence the choice</h3>
+<div class="table-wrap"><table>
+<tr><th>Clinical feature</th><th>Source-based implication</th></tr>
+<tr><td><strong>Need for rapid response</strong></td><td>Quetiapine/lurasidone may be preferable; ECT can be used earlier when rapid response is imperative. Cariprazine and olanzapine-fluoxetine also showed early separation in cited trials.</td></tr>
+<tr><td><strong>Anxious distress</strong></td><td>Quetiapine has evidence for co-occurring anxiety; olanzapine-fluoxetine and lurasidone may also help anxiety symptoms.</td></tr>
+<tr><td><strong>Mixed features</strong></td><td>More severe course, substance use and cardiovascular burden; combination therapy may be needed. Avoid/limit antidepressants.</td></tr>
+<tr><td><strong>Psychotic depression</strong></td><td>Antipsychotics and ECT are clinically effective options; ECT becomes especially relevant with severe illness/catatonia/suicidality.</td></tr>
+<tr><td><strong>Rapid cycling</strong></td><td>Check thyroid function and discontinue contributors such as antidepressants/stimulants/substances; select treatment using maintenance efficacy.</td></tr>
+<tr><td><strong>Melancholic features</strong></td><td>Guideline notes clinical experience that ECT can be very effective.</td></tr>
+<tr><td><strong>Atypical features</strong></td><td>Tranylcypromine has some evidence but switch/interaction risks require strong caution and antimanic prophylaxis.</td></tr>
+</table></div>
+</section>
+
+<section id="maintenance" class="section">
+<h2>09. Bipolar I Maintenance</h2>
+<div class="callout good"><strong>Maintenance is not optional after stabilization for most patients.</strong> The guideline states that almost all individuals with BD require maintenance treatment to prevent recurrence, reduce residual symptoms and restore functioning/quality of life.</div>
+
+<h3>First-line monotherapy</h3>
+<div class="table-wrap"><table>
+<tr><th>Agent</th><th>Evidence</th><th>Longitudinal point</th></tr>
+<tr><td><strong>Lithium</strong></td><td>Level 1</td><td>Broad prevention evidence; also relevant to suicide prevention.</td></tr>
+<tr><td><strong>Quetiapine</strong></td><td>Level 1</td><td>Prevents manic and depressive episodes; useful when index episode is depressive or mixed.</td></tr>
+<tr><td><strong>Divalproex</strong></td><td>Level 1</td><td>Strong maintenance evidence; reproductive/metabolic safety must be considered.</td></tr>
+<tr><td><strong>Lamotrigine</strong></td><td>Level 1</td><td>Strong role in prevention of depressive recurrence; limited antimanic utility.</td></tr>
+<tr><td><strong>Asenapine</strong></td><td>Level 2</td><td>Evidence for prevention of both manic and depressive episodes.</td></tr>
+<tr><td><strong>Aripiprazole oral / monthly</strong></td><td>Level 2</td><td>Prevents mood/manic episodes; evidence for preventing depression is less clear.</td></tr>
+</table></div>
+
+<h3>First-line combinations</h3>
+<ul>
+<li><strong>Quetiapine + lithium/divalproex</strong> — Level 1.</li>
+<li><strong>Aripiprazole + lithium/divalproex</strong> — Level 2.</li>
+</ul>
+
+<h3>Maintenance strategy</h3>
+<div class="flow">
+<div class="step"><strong>Step 1</strong>Review longitudinal course, prior response/non-response, polarity, adherence, comorbidity and current drugs.</div>
+<div class="arrow">→</div>
+<div class="step"><strong>Step 2</strong>Initiate/optimize first-line maintenance; monitor symptoms, levels and adverse effects.</div>
+<div class="arrow">→</div>
+<div class="step"><strong>Step 3</strong>If recurrence/symptoms: optimize adherence/dose then add or switch to another first-line agent.</div>
+<div class="arrow">→</div>
+<div class="step"><strong>Step 4</strong>Second-line strategies only after multiple unsuccessful first-line strategies.</div>
+</div>
+
+<h3>Second-line maintenance</h3>
+<ul>
+<li><strong>Olanzapine</strong> — Level 1 efficacy, but second-line due to metabolic/safety concerns.</li>
+<li><strong>Long-acting injectable risperidone</strong> — evidence for prevention of any mood/manic episode; less clear for depression.</li>
+<li><strong>Carbamazepine</strong> — Level 2.</li>
+<li><strong>Paliperidone</strong> — Level 2.</li>
+<li>Other second-line agents/strategies are described in the source table; selection should be individualized by polarity, response and tolerability.</li>
+</ul>
+
+<h3>Antipsychotic continuation after acute mania</h3>
+<p>When an atypical antipsychotic was combined with lithium/divalproex for acute mania, continuing it for the <strong>first 6 months</strong> after response reduced recurrence risk in the cited evidence. Benefit beyond 6 months was uncertain; the guideline recommends reassessing risk-benefit after 6 months of sustained response.</p>
+
+<h3>Longitudinal selection logic</h3>
+<div class="table-wrap"><table>
+<tr><th>Pattern</th><th>What to think about</th></tr>
+<tr><td>Predominantly manic recurrence</td><td>Prior response to lithium/divalproex/antimanic antipsychotic; maintain effective acute agent where possible.</td></tr>
+<tr><td>Predominantly depressive recurrence</td><td>Lamotrigine, quetiapine and lithium have particular relevance.</td></tr>
+<tr><td>Mixed features</td><td>Quetiapine has evidence across manic, depressive and mixed recurrence prevention.</td></tr>
+<tr><td>Rapid cycling</td><td>Choose with maintenance efficacy in mind; address thyroid disease, antidepressants, stimulants and substances.</td></tr>
+</table></div>
+</section>
+
+<section id="bd2" class="section">
+<h2>10. Bipolar II Disorder</h2>
+<h3>Hypomania</h3>
+<p>Evidence is limited. When hypomania is frequent, severe or impairing enough to require treatment, clinical experience supports lithium or divalproex and/or an atypical antipsychotic. N-acetylcysteine may be useful, but further evidence is needed.</p>
+
+<h3>Acute bipolar II depression</h3>
+<div class="table-wrap"><table>
+<tr><th>Line</th><th>Options</th></tr>
+<tr><td><strong>First-line</strong></td><td><strong>Quetiapine</strong> — Level 1; the only first-line treatment in the guideline.</td></tr>
+<tr><td><strong>Second-line</strong></td><td>Lithium (ideally serum 0.8–1.2 mEq/L), sertraline and venlafaxine mainly for pure/non-mixed depression; lamotrigine; ECT.</td></tr>
+<tr><td><strong>Third-line</strong></td><td>Divalproex, fluoxetine mainly for pure depression, tranylcypromine, ziprasidone for depression with mixed hypomania; adjunctive agomelatine, bupropion, EPA, NAC, pramipexole, thyroid hormone; IV ketamine for refractory/rapid-response situations.</td></tr>
+<tr><td><strong>Not recommended</strong></td><td>Paroxetine — Level 2 negative.</td></tr>
+</table></div>
+
+<h3>Bipolar II maintenance</h3>
+<div class="table-wrap"><table>
+<tr><th>Line</th><th>Options</th></tr>
+<tr><td><strong>First-line</strong></td><td>Quetiapine (Level 1), lithium (Level 2), lamotrigine (Level 2).</td></tr>
+<tr><td><strong>Second-line</strong></td><td>Venlafaxine (Level 2).</td></tr>
+<tr><td><strong>Third-line</strong></td><td>Carbamazepine, divalproex, escitalopram, fluoxetine, other antidepressants, risperidone primarily for hypomania prevention.</td></tr>
+</table></div>
+
+<div class="callout"><strong>Lamotrigine nuance in BDII:</strong> the guideline describes conflicting RCT data, methodological limitations and slow titration; it nevertheless recommends lamotrigine second-line, especially when delayed onset is acceptable and the patient tolerates slow titration.</div>
+</section>
+
+<section id="special" class="section">
+<h2>11. Special Populations</h2>
+
+<div class="tabs no-print">
+<button class="tab active" onclick="showTab('preg')">Pregnancy / postpartum</button>
+<button class="tab" onclick="showTab('youth')">Children / adolescents</button>
+<button class="tab" onclick="showTab('older')">Older adults</button>
+</div>
+
+<div id="preg" class="tabpanel active">
+<h3>Pregnancy</h3>
+<ul>
+<li>Before treatment in a woman of childbearing potential, assess pregnancy status and discuss reproductive plans.</li>
+<li>Where possible, psychosocial strategies are preferred during the first trimester because teratogenic risk is highest.</li>
+<li>If medication is required, prefer <strong>monotherapy at the lowest effective dose</strong> where feasible.</li>
+<li>Pregnancy requires close monitoring and appropriate fetal screening; the source specifically mentions fetal ultrasound when lithium is used in the first trimester.</li>
+<li><strong>Divalproex should be avoided in pregnancy</strong> in the guideline because of neural-tube and other congenital/neurodevelopmental risks.</li>
+<li>Physiological changes later in pregnancy may increase medication clearance; doses may require adjustment.</li>
+<li>The source recommends prenatal vitamins including high-dose folic acid and discusses possible choline supplementation; reproductive counseling should be individualized and based on current evidence.</li>
+<li>Lamotrigine and carbamazepine may affect oral-contraceptive efficacy; this should be discussed.</li>
+</ul>
+<h3>Postpartum</h3>
+<ul>
+<li>Postpartum is a period of markedly increased recurrence risk.</li>
+<li>The source reports postpartum mood episodes in 66% of women medication-free during pregnancy vs 23% among those on treatment in the cited data.</li>
+<li>Restart/optimize maintenance treatment as soon as possible after delivery, favoring a medication that previously worked.</li>
+<li>Monitor closely around delivery for early mood or psychotic symptoms.</li>
+<li>If an acute episode occurs, use the usual bipolar treatment hierarchy but incorporate breastfeeding safety.</li>
+<li>The source identifies evidence for lithium, antipsychotics and benzodiazepines in postpartum mania and quetiapine for postpartum bipolar depression, but notes limited data.</li>
+<li>Breastfeeding decisions should weigh medication exposure, infant monitoring and the mother's need for adequate sleep. Night-time feeding by a partner/support person or formula supplementation may help protect sleep.</li>
+<li>In postpartum psychosis/mania, breastfeeding may be unsafe if the mother is too disorganized to care for the infant safely.</li>
+</ul>
+</div>
+
+<div id="youth" class="tabpanel">
+<h3>Children / adolescents</h3>
+<div class="table-wrap"><table>
+<tr><th>Clinical phase</th><th>Source recommendations</th></tr>
+<tr><td>Acute mania — first-line</td><td>Lithium (Level 1), risperidone (Level 1), aripiprazole (Level 2), asenapine (Level 2), quetiapine (Level 2). Risperidone may be preferable to lithium in non-obese youth and youth with ADHD.</td></tr>
+<tr><td>Acute bipolar depression</td><td>Lurasidone is supported by positive RCT data and good tolerability. Lithium and lamotrigine are second-line based on adult evidence/clinical experience; quetiapine is third-line despite negative pediatric RCTs because of methodological concerns and adult evidence. Olanzapine-fluoxetine is third-line because of metabolic concerns and limited pediatric experience.</td></tr>
+<tr><td>Maintenance</td><td>Aripiprazole, lithium and divalproex are preferred first-line options; adjunctive lamotrigine may be considered from age ≥13 years. Combination therapy may be required.</td></tr>
+</table></div>
+<ul>
+<li>ADHD is common and may persist after mood stabilization; treat only after mood is stable.</li>
+<li>Stimulants may be considered in stable/euthymic youth receiving optimal antimanic treatment; the source cites adjunctive mixed amphetamine salts and methylphenidate evidence.</li>
+<li>Antidepressants should be used cautiously and with mood-stabilizing treatment.</li>
+<li>Assess cardiovascular risk, diet, smoking, substance use and physical activity regularly.</li>
+<li>Youth are particularly susceptible to metabolic adverse effects of atypical antipsychotics.</li>
+</ul>
+</div>
+
+<div id="older" class="tabpanel">
+<h3>Older adults</h3>
+<ul>
+<li>Late-onset mania should prompt careful search for neurological/medical contributors.</li>
+<li>Older adults often have more cognitive/depressive symptoms and may present with insomnia, aggression, impulsivity and self-neglect.</li>
+<li>Medical comorbidity is common: metabolic syndrome, hypertension, diabetes, cardiovascular disease, arthritis and endocrine disorders.</li>
+<li>Perform thorough physical/neurological assessment and coordinate care with other medical providers.</li>
+<li>Age-related pharmacokinetic/pharmacodynamic changes increase the importance of low starting doses, slow titration and interaction review.</li>
+</ul>
+<div class="table-wrap"><table>
+<tr><th>Phase</th><th>Recommendation</th></tr>
+<tr><td>Acute mania</td><td>Lithium (Level 2) or divalproex (Level 2) first-line; quetiapine second-line; asenapine, aripiprazole, risperidone or carbamazepine third-line; clozapine/ECT for treatment-resistant cases.</td></tr>
+<tr><td>Acute depression</td><td>Quetiapine and lurasidone first-line based on post hoc evidence. Lithium/lamotrigine may be considered clinically despite limited geriatric RCT evidence. ECT is important for refractory, suicidal or nutritionally compromised patients.</td></tr>
+<tr><td>Maintenance</td><td>Lithium, lamotrigine and divalproex have geriatric efficacy data.</td></tr>
+</table></div>
+<div class="callout warn"><strong>Lithium in older adults:</strong> monitor lithium and renal function at least every 3–6 months and again 5–7 days after lithium dose changes or changes in NSAIDs, ACE inhibitors, ARBs or thiazide diuretics. Start low and titrate gradually.</div>
+</div>
+</section>
+
+<section id="comorbidity" class="section">
+<h2>12. Comorbidities</h2>
+<h3>General hierarchy</h3>
+<div class="callout"><strong>When multiple conditions compete for attention:</strong> treat the disorder/symptom with the greatest morbidity/mortality first—examples include acute mania, psychosis or suicidal ideation. Substance use may be treated concurrently or sequentially depending on severity and its contribution to mood instability. Once mood is stable, address ADHD, anxiety and metabolic disorders according to impact and patient preference.</div>
+
+<h3>Substance use disorders</h3>
+<ul>
+<li>Comorbid SUD is common and associated with lower remission, more hospitalization and increased suicide-attempt risk.</li>
+<li>Address substance use early because it can interfere with bipolar treatment.</li>
+<li>Withdrawal management and safety may determine inpatient vs community treatment.</li>
+<li>Review caffeine/stimulant use, alcohol and illicit substances whenever mood destabilizes.</li>
+</ul>
+
+<h3>Anxiety disorders</h3>
+<ul>
+<li>Anxiety is common and may increase persistence of depression and suicidal ideation.</li>
+<li>Choose agents that can cover both conditions where appropriate; the guideline notes anxiolytic benefits with quetiapine and some evidence for divalproex/olanzapine in selected contexts.</li>
+<li>Be cautious with antidepressants because mood elevation can occur.</li>
+</ul>
+
+<h3>ADHD</h3>
+<ul>
+<li>Stabilize bipolar mood first.</li>
+<li>Stimulants may destabilize mood in some patients; if used, do so after stabilization with close monitoring.</li>
+<li>Distinguish trait-like ADHD symptoms from episodic manic activation.</li>
+</ul>
+
+<h3>Metabolic disorders</h3>
+<div class="table-wrap"><table>
+<tr><th>Higher metabolic concern in source</th><th>Lower relative metabolic impact in source</th></tr>
+<tr><td>Clozapine, olanzapine; quetiapine particularly at higher doses; risperidone; lithium/divalproex also associated with weight gain.</td><td>Aripiprazole, ziprasidone, asenapine and lurasidone have comparatively more favorable metabolic profiles.</td></tr>
+</table></div>
+<ul>
+<li>Implement lifestyle intervention: diet, physical activity, smoking/substance management.</li>
+<li>If metabolic/weight problems persist and the therapeutic advantage of a high-risk drug is small, consider switching to a more favorable option.</li>
+<li>Actively manage dyslipidemia, hypertension, diabetes and cardiovascular risk rather than treating them as secondary concerns.</li>
+</ul>
+</section>
+
+<section id="monitoring" class="section">
+<h2>13. Safety & Monitoring</h2>
+
+<h3>Baseline evaluation before pharmacotherapy</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Investigation / assessment</th><th>Why / when</th></tr></thead>
+<tbody>
+<tr><td><strong>BMI / weight</strong></td><td>Baseline metabolic risk and future comparison.</td></tr>
+<tr><td><strong>CBC</strong></td><td>Baseline hematological assessment.</td></tr>
+<tr><td><strong>Fasting glucose</strong></td><td>Metabolic risk.</td></tr>
+<tr><td><strong>Fasting lipid profile</strong></td><td>TC, VLDL, LDL, HDL, TG.</td></tr>
+<tr><td><strong>Platelets</strong></td><td>Particularly relevant with divalproex.</td></tr>
+<tr><td><strong>Electrolytes + calcium</strong></td><td>Baseline medical safety; lithium/parathyroid considerations.</td></tr>
+<tr><td><strong>Liver enzymes + bilirubin</strong></td><td>Baseline hepatic status.</td></tr>
+<tr><td><strong>PT / PTT</strong></td><td>Baseline in the guideline's investigation set.</td></tr>
+<tr><td><strong>Urinalysis</strong></td><td>Baseline assessment.</td></tr>
+<tr><td><strong>Urine toxicology</strong></td><td>Substance-use assessment where relevant.</td></tr>
+<tr><td><strong>Creatinine + eGFR</strong></td><td>Renal function, especially essential for lithium.</td></tr>
+<tr><td><strong>24-h creatinine clearance</strong></td><td>If history of renal disease.</td></tr>
+<tr><td><strong>TSH</strong></td><td>Thyroid disease/rapid cycling/lithium.</td></tr>
+<tr><td><strong>ECG</strong></td><td>Age &gt;40 or if clinically indicated.</td></tr>
+<tr><td><strong>Pregnancy test</strong></td><td>If relevant.</td></tr>
+<tr><td><strong>Prolactin</strong></td><td>Baseline for relevant antipsychotic monitoring.</td></tr>
+</tbody></table></div>
+
+<h3>Serum drug monitoring</h3>
+<div class="table-wrap"><table>
+<tr><th>Drug</th><th>Source monitoring strategy</th></tr>
+<tr><td><strong>Lithium</strong></td><td>Obtain trough ~12 h after last dose. After titration, level about 5 days later. Acute target 0.8–1.2 mEq/L; older adults 0.4–0.8 mEq/L. Maintenance 0.6–1.0 mEq/L may be sufficient. Two consecutive therapeutic levels during acute treatment, then every 3–6 months or more often if indicated.</td></tr>
+<tr><td><strong>Divalproex</strong></td><td>Trough. Acute target 50–100 µg/mL (source also gives 350–700 µM/L). Obtain 3–5 days after dose titration. Two consecutive therapeutic levels in acute phase; then every 3–6 months or clinically indicated. Maintenance target is less clearly established; adjust to symptoms/tolerability and accepted laboratory range.</td></tr>
+<tr><td><strong>Carbamazepine</strong></td><td>Primarily to detect toxicity and assess adherence; no established serum-level/efficacy relationship. About every 6–12 months and when clinically indicated.</td></tr>
+</table></div>
+
+<h3>Specific monitoring schedules</h3>
+<div class="table-wrap"><table>
+<tr><th>Drug/class</th><th>Monitoring / safety issue</th></tr>
+<tr><td><strong>Lithium</strong></td><td>Renal function, TSH and calcium at 6 months and at least annually thereafter; levels as above. Watch interactions with NSAIDs, ACEIs, ARBs and thiazides. Toxic levels increase long-term kidney risk.</td></tr>
+<tr><td><strong>Divalproex</strong></td><td>Menstrual history for possible PCOS, hematology and LFTs every 3–6 months in first year and yearly thereafter/clinically indicated. Watch weight/metabolic effects, thrombocytopenia and rare hyperammonemic encephalopathy.</td></tr>
+<tr><td><strong>Lamotrigine</strong></td><td>Educate about rash and mucosal ulcers. Serious rash/SJS/TEN requires urgent evaluation and potentially discontinuation.</td></tr>
+<tr><td><strong>Carbamazepine</strong></td><td>Educate about rash; assess sodium at least annually. In genetically at-risk Asian ancestry, HLA-B*1502 testing before initiation is recommended by the source.</td></tr>
+<tr><td><strong>Atypical antipsychotics</strong></td><td>Weight monthly for first 3 months, then every 3 months; BP, fasting glucose and lipids at 3 and 6 months and annually thereafter. Monitor EPS and other adverse effects.</td></tr>
+<tr><td><strong>Risperidone/paliperidone</strong></td><td>Prolactin-related amenorrhea, sexual dysfunction, galactorrhea, gynecomastia and longer-term bone effects.</td></tr>
+<tr><td><strong>Clozapine</strong></td><td>Baseline hematology and enrollment in required monitoring programme; source describes weekly monitoring initially, then every 2–4 weeks later.</td></tr>
+</table></div>
+
+<h3>Key adverse-effect domains</h3>
+<div class="card-grid">
+<div class="card"><h3>Neurological</h3><p>EPS, akathisia, dystonia, parkinsonism, tardive dyskinesia; NMS is rare but life-threatening. Risk rises with high doses, rapid changes, IM/IV administration, dehydration, restraint, older age and medical/psychiatric comorbidity.</p></div>
+<div class="card"><h3>Endocrine</h3><p>Lithium: hypothyroidism and hyperparathyroidism. Divalproex: menstrual irregularity/possible PCOS and metabolic effects. Antipsychotics: hyperprolactinemia with some agents.</p></div>
+<div class="card"><h3>Cardiac</h3><p>Lithium and several antipsychotics may affect QT/T-wave/arrhythmia risk. Lurasidone and aripiprazole are described as comparatively favorable from a cardiac perspective, though hypotension can occur with aripiprazole.</p></div>
+<div class="card"><h3>Metabolic</h3><p>Clozapine/olanzapine carry greatest metabolic risk in the source, followed by quetiapine and risperidone. Lithium/divalproex can also cause weight gain.</p></div>
+<div class="card"><h3>Dermatological</h3><p>Lamotrigine: common non-serious rash, rare serious SJS/TEN; slow titration reduces risk. Carbamazepine also carries SJS/TEN risk, particularly early in treatment.</p></div>
+<div class="card"><h3>Cognition</h3><p>Cognitive impairment may reflect illness itself; avoid unnecessarily exacerbating cognitive problems with treatment when alternatives exist.</p></div>
+</div>
+
+<div class="callout danger"><strong>Lamotrigine/carbamazepine rash rule:</strong> patients should be told to report any rash or mucosal ulcer immediately. Serious rash requires urgent assessment and may require stopping the medication.</div>
+</section>
+
+<section id="rounds" class="section">
+<h2>14. OPD / IPD Round Checklists</h2>
+
+<h3>OPD — new bipolar patient</h3>
+<div class="checklist">
+<label><input type="checkbox">Establish longitudinal diagnosis: mania/hypomania/depression episodes.</label>
+<label><input type="checkbox">Collateral history from family/support person where possible.</label>
+<label><input type="checkbox">Substance/medication history including antidepressants, steroids, stimulants, caffeine and alcohol.</label>
+<label><input type="checkbox">Medical/neurological screen; consider thyroid/endocrine and neurological causes where indicated.</label>
+<label><input type="checkbox">Current polarity + DSM-5 specifiers.</label>
+<label><input type="checkbox">Suicide risk and past attempts.</label>
+<label><input type="checkbox">Violence/aggression/impulsivity risk if manic.</label>
+<label><input type="checkbox">Psychosis/catatonia.</label>
+<label><input type="checkbox">Sleep quantity and decreased need for sleep.</label>
+<label><input type="checkbox">Function: occupational, social, financial, self-care.</label>
+<label><input type="checkbox">Family history of BD/suicide.</label>
+<label><input type="checkbox">Prior medication response, non-response and adverse effects.</label>
+<label><input type="checkbox">Adherence barriers and patient preference.</label>
+<label><input type="checkbox">Baseline physical examination/BMI and relevant investigations.</label>
+<label><input type="checkbox">Plan psychoeducation + relapse signature + follow-up interval.</label>
+</div>
+
+<h3>IPD — daily ward round</h3>
+<div class="checklist">
+<label><input type="checkbox">Current risk: suicide/self-harm, violence, absconding, vulnerability.</label>
+<label><input type="checkbox">Sleep: hours, decreased need vs insomnia.</label>
+<label><input type="checkbox">Mania: speech, activity, grandiosity, impulsivity, irritability, psychosis.</label>
+<label><input type="checkbox">Depression: mood, anhedonia, hopelessness, guilt, neurovegetative symptoms.</label>
+<label><input type="checkbox">Mixed symptoms.</label>
+<label><input type="checkbox">Psychosis and reality testing.</label>
+<label><input type="checkbox">Medication adherence and actual administration.</label>
+<label><input type="checkbox">Adverse effects: EPS/akathisia, sedation, orthostasis, tremor, GI, rash, metabolic issues.</label>
+<label><input type="checkbox">Drug levels when indicated and timing of last dose.</label>
+<label><input type="checkbox">Fluid/food intake and hydration.</label>
+<label><input type="checkbox">Substance withdrawal/intoxication.</label>
+<label><input type="checkbox">Family engagement and discharge supports.</label>
+<label><input type="checkbox">Discharge readiness: stable polarity, risk plan, medication plan, follow-up and psychoeducation.</label>
+</div>
+
+<h3>Before changing medication in a “non-responder”</h3>
+<div class="flow">
+<div class="step"><strong>1. Diagnosis</strong>Is the polarity correct? Any mixed/psychotic/catatonic state?</div>
+<div class="step"><strong>2. Dose</strong>Was an evidence-based therapeutic dose/level achieved?</div>
+<div class="step"><strong>3. Duration</strong>Was it continued long enough for expected response?</div>
+<div class="step"><strong>4. Adherence</strong>Was the medication actually taken/administered?</div>
+<div class="step"><strong>5. Contributors</strong>Substance use, sleep deprivation, medical illness, interacting drugs?</div>
+<div class="step"><strong>6. Strategy</strong>Switch vs rational add-on based on the medication's other longitudinal benefits.</div>
+</div>
+
+<h3>Discharge checklist</h3>
+<div class="checklist">
+<label><input type="checkbox">Diagnosis and current polarity clearly documented.</label>
+<label><input type="checkbox">Medication list with purpose and target monitoring.</label>
+<label><input type="checkbox">Trough drug level plan where applicable.</label>
+<label><input type="checkbox">Metabolic/renal/thyroid follow-up scheduled where relevant.</label>
+<label><input type="checkbox">Suicide safety plan and crisis contacts.</label>
+<label><input type="checkbox">Early warning signs identified with patient/family.</label>
+<label><input type="checkbox">Sleep/wake plan.</label>
+<label><input type="checkbox">Substance-use plan.</label>
+<label><input type="checkbox">Family/caregiver psychoeducation.</label>
+<label><input type="checkbox">Early post-discharge appointment arranged; high-risk period extends beyond discharge.</label>
+</div>
+</section>
+
+<section id="pearls" class="section">
+<h2>15. High-Yield Clinical Pearls</h2>
+
+<details open><summary>1. “Bipolar depression” is not “MDD + a mood stabilizer.”</summary><div class="inside">First confirm bipolarity longitudinally. The treatment hierarchy is different, and antidepressant monotherapy is not recommended for bipolar I depression.</div></details>
+<details><summary>2. A manic patient on an antidepressant: review it immediately.</summary><div class="inside">The guideline recommends discontinuing antidepressants in mania and assessing whether symptoms persist after discontinuation, particularly when the diagnosis is not previously established.</div></details>
+<details><summary>3. Mixed features change the risk-benefit calculation.</summary><div class="inside">Mixed features are associated with greater severity and suicide risk. Atypical antipsychotics/divalproex are supported; antidepressants should be avoided or used with substantial caution.</div></details>
+<details><summary>4. “Non-response” is often a process problem.</summary><div class="inside">Before switching, verify diagnosis, therapeutic dose/level, duration, adherence, substance use and medical contributors.</div></details>
+<details><summary>5. Choose acute drugs with maintenance in mind.</summary><div class="inside">The 2018 hierarchy deliberately considers efficacy across acute and maintenance phases, safety/tolerability and switch risk.</div></details>
+<details><summary>6. Depression + imminent suicide/catatonia/psychosis = think ECT early.</summary><div class="inside">ECT is second-line in the guideline and can be considered earlier when rapid response is imperative.</div></details>
+<details><summary>7. Lamotrigine is not a rapid-response drug.</summary><div class="inside">Slow titration is necessary because of serious rash risk; target at least 200 mg/day in the bipolar I depression discussion.</div></details>
+<details><summary>8. Lithium monitoring is a system, not a single serum level.</summary><div class="inside">Track trough level, renal function, thyroid function, calcium, interacting drugs and clinical status. Recheck after dose changes and relevant interacting-medication changes.</div></details>
+<details><summary>9. Antipsychotic monitoring starts before the first dose.</summary><div class="inside">Document weight/BMI, BP and metabolic labs, then continue structured follow-up. Do not wait for weight gain or diabetes to appear.</div></details>
+<details><summary>10. Discharge is a high-risk clinical transition.</summary><div class="inside">The guideline reports substantial suicide risk during hospitalization and in the first 6 weeks after discharge; safety planning, family involvement and rapid follow-up matter.</div></details>
+</section>
+
+<section id="sources" class="section">
+<h2>16. Source & Limitations</h2>
+<div class="card">
+<h3>Primary source</h3>
+<p>Yatham LN et al. <strong>Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) 2018 guidelines for the management of patients with bipolar disorder.</strong> Bipolar Disorders. 2018;20:97–170. DOI: 10.1111/bdi.12609.</p>
+<p>The source is organized into eight sections: foundations of management; acute mania; acute bipolar I depression; bipolar I maintenance; bipolar II disorder; specific populations; and safety/monitoring.</p>
+</div>
+<div class="notice warn"><strong>Version control:</strong> This webpage is intentionally based on the uploaded <strong>2018</strong> guideline. It should not be assumed to represent later CANMAT/ISBD updates, newer regulatory warnings, or current local formularies. For real prescribing, cross-check current guidance and product information.</div>
+</section>
+
+<div class="footer">
+<strong>Clinical note design:</strong> This single-file page contains only HTML/CSS/JavaScript and works offline. Use the search bar to find medications/clinical concepts, use Expand/Collapse for rounds, and Print for a paper/PDF handout.
+</div>
+</main>
+</div>
+
+<script>
+function expandAll(){
+  document.querySelectorAll('details').forEach(d=>d.open=true);
+}
+function collapseAll(){
+  document.querySelectorAll('details').forEach(d=>d.open=false);
+}
+function showTab(id){
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const btn=[...document.querySelectorAll('.tab')].find(b=>b.getAttribute('onclick')?.includes("'"+id+"'"));
+  if(btn) btn.classList.add('active');
+}
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{
+  const q=search.value.trim().toLowerCase();
+  document.querySelectorAll('#content .section').forEach(sec=>{
+    if(!q){sec.style.display='';return;}
+    const hit=sec.innerText.toLowerCase().includes(q);
+    sec.style.display=hit?'':'none';
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='/' && document.activeElement!==search){e.preventDefault();search.focus();}
+});
+</script>
+</body>
+</html>
