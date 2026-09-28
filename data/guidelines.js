@@ -293,6 +293,165 @@ const GUIDELINES = [
      NEW CPG SLOT — 10
   ===================================================== */
   /* =====================================================
+   BIPOLAR DISORDER — DIAGNOSTIC WORKUP PROFORMA
+   CANMAT / ISBD 2018–BASED CLINICAL TOOL
+   ===================================================== */
+
+{
+  title:
+    "Bipolar Disorder Diagnostic Workup, Formulation and Treatment Plan",
+
+  shortTitle:
+    "Bipolar Disorder Workup Proforma",
+
+  authors:
+    "Clinical implementation tool based on CANMAT/ISBD 2018 Bipolar Disorder Guidelines",
+
+  year:
+    "2018",
+
+  journal:
+    "Based on CANMAT/ISBD Bipolar Disorder Guidelines",
+
+  category:
+    "Mood Disorders / Bipolar Disorder",
+
+  description:
+    "Structured clinical workup and documentation proforma for patients presenting with suspected or established bipolar disorder. Covers diagnostic assessment, longitudinal bipolarity assessment, manic and depressive episode characterization, mental status examination, suicide and violence risk assessment, differential diagnosis and secondary causes, medical and laboratory workup, 5P biopsychosocial formulation, treatment-setting decision, acute pharmacological treatment planning, lithium and antipsychotic monitoring, psychosocial management, maintenance planning, discharge criteria and OPD/IPD clinical round checklists.",
+
+  tags: [
+    "bipolar disorder",
+    "bipolar I disorder",
+    "bipolar II disorder",
+    "bipolar diagnosis",
+    "diagnostic workup",
+    "clinical assessment",
+    "psychiatric assessment",
+    "mania",
+    "hypomania",
+    "bipolar depression",
+    "psychotic mania",
+    "suicide risk",
+    "risk assessment",
+    "differential diagnosis",
+    "medical workup",
+    "laboratory investigations",
+    "5P formulation",
+    "biopsychosocial formulation",
+    "treatment plan",
+    "acute mania",
+    "maintenance treatment",
+    "lithium monitoring",
+    "antipsychotic monitoring",
+    "OPD",
+    "IPD",
+    "psychiatry",
+    "CANMAT",
+    "ISBD"
+  ],
+
+  keywords: [
+    "bipolar disorder diagnostic workup",
+    "bipolar disorder assessment",
+    "bipolar disorder clinical assessment",
+    "bipolar disorder diagnosis",
+    "bipolar I disorder diagnosis",
+    "bipolar II disorder diagnosis",
+    "mania assessment",
+    "manic episode assessment",
+    "hypomania assessment",
+    "bipolar depression assessment",
+    "current episode mania",
+    "current episode depression",
+    "psychotic features bipolar disorder",
+    "mixed features bipolar disorder",
+    "rapid cycling bipolar disorder",
+    "past mania history",
+    "past hypomania history",
+    "past depression history",
+    "family history bipolar disorder",
+    "collateral history bipolar disorder",
+    "mood charting",
+    "mental status examination bipolar disorder",
+    "MSE bipolar disorder",
+    "suicide risk bipolar disorder",
+    "self harm risk",
+    "violence risk mania",
+    "capacity assessment psychiatry",
+    "differential diagnosis mania",
+    "secondary mania",
+    "substance induced mania",
+    "medication induced mania",
+    "schizoaffective disorder differential",
+    "schizophrenia differential mania",
+    "ADHD differential mania",
+    "borderline personality disorder differential",
+    "delirium differential mania",
+    "thyroid disease mania",
+    "hyperthyroidism mania",
+    "neurological causes of mania",
+    "medical causes of mania",
+    "bipolar disorder investigations",
+    "psychiatric laboratory investigations",
+    "CBC bipolar disorder",
+    "glucose bipolar disorder",
+    "lipid profile bipolar disorder",
+    "LFT bipolar disorder",
+    "renal function bipolar disorder",
+    "creatinine bipolar disorder",
+    "eGFR bipolar disorder",
+    "TSH bipolar disorder",
+    "calcium bipolar disorder",
+    "electrolytes bipolar disorder",
+    "urine toxicology bipolar disorder",
+    "ECG bipolar disorder",
+    "pregnancy test bipolar disorder",
+    "prolactin antipsychotic monitoring",
+    "5P formulation bipolar disorder",
+    "biopsychosocial formulation psychiatry",
+    "predisposing factors bipolar disorder",
+    "precipitating factors bipolar disorder",
+    "perpetuating factors bipolar disorder",
+    "protective factors bipolar disorder",
+    "presenting factors bipolar disorder",
+    "bipolar treatment plan",
+    "acute mania treatment",
+    "first line treatment mania",
+    "lithium bipolar disorder",
+    "quetiapine bipolar disorder",
+    "divalproex bipolar disorder",
+    "asenapine bipolar disorder",
+    "aripiprazole bipolar disorder",
+    "risperidone bipolar disorder",
+    "paliperidone bipolar disorder",
+    "cariprazine bipolar disorder",
+    "lithium monitoring",
+    "lithium serum level",
+    "lithium toxicity monitoring",
+    "lithium renal monitoring",
+    "lithium thyroid monitoring",
+    "antipsychotic metabolic monitoring",
+    "weight monitoring antipsychotics",
+    "EPS monitoring",
+    "akathisia monitoring",
+    "relapse prevention bipolar disorder",
+    "maintenance bipolar disorder",
+    "bipolar discharge planning",
+    "psychiatry OPD proforma",
+    "psychiatry IPD proforma",
+    "bipolar disorder OPD",
+    "bipolar disorder IPD",
+    "psychiatry clinical proforma",
+    "CANMAT ISBD bipolar disorder"
+  ],
+
+  url:
+    "cpg/sample-bpad-workup-canmat.html",
+
+  readTime:
+    "15 min clinical workup"
+},
+  /* =====================================================
      BIPOLAR DISORDER — NEWEST CPG
      CANMAT / ISBD 2018
    ===================================================== */

@@ -3,6 +3,12 @@
   <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/</loc></url>
 
   <url>
+    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/sample-bpad-workup-canmat.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/canmat-isbd-bipolar-disorder-2018.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>

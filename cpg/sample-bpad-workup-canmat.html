@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bipolar Disorder — Diagnostic Workup, Formulation & Treatment Plan</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#dfe5ee;--p:#243b64;--soft:#eef4ff;--warn:#fff7df;--danger:#fff0f0;--green:#176b4d}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,Arial,sans-serif}header{background:linear-gradient(135deg,#182b4b,#31588e);color:#fff;padding:30px 20px}.wrap{max-width:1400px;margin:auto;padding:0 18px}h1{margin:0 0 8px;font-size:30px}h2{color:var(--p);font-size:22px;margin:0 0 15px}h3{color:var(--p);font-size:17px;margin:20px 0 10px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 8px 24px #14233c12}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.c12{grid-column:span 12}.c6{grid-column:span 6}.c4{grid-column:span 4}.field{margin-bottom:10px}label{font-weight:650;font-size:13px;display:block;margin-bottom:5px}input,textarea,select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:9px;font:inherit;background:#fff}textarea{min-height:90px;resize:vertical}.notice{padding:13px 15px;border-left:5px solid #35609a;background:var(--soft);border-radius:7px;margin:12px 0}.warn{border-color:#d69e2e;background:var(--warn)}.danger{border-color:#c53030;background:var(--danger)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid var(--line);padding:9px;vertical-align:top}th{background:#f1f5f9;color:var(--p);text-align:left}tr:nth-child(even)td{background:#fbfcfe}.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.check{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:7px;background:#fff}.check input{width:auto;margin-top:4px}.form5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.formbox{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfcfe}.formbox b{color:var(--p)}.toolbar{position:sticky;top:0;z-index:5;background:#f4f7fbf5;padding:10px 0;display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:8px;padding:9px 13px;background:var(--p);color:white;font-weight:650;cursor:pointer}button.secondary{background:#e8edf5;color:var(--ink)}button.green{background:var(--green)}pre{white-space:pre-wrap;background:#111827;color:#e5e7eb;border-radius:10px;padding:16px;font-size:12px;overflow:auto}.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#e9eef7;margin:2px;font-size:11px}.small{font-size:12px;color:var(--muted)}footer{padding:25px 0;color:var(--muted);font-size:12px}@media(max-width:900px){.c6,.c4,.c12{grid-column:span 12}.checklist,.form5{grid-template-columns:1fr}}@media print{body{background:#fff}.toolbar{display:none}.card{box-shadow:none;break-inside:avoid}header{background:#fff;color:#000;border-bottom:2px solid #222}}
+</style></head><body>
+<header><div class="wrap"><div class="small" style="color:#dbe7f7">SAMPLE CLINICAL DOCUMENTATION TEMPLATE</div><h1>Bipolar Disorder — Diagnostic Workup, Formulation & Treatment Plan</h1><div>CANMAT/ISBD 2018–based structured sample for OPD/IPD clinical documentation and decision support.</div></div></header>
+<div class="wrap">
+<div class="notice warn"><b>Important:</b> Fictional sample case. This is a documentation/decision-support template, not a patient-specific prescription. Verify current product labels, interactions, contraindications, reproductive-safety requirements, local protocols and newer evidence before prescribing.</div>
+<div class="toolbar"><button onclick="window.print()">Print / Save PDF</button><button class="secondary" onclick="loadSample()">Load Sample Case</button><button class="secondary" onclick="clearAll()">Clear</button><button class="green" onclick="summary()">Generate Clinical Summary</button></div>
+
+<section class="card"><h2>1. Patient Identification & Presenting Problem</h2><div class="grid">
+<div class="c4 field"><label>Name</label><input id="name" value="Mr. A.B."></div><div class="c4 field"><label>Age / sex</label><input id="age" value="28 years / Male"></div><div class="c4 field"><label>Date / setting</label><input id="setting" value="29-09-2026 / Psychiatry IPD"></div>
+<div class="c4 field"><label>Occupation</label><input value="Software professional"></div><div class="c4 field"><label>Living situation</label><input value="Unmarried; lives with parents"></div><div class="c4 field"><label>Informant / reliability</label><input value="Patient + mother; collateral reliable"></div>
+<div class="c12 field"><label>Chief complaints</label><textarea id="complaints">Decreased need for sleep × 12 days; excessive talking × 10 days; increased goal-directed activity; grandiose ideas; excessive spending; irritability; socially inappropriate behaviour; hearing voices × 4 days.</textarea></div></div></section>
+
+<section class="card"><h2>2. Present Episode — Structured Diagnostic History</h2><div class="grid">
+<div class="c6"><label>Onset / duration</label><textarea id="onset">Abrupt change from baseline 12 days ago. Symptoms persisted throughout the day and progressively worsened.</textarea></div>
+<div class="c6"><label>Precipitants / perpetuating factors</label><textarea id="precip">Stopped previous medication 6 weeks ago. Sleep reduced to 2–3 h/night. No clear medical trigger reported.</textarea></div>
+<div class="c6"><label>Manic syndrome</label><textarea id="mania">Elevated/irritable mood; markedly reduced need for sleep without fatigue; pressured speech; flight of ideas; distractibility; increased goal-directed projects; excessive spending; grandiosity; impaired judgment; increased social activity.</textarea></div>
+<div class="c6"><label>Psychotic symptoms</label><textarea id="psychosis">Grandiose delusional beliefs that he has been selected for a major national technology mission. Auditory voices commenting on his actions. Psychosis occurs during the mood episode.</textarea></div>
+<div class="c6"><label>Functional impairment</label><textarea id="function">Unable to work; large unplanned purchases; family conflict; requires supervision for finances and medication; judgement markedly impaired.</textarea></div>
+<div class="c6"><label>Depressive history</label><textarea id="depression">Two prior depressive episodes lasting approximately 2–3 months, with anhedonia, low mood, fatigue and social withdrawal.</textarea></div></div>
+<h3>Mania episode checklist</h3><div class="checklist">
+<label class="check"><input type="checkbox" checked> Elevated/expansive or persistently irritable mood</label><label class="check"><input type="checkbox" checked> Decreased need for sleep</label><label class="check"><input type="checkbox" checked> Pressured speech</label><label class="check"><input type="checkbox" checked> Flight of ideas</label><label class="check"><input type="checkbox" checked> Distractibility</label><label class="check"><input type="checkbox" checked> Increased goal-directed activity</label><label class="check"><input type="checkbox" checked> Risky/impulsive behaviour</label><label class="check"><input type="checkbox" checked> Grandiosity</label><label class="check"><input type="checkbox" checked> Marked functional impairment</label><label class="check"><input type="checkbox" checked> Psychotic features</label><label class="check"><input type="checkbox"> Catatonia</label><label class="check"><input type="checkbox"> Prominent mixed depressive symptoms</label></div></section>
+
+<section class="card"><h2>3. Longitudinal Bipolarity Assessment</h2><table><tr><th>Domain</th><th>Sample finding</th><th>Interpretation</th></tr>
+<tr><td>Past mania/hypomania</td><td>Current first clearly documented threshold manic episode</td><td>Supports Bipolar I if full criteria confirmed.</td></tr><tr><td>Past depression</td><td>Two prior depressive episodes</td><td>Supports longitudinal bipolar course but is not required for Bipolar I.</td></tr><tr><td>Family history</td><td>Father with recurrent episodic mood illness; aunt reportedly treated for bipolar disorder</td><td>Verify exact diagnoses/treatment history.</td></tr><tr><td>Antidepressants</td><td>Previous sertraline; no clear switch documented</td><td>Document temporal relationship carefully.</td></tr><tr><td>Collateral</td><td>Mother confirms change from baseline and reduced sleep</td><td>Important when insight is impaired.</td></tr><tr><td>Mood charting</td><td>To begin after acute stabilization</td><td>Useful for prospective longitudinal assessment.</td></tr></table>
+<div class="notice"><b>Diagnostic principle:</b> do not diagnose bipolarity from a checklist alone. Use diagnostic criteria, careful psychiatric and family history, collateral information and prospective monitoring/mood charting where needed.</div></section>
+
+<section class="card"><h2>4. Mental Status Examination</h2><table><tr><th>Domain</th><th>Sample documentation</th></tr>
+<tr><td>Appearance/behaviour</td><td>Overfamiliar, intrusive, increased psychomotor activity, difficult to redirect.</td></tr><tr><td>Speech</td><td>Increased rate, volume and quantity; difficult to interrupt.</td></tr><tr><td>Mood/affect</td><td>“Excellent”; expansive, labile, irritable when contradicted.</td></tr><tr><td>Thought form</td><td>Flight of ideas; occasional loosening of associations.</td></tr><tr><td>Thought content</td><td>Grandiose delusions; excessive plans; no current depressive cognitions elicited.</td></tr><tr><td>Perception</td><td>Auditory hallucinations.</td></tr><tr><td>Cognition</td><td>Alert/oriented; attention distractible.</td></tr><tr><td>Insight</td><td>Poor.</td></tr><tr><td>Judgement</td><td>Impaired, particularly financial/social decisions.</td></tr></table></section>
+
+<section class="card"><h2>5. Suicide, Self-Harm, Violence & Safeguarding</h2><div class="grid"><div class="c6"><h3>Suicide/self-harm</h3><div class="checklist"><label class="check"><input type="checkbox" checked> Current SI denied</label><label class="check"><input type="checkbox"> Current plan</label><label class="check"><input type="checkbox"> Current intent</label><label class="check"><input type="checkbox"> Previous attempt</label><label class="check"><input type="checkbox" checked> Means assessed</label><label class="check"><input type="checkbox" checked> Protective factors identified</label></div></div><div class="c6"><h3>Mania-related safety</h3><div class="checklist"><label class="check"><input type="checkbox" checked> Impaired judgement</label><label class="check"><input type="checkbox" checked> Financial risk</label><label class="check"><input type="checkbox" checked> Social disinhibition</label><label class="check"><input type="checkbox"> Aggression/violence</label><label class="check"><input type="checkbox" checked> Requires supervision</label><label class="check"><input type="checkbox" checked> Capacity concerns</label></div></div></div>
+<div class="notice danger"><b>CANMAT/ISBD principle:</b> suicide risk should be assessed during all clinical interactions. Risk tools can support assessment but do not replace clinical assessment.</div>
+<textarea id="risk">Current suicidal ideation, plan and intent denied. No recent attempt. Acute risk is increased by severe mood episode, impaired judgement, psychosis and medication non-adherence. Protective factors include family supervision and willingness of family to participate. Continue repeated risk assessment during admission and around discharge.</textarea></section>
+
+<section class="card"><h2>6. Differential Diagnosis & Mimics</h2><table><tr><th>Diagnosis/cause</th><th>Why considered</th><th>Sample evidence</th><th>Status</th></tr>
+<tr><td>Schizophrenia-spectrum disorder</td><td>Psychosis overlaps with mania.</td><td>Psychosis is embedded in a prominent mood episode.</td><td>Less likely; reassess longitudinally.</td></tr>
+<tr><td>Schizoaffective disorder</td><td>Requires a period of psychosis independent of mood.</td><td>No established mood-independent psychosis.</td><td>Not established.</td></tr>
+<tr><td>Substance/medication-induced bipolar disorder</td><td>Stimulants/drugs/medications may cause mania.</td><td>No recent exposure reported; verify and test where indicated.</td><td>To exclude.</td></tr>
+<tr><td>Hyperthyroidism/endocrine disorder</td><td>Can mimic activation/insomnia.</td><td>No clear clinical evidence; TSH pending.</td><td>To exclude.</td></tr>
+<tr><td>Neurological/medical disorder</td><td>Secondary mania must be considered, especially with atypical/new presentations.</td><td>No focal neurological symptoms reported.</td><td>Examine/investigate as indicated.</td></tr>
+<tr><td>ADHD</td><td>Impulsivity/distractibility overlap.</td><td>Symptoms are episodic and a clear change from baseline.</td><td>Less likely as explanation.</td></tr>
+<tr><td>Borderline personality disorder</td><td>Affective lability/impulsivity overlap.</td><td>No established pervasive trait pattern.</td><td>Assess longitudinally.</td></tr>
+<tr><td>Delirium</td><td>Altered attention/awareness.</td><td>Alert, oriented, no fluctuating consciousness.</td><td>Unlikely.</td></tr></table>
+<p class="small">CANMAT/ISBD emphasizes psychiatric comorbidity, personality disorder, medical/neurological conditions, substances and medications as important mimics/contributors.</p></section>
+
+<section class="card"><h2>7. Medical & Laboratory Diagnostic Workup</h2><div class="notice"><b>Principle:</b> rule out alcohol/drug use, medications and general medical/neurological causes; laboratory investigations form part of the assessment.</div>
+<table><tr><th>Investigation</th><th>Sample result</th><th>Clinical purpose</th></tr>
+<tr><td>Vitals</td><td>BP 128/78, pulse 94/min, afebrile</td><td>Medical baseline.</td></tr><tr><td>Weight/BMI</td><td>74 kg; BMI 24.7 kg/m²</td><td>Metabolic baseline.</td></tr><tr><td>CBC</td><td>Within reference range</td><td>Haematological baseline.</td></tr><tr><td>Fasting glucose</td><td>92 mg/dL</td><td>Metabolic risk.</td></tr><tr><td>Fasting lipids</td><td>Within acceptable range</td><td>Cardiometabolic baseline.</td></tr><tr><td>Platelets</td><td>2.35 lakh/µL</td><td>Particularly relevant with divalproex.</td></tr><tr><td>Electrolytes + calcium</td><td>Within reference range</td><td>Medical baseline; lithium/parathyroid relevance.</td></tr><tr><td>Creatinine/eGFR</td><td>0.9 mg/dL; eGFR normal</td><td>Essential baseline if lithium considered.</td></tr><tr><td>LFT/bilirubin</td><td>Within reference range</td><td>Hepatic baseline, especially relevant to divalproex.</td></tr><tr><td>TSH</td><td>2.1 mIU/L</td><td>Exclude thyroid disease; lithium monitoring.</td></tr><tr><td>Urinalysis</td><td>Unremarkable</td><td>Baseline assessment.</td></tr><tr><td>Urine toxicology</td><td>Negative for tested substances</td><td>Where substance exposure is clinically relevant.</td></tr><tr><td>ECG</td><td>Sinus rhythm; no significant abnormality</td><td>When age/risk/clinical indication warrants.</td></tr><tr><td>Pregnancy test</td><td>N/A in sample male</td><td>When relevant before reproductive-risk medication.</td></tr><tr><td>Prolactin</td><td>Only if agent/clinical context indicates</td><td>Relevant antipsychotic monitoring.</td></tr></table>
+<h3>Targeted tests only when clinically indicated</h3><div class="checklist"><label class="check"><input type="checkbox"> B12/folate</label><label class="check"><input type="checkbox"> Infection screen</label><label class="check"><input type="checkbox"> Additional endocrine tests</label><label class="check"><input type="checkbox"> CT/MRI brain</label><label class="check"><input type="checkbox"> EEG</label><label class="check"><input type="checkbox"> Autoimmune/inflammatory workup</label><label class="check"><input type="checkbox"> Drug-specific toxicology</label><label class="check"><input type="checkbox"> Other neurological workup</label></div>
+<p class="small">These targeted investigations are clinician-selected when history/examination suggests a secondary cause; the source does not mandate every test for every patient.</p></section>
+
+<section class="card"><h2>8. 5P Biopsychosocial Formulation</h2><div class="form5">
+<div class="formbox"><b>Predisposing</b><textarea id="pred">Family history of bipolar illness; biological vulnerability; recurrent depressive episodes.</textarea></div>
+<div class="formbox"><b>Precipitating</b><textarea id="precp">Medication discontinuation; progressive sleep reduction; possible psychosocial stress.</textarea></div>
+<div class="formbox"><b>Perpetuating</b><textarea id="perp">Poor insight; non-adherence; sleep deprivation; impaired judgement; financial/social consequences; psychosis.</textarea></div>
+<div class="formbox"><b>Protective</b><textarea id="prot">Supportive parents; family supervision; no current suicidal intent; previous occupational functioning; access to specialist care.</textarea></div>
+<div class="formbox"><b>Presenting</b><textarea id="pres">12-day syndromal manic episode with marked functional impairment and psychotic features.</textarea></div></div>
+<h3>One-line formulation</h3><textarea id="one">28-year-old man with family history of bipolar illness and prior depressive episodes, presenting after medication discontinuation with a 12-day syndromal manic episode characterised by decreased need for sleep, pressured speech, flight of ideas, increased goal-directed activity, grandiosity, risky spending, marked functional impairment and psychotic features, with no current evidence of substance-induced or medical/neurological secondary mania; acute safety risk is driven mainly by impaired judgement, psychosis and non-adherence.</textarea>
+<h3>Working diagnosis</h3><div class="notice"><b>Bipolar I disorder, current episode manic, severe, with psychotic features</b> — sample working diagnosis, assuming full threshold manic-episode criteria are confirmed and secondary causes remain excluded.</div></section>
+
+<section class="card"><h2>9. Treatment Setting & Immediate Priorities</h2><table><tr><th>Decision</th><th>Sample assessment</th></tr><tr><td>Setting</td><td><b>IPD</b> due to psychosis, marked functional impairment, poor judgement, financial risk and need for supervised treatment.</td></tr><tr><td>Immediate goals</td><td>Contain behavioural risk; restore sleep; reduce manic/psychotic symptoms; establish adherence; assess medical contributors; repeatedly assess safety.</td></tr><tr><td>Environment</td><td>Low-stimulation environment; structured routine; restrict risky activities/finances as clinically and legally appropriate.</td></tr><tr><td>Collateral</td><td>Obtain medication history, prior response/adverse effects, episode chronology and substance history.</td></tr></table></section>
+
+<section class="card"><h2>10. Pharmacological Treatment Plan — Sample</h2>
+<div class="notice"><b>CANMAT/ISBD 2018:</b> first-line acute mania options include lithium, quetiapine, divalproex, asenapine, aripiprazole, paliperidone, risperidone and cariprazine. First-line combinations include quetiapine, aripiprazole, risperidone or asenapine with lithium/divalproex; combination treatment is particularly relevant when index severity is high.</div>
+<table><tr><th>Component</th><th>Sample plan</th><th>Rationale/monitoring</th></tr>
+<tr><td><b>Antimanic agent</b></td><td>Lithium — initiate/titrate according to current local protocol and patient factors.</td><td>First-line acute mania option. Acute trough target in source: <b>0.8–1.2 mEq/L</b>; obtain approximately 5 days after dose titration, at trough about 12 h after last dose.</td></tr>
+<tr><td><b>Antipsychotic</b></td><td>Quetiapine — initiate/titrate according to current product information/local protocol.</td><td>First-line acute mania option; appropriate to consider when psychosis is prominent. Monitor sedation, orthostasis, weight and metabolic parameters.</td></tr>
+<tr><td><b>Acute agitation</b></td><td>Use an appropriate short-term protocol based on severity, route and local emergency policy.</td><td>CANMAT 2018 lists several rapid-acting/IM options; current local protocol and product labeling take precedence.</td></tr>
+<tr><td><b>Antidepressant</b></td><td>Not initiated during this acute manic episode.</td><td>Establish mood stability first; assess switch risk and indication carefully.</td></tr></table>
+<h3>Why lithium + quetiapine in this sample?</h3><ul><li><b>High severity:</b> psychosis and marked functional impairment support consideration of combination treatment.</li><li><b>Evidence:</b> both are first-line acute mania agents; quetiapine + lithium is a first-line combination in the source.</li><li><b>Longitudinal value:</b> lithium and quetiapine are also first-line maintenance options.</li><li><b>Individualisation:</b> final selection must incorporate prior response, tolerability, comorbidity, substance use, adherence and patient/caregiver preference.</li></ul>
+<h3>Lithium safety checklist</h3><div class="checklist"><label class="check"><input type="checkbox" checked> Creatinine/eGFR</label><label class="check"><input type="checkbox" checked> TSH</label><label class="check"><input type="checkbox" checked> Calcium</label><label class="check"><input type="checkbox" checked> Electrolytes</label><label class="check"><input type="checkbox" checked> Interaction review</label><label class="check"><input type="checkbox" checked> Dehydration/illness counselling</label><label class="check"><input type="checkbox"> ECG if indicated</label><label class="check"><input type="checkbox" checked> Serum lithium plan</label></div>
+<h3>Important lithium interactions</h3><span class="pill">NSAIDs</span><span class="pill">ACE inhibitors</span><span class="pill">ARBs</span><span class="pill">Thiazide diuretics</span></section>
+
+<section class="card"><h2>11. Non-Pharmacological Management</h2><table><tr><th>Intervention</th><th>Plan</th></tr><tr><td>Acute structure</td><td>Reduce stimulation; regular sleep/wake schedule; structured routine; limit risky activities.</td></tr><tr><td>Psychoeducation</td><td>Illness model, relapse signatures, adherence, sleep regularity and early warning signs.</td></tr><tr><td>Family involvement</td><td>Collateral, relapse prevention and medication supervision where appropriate.</td></tr><tr><td>Psychotherapy after stabilization</td><td>Use evidence-based adjunctive psychosocial strategies according to phase and individual needs.</td></tr><tr><td>Substance use</td><td>Screen/address alcohol, stimulants, cannabis and other substances; manage withdrawal if required.</td></tr><tr><td>Occupational recovery</td><td>Gradual return to work after sustained clinical stabilization and restoration of judgement/function.</td></tr></table></section>
+
+<section class="card"><h2>12. Monitoring & Follow-up</h2><table><tr><th>Time</th><th>Monitor</th><th>Purpose</th></tr><tr><td>Daily IPD</td><td>Sleep, speech, activity, psychosis, agitation, suicidality, aggression, adherence, adverse effects.</td><td>Response and safety.</td></tr><tr><td>After lithium titration</td><td>12-h trough level; renal/clinical tolerability as indicated.</td><td>Source recommends level about 5 days after dose titration.</td></tr><tr><td>Acute lithium</td><td>Serum lithium</td><td><b>0.8–1.2 mEq/L</b> per 2018 source.</td></tr><tr><td>Maintenance lithium</td><td>Level, renal function, TSH, calcium</td><td><b>0.6–1.0 mEq/L</b> may be sufficient; monitor periodically.</td></tr><tr><td>Antipsychotic</td><td>Weight/BMI, glucose, lipids, EPS/akathisia, sedation, prolactin where relevant.</td><td>Detect adverse effects.</td></tr><tr><td>Every OPD contact</td><td>Relapse symptoms, adherence, substance use, suicidality, function.</td><td>Early intervention/relapse prevention.</td></tr></table>
+<h3>Sample discharge criteria</h3><div class="checklist"><label class="check"><input type="checkbox"> Manic symptoms substantially reduced</label><label class="check"><input type="checkbox"> Psychosis substantially remitted</label><label class="check"><input type="checkbox"> Sleep restored</label><label class="check"><input type="checkbox"> Judgement improved</label><label class="check"><input type="checkbox"> No acute suicide/violence risk requiring IPD</label><label class="check"><input type="checkbox"> Medication plan understood</label><label class="check"><input type="checkbox"> Family plan established</label><label class="check"><input type="checkbox"> Follow-up arranged</label></div></section>
+
+<section class="card"><h2>13. Longitudinal Maintenance Plan</h2><table><tr><th>Question</th><th>Plan</th></tr><tr><td>What worked acutely?</td><td>Where possible, continue an effective acute agent into maintenance.</td></tr><tr><td>Predominantly manic recurrence?</td><td>Give weight to prior response to effective antimanic treatment.</td></tr><tr><td>Predominantly depressive recurrence?</td><td>Consider lithium, quetiapine and lamotrigine among relevant first-line options.</td></tr><tr><td>Mixed features?</td><td>Reassess antidepressant exposure and choose an appropriate switch-risk profile.</td></tr><tr><td>Rapid cycling?</td><td>Assess thyroid disease, antidepressants, stimulants and substances.</td></tr><tr><td>Antipsychotic + lithium/divalproex used acutely?</td><td>2018 source notes evidence for continuing the atypical antipsychotic during the first 6 months after response, followed by risk-benefit reassessment.</td></tr></table><p>First-line maintenance options in the source include <b>lithium, quetiapine, divalproex, lamotrigine, asenapine and aripiprazole</b>; first-line combinations include quetiapine + lithium/divalproex and aripiprazole + lithium/divalproex.</p></section>
+
+<section class="card"><h2>14. Copy-Ready Clinical Summary</h2><pre id="out">Click “Generate Clinical Summary”.</pre></section>
+
+<section class="card"><h2>15. OPD/IPD Round Checklist</h2><div class="checklist"><label class="check"><input type="checkbox"> Polarity confirmed</label><label class="check"><input type="checkbox"> Episode duration documented</label><label class="check"><input type="checkbox"> Collateral obtained</label><label class="check"><input type="checkbox"> Past mania/hypomania assessed</label><label class="check"><input type="checkbox"> Past depression assessed</label><label class="check"><input type="checkbox"> Family history documented</label><label class="check"><input type="checkbox"> Substance use assessed</label><label class="check"><input type="checkbox"> Medication-induced causes assessed</label><label class="check"><input type="checkbox"> Medical/neurological mimics considered</label><label class="check"><input type="checkbox"> Suicide risk assessed</label><label class="check"><input type="checkbox"> Violence/aggression risk assessed</label><label class="check"><input type="checkbox"> Capacity/consent documented</label><label class="check"><input type="checkbox"> Baseline investigations completed</label><label class="check"><input type="checkbox"> Prior response reviewed</label><label class="check"><input type="checkbox"> Adherence assessed</label><label class="check"><input type="checkbox"> Acute treatment selected by severity/polarity</label><label class="check"><input type="checkbox"> Adverse-effect monitoring planned</label><label class="check"><input type="checkbox"> Family psychoeducation provided</label><label class="check"><input type="checkbox"> Relapse prevention discussed</label><label class="check"><input type="checkbox"> Follow-up/discharge plan documented</label></div></section>
+
+<footer><b>Reference:</b> Yatham LN et al. CANMAT and ISBD 2018 guidelines for the management of patients with bipolar disorder. Bipolar Disorders, 2018.<br>This template is educational/clinical documentation support and does not replace current guidelines, local policy, prescribing information or clinical judgement.</footer>
+</div>
+<script>
+const $=id=>document.getElementById(id),v=id=>$(id)?.value||"";
+function summary(){
+$("out").textContent=`PSYCHIATRY CLINICAL IMPRESSION — SAMPLE
+Patient: ${v("name")} | ${v("age")} | ${v("setting")}
+
+CHIEF COMPLAINTS:
+${v("complaints")}
+
+HISTORY:
+${v("onset")}
+
+MANIC SYNDROME:
+${v("mania")}
+
+PSYCHOSIS:
+${v("psychosis")}
+
+FUNCTIONAL IMPAIRMENT:
+${v("function")}
+
+DEPRESSION HISTORY:
+${v("depression")}
+
+SUICIDE/SAFETY:
+${v("risk")}
+
+5P FORMULATION:
+Predisposing: ${v("pred")}
+Precipitating: ${v("precp")}
+Perpetuating: ${v("perp")}
+Protective: ${v("prot")}
+Presenting: ${v("pres")}
+
+ONE-LINE FORMULATION:
+${v("one")}
+
+WORKING DIAGNOSIS:
+Bipolar I disorder, current episode manic, severe, with psychotic features — sample working diagnosis, subject to confirmation of full diagnostic criteria and exclusion of secondary causes.
+
+SETTING:
+Inpatient psychiatric care in this sample because of psychosis, marked functional impairment, impaired judgement and safety concerns.
+
+ACUTE PLAN:
+• First-line antimanic strategy selected according to current prescribing information and patient-specific factors.
+• Lithium acute trough target: 0.8–1.2 mEq/L according to the 2018 CANMAT/ISBD source; level approximately 5 days after titration and trough about 12 h after last dose.
+• Quetiapine is a first-line acute mania option and quetiapine + lithium is a first-line combination in the source.
+• No antidepressant initiated during this acute manic episode.
+• Restore sleep, reduce stimulation, address adherence, substances and psychosocial precipitants.
+• Reassess suicide/violence/capacity and adverse effects repeatedly.
+
+BASELINE/SAFETY:
+CBC; fasting glucose; fasting lipids; platelets; electrolytes/calcium; LFT/bilirubin; PT/PTT as relevant; urinalysis; urine toxicology where indicated; creatinine/eGFR; TSH; ECG where indicated; pregnancy test when relevant; prolactin where relevant.
+
+MAINTENANCE:
+Continue an effective acute treatment into maintenance where appropriate. First-line options in the 2018 source include lithium, quetiapine, divalproex, lamotrigine, asenapine and aripiprazole.`;
+}
+function loadSample(){summary()}
+function clearAll(){document.querySelectorAll("input,textarea").forEach(e=>{if(e.type==="checkbox")e.checked=false;else e.value=""});$("out").textContent="Click “Generate Clinical Summary”."}
+window.addEventListener("load",summary);
+</script>
+<script src="../assets/article-navigation.js"></script>
+</body></html>
