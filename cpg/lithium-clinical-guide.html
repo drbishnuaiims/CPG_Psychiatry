@@ -1,0 +1,4233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lithium Clinical Guide | Psychiatry OPD & IPD</title>
+
+<meta name="description"
+      content="Comprehensive lithium prescribing, monitoring, toxicity, interactions, renal, thyroid, pregnancy and clinical decision-making guide for psychiatry OPD and IPD.">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root{
+    --primary:#263238;
+    --primary-light:#37474f;
+    --accent:#1565c0;
+    --accent-light:#e3f2fd;
+
+    --success:#2e7d32;
+    --success-bg:#e8f5e9;
+
+    --warning:#ef6c00;
+    --warning-bg:#fff3e0;
+
+    --danger:#c62828;
+    --danger-bg:#ffebee;
+
+    --purple:#6a1b9a;
+    --purple-bg:#f3e5f5;
+
+    --teal:#00695c;
+    --teal-bg:#e0f2f1;
+
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --border:#dfe4e8;
+
+    --text:#263238;
+    --muted:#607d8b;
+
+    --shadow:0 4px 18px rgba(0,0,0,.07);
+    --radius:12px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+}
+
+a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    background:
+        linear-gradient(135deg,#263238 0%,#37474f 55%,#455a64 100%);
+    color:#fff;
+    padding:42px 24px 38px;
+}
+
+.hero-inner{
+    max-width:1400px;
+    margin:auto;
+}
+
+.hero h1{
+    margin:0 0 8px;
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.15;
+}
+
+.hero-subtitle{
+    margin:0;
+    color:#dce4e8;
+    font-size:17px;
+    max-width:900px;
+}
+
+.hero-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:22px;
+}
+
+.hero-tag{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    padding:6px 11px;
+    border-radius:999px;
+    font-size:13px;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.toolbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.toolbar-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:10px 18px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.tool-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--text);
+    border-radius:8px;
+    padding:8px 12px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:13px;
+}
+
+.tool-btn:hover{
+    background:#f1f4f6;
+}
+
+.tool-btn.primary{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+}
+
+.tool-btn.brand-btn{
+    background:#6a1b9a;
+    border-color:#6a1b9a;
+    color:#fff;
+}
+
+.search-wrap{
+    flex:1;
+    min-width:220px;
+}
+
+.search-wrap input{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:9px 12px;
+    outline:none;
+}
+
+.search-wrap input:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(21,101,192,.1);
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.page{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:250px minmax(0,1fr);
+    gap:24px;
+    padding:24px 18px 60px;
+}
+
+.sidebar{
+    position:sticky;
+    top:68px;
+    height:calc(100vh - 90px);
+    overflow:auto;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px;
+}
+
+.sidebar-title{
+    font-weight:800;
+    font-size:14px;
+    margin:5px 8px 10px;
+}
+
+.sidebar a{
+    display:block;
+    padding:7px 9px;
+    border-radius:7px;
+    color:#455a64;
+    font-size:13px;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:#e3f2fd;
+    color:#0d47a1;
+    text-decoration:none;
+}
+
+.content{
+    min-width:0;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.section-header{
+    padding:20px 22px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.section-header h2{
+    margin:0;
+    font-size:22px;
+    color:#263238;
+}
+
+.section-body{
+    padding:22px;
+}
+
+.section-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#eceff1;
+    margin-right:9px;
+    font-size:13px;
+    font-weight:800;
+}
+
+h3{
+    margin-top:24px;
+    color:#37474f;
+}
+
+h4{
+    margin-bottom:8px;
+}
+
+p{
+    margin-top:0;
+}
+
+ul,
+ol{
+    padding-left:24px;
+}
+
+li{
+    margin-bottom:5px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin:15px 0;
+}
+
+.card{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px;
+    background:#fff;
+}
+
+.card h4{
+    margin-top:0;
+    margin-bottom:7px;
+}
+
+.card p:last-child{
+    margin-bottom:0;
+}
+
+.card.blue{
+    background:var(--accent-light);
+    border-color:#bbdefb;
+}
+
+.card.green{
+    background:var(--success-bg);
+    border-color:#c8e6c9;
+}
+
+.card.orange{
+    background:var(--warning-bg);
+    border-color:#ffe0b2;
+}
+
+.card.red{
+    background:var(--danger-bg);
+    border-color:#ffcdd2;
+}
+
+.card.purple{
+    background:var(--purple-bg);
+    border-color:#e1bee7;
+}
+
+.card.teal{
+    background:var(--teal-bg);
+    border-color:#b2dfdb;
+}
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlight{
+    display:inline-block;
+    padding:1px 6px;
+    border-radius:4px;
+    background:#fff3cd;
+    font-weight:700;
+}
+
+.critical{
+    color:var(--danger);
+    font-weight:800;
+}
+
+.key{
+    color:#0d47a1;
+    font-weight:800;
+}
+
+.muted{
+    color:var(--muted);
+}
+
+.alert{
+    border-left:5px solid;
+    padding:14px 16px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.alert.info{
+    background:#e3f2fd;
+    border-color:#1976d2;
+}
+
+.alert.success{
+    background:#e8f5e9;
+    border-color:#2e7d32;
+}
+
+.alert.warning{
+    background:#fff3e0;
+    border-color:#ef6c00;
+}
+
+.alert.danger{
+    background:#ffebee;
+    border-color:#c62828;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th,
+td{
+    border:1px solid var(--border);
+    padding:10px 11px;
+    text-align:left;
+    vertical-align:top;
+}
+
+th{
+    background:#eceff1;
+    color:#263238;
+    font-weight:800;
+}
+
+tr:nth-child(even) td{
+    background:#fafbfc;
+}
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.flow{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    margin:15px 0;
+}
+
+.flow-step{
+    padding:10px 13px;
+    border-radius:8px;
+    background:#eceff1;
+    font-weight:700;
+    font-size:13px;
+}
+
+.flow-arrow{
+    color:#78909c;
+    font-weight:800;
+}
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+.accordion{
+    border:1px solid var(--border);
+    border-radius:9px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.accordion button{
+    width:100%;
+    border:0;
+    background:#f7f9fa;
+    padding:13px 15px;
+    text-align:left;
+    font-weight:800;
+    cursor:pointer;
+    color:var(--text);
+}
+
+.accordion button:hover{
+    background:#eef2f4;
+}
+
+.accordion-content{
+    display:none;
+    padding:15px;
+    border-top:1px solid var(--border);
+}
+
+.accordion.open .accordion-content{
+    display:block;
+}
+
+/* =========================================================
+   CODE / TEMPLATE
+========================================================= */
+
+.template{
+    background:#263238;
+    color:#eceff1;
+    border-radius:9px;
+    padding:18px;
+    overflow:auto;
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+    font-size:13px;
+    white-space:pre-wrap;
+}
+
+/* =========================================================
+   BRAND MODAL
+========================================================= */
+
+.brand-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:5000;
+    padding:20px;
+}
+
+.brand-modal.show{
+    display:flex;
+}
+
+.brand-modal-box{
+    width:min(1250px,100%);
+    max-height:92vh;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 70px rgba(0,0,0,.35);
+    display:flex;
+    flex-direction:column;
+}
+
+.brand-modal-header{
+    padding:18px 22px;
+    background:
+        linear-gradient(135deg,#4a148c,#6a1b9a);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand-modal-header h2{
+    margin:0;
+    font-size:22px;
+}
+
+.brand-modal-close{
+    border:0;
+    background:rgba(255,255,255,.14);
+    color:#fff;
+    border-radius:8px;
+    width:38px;
+    height:38px;
+    cursor:pointer;
+    font-size:22px;
+}
+
+.brand-modal-body{
+    overflow:auto;
+    padding:20px;
+}
+
+.brand-controls{
+    display:grid;
+    grid-template-columns:1fr 180px 180px;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.brand-controls input,
+.brand-controls select{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+}
+
+.brand-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:16px;
+}
+
+.brand-stat{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px;
+    background:#fafafa;
+}
+
+.brand-stat strong{
+    display:block;
+    font-size:20px;
+}
+
+.brand-stat span{
+    font-size:12px;
+    color:var(--muted);
+}
+
+.brand-table{
+    min-width:950px;
+}
+
+.brand-table th{
+    background:#f3e5f5;
+}
+
+.brand-table .price{
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.brand-table .source{
+    font-size:12px;
+}
+
+.brand-table .badge{
+    display:inline-block;
+    border-radius:999px;
+    padding:3px 7px;
+    font-size:11px;
+    font-weight:800;
+    background:#eceff1;
+}
+
+.brand-table .badge.ir{
+    background:#e3f2fd;
+    color:#0d47a1;
+}
+
+.brand-table .badge.sr{
+    background:#e8f5e9;
+    color:#1b5e20;
+}
+
+.brand-table .badge.cr{
+    background:#fff3e0;
+    color:#e65100;
+}
+
+.brand-table .badge.xr{
+    background:#f3e5f5;
+    color:#6a1b9a;
+}
+
+.brand-footer{
+    margin-top:18px;
+    padding:15px;
+    background:#fff8e1;
+    border:1px solid #ffe082;
+    border-radius:9px;
+    font-size:13px;
+}
+
+.brand-footer strong{
+    color:#e65100;
+}
+
+.brand-source-list{
+    margin-top:10px;
+}
+
+.brand-source-list a{
+    display:block;
+    margin-bottom:4px;
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    .toolbar,
+    .sidebar,
+    .brand-modal{
+        display:none !important;
+    }
+
+    .page{
+        display:block;
+        padding:0;
+        max-width:none;
+    }
+
+    .section{
+        box-shadow:none;
+        break-inside:avoid;
+    }
+
+    .hero{
+        color:#000;
+        background:#fff;
+        padding:20px 0;
+        border-bottom:2px solid #000;
+    }
+
+    .hero-subtitle,
+    .hero-tag{
+        color:#000;
+    }
+
+    .section-body{
+        padding:12px 0;
+    }
+
+    a{
+        color:#000;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .page{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:relative;
+        top:auto;
+        height:auto;
+        max-height:300px;
+    }
+
+    .brand-controls{
+        grid-template-columns:1fr;
+    }
+
+    .brand-summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:30px 16px;
+    }
+
+    .page{
+        padding:14px 10px 40px;
+    }
+
+    .section-body,
+    .section-header{
+        padding:16px;
+    }
+
+    .toolbar-inner{
+        padding:8px 10px;
+    }
+
+    .tool-btn{
+        font-size:12px;
+        padding:7px 9px;
+    }
+
+    .brand-summary{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .brand-modal{
+        padding:8px;
+    }
+
+    .brand-modal-box{
+        max-height:96vh;
+        border-radius:12px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+<div class="hero-inner">
+
+    <h1>Lithium Clinical Guide</h1>
+
+    <p class="hero-subtitle">
+        Practical prescribing, monitoring, toxicity management and
+        clinical decision-support reference for Psychiatry OPD, IPD
+        and ward rounds.
+    </p>
+
+    <div class="hero-tags">
+        <span class="hero-tag">Bipolar Disorder</span>
+        <span class="hero-tag">Acute Mania</span>
+        <span class="hero-tag">Maintenance</span>
+        <span class="hero-tag">Depression Augmentation</span>
+        <span class="hero-tag">Serum Level Monitoring</span>
+        <span class="hero-tag">Renal & Thyroid Safety</span>
+        <span class="hero-tag">Toxicity</span>
+    </div>
+
+</div>
+</header>
+
+
+<!-- =========================================================
+     TOOLBAR
+========================================================= -->
+
+<div class="toolbar">
+<div class="toolbar-inner">
+
+    <div class="search-wrap">
+        <input
+            id="pageSearch"
+            type="search"
+            placeholder="Search this lithium guide..."
+            oninput="searchPage()">
+    </div>
+
+    <button class="tool-btn" onclick="expandAll()">
+        Expand All
+    </button>
+
+    <button class="tool-btn" onclick="collapseAll()">
+        Collapse All
+    </button>
+
+    <button class="tool-btn" onclick="window.print()">
+        Print
+    </button>
+
+    <button
+        class="tool-btn brand-btn"
+        onclick="openBrandModal()">
+        Indian Lithium Brands & Prices
+    </button>
+
+</div>
+</div>
+
+
+<!-- =========================================================
+     MAIN LAYOUT
+========================================================= -->
+
+<div class="page">
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-title">
+        Clinical Navigation
+    </div>
+
+    <a href="#quick">1. Quick Summary</a>
+    <a href="#indications">2. Indications</a>
+    <a href="#mechanism">3. Mechanism</a>
+    <a href="#baseline">4. Before Starting</a>
+    <a href="#dosing">5. Dosing & Titration</a>
+    <a href="#levels">6. Serum Levels</a>
+    <a href="#monitoring">7. Monitoring</a>
+    <a href="#mania">8. Acute Mania</a>
+    <a href="#maintenance">9. Maintenance</a>
+    <a href="#depression">10. Bipolar Depression</a>
+    <a href="#nonresponse">11. If Not Working</a>
+    <a href="#adverse">12. Adverse Effects</a>
+    <a href="#toxicity">13. Toxicity</a>
+    <a href="#interactions">14. Interactions</a>
+    <a href="#renal">15. Renal Issues</a>
+    <a href="#thyroid">16. Thyroid & Calcium</a>
+    <a href="#special">17. Special Populations</a>
+    <a href="#pregnancy">18. Pregnancy</a>
+    <a href="#breastfeeding">19. Breastfeeding</a>
+    <a href="#discontinuation">20. Discontinuation</a>
+    <a href="#ward">21. Ward-Round Checklist</a>
+    <a href="#opd">22. OPD Template</a>
+    <a href="#ipd">23. IPD Template</a>
+    <a href="#pearls">24. Clinical Pearls</a>
+    <a href="#sources">25. Source Basis</a>
+
+</aside>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="content">
+
+
+<!-- =========================================================
+     1. QUICK SUMMARY
+========================================================= -->
+
+<section class="section" id="quick">
+
+<div class="section-header">
+<h2>
+<span class="section-number">1</span>
+Quick Clinical Summary
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Core role</h4>
+<p>
+Lithium is a major mood stabiliser with established roles in
+<strong>bipolar disorder</strong>, particularly mania prevention
+and long-term relapse prevention.
+</p>
+</div>
+
+<div class="card green">
+<h4>Therapeutic drug monitoring</h4>
+<p>
+Interpret serum lithium in relation to the
+<strong>dose, formulation, timing of sample, renal function,
+hydration and clinical state</strong>.
+</p>
+</div>
+
+<div class="card orange">
+<h4>Major safety domains</h4>
+<p>
+Kidney function, thyroid function, calcium,
+hydration/sodium balance and interacting medications.
+</p>
+</div>
+
+<div class="card red">
+<h4>Toxicity principle</h4>
+<p>
+Do not interpret toxicity from the lithium concentration alone.
+<strong>Clinical toxicity can occur at apparently therapeutic
+concentrations.</strong>
+</p>
+</div>
+
+</div>
+
+<div class="alert danger">
+<strong>High-yield safety rule:</strong>
+Vomiting, diarrhoea, dehydration, reduced sodium intake,
+renal impairment or addition of interacting medication can
+increase lithium exposure and precipitate toxicity.
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Clinical situation</th>
+<th>Approximate target range</th>
+<th>Clinical comment</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Maintenance</td>
+<td><strong>~0.6–0.8 mmol/L</strong></td>
+<td>
+Common practical target; some patients require a broader
+individualised range.
+</td>
+</tr>
+
+<tr>
+<td>Acute mania</td>
+<td><strong>~0.8–1.2 mmol/L</strong></td>
+<td>
+Higher concentrations may be required during acute treatment,
+subject to tolerability and safety.
+</td>
+</tr>
+
+<tr>
+<td>Elderly</td>
+<td><strong>~0.4–0.6 mmol/L may be adequate</strong></td>
+<td>
+Use lower targets when clinically appropriate because of
+greater vulnerability to adverse effects and renal changes.
+</td>
+</tr>
+
+<tr>
+<td>Depression augmentation</td>
+<td><strong>~0.6–1.0 mmol/L</strong></td>
+<td>
+Use clinical response, tolerability and indication to individualise.
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="alert warning">
+Ranges are clinical guides rather than absolute rules.
+Always interpret the concentration with the clinical context,
+formulation and local prescribing protocol.
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     2. INDICATIONS
+========================================================= -->
+
+<section class="section" id="indications">
+
+<div class="section-header">
+<h2>
+<span class="section-number">2</span>
+Indications
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Bipolar disorder</h4>
+<ul>
+<li>Acute mania</li>
+<li>Maintenance treatment</li>
+<li>Prevention of mood episode recurrence</li>
+</ul>
+</div>
+
+<div class="card purple">
+<h4>Bipolar depression</h4>
+<p>
+Lithium may have a role in the overall long-term treatment
+strategy and in selected augmentation approaches.
+</p>
+</div>
+
+<div class="card teal">
+<h4>Suicide prevention</h4>
+<p>
+Lithium has an important evidence base for reducing suicide
+risk in mood disorders and is often considered when selecting
+long-term mood-stabilising therapy.
+</p>
+</div>
+
+<div class="card orange">
+<h4>Augmentation</h4>
+<p>
+Can be considered as augmentation in selected treatment-resistant
+depressive disorders under specialist supervision.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     3. MECHANISM
+========================================================= -->
+
+<section class="section" id="mechanism">
+
+<div class="section-header">
+<h2>
+<span class="section-number">3</span>
+Mechanism
+</h2>
+</div>
+
+<div class="section-body">
+
+<p>
+Lithium is a simple monovalent cation with complex intracellular
+effects. Its therapeutic effects are believed to involve multiple
+signalling pathways rather than a single receptor target.
+</p>
+
+<div class="card-grid">
+
+<div class="card">
+<h4>Intracellular signalling</h4>
+<p>
+Modulation of phosphoinositide signalling and second-messenger
+systems.
+</p>
+</div>
+
+<div class="card">
+<h4>GSK-3</h4>
+<p>
+Lithium inhibits glycogen synthase kinase-3 and influences
+downstream cellular signalling.
+</p>
+</div>
+
+<div class="card">
+<h4>Neuroplasticity</h4>
+<p>
+Effects on neurotrophic and cellular resilience pathways may
+contribute to mood-stabilising effects.
+</p>
+</div>
+
+<div class="card">
+<h4>Neurotransmission</h4>
+<p>
+Modulates multiple neurotransmitter systems indirectly.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     4. BEFORE STARTING
+========================================================= -->
+
+<section class="section" id="baseline">
+
+<div class="section-header">
+<h2>
+<span class="section-number">4</span>
+Before Starting Lithium
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="alert info">
+<strong>Baseline principle:</strong>
+Lithium is a medication where baseline laboratory assessment
+and subsequent longitudinal monitoring are part of the treatment,
+not optional extras.
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Assessment</th>
+<th>What to check</th>
+<th>Why</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Renal</strong></td>
+<td>
+Serum creatinine, eGFR, urea/U&E as locally available
+</td>
+<td>
+Lithium is predominantly renally eliminated.
+</td>
+</tr>
+
+<tr>
+<td><strong>Electrolytes</strong></td>
+<td>
+Sodium and other relevant electrolytes
+</td>
+<td>
+Sodium balance influences lithium handling.
+</td>
+</tr>
+
+<tr>
+<td><strong>Thyroid</strong></td>
+<td>
+TSH ± FT4
+</td>
+<td>
+Lithium can cause hypothyroidism and goitre.
+</td>
+</tr>
+
+<tr>
+<td><strong>Calcium</strong></td>
+<td>
+Serum calcium
+</td>
+<td>
+Screen for lithium-associated calcium/parathyroid abnormalities.
+</td>
+</tr>
+
+<tr>
+<td><strong>Weight</strong></td>
+<td>
+Weight ± BMI
+</td>
+<td>
+Useful for subsequent metabolic and adverse-effect monitoring.
+</td>
+</tr>
+
+<tr>
+<td><strong>ECG</strong></td>
+<td>
+When clinically indicated, particularly in patients with
+cardiac risk factors
+</td>
+<td>
+Lithium can affect cardiac conduction in susceptible patients.
+</td>
+</tr>
+
+<tr>
+<td><strong>Pregnancy</strong></td>
+<td>
+Pregnancy testing where relevant
+</td>
+<td>
+Important for reproductive risk-benefit discussion.
+</td>
+</tr>
+
+<tr>
+<td><strong>Medication review</strong></td>
+<td>
+NSAIDs, ACE inhibitors, ARBs, diuretics and other interacting
+drugs
+</td>
+<td>
+Several medications can increase lithium exposure.
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Baseline Clinical Assessment</h3>
+
+<ul>
+<li>Confirm diagnosis and treatment indication.</li>
+<li>Document current mood state.</li>
+<li>Assess suicidal risk.</li>
+<li>Assess psychotic symptoms where relevant.</li>
+<li>Record previous response to lithium.</li>
+<li>Record previous adverse effects.</li>
+<li>Assess alcohol/substance use.</li>
+<li>Review adherence history.</li>
+<li>Review renal, thyroid and endocrine history.</li>
+<li>Document concurrent medications and OTC medication use.</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     5. DOSING
+========================================================= -->
+
+<section class="section" id="dosing">
+
+<div class="section-header">
+<h2>
+<span class="section-number">5</span>
+Dosing & Titration
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Adult starting dose</h4>
+<p>
+A practical starting regimen from the supplied reference is
+<strong>400 mg at night</strong>, followed by serum-level guided
+titration.
+</p>
+</div>
+
+<div class="card green">
+<h4>Elderly</h4>
+<p>
+A lower starting dose such as <strong>200 mg</strong> may be
+appropriate, followed by cautious titration.
+</p>
+</div>
+
+<div class="card orange">
+<h4>Steady state</h4>
+<p>
+A serum concentration is generally interpreted after adequate
+time to approach steady state, commonly approximately
+<strong>5–7 days</strong> after a dose change depending on protocol.
+</p>
+</div>
+
+</div>
+
+<h3>Practical Titration Sequence</h3>
+
+<div class="flow">
+
+<div class="flow-step">Start low</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Check tolerability</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Wait for steady state</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">12-h serum level</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Adjust dose</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Recheck</div>
+
+</div>
+
+<div class="alert warning">
+<strong>Do not chase a number blindly.</strong>
+Dose changes should consider symptoms, adverse effects,
+renal function, hydration, interacting medicines and the
+timing/quality of the lithium level.
+</div>
+
+<h3>Formulation Matters</h3>
+
+<ul>
+<li>Immediate-release and modified-release preparations are not automatically interchangeable on a milligram-for-milligram basis.</li>
+<li>Check the exact formulation before changing brands.</li>
+<li>Document the brand/formulation when clinically important.</li>
+<li>After a formulation change, reassess the lithium level appropriately.</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     6. SERUM LEVEL
+========================================================= -->
+
+<section class="section" id="levels">
+
+<div class="section-header">
+<h2>
+<span class="section-number">6</span>
+Serum Lithium Levels
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Preferred sampling point</h4>
+<p>
+Usually approximately <strong>12 hours after the previous dose</strong>,
+according to the standard monitoring approach.
+</p>
+</div>
+
+<div class="card orange">
+<h4>Always document</h4>
+<p>
+Time of last dose + time of blood collection + current dose +
+formulation.
+</p>
+</div>
+
+<div class="card red">
+<h4>Unexpected level?</h4>
+<p>
+First verify timing, adherence, formulation, dose changes,
+hydration and interacting medication before changing the dose.
+</p>
+</div>
+
+</div>
+
+<h3>12-Hour Level Calculation</h3>
+
+<div class="card">
+
+<label for="doseTime">
+<strong>Last lithium dose time</strong>
+</label>
+
+<input
+    id="doseTime"
+    type="time"
+    style="padding:9px;margin:8px 0;border:1px solid #ccc;border-radius:7px;">
+
+<button
+    class="tool-btn primary"
+    onclick="calculateLithiumTime()">
+    Calculate 12-hour sampling time
+</button>
+
+<p id="levelTimeResult" style="margin-top:12px;"></p>
+
+</div>
+
+<h3>Interpreting a Level</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Question</th>
+<th>Clinical interpretation</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Was it a true 12-hour sample?</td>
+<td>
+If not, the result may not be directly comparable with previous levels.
+</td>
+</tr>
+
+<tr>
+<td>Was the patient adherent?</td>
+<td>
+Missed doses can produce an apparently low concentration.
+</td>
+</tr>
+
+<tr>
+<td>Any recent dose change?</td>
+<td>
+The level may not represent the new steady state.
+</td>
+</tr>
+
+<tr>
+<td>Any dehydration?</td>
+<td>
+Can increase lithium concentration.
+</td>
+</tr>
+
+<tr>
+<td>Any interacting medication?</td>
+<td>
+NSAIDs, ACE inhibitors, ARBs and thiazides are particularly important.
+</td>
+</tr>
+
+<tr>
+<td>Is the patient clinically toxic?</td>
+<td>
+Clinical symptoms take priority over an isolated number.
+</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     7. MONITORING
+========================================================= -->
+
+<section class="section" id="monitoring">
+
+<div class="section-header">
+<h2>
+<span class="section-number">7</span>
+Monitoring Schedule
+</h2>
+</div>
+
+<div class="section-body">
+
+<table>
+
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Baseline</th>
+<th>Stable treatment</th>
+<th>Increase frequency when</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Lithium level</td>
+<td>Yes</td>
+<td>Usually every 3–6 months depending on protocol</td>
+<td>
+Dose change, interacting drug, illness, adherence concern,
+toxicity symptoms
+</td>
+</tr>
+
+<tr>
+<td>Creatinine / eGFR</td>
+<td>Yes</td>
+<td>Approximately 6-monthly in stable treatment</td>
+<td>
+CKD, declining eGFR, older age, high levels
+</td>
+</tr>
+
+<tr>
+<td>TSH ± FT4</td>
+<td>Yes</td>
+<td>Approximately 6-monthly</td>
+<td>
+Symptoms or previous thyroid abnormality
+</td>
+</tr>
+
+<tr>
+<td>Calcium</td>
+<td>Yes</td>
+<td>At least annually</td>
+<td>
+Raised calcium, endocrine symptoms
+</td>
+</tr>
+
+<tr>
+<td>Weight/BMI</td>
+<td>Yes</td>
+<td>Periodically</td>
+<td>
+Rapid weight gain or metabolic concerns
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="alert info">
+Monitoring intervals should be adapted to local policy and individual
+risk. High-risk patients may require substantially more frequent
+assessment.
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     8. ACUTE MANIA
+========================================================= -->
+
+<section class="section" id="mania">
+
+<div class="section-header">
+<h2>
+<span class="section-number">8</span>
+Lithium in Acute Mania
+</h2>
+</div>
+
+<div class="section-body">
+
+<h3>When Lithium Is Appropriate</h3>
+
+<ul>
+<li>Established bipolar mania where lithium is clinically appropriate.</li>
+<li>Patients with previous good response to lithium.</li>
+<li>Situations where long-term continuation is likely to be useful.</li>
+</ul>
+
+<h3>Clinical Approach</h3>
+
+<div class="flow">
+
+<div class="flow-step">Confirm mania</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Assess severity & risk</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Baseline investigations</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Start lithium</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Titrate to level</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">Monitor response/toxicity</div>
+
+</div>
+
+<div class="alert warning">
+In severe mania, lithium may not provide sufficiently rapid control
+as monotherapy. Combination treatment may be clinically required
+depending on severity and presentation.
+</div>
+
+<h3>Acute Target</h3>
+
+<p>
+A practical reference target is approximately
+<strong>0.8–1.2 mmol/L</strong>, with the exact target individualised
+according to response and tolerability.
+</p>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     9. MAINTENANCE
+========================================================= -->
+
+<section class="section" id="maintenance">
+
+<div class="section-header">
+<h2>
+<span class="section-number">9</span>
+Maintenance Treatment
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card green">
+<h4>Typical target</h4>
+<p>
+Approximately <strong>0.6–0.8 mmol/L</strong> for many patients.
+</p>
+</div>
+
+<div class="card blue">
+<h4>Higher target</h4>
+<p>
+May be considered in selected patients with inadequate response,
+subject to tolerability and safety.
+</p>
+</div>
+
+<div class="card teal">
+<h4>Lower target</h4>
+<p>
+Older or medically vulnerable patients may sometimes be managed
+at lower concentrations.
+</p>
+</div>
+
+</div>
+
+<h3>Maintenance Review</h3>
+
+<ul>
+<li>Current mood stability.</li>
+<li>Number of breakthrough episodes.</li>
+<li>Adherence.</li>
+<li>Serum lithium trend.</li>
+<li>Renal trajectory.</li>
+<li>TSH trajectory.</li>
+<li>Calcium.</li>
+<li>Weight and tremor.</li>
+<li>Polyuria/polydipsia.</li>
+<li>Drug interactions.</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     10. BIPOLAR DEPRESSION
+========================================================= -->
+
+<section class="section" id="depression">
+
+<div class="section-header">
+<h2>
+<span class="section-number">10</span>
+Bipolar Depression
+</h2>
+</div>
+
+<div class="section-body">
+
+<p>
+Lithium has an important role in the overall management of bipolar
+disorder, particularly for long-term mood stabilisation and relapse
+prevention. Its use in an acute depressive episode should be
+individualised according to the overall bipolar treatment plan.
+</p>
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Assess first</h4>
+<ul>
+<li>Current depressive severity</li>
+<li>Suicide risk</li>
+<li>Mixed features</li>
+<li>Psychotic symptoms</li>
+<li>Previous response</li>
+</ul>
+</div>
+
+<div class="card orange">
+<h4>Target</h4>
+<p>
+A practical augmentation target may fall around
+<strong>0.6–1.0 mmol/L</strong>, depending on indication and
+individual circumstances.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     11. NONRESPONSE
+========================================================= -->
+
+<section class="section" id="nonresponse">
+
+<div class="section-header">
+<h2>
+<span class="section-number">11</span>
+If Lithium Is Not Working
+</h2>
+</div>
+
+<div class="section-body">
+
+<h3>First Verify</h3>
+
+<ol>
+
+<li>
+<strong>Diagnosis:</strong>
+Is the presentation truly bipolar disorder / mania?
+</li>
+
+<li>
+<strong>Adherence:</strong>
+Is lithium actually being taken consistently?
+</li>
+
+<li>
+<strong>Level:</strong>
+Was the sample collected at the correct time?
+</li>
+
+<li>
+<strong>Duration:</strong>
+Has there been sufficient treatment duration?
+</li>
+
+<li>
+<strong>Interactions:</strong>
+Are other drugs changing lithium exposure?
+</li>
+
+<li>
+<strong>Comorbidity:</strong>
+Are substances, personality factors, sleep deprivation,
+medical illness or psychosocial stressors contributing?
+</li>
+
+</ol>
+
+<div class="alert info">
+Do not label lithium failure based on a single low or poorly timed
+serum concentration.
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     12. ADVERSE EFFECTS
+========================================================= -->
+
+<section class="section" id="adverse">
+
+<div class="section-header">
+<h2>
+<span class="section-number">12</span>
+Adverse Effects
+</h2>
+</div>
+
+<div class="section-body">
+
+<table>
+
+<thead>
+<tr>
+<th>Adverse effect</th>
+<th>Clinical approach</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Fine tremor</td>
+<td>
+Check level, caffeine, interacting drugs; consider dose/formulation
+adjustment where appropriate.
+</td>
+</tr>
+
+<tr>
+<td>GI upset</td>
+<td>
+Take with food where appropriate; assess dose and formulation.
+</td>
+</tr>
+
+<tr>
+<td>Polyuria / polydipsia</td>
+<td>
+Assess renal function and possible nephrogenic diabetes insipidus.
+</td>
+</tr>
+
+<tr>
+<td>Weight gain</td>
+<td>
+Weight monitoring, lifestyle intervention and review of other
+contributors.
+</td>
+</tr>
+
+<tr>
+<td>Hypothyroidism</td>
+<td>
+Check thyroid function and treat appropriately; lithium does not
+necessarily need to be discontinued solely because hypothyroidism
+develops.
+</td>
+</tr>
+
+<tr>
+<td>Goitre</td>
+<td>
+Assess thyroid function and structural findings where appropriate.
+</td>
+</tr>
+
+<tr>
+<td>Hypercalcaemia</td>
+<td>
+Repeat calcium, evaluate parathyroid status and manage appropriately.
+</td>
+</tr>
+
+<tr>
+<td>Cognitive dulling</td>
+<td>
+Assess dose, level, alternative causes and overall clinical benefit.
+</td>
+</tr>
+
+<tr>
+<td>Acne / psoriasis / rash</td>
+<td>
+Assess severity and dermatological management.
+</td>
+</tr>
+
+<tr>
+<td>Alopecia</td>
+<td>
+Consider dose relationship and other causes.
+</td>
+</tr>
+
+<tr>
+<td>Oedema</td>
+<td>
+Evaluate clinically and review other causes.
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     13. TOXICITY
+========================================================= -->
+
+<section class="section" id="toxicity">
+
+<div class="section-header">
+<h2>
+<span class="section-number">13</span>
+Lithium Toxicity
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="alert danger">
+
+<strong>Suspect toxicity clinically.</strong>
+
+Symptoms may include gastrointestinal disturbance,
+coarse tremor, ataxia, dysarthria, confusion, drowsiness,
+muscle weakness, abnormal movements, seizures or reduced
+consciousness.
+
+</div>
+
+<h3>Important Risk Factors</h3>
+
+<div class="card-grid">
+
+<div class="card red">
+<h4>Volume depletion</h4>
+<ul>
+<li>Vomiting</li>
+<li>Diarrhoea</li>
+<li>Fever</li>
+<li>Heavy sweating</li>
+<li>Dehydration</li>
+</ul>
+</div>
+
+<div class="card orange">
+<h4>Sodium depletion</h4>
+<ul>
+<li>Low-salt diet</li>
+<li>Salt loss</li>
+<li>Significant fluid shifts</li>
+</ul>
+</div>
+
+<div class="card purple">
+<h4>Drug interactions</h4>
+<ul>
+<li>NSAIDs</li>
+<li>ACE inhibitors</li>
+<li>ARBs</li>
+<li>Thiazides</li>
+<li>Some other interacting agents</li>
+</ul>
+</div>
+
+<div class="card blue">
+<h4>Renal impairment</h4>
+<ul>
+<li>CKD</li>
+<li>Acute kidney injury</li>
+<li>Age-related renal decline</li>
+</ul>
+</div>
+
+</div>
+
+<h3>Approximate Concentration–Toxicity Relationship</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Lithium concentration</th>
+<th>Clinical significance</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>&gt;1.5 mmol/L</td>
+<td>
+GI and CNS toxicity may occur, depending on clinical context.
+</td>
+</tr>
+
+<tr>
+<td>&gt;2.0 mmol/L</td>
+<td>
+More severe neurological manifestations may occur.
+</td>
+</tr>
+
+<tr>
+<td>&gt;3.0 mmol/L</td>
+<td>
+Severe poisoning; renal replacement therapy may be considered
+depending on clinical circumstances.
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="alert warning">
+These thresholds are not standalone dialysis rules.
+Clinical severity, renal function, chronicity, lithium kinetics,
+neurological status and trajectory must be considered.
+</div>
+
+<h3>Immediate Clinical Approach</h3>
+
+<ol>
+
+<li>Stop further lithium temporarily in suspected significant toxicity.</li>
+
+<li>Check serum lithium urgently.</li>
+
+<li>Check renal function and electrolytes.</li>
+
+<li>Assess hydration and volume status.</li>
+
+<li>Assess neurological status.</li>
+
+<li>Identify interacting medications.</li>
+
+<li>Manage dehydration/electrolyte abnormalities appropriately.</li>
+
+<li>Discuss severe toxicity urgently with nephrology/critical care/toxicology as appropriate.</li>
+
+</ol>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     14. INTERACTIONS
+========================================================= -->
+
+<section class="section" id="interactions">
+
+<div class="section-header">
+<h2>
+<span class="section-number">14</span>
+Drug Interactions
+</h2>
+</div>
+
+<div class="section-body">
+
+<table>
+
+<thead>
+<tr>
+<th>Drug / class</th>
+<th>Potential effect</th>
+<th>Clinical action</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>NSAIDs</strong></td>
+<td>May increase lithium concentration</td>
+<td>
+Avoid casual OTC NSAID use; monitor closely if required.
+</td>
+</tr>
+
+<tr>
+<td><strong>ACE inhibitors</strong></td>
+<td>May increase lithium exposure</td>
+<td>
+Monitor closely after initiation/change.
+</td>
+</tr>
+
+<tr>
+<td><strong>ARBs</strong></td>
+<td>May increase lithium exposure</td>
+<td>
+Monitor lithium and renal function.
+</td>
+</tr>
+
+<tr>
+<td><strong>Thiazide diuretics</strong></td>
+<td>Can substantially increase lithium</td>
+<td>
+High-risk interaction; requires careful management.
+</td>
+</tr>
+
+<tr>
+<td><strong>Loop diuretics</strong></td>
+<td>May alter lithium levels</td>
+<td>
+Monitor when started/stopped.
+</td>
+</tr>
+
+<tr>
+<td><strong>Metronidazole</strong></td>
+<td>May increase lithium concentration</td>
+<td>
+Consider alternative or monitor carefully.
+</td>
+</tr>
+
+<tr>
+<td><strong>Calcium-channel blockers</strong></td>
+<td>
+Potential neurological/toxic effects reported
+</td>
+<td>
+Clinical monitoring.
+</td>
+</tr>
+
+<tr>
+<td><strong>Carbamazepine</strong></td>
+<td>May increase neurotoxicity</td>
+<td>
+Use cautiously and monitor clinically.
+</td>
+</tr>
+
+<tr>
+<td><strong>Phenytoin</strong></td>
+<td>Potential neurotoxicity/interactions</td>
+<td>
+Monitor clinically.
+</td>
+</tr>
+
+<tr>
+<td><strong>Serotonergic antidepressants</strong></td>
+<td>Potential serotonergic toxicity</td>
+<td>
+Monitor for relevant symptoms.
+</td>
+</tr>
+
+<tr>
+<td><strong>Antipsychotics</strong></td>
+<td>
+Rare but important neurotoxicity may occur with combinations.
+</td>
+<td>
+Monitor for rigidity, confusion, altered consciousness and
+other neurological changes.
+</td>
+</tr>
+
+<tr>
+<td><strong>Caffeine / theophylline</strong></td>
+<td>
+Changes in intake can alter lithium clearance.
+</td>
+<td>
+Maintain reasonably consistent intake and review major changes.
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="alert warning">
+Ask specifically about <strong>OTC ibuprofen, naproxen and other NSAIDs</strong>
+when prescribing lithium.
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     15. RENAL
+========================================================= -->
+
+<section class="section" id="renal">
+
+<div class="section-header">
+<h2>
+<span class="section-number">15</span>
+Renal Issues
+</h2>
+</div>
+
+<div class="section-body">
+
+<p>
+Lithium is predominantly renally cleared. Therefore, changes in renal
+function can alter lithium exposure and increase toxicity risk.
+</p>
+
+<h3>What to Monitor</h3>
+
+<ul>
+<li>Serum creatinine</li>
+<li>eGFR</li>
+<li>Electrolytes</li>
+<li>Urine symptoms</li>
+<li>Polyuria</li>
+<li>Polydipsia</li>
+<li>Episodes of dehydration</li>
+<li>Serum lithium trajectory</li>
+</ul>
+
+<div class="alert warning">
+A single creatinine value is less informative than the
+<strong>longitudinal renal trajectory</strong>.
+</div>
+
+<h3>Nephrogenic Diabetes Insipidus</h3>
+
+<p>
+Long-term lithium exposure may impair renal concentrating ability,
+leading to polyuria and polydipsia.
+</p>
+
+<p>
+When symptoms are persistent, evaluate renal function, electrolytes
+and the possibility of lithium-associated nephrogenic diabetes
+insipidus.
+</p>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     16. THYROID
+========================================================= -->
+
+<section class="section" id="thyroid">
+
+<div class="section-header">
+<h2>
+<span class="section-number">16</span>
+Thyroid & Calcium
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>Hypothyroidism</h4>
+<p>
+Lithium can impair thyroid function. Monitor TSH ± FT4.
+</p>
+</div>
+
+<div class="card purple">
+<h4>Goitre</h4>
+<p>
+Can occur with or without biochemical hypothyroidism.
+</p>
+</div>
+
+<div class="card orange">
+<h4>Hyperparathyroidism</h4>
+<p>
+Lithium can be associated with elevated calcium and altered
+parathyroid physiology.
+</p>
+</div>
+
+</div>
+
+<h3>Important Clinical Principle</h3>
+
+<p>
+Development of hypothyroidism does not automatically mean lithium
+must be stopped. Thyroid replacement and continued lithium may be
+appropriate when the psychiatric indication remains strong.
+</p>
+
+<h3>When Calcium Is Raised</h3>
+
+<ol>
+<li>Repeat calcium.</li>
+<li>Assess albumin/corrected calcium as appropriate.</li>
+<li>Consider PTH measurement.</li>
+<li>Review lithium exposure.</li>
+<li>Evaluate other causes of hypercalcaemia.</li>
+</ol>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     17. SPECIAL POPULATIONS
+========================================================= -->
+
+<section class="section" id="special">
+
+<div class="section-header">
+<h2>
+<span class="section-number">17</span>
+Special Populations
+</h2>
+</div>
+
+<div class="section-body">
+
+<table>
+
+<thead>
+<tr>
+<th>Population</th>
+<th>Clinical consideration</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Older adults</td>
+<td>
+Lower doses and lower serum concentrations may be sufficient.
+Renal function and adverse effects require particular attention.
+</td>
+</tr>
+
+<tr>
+<td>Renal impairment</td>
+<td>
+Requires individualised prescribing and close monitoring.
+</td>
+</tr>
+
+<tr>
+<td>Cardiac disease</td>
+<td>
+Consider ECG when clinically indicated.
+</td>
+</tr>
+
+<tr>
+<td>Dehydration risk</td>
+<td>
+Higher risk of lithium accumulation.
+</td>
+</tr>
+
+<tr>
+<td>High NSAID use</td>
+<td>
+Important interaction risk.
+</td>
+</tr>
+
+<tr>
+<td>Pregnancy</td>
+<td>
+Individualised maternal-fetal risk-benefit assessment required.
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     18. PREGNANCY
+========================================================= -->
+
+<section class="section" id="pregnancy">
+
+<div class="section-header">
+<h2>
+<span class="section-number">18</span>
+Pregnancy
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="alert warning">
+Lithium during pregnancy requires an individualised risk-benefit
+assessment involving psychiatric and obstetric considerations.
+</div>
+
+<h3>Important Considerations</h3>
+
+<ul>
+
+<li>
+First-trimester exposure is associated with a relative increase
+in congenital cardiac malformation risk, but the absolute risk
+remains low.
+</li>
+
+<li>
+Pregnancy alters fluid balance and renal physiology, which can
+affect lithium concentrations.
+</li>
+
+<li>
+Dehydration during pregnancy can increase toxicity risk.
+</li>
+
+<li>
+Neonatal lithium exposure can be associated with neonatal
+toxicity and disturbances including thyroid and renal concentrating
+effects.
+</li>
+
+<li>
+Near delivery, obstetric and neonatal teams should be aware of
+maternal lithium exposure.
+</li>
+
+</ul>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     19. BREASTFEEDING
+========================================================= -->
+
+<section class="section" id="breastfeeding">
+
+<div class="section-header">
+<h2>
+<span class="section-number">19</span>
+Breastfeeding
+</h2>
+</div>
+
+<div class="section-body">
+
+<p>
+Breastfeeding decisions with lithium require individualised
+risk-benefit assessment because lithium passes into breast milk
+and infant exposure can be clinically relevant.
+</p>
+
+<h3>If Breastfeeding Is Considered</h3>
+
+<ul>
+<li>Discuss maternal psychiatric relapse risk.</li>
+<li>Assess infant age and health.</li>
+<li>Consider neonatal/paediatric input.</li>
+<li>Monitor the infant when clinically appropriate.</li>
+<li>Ensure clear communication between psychiatry and paediatrics.</li>
+</ul>
+
+<div class="alert info">
+Do not make breastfeeding decisions based solely on a generic
+online statement. Use current local/perinatal prescribing guidance.
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     20. DISCONTINUATION
+========================================================= -->
+
+<section class="section" id="discontinuation">
+
+<div class="section-header">
+<h2>
+<span class="section-number">20</span>
+Discontinuation
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="alert danger">
+<strong>Avoid abrupt discontinuation</strong> whenever clinically
+possible because rapid withdrawal can be associated with relapse.
+</div>
+
+<h3>Tapering</h3>
+
+<ul>
+<li>
+A practical minimum taper may be around <strong>4 weeks</strong>.
+</li>
+
+<li>
+The supplied Maudsley-based reference favours a slower taper,
+preferably around <strong>3 months</strong> where feasible.
+</li>
+
+<li>
+Avoid unnecessarily large sudden reductions in serum exposure.
+</li>
+
+<li>
+Monitor for early manic or depressive relapse during and after taper.
+</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     21. WARD ROUND
+========================================================= -->
+
+<section class="section" id="ward">
+
+<div class="section-header">
+<h2>
+<span class="section-number">21</span>
+Ward-Round Checklist
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="card-grid">
+
+<div class="card blue">
+<h4>1. Current dose</h4>
+<p>
+Exact dose + formulation + dosing schedule.
+</p>
+</div>
+
+<div class="card blue">
+<h4>2. Last level</h4>
+<p>
+Value + date + timing relative to dose.
+</p>
+</div>
+
+<div class="card green">
+<h4>3. Clinical response</h4>
+<p>
+Mania/depression/irritability/sleep/psychosis.
+</p>
+</div>
+
+<div class="card orange">
+<h4>4. Toxicity</h4>
+<p>
+Tremor, GI symptoms, ataxia, dysarthria, confusion.
+</p>
+</div>
+
+<div class="card teal">
+<h4>5. Renal</h4>
+<p>
+Creatinine + eGFR + hydration status.
+</p>
+</div>
+
+<div class="card purple">
+<h4>6. Thyroid</h4>
+<p>
+TSH ± FT4.
+</p>
+</div>
+
+<div class="card">
+<h4>7. Calcium</h4>
+<p>
+Check according to monitoring schedule.
+</p>
+</div>
+
+<div class="card red">
+<h4>8. Interactions</h4>
+<p>
+NSAIDs, ACEi, ARBs, diuretics and new medicines.
+</p>
+</div>
+
+</div>
+
+<h3>One-Minute Ward Question Set</h3>
+
+<ol>
+<li>What is the lithium dose and formulation?</li>
+<li>When was the last dose?</li>
+<li>When was the last lithium level?</li>
+<li>Was it a true 12-hour level?</li>
+<li>What is the current clinical response?</li>
+<li>Any tremor or GI symptoms?</li>
+<li>Any ataxia or dysarthria?</li>
+<li>Any vomiting/diarrhoea/dehydration?</li>
+<li>Any new medications?</li>
+<li>What are creatinine/eGFR and sodium?</li>
+<li>What is the latest TSH?</li>
+<li>What is the latest calcium?</li>
+</ol>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     22. OPD TEMPLATE
+========================================================= -->
+
+<section class="section" id="opd">
+
+<div class="section-header">
+<h2>
+<span class="section-number">22</span>
+OPD Lithium Review Template
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="template">
+LITHIUM REVIEW
+
+Diagnosis:
+Current episode/state:
+
+Current lithium:
+Dose:
+Formulation:
+Timing:
+
+Adherence:
+Missed doses:
+
+Last serum lithium:
+Date:
+Value:
+Time of last dose:
+Time of blood collection:
+Was it approximately 12-hour level? YES / NO
+
+Clinical response:
+Mood:
+Sleep:
+Energy:
+Irritability:
+Psychosis:
+Suicidality:
+
+Adverse effects:
+Tremor:
+GI:
+Polyuria:
+Polydipsia:
+Weight:
+Cognitive:
+Skin/hair:
+
+Renal:
+Creatinine:
+eGFR:
+Sodium:
+
+Thyroid:
+TSH:
+FT4:
+
+Calcium:
+
+Drug interactions:
+NSAIDs:
+ACEi/ARB:
+Diuretic:
+Other:
+
+PLAN:
+1.
+2.
+3.
+4.
+
+Next lithium level:
+Next renal/thyroid/calcium monitoring:
+Follow-up:
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     23. IPD TEMPLATE
+========================================================= -->
+
+<section class="section" id="ipd">
+
+<div class="section-header">
+<h2>
+<span class="section-number">23</span>
+IPD Lithium Management Template
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="template">
+INPATIENT LITHIUM MANAGEMENT
+
+Admission diagnosis:
+
+Indication for lithium:
+
+Current mood state:
+[ ] Mania
+[ ] Depression
+[ ] Mixed
+[ ] Maintenance
+[ ] Augmentation
+
+Baseline:
+Creatinine:
+eGFR:
+Na:
+TSH:
+FT4:
+Calcium:
+Weight:
+ECG if indicated:
+
+Current lithium:
+Dose:
+Formulation:
+Frequency:
+
+Previous lithium response:
+
+Last serum lithium:
+Value:
+Date:
+Timing:
+
+Dose change:
+Date:
+New dose:
+
+Clinical response:
+
+Toxicity screen:
+[ ] Tremor
+[ ] Nausea/vomiting
+[ ] Diarrhoea
+[ ] Polyuria
+[ ] Polydipsia
+[ ] Ataxia
+[ ] Dysarthria
+[ ] Confusion
+[ ] Drowsiness
+[ ] Seizure
+
+Hydration:
+Drug interactions:
+
+PLAN:
+- Continue / hold lithium
+- Repeat serum level
+- Repeat renal function
+- Repeat electrolytes
+- Review interacting medications
+- Monitor clinical response
+- Consider combination therapy if clinically indicated
+
+Discharge plan:
+Dose:
+Formulation:
+Target level:
+Monitoring plan:
+Patient education:
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     24. CLINICAL PEARLS
+========================================================= -->
+
+<section class="section" id="pearls">
+
+<div class="section-header">
+<h2>
+<span class="section-number">24</span>
+Clinical Pearls
+</h2>
+</div>
+
+<div class="section-body">
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 1 — The timing of the lithium level matters
+</button>
+
+<div class="accordion-content">
+<p>
+A lithium concentration without the time of the last dose and
+time of blood collection is difficult to interpret accurately.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 2 — A normal level does not exclude toxicity
+</button>
+
+<div class="accordion-content">
+<p>
+Neurotoxicity may occasionally occur despite apparently
+therapeutic serum concentrations. Clinical assessment remains
+essential.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 3 — Ask about OTC medicines
+</button>
+
+<div class="accordion-content">
+<p>
+Patients frequently do not consider ibuprofen or naproxen to be
+"medicines" worth mentioning. Specifically ask about OTC NSAID use.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 4 — Hydration matters
+</button>
+
+<div class="accordion-content">
+<p>
+Vomiting, diarrhoea, fever, sweating or reduced fluid intake can
+increase lithium exposure.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 5 — Renal trend is more important than one isolated value
+</button>
+
+<div class="accordion-content">
+<p>
+Longitudinal creatinine/eGFR trends should be reviewed whenever
+possible.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 6 — Do not casually substitute lithium formulations
+</button>
+
+<div class="accordion-content">
+<p>
+Different brands may have different release characteristics.
+Confirm whether the product is IR, SR, CR, PR or XR before
+switching.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 7 — Thyroid dysfunction does not automatically mean lithium must stop
+</button>
+
+<div class="accordion-content">
+<p>
+When lithium is otherwise clinically beneficial, thyroid dysfunction
+can often be managed concurrently with appropriate endocrine treatment.
+</p>
+</div>
+
+</div>
+
+
+<div class="accordion">
+
+<button onclick="toggleAccordion(this)">
+Pearl 8 — Document the exact product
+</button>
+
+<div class="accordion-content">
+<p>
+For clinical continuity, record the exact brand, strength and
+formulation whenever possible, particularly when patients obtain
+medicines from different pharmacies.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     25. SOURCE BASIS
+========================================================= -->
+
+<section class="section" id="sources">
+
+<div class="section-header">
+<h2>
+<span class="section-number">25</span>
+Source Basis & Important Disclaimer
+</h2>
+</div>
+
+<div class="section-body">
+
+<h3>Clinical Content</h3>
+
+<p>
+This webpage is structured from the supplied lithium clinical
+reference material and preserves its major clinical themes:
+indications, baseline assessment, dosing, serum monitoring,
+toxicity, interactions, renal and thyroid monitoring, pregnancy,
+breastfeeding, discontinuation and practical OPD/IPD use.
+</p>
+
+<h3>Indian Brand & Price Data</h3>
+
+<p>
+The brand/price popup is an additional web-researched section.
+Prices are <strong>indicative observations from online pharmacy
+listings and manufacturer/regulatory sources</strong> and should
+not be treated as a permanent national price list.
+</p>
+
+<div class="alert warning">
+
+<strong>Important:</strong>
+
+Before prescribing or dispensing, verify:
+
+<ul>
+<li>Exact brand</li>
+<li>Lithium strength</li>
+<li>Immediate vs modified release formulation</li>
+<li>Pack size</li>
+<li>Current MRP</li>
+<li>Current pharmacy availability</li>
+<li>Manufacturer/marketer</li>
+</ul>
+
+Do not switch between formulations solely because the numerical
+milligram strength appears similar.
+
+</div>
+
+<p class="muted">
+This clinical guide is intended as a professional reference and
+does not replace the prescribing information, local institutional
+protocols, current regulatory requirements or specialist clinical
+judgement.
+</p>
+
+</div>
+</section>
+
+
+</main>
+</div>
+
+
+<!-- =========================================================
+     INDIAN LITHIUM BRANDS MODAL
+========================================================= -->
+
+<div
+    class="brand-modal"
+    id="brandModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="brandModalTitle">
+
+<div class="brand-modal-box">
+
+<div class="brand-modal-header">
+
+<div>
+    <h2 id="brandModalTitle">
+        Selected Indian Lithium Brands & Formulations
+    </h2>
+
+    <div style="font-size:13px;opacity:.85;margin-top:3px;">
+        Indicative online prices / MRP observations — September 2026
+    </div>
+</div>
+
+<button
+    class="brand-modal-close"
+    onclick="closeBrandModal()"
+    aria-label="Close">
+    ×
+</button>
+
+</div>
+
+
+<div class="brand-modal-body">
+
+<div class="brand-controls">
+
+<input
+    id="brandSearch"
+    type="search"
+    placeholder="Search brand, manufacturer, strength..."
+    oninput="filterLithiumBrands()">
+
+<select
+    id="brandFormulationFilter"
+    onchange="filterLithiumBrands()">
+
+<option value="">All formulations</option>
+<option value="IR">IR / Immediate Release</option>
+<option value="SR">SR / Sustained Release</option>
+<option value="CR">CR / Controlled Release</option>
+<option value="PR">PR / Prolonged Release</option>
+<option value="XR">XR / Extended Release</option>
+<option value="XL">XL / Extended Release</option>
+
+</select>
+
+<select
+    id="brandStrengthFilter"
+    onchange="filterLithiumBrands()">
+
+<option value="">All strengths</option>
+<option value="300">300 mg</option>
+<option value="400">400 mg</option>
+<option value="450">450 mg</option>
+
+</select>
+
+</div>
+
+
+<div class="brand-summary">
+
+<div class="brand-stat">
+<strong id="brandCount">0</strong>
+<span>Products displayed</span>
+</div>
+
+<div class="brand-stat">
+<strong>300 mg</strong>
+<span>Most commonly listed IR strength</span>
+</div>
+
+<div class="brand-stat">
+<strong>400 mg</strong>
+<span>Common SR strength</span>
+</div>
+
+<div class="brand-stat">
+<strong>450 mg</strong>
+<span>SR/CR/PR/XR listings</span>
+</div>
+
+</div>
+
+
+<div class="alert info">
+
+<strong>How to use this table:</strong>
+Use it as a practical prescribing/dispensing reference.
+Prices are not intended to determine therapeutic equivalence.
+Always verify the exact formulation before substitution.
+
+</div>
+
+
+<div class="table-wrap">
+
+<table
+    class="brand-table"
+    id="brandTable">
+
+<thead>
+
+<tr>
+<th>Brand</th>
+<th>Strength</th>
+<th>Formulation</th>
+<th>Manufacturer / Marketer</th>
+<th>Indicative Price</th>
+<th>Price Basis</th>
+<th>Clinical note</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+
+<!-- ================= 300 MG ================= -->
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Lithosun 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Sun Pharmaceutical Industries Ltd.</td>
+<td class="price">₹26.30 / 10</td>
+<td>1mg current listing</td>
+<td>
+Commonly listed 300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Licab 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Torrent Pharmaceuticals Ltd.</td>
+<td class="price">₹26.19 / 10</td>
+<td>1mg current listing</td>
+<td>
+Commonly listed 300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Intalith 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Intas Pharmaceuticals Ltd.</td>
+<td class="price">~₹26 / 10</td>
+<td>Apollo listing</td>
+<td>
+300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Litca 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>D D Pharmaceuticals</td>
+<td class="price">~₹26 / 10</td>
+<td>1mg/Apollo listings</td>
+<td>
+300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Lithex 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Shine Pharmaceuticals Ltd.</td>
+<td class="price">~₹22 / 10</td>
+<td>1mg substitute listing</td>
+<td>
+Lower-priced online substitute listing observed.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Tricab 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Triko Pharmaceuticals</td>
+<td class="price">~₹23 / 10</td>
+<td>1mg substitute listing</td>
+<td>
+300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Lalithium 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>La Pharmaceuticals / listings vary</td>
+<td class="price">~₹15–26 / 10</td>
+<td>Apollo / online listings</td>
+<td>
+Verify current manufacturer/marketer and MRP before dispensing.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Lithocent 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Crescent Therapeutics / Crescent Formulations</td>
+<td class="price">~₹18 / 10</td>
+<td>Apollo listing</td>
+<td>
+300 mg lithium carbonate tablet.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Manicarb 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Psychotropics India Ltd.</td>
+<td class="price">~₹12–56*</td>
+<td>Online listings vary</td>
+<td>
+Confirm pack size because online price range varies by listing.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Elcab 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Baroda Pharma</td>
+<td class="price">~₹11*</td>
+<td>Medicine India listing</td>
+<td>
+Verify current availability and MRP.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="IR"
+    data-strength="300">
+
+<td><strong>Lithium 300</strong></td>
+<td>300 mg</td>
+<td>
+<span class="badge ir">IR</span>
+</td>
+<td>Micro Labs</td>
+<td class="price">~₹26 / 10</td>
+<td>Apollo listing</td>
+<td>
+Generic lithium carbonate tablet listing.
+</td>
+</tr>
+
+
+<!-- ================= 400 MG ================= -->
+
+<tr
+    data-formulation="SR"
+    data-strength="400">
+
+<td><strong>Lithosun SR</strong></td>
+<td>400 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Sun Pharmaceutical Industries Ltd.</td>
+<td class="price">₹83.90 / 10</td>
+<td>1mg current listing</td>
+<td>
+Modified-release lithium carbonate preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="400">
+
+<td><strong>Litholent SR 400</strong></td>
+<td>400 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Talent India</td>
+<td class="price">~₹7.07 / tablet</td>
+<td>1mg substitute listing</td>
+<td>
+Verify pack size and current MRP.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="400">
+
+<td><strong>Lithosyn SR 400</strong></td>
+<td>400 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹70 / pack</td>
+<td>Apollo listing</td>
+<td>
+Confirm exact manufacturer and formulation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="400">
+
+<td><strong>Monolith SR 400</strong></td>
+<td>400 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹92.50 / pack</td>
+<td>Apollo listing</td>
+<td>
+Confirm current pack size and MRP.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="400">
+
+<td><strong>Litcarb SR 400</strong></td>
+<td>400 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹110 / 10</td>
+<td>Apollo listing</td>
+<td>
+Modified-release preparation; verify current details.
+</td>
+</tr>
+
+
+<!-- ================= 450 MG ================= -->
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>LI SR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Alteus Biogenics Pvt. Ltd.</td>
+<td class="price">₹32.50</td>
+<td>1mg, updated Sep 2026</td>
+<td>
+Lithium carbonate 450 mg SR.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lithon 450 SR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>RKG Pharma</td>
+<td class="price">₹24.90</td>
+<td>1mg listing</td>
+<td>
+Lithium carbonate 450 mg SR.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Olith SR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Oxford Pharmaceuticals Pvt. Ltd.</td>
+<td class="price">₹19.00</td>
+<td>1mg listing</td>
+<td>
+Lithium carbonate 450 mg SR.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Monolith SR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹82.50 / 10</td>
+<td>Apollo listing</td>
+<td>
+Verify manufacturer and current MRP.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Synlit 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹136 / 10</td>
+<td>Apollo listing</td>
+<td>
+Modified-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="CR"
+    data-strength="450">
+
+<td><strong>Lithonex XL 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge xl">XL</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹131</td>
+<td>Apollo listing</td>
+<td>
+Extended-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Manicarb SR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Psychotropics India</td>
+<td class="price">~₹93.50</td>
+<td>Apollo listing</td>
+<td>
+Modified-release lithium carbonate preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="CR"
+    data-strength="450">
+
+<td><strong>Lithowel 450 CR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge cr">CR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹22.76</td>
+<td>Apollo substitute listing</td>
+<td>
+Controlled-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lithicab 450 SR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹35.61</td>
+<td>Apollo substitute listing</td>
+<td>
+Sustained-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lyrom 450 SR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹46</td>
+<td>Apollo substitute listing</td>
+<td>
+Sustained-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lithonik 450 SR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹46</td>
+<td>Apollo substitute listing</td>
+<td>
+Sustained-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lisalt 450 SR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹56.47</td>
+<td>Apollo substitute listing</td>
+<td>
+Sustained-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="SR"
+    data-strength="450">
+
+<td><strong>Lithic SR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge sr">SR</span>
+</td>
+<td>Icon Life Sciences / listings vary</td>
+<td class="price">~₹60</td>
+<td>Apollo substitute listing</td>
+<td>
+Verify exact manufacturer and pack.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="PR"
+    data-strength="450">
+
+<td><strong>Lith-450 PR</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge pr">PR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹70</td>
+<td>Apollo substitute listing</td>
+<td>
+Prolonged-release preparation.
+</td>
+</tr>
+
+
+<tr
+    data-formulation="CR"
+    data-strength="450">
+
+<td><strong>Lidowel CR 450</strong></td>
+<td>450 mg</td>
+<td>
+<span class="badge cr">CR</span>
+</td>
+<td>Manufacturer varies by listing</td>
+<td class="price">~₹112.50</td>
+<td>Apollo substitute listing</td>
+<td>
+Controlled-release preparation.
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+</div>
+
+
+<div class="brand-footer">
+
+<strong>Important prescribing/dispensing note:</strong>
+
+Prices above are indicative online prices or MRP observations
+available around September 2026. They may differ by city,
+pharmacy, pack size, discount, GST treatment, batch and availability.
+
+<br><br>
+
+<strong>
+Do not substitute 300 mg IR, 400 mg SR, 450 mg SR/CR/PR/XR/XL
+simply on the basis of total milligrams.
+</strong>
+
+The exact release formulation should be confirmed before changing
+the product, and lithium levels should be reassessed when a
+clinically significant formulation change is made.
+
+<div class="brand-source-list">
+
+<strong>Web sources used for this section:</strong>
+
+<a href="https://www.1mg.com/drugs/lithosun-300-tablet-16861"
+   target="_blank"
+   rel="noopener">
+   1mg — Lithosun 300
+</a>
+
+<a href="https://www.1mg.com/drugs/licab-tablet-16847"
+   target="_blank"
+   rel="noopener">
+   1mg — Licab 300
+</a>
+
+<a href="https://www.1mg.com/drugs/lithosun-sr-400mg-tablet-155740"
+   target="_blank"
+   rel="noopener">
+   1mg — Lithosun SR 400
+</a>
+
+<a href="https://www.apollopharmacy.in/medicine-substitute/licab-tablet"
+   target="_blank"
+   rel="noopener">
+   Apollo Pharmacy — Licab substitutes
+</a>
+
+<a href="https://sunpharma.com/product-price-list/"
+   target="_blank"
+   rel="noopener">
+   Sun Pharma — Product Price List
+</a>
+
+<a href="https://nppa.gov.in/en/lithiumcarbonate-24"
+   target="_blank"
+   rel="noopener">
+   NPPA — Lithium Carbonate price information
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ACCORDIONS
+========================================================= */
+
+function toggleAccordion(button){
+
+    const accordion = button.parentElement;
+
+    accordion.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   EXPAND / COLLAPSE
+========================================================= */
+
+function expandAll(){
+
+    document
+        .querySelectorAll(".accordion")
+        .forEach(function(item){
+
+            item.classList.add("open");
+
+        });
+
+}
+
+
+function collapseAll(){
+
+    document
+        .querySelectorAll(".accordion")
+        .forEach(function(item){
+
+            item.classList.remove("open");
+
+        });
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchPage(){
+
+    const query =
+        document
+        .getElementById("pageSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const sections =
+        document.querySelectorAll(".section");
+
+    sections.forEach(function(section){
+
+        if(!query){
+
+            section.style.display = "";
+
+            return;
+        }
+
+        const text =
+            section
+            .innerText
+            .toLowerCase();
+
+        section.style.display =
+            text.includes(query)
+                ? ""
+                : "none";
+
+    });
+
+}
+
+
+/* =========================================================
+   KEYBOARD SEARCH SHORTCUT
+========================================================= */
+
+document.addEventListener("keydown", function(event){
+
+    if(
+        (event.ctrlKey || event.metaKey)
+        &&
+        event.key.toLowerCase() === "k"
+    ){
+
+        event.preventDefault();
+
+        const search =
+            document.getElementById("pageSearch");
+
+        search.focus();
+
+    }
+
+});
+
+
+/* =========================================================
+   12-HOUR LITHIUM LEVEL CALCULATOR
+========================================================= */
+
+function calculateLithiumTime(){
+
+    const value =
+        document.getElementById("doseTime").value;
+
+    const result =
+        document.getElementById("levelTimeResult");
+
+    if(!value){
+
+        result.innerHTML =
+            '<span class="critical">Please enter the last dose time.</span>';
+
+        return;
+    }
+
+    const parts = value.split(":");
+
+    let hours = parseInt(parts[0],10);
+    let minutes = parseInt(parts[1],10);
+
+    hours = (hours + 12) % 24;
+
+    const formattedHours =
+        String(hours).padStart(2,"0");
+
+    const formattedMinutes =
+        String(minutes).padStart(2,"0");
+
+    result.innerHTML =
+        '<strong>Approximate 12-hour sampling time:</strong> '
+        +
+        formattedHours
+        +
+        ":"
+        +
+        formattedMinutes;
+
+}
+
+
+/* =========================================================
+   BRAND MODAL
+========================================================= */
+
+function openBrandModal(){
+
+    const modal =
+        document.getElementById("brandModal");
+
+    modal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+    setTimeout(function(){
+
+        const input =
+            document.getElementById("brandSearch");
+
+        if(input){
+            input.focus();
+        }
+
+    },100);
+
+}
+
+
+function closeBrandModal(){
+
+    const modal =
+        document.getElementById("brandModal");
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL WITH ESC
+========================================================= */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+
+        closeBrandModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   CLOSE MODAL BY CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById("brandModal")
+    .addEventListener("click", function(event){
+
+        if(event.target === this){
+
+            closeBrandModal();
+
+        }
+
+    });
+
+
+/* =========================================================
+   BRAND FILTER
+========================================================= */
+
+function filterLithiumBrands(){
+
+    const search =
+        document
+        .getElementById("brandSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const formulation =
+        document
+        .getElementById("brandFormulationFilter")
+        .value;
+
+    const strength =
+        document
+        .getElementById("brandStrengthFilter")
+        .value;
+
+    const rows =
+        document.querySelectorAll(
+            "#brandTable tbody tr"
+        );
+
+    let visibleCount = 0;
+
+    rows.forEach(function(row){
+
+        const text =
+            row.innerText.toLowerCase();
+
+        const rowFormulation =
+            row.dataset.formulation || "";
+
+        const rowStrength =
+            row.dataset.strength || "";
+
+        const matchesSearch =
+            !search ||
+            text.includes(search);
+
+        const matchesFormulation =
+            !formulation ||
+            rowFormulation === formulation;
+
+        const matchesStrength =
+            !strength ||
+            rowStrength === strength;
+
+        const visible =
+            matchesSearch &&
+            matchesFormulation &&
+            matchesStrength;
+
+        row.style.display =
+            visible ? "" : "none";
+
+        if(visible){
+            visibleCount++;
+        }
+
+    });
+
+    document.getElementById("brandCount").innerText =
+        visibleCount;
+
+}
+
+
+/* =========================================================
+   INITIALISE BRAND COUNT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    filterLithiumBrands();
+
+});
+
+
+/* =========================================================
+   SIDEBAR ACTIVE SECTION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(".section");
+
+const navLinks =
+    document.querySelectorAll(".sidebar a");
+
+window.addEventListener("scroll", function(){
+
+    let current = "";
+
+    sections.forEach(function(section){
+
+        const top =
+            section.offsetTop - 120;
+
+        if(window.scrollY >= top){
+
+            current =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(function(link){
+
+        link.classList.remove("active");
+
+        const href =
+            link.getAttribute("href");
+
+        if(href === "#" + current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   INITIAL ACTIVE LINK
+========================================================= */
+
+if(navLinks.length){
+
+    navLinks[0].classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
