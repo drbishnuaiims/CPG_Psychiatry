@@ -1,7 +1,7 @@
 
 /*
 =========================================================
-  CPG PSYCHIATRY — GUIDELINE REGISTRY
+  PSYCHIATRY — GUIDELINE REGISTRY
 
   ORDER:
 
@@ -886,7 +886,7 @@ const GUIDELINES = [
       "movement disorder treatment"
     ],
 
-    url: "/CPG_Psychiatry/cpg/parkinsons_note.html",
+    url: "/psychiatry/cpg/parkinsons_note.html",
 
     readTime: "25 min read"
   },

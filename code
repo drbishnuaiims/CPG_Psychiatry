@@ -1,5 +1,4 @@
 for floating navigation option
-It stays fixed at the bottom-right, is keyboard-accessible, and returns to the guideline library. The shared implementation is in [article-navigation.js](/Users/bishnu/Desktop/Projects/CPG_Psychiatry/assets/article-navigation.js), so future pages only need this line before </body>:
+It stays fixed at the bottom-right, is keyboard-accessible, and returns to the guideline library. The shared implementation is in [article-navigation.js](/Users/bishnu/Desktop/Projects/psychiatry/assets/article-navigation.js), so future pages only need this line before </body>:
 <script src="../assets/article-navigation.js"></script>
-
 

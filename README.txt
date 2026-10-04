@@ -1,7 +1,7 @@
 PSYCHIATRY CPG NOTES — SIMPLE STATIC SITE
 
 1. Upload the contents of this folder to GitHub Pages, Netlify, Cloudflare Pages, etc.
-2. Replace https://drbishnuaiims.github.io/CPG_Psychiatry in:
+2. Replace https://drbishnuaiims.github.io/psychiatry in:
    - index.html
    - each cpg/*.html
    - sitemap.xml

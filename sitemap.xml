@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://drbishnuaiims.github.io/CPG_Psychiatry/</loc></url>
+  <url><loc>https://drbishnuaiims.github.io/psychiatry/</loc></url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/lithium-clinical-guide.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/lithium-clinical-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
 </url>
 <url>
-        <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/bipolar-disorder-diagnostic-workup-proforma.html</loc>
+        <loc>https://drbishnuaiims.github.io/psychiatry/cpg/bipolar-disorder-diagnostic-workup-proforma.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
   <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/canmat-isbd-bipolar-disorder-2018.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/canmat-isbd-bipolar-disorder-2018.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/schizophrenia.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/schizophrenia.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/autism-spectrum-disorder-subramanyam-2019.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/autism-spectrum-disorder-subramanyam-2019.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/adhd-cpg-shah-2019.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/adhd-cpg-shah-2019.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/pornography-addiction-young-therapists-guide.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/pornography-addiction-young-therapists-guide.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/parkinsons_note.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/parkinsons_note.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://drbishnuaiims.github.io/CPG_Psychiatry/cpg/organic_differentials_anxiety.html</loc>
+    <loc>https://drbishnuaiims.github.io/psychiatry/cpg/organic_differentials_anxiety.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
