@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronic Insomnia — OPD Clinical Guide</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --text:#182230; --muted:#64748b;
+  --line:#e2e8f0; --accent:#2563eb; --accent2:#0f766e; --warn:#b45309;
+  --danger:#b91c1c; --soft:#eff6ff; --soft2:#ecfeff; --shadow:0 10px 30px rgba(15,23,42,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55;
+}
+a{color:inherit}
+button{font:inherit}
+.wrap{max-width:1400px;margin:auto;padding:22px}
+.hero{
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
+  color:white;border-radius:24px;padding:30px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.hero:after{
+  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
+  right:-100px;top:-120px;background:rgba(255,255,255,.07);
+}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;opacity:.75;font-weight:800}
+h1{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;margin:8px 0 12px}
+.hero p{max-width:900px;color:#dbeafe;margin:0}
+.source{
+  margin-top:16px;font-size:.82rem;color:#bfdbfe;
+}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:22px;margin-top:22px}
+.side{
+  position:sticky;top:15px;align-self:start;background:var(--card);
+  border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);
+}
+.side a{
+  display:block;padding:9px 10px;text-decoration:none;border-radius:10px;
+  color:#475569;font-size:.9rem;
+}
+.side a:hover{background:#f1f5f9;color:var(--accent)}
+.search{
+  width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+  margin-bottom:10px;outline:none;
+}
+.search:focus{border-color:#93c5fd;box-shadow:0 0 0 3px #dbeafe}
+.section{margin-bottom:22px;scroll-margin-top:20px}
+.section-title{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.section-title h2{margin:0;font-size:1.45rem}
+.badge{
+  display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;
+  font-size:.72rem;font-weight:800;background:var(--soft);color:#1d4ed8;
+}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{
+  grid-column:span 12;background:var(--card);border:1px solid var(--line);
+  border-radius:18px;padding:18px;box-shadow:0 4px 16px rgba(15,23,42,.035);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  animation:rise .45s ease both;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,.08);border-color:#cbd5e1}
+.span6{grid-column:span 6}.span4{grid-column:span 4}.span3{grid-column:span 3}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.card h4{margin:12px 0 6px;font-size:.93rem}
+.card p:last-child{margin-bottom:0}
+ul{margin:8px 0 0;padding-left:20px}
+li{margin:4px 0}
+.small{font-size:.86rem;color:var(--muted)}
+.big-number{font-size:1.8rem;font-weight:900;color:var(--accent)}
+.callout{
+  border-left:4px solid var(--accent);background:var(--soft);padding:13px 15px;border-radius:0 12px 12px 0;
+}
+.callout.warn{border-left-color:var(--warn);background:#fff7ed}
+.callout.danger{border-left-color:var(--danger);background:#fef2f2}
+.callout.green{border-left-color:var(--accent2);background:#f0fdfa}
+.checklist label{display:flex;gap:9px;align-items:flex-start;margin:8px 0}
+.checklist input{margin-top:5px;accent-color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-weight:800}
+tr:last-child td{border-bottom:0}
+.pill-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.pill{padding:5px 9px;border-radius:999px;background:#f1f5f9;color:#475569;font-size:.78rem;font-weight:700}
+.flow{display:grid;gap:10px}
+.step{
+  display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;
+  padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;
+}
+.num{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:#dbeafe;color:#1d4ed8;font-weight:900;
+}
+details{border:1px solid var(--line);border-radius:14px;background:#fff;margin:9px 0;overflow:hidden}
+summary{cursor:pointer;padding:13px 15px;font-weight:800}
+details .inside{padding:0 15px 15px}
+.sticky-tools{
+  position:sticky;bottom:12px;z-index:10;margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;
+}
+.tool{
+  border:1px solid #cbd5e1;background:#fff;padding:9px 12px;border-radius:12px;
+  cursor:pointer;box-shadow:0 6px 16px rgba(15,23,42,.08);font-weight:750;
+}
+.tool.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.hidden{display:none!important}
+.footer{color:#64748b;font-size:.8rem;text-align:center;padding:30px 0}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1000px){
+  .layout{grid-template-columns:1fr}.side{position:relative;top:auto}.side nav{display:flex;overflow:auto;gap:5px}.side a{white-space:nowrap}
+}
+@media(max-width:720px){
+  .wrap{padding:12px}.hero{padding:22px;border-radius:18px}.span6,.span4,.span3{grid-column:span 12}
+  table{display:block;overflow-x:auto;white-space:nowrap}
+}
+@media print{
+  body{background:white}.hero{color:#000;background:white;border:1px solid #ddd}.hero p,.source{color:#333}
+  .side,.sticky-tools{display:none}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.section{break-inside:auto}
+}
+
+/* =========================
+   DRUG / BRAND POPUP
+========================= */
+
+.drug-table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+
+.drug-table{
+  min-width:780px;
+}
+
+.drug-table th{
+  position:sticky;top:0;z-index:1;
+  background:#eef4ff;
+  color:#1e3a8a;
+  border-bottom:2px solid #bfdbfe;
+}
+
+.drug-table td:first-child{
+  min-width:175px;
+  background:linear-gradient(90deg,#f8fbff,#fff);
+}
+
+.drug-table td:nth-child(2){
+  min-width:95px;
+  font-weight:800;
+  color:#0f766e;
+}
+
+.drug-table td:nth-child(4){
+  min-width:300px;
+  color:#475569;
+}
+
+.drug-table tbody tr{
+  transition:background .16s ease;
+}
+
+.drug-table tbody tr:hover{
+  background:#f8fbff;
+}
+
+.drug-name{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:7px;
+}
+
+.drug-label{
+  font-size:.92rem;
+}
+
+.drug-dose{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#ecfdf5;
+  color:#047857;
+  font-size:.74rem;
+  font-weight:850;
+}
+
+.drug-point{
+  position:relative;
+  padding:9px 12px 9px 18px !important;
+  background:#fbfdff;
+}
+.drug-point:before{
+  content:"";
+  position:absolute;
+  left:7px;top:12px;bottom:12px;
+  width:3px;border-radius:99px;
+  background:#bfdbfe;
+}
+.compact-list{
+  margin:0;
+  padding-left:18px;
+}
+.compact-list li{
+  margin:0 0 5px;
+  line-height:1.38;
+}
+.compact-list li:last-child{margin-bottom:0}
+
+.table-note{
+  display:flex;gap:8px;align-items:flex-start;
+  margin:12px 2px 0;
+  padding:11px 13px;
+  border-radius:12px;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#7c2d12;
+  font-size:.8rem;
+}
+
+.brand-btn{
+  border:1px solid #bfdbfe;
+  background:#eff6ff;
+  color:#1d4ed8;
+  padding:7px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:.78rem;
+  white-space:nowrap;
+  transition:
+    transform .18s ease,
+    background .18s ease;
+}
+
+.brand-btn:hover{
+  transform:translateY(-1px);
+  background:#dbeafe;
+}
+
+/* Modal */
+
+.brand-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(15,23,42,.52);
+  backdrop-filter:blur(5px);
+}
+
+.brand-modal.show{
+  display:flex;
+  animation:modalFade .18s ease;
+}
+
+.brand-box{
+  width:min(620px,100%);
+  max-height:85vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 30px 80px rgba(15,23,42,.25);
+  animation:modalUp .22s ease;
+}
+
+.brand-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:15px;
+  padding:20px 20px 14px;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.brand-head h3{
+  margin:0;
+  font-size:1.25rem;
+}
+
+.brand-head p{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.close-brand{
+  border:0;
+  background:#f1f5f9;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.1rem;
+  font-weight:900;
+  color:#475569;
+}
+
+.brand-body{
+  padding:16px 20px 20px;
+}
+
+.brand-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.86rem;
+}
+
+.brand-table th,
+.brand-table td{
+  padding:10px 8px;
+  border-bottom:1px solid var(--line);
+}
+
+.brand-table th{
+  background:#f8fafc;
+}
+
+.brand-table tr:last-child td{
+  border-bottom:0;
+}
+
+.price{
+  font-weight:900;
+  color:#0f766e;
+  white-space:nowrap;
+}
+
+.source-tag{
+  display:inline-flex;
+  margin-top:10px;
+  padding:5px 8px;
+  border-radius:999px;
+  background:#f1f5f9;
+  color:#64748b;
+  font-size:.72rem;
+  font-weight:750;
+}
+
+.no-listing{
+  padding:14px;
+  border-radius:12px;
+  background:#fff7ed;
+  border-left:4px solid #b45309;
+  color:#78350f;
+}
+
+@keyframes modalFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">OPD bedside / clinic reference</div>
+  <h1>Chronic Insomnia</h1>
+  <p>Assessment → phenotype → perpetuating factors → CBT-I → rational short-term pharmacotherapy → taper / maintenance. Built directly from the Gupta et al. Indian Psychiatric Society 2017 CPG for Sleep Disorders.</p>
+  <div class="source">Source: Gupta R, Das S, Gujar K, Mishra KK, Gaur N, Majid A. Indian J Psychiatry. 2017;59(Suppl 1):116–138. DOI 10.4103/0019-5545.196978.</div>
+</header>
+
+<div class="layout">
+<aside class="side">
+  <input id="search" class="search" type="search" placeholder="Find a topic…">
+  <nav>
+    <a href="#definition">1. Definition</a>
+    <a href="#assessment">2. OPD assessment</a>
+    <a href="#mimics">3. Mimics & red flags</a>
+    <a href="#formulation">4. Formulation</a>
+    <a href="#cbti">5. CBT-I</a>
+    <a href="#drugs">6. Pharmacotherapy</a>
+    <a href="#elderly">7. Elderly</a>
+    <a href="#algorithm">8. Treatment algorithm</a>
+    <a href="#followup">9. Follow-up</a>
+    <a href="#checklist">10. OPD checklist</a>
+  </nav>
+</aside>
+
+<main id="content">
+
+<section id="definition" class="section">
+  <div class="section-title"><h2>1. Definition & clinical frame</h2><span class="badge">START HERE</span></div>
+  <div class="grid">
+    <div class="card span6">
+      <h3>Diagnostic pattern</h3>
+      <ul>
+        <li>Difficulty initiating sleep, maintaining sleep, or early-morning awakening.</li>
+        <li>Occurs despite adequate opportunity for sleep.</li>
+        <li>At least <strong>3 nights/week</strong>.</li>
+        <li>Associated with clinically significant daytime distress/impairment.</li>
+        <li>≥1 month and &lt;3 months = episodic; ≥3 months = persistent insomnia.</li>
+      </ul>
+    </div>
+    <div class="card span6">
+      <h3>Do not frame it as simply “secondary insomnia”</h3>
+      <p>Insomnia can coexist with psychiatric and medical disorders; it should not be reduced to a symptom of the associated condition.</p>
+      <div class="callout green"><strong>Core treatment concept:</strong> insomnia is associated with <strong>hyperarousal</strong>. Treatment therefore targets sleep-related hyperarousal, dysfunctional beliefs and maladaptive sleep behaviours.</div>
+    </div>
+  </div>
+</section>
+
+<section id="assessment" class="section">
+  <div class="section-title"><h2>2. OPD assessment: a 5-minute structured screen</h2><span class="badge">DO NOT SKIP</span></div>
+  <div class="grid">
+    <div class="card span6">
+      <h3>A. Characterise the night</h3>
+      <div class="checklist">
+        <label><input type="checkbox"> Usual bedtime</label>
+        <label><input type="checkbox"> Sleep-onset latency / time to fall asleep</label>
+        <label><input type="checkbox"> Final wake time</label>
+        <label><input type="checkbox"> Time actually getting out of bed</label>
+        <label><input type="checkbox"> Number and duration of awakenings</label>
+        <label><input type="checkbox"> Reason for awakenings</label>
+        <label><input type="checkbox"> Time required to resume sleep</label>
+        <label><input type="checkbox"> Total time spent awake in bed</label>
+        <label><input type="checkbox"> Daytime naps: timing, duration, number, regularity</label>
+      </div>
+    </div>
+    <div class="card span6">
+      <h3>B. Characterise the day</h3>
+      <div class="checklist">
+        <label><input type="checkbox"> Daytime impairment / distress</label>
+        <label><input type="checkbox"> Fatigue versus true sleepiness</label>
+        <label><input type="checkbox"> Daytime mood</label>
+        <label><input type="checkbox"> Functional impact</label>
+        <label><input type="checkbox"> Ask whether a “good night” dramatically normalises daytime symptoms</label>
+        <label><input type="checkbox"> Excessive daytime sleepiness / unintended sleep episodes</label>
+      </div>
+    </div>
+    <div class="card span6">
+      <h3>C. Predisposing → precipitating → perpetuating</h3>
+      <ul>
+        <li><strong>Predisposing:</strong> vulnerability to insomnia.</li>
+        <li><strong>Precipitating:</strong> recent stressor or illness.</li>
+        <li><strong>Perpetuating:</strong> dysfunctional beliefs, excessive time in bed, compensatory behaviours, screens while awake, altered daytime behaviour, caffeine/smoking patterns.</li>
+      </ul>
+      <p class="small">The perpetuating factors are particularly useful because they tell you what to target in CBT-I.</p>
+    </div>
+    <div class="card span6">
+      <h3>D. Medication / substance / environment audit</h3>
+      <ul>
+        <li>Every current medication: does it alter sleep?</li>
+        <li>Alcohol, caffeine, nicotine and other substances: type, timing, frequency, intoxication/withdrawal effects.</li>
+        <li>Bedroom/environmental factors interfering with sleep.</li>
+        <li>Pre-bedtime behaviour and mental state.</li>
+        <li>Behaviour and thoughts during nocturnal awakenings.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="mimics" class="section">
+  <div class="section-title"><h2>3. Rule out insomnia mimics before prescribing a hypnotic</h2><span class="badge">HIGH-YIELD</span></div>
+  <div class="grid">
+    <div class="card span4">
+      <h3>Sleep-related breathing</h3>
+      <ul><li>Obstructive sleep apnea</li><li>Central sleep apnea</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Movement disorders</h3>
+      <ul><li>Restless legs syndrome</li><li>Nocturnal myoclonus / sleep starts</li><li>Leg cramps</li><li>Bruxism</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Circadian disorders</h3>
+      <ul><li>Delayed sleep-wake phase</li><li>Advanced sleep-wake phase</li><li>Shift-work disorder</li><li>Irregular sleep-wake rhythm</li></ul>
+    </div>
+    <div class="card span6">
+      <h3>Parasomnias / nocturnal phenomena</h3>
+      <ul><li>Sleepwalking</li><li>Sleep terrors</li><li>Nightmare disorder</li><li>Abnormal activity at night → consider seizures / parasomnia</li></ul>
+    </div>
+    <div class="card span6">
+      <h3>Medical / neurological contributors</h3>
+      <ul>
+        <li>Cardiac: arrhythmias, heart failure, myocardial infarction, varicose veins</li>
+        <li>Pulmonary: COPD, interstitial lung disease, scoliosis</li>
+        <li>GI: peptic ulcer disease, GERD, chronic constipation</li>
+        <li>CNS: dementia, seizures, stroke, Parkinson disease, intracranial lesions</li>
+        <li>GU: CKD, BPH</li>
+        <li>Musculoskeletal: rheumatoid arthritis, connective-tissue disease</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="callout danger"><strong>Clinical rule:</strong> if a sleep disorder mimicking insomnia is identified, treat that disorder. If insomnia is comorbid with it, treat both. Do not simply escalate sedatives.</div>
+    </div>
+  </div>
+</section>
+
+<section id="formulation" class="section">
+  <div class="section-title"><h2>4. Phenotype + formulation</h2><span class="badge">OPD DECISION</span></div>
+  <div class="grid">
+    <div class="card span4">
+      <h3>Initial / sleep-onset</h3>
+      <ul class="compact-list"><li>Predominant difficulty initiating sleep.</li><li>Consider clinically significant sleep-onset latency &gt;30 min on &gt;3 nights/week.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Middle / maintenance</h3>
+      <ul class="compact-list"><li>Repeated nocturnal awakenings.</li><li>Prolonged wakefulness after sleep onset.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Terminal / early awakening</h3>
+      <ul class="compact-list"><li>Early-morning awakening with reduced total sleep time.</li><li>Exclude advanced sleep-wake phase disorder if sleep is otherwise adequate at the patient's natural timing.</li></ul>
+    </div>
+    <div class="card">
+      <h3>Use a sleep diary before assuming “insomnia”</h3>
+      <p>A sleep diary can distinguish insomnia from circadian misalignment. A patient may report a long sleep-onset latency yet obtain normal sleep when allowed to follow their preferred delayed schedule.</p>
+      <div class="callout">If the patient sleeps adequately when allowed to sleep at their preferred timing, reconsider insomnia and assess circadian misalignment.</div>
+    </div>
+  </div>
+</section>
+
+<section id="cbti" class="section">
+  <div class="section-title"><h2>5. CBT-I: the mainstay for chronic insomnia</h2><span class="badge">CORE TREATMENT</span></div>
+  <div class="grid">
+    <div class="card span6">
+      <h3>Core CBT-I components</h3>
+      <div class="pill-row">
+        <span class="pill">Sleep education</span><span class="pill">Sleep hygiene</span>
+        <span class="pill">Dysfunctional-belief work</span><span class="pill">Stimulus control</span>
+        <span class="pill">Sleep restriction</span><span class="pill">Relaxation</span>
+      </div>
+      <p><strong>Common objective:</strong> reduce hyperarousal through education, cognitive restructuring and relaxation.</p>
+    </div>
+    <div class="card span6">
+      <h3>What to tell the patient</h3>
+      <ul>
+        <li>Do not chase sleep by spending excessive time in bed.</li>
+        <li>Do not turn the bed into a place for prolonged worrying or wakeful activity.</li>
+        <li>Track the actual sleep pattern rather than relying only on a subjective impression.</li>
+        <li>Expect CBT-I to take longer than a sedative to show its full effect; benefits may be longer lasting and relapse may be reduced.</li>
+      </ul>
+    </div>
+    <div class="card span4">
+      <h3>Stimulus control</h3>
+      <ul class="compact-list"><li>Break the learned association between bed and wakefulness.</li><li>Use the sleep diary to review adherence and response.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Sleep restriction</h3>
+      <ul class="compact-list"><li>Reduce excessive time in bed to consolidate sleep.</li><li><strong>Caution:</strong> avoid in bipolar disorder and epilepsy because sleep restriction may worsen the comorbid condition.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Relaxation / problem solving</h3>
+      <ul class="compact-list"><li>Use relaxation techniques to reduce hyperarousal.</li><li>Add problem-solving when daytime worries are prominent.</li><li>Mindfulness-based stress reduction can be incorporated as a CBT-I component.</li></ul>
+    </div>
+    <div class="card span6">
+      <h3>Exercise + sleep hygiene</h3>
+      <ul class="compact-list"><li>Aerobic exercise plus sleep hygiene reduced sleep-onset time and improved sleep efficiency in trials.</li><li>Do not impose a blanket ban on exercise before bedtime.</li><li>Assess the individual patient's sleep reactivity to exercise.</li></ul>
+    </div>
+    <div class="card span6">
+      <h3>Sleep hygiene alone is not enough</h3>
+      <ul class="compact-list"><li>Sleep education / sleep hygiene alone has limited value.</li><li>Combine it with active CBT-I components.</li><li>Do not present “sleep hygiene” as the complete treatment.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="drugs" class="section">
+
+  <div class="section-title">
+    <h2>6. Pharmacotherapy: use strategically, not reflexively</h2>
+    <span class="badge">SHORT-TERM FOCUS</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="callout warn">
+        <strong>Practical prescribing position:</strong>
+        pharmacotherapy is mainly for short-term insomnia and is
+        <strong>not routinely recommended for chronic insomnia</strong>.
+        For chronic insomnia, CBT-I is preferred.
+      </div>
+      <p class="small" style="margin-top:12px">
+        <strong>Brand/pricing note:</strong> prices below are indicative
+        Indian online listings located during this update (September 2026),
+        generally for the displayed strength/pack where the source exposed it.
+        Prices, stock status, discounts and pack sizes can change. “Not located”
+        means a current listing could not be reliably verified in the searched
+        sources; it does not prove that the medicine is unavailable in India.
+      </p>
+    </div>
+
+    <div class="card span6">
+      <h3>How to choose a drug</h3>
+      <ol>
+        <li>Age and risks associated with sedation</li>
+        <li>Psychiatric and medical comorbidity</li>
+        <li>Pharmacokinetic properties</li>
+        <li>Drug interactions</li>
+        <li>Short- and long-term adverse effects</li>
+        <li>Availability</li>
+        <li>Cost</li>
+        <li>Allergy</li>
+      </ol>
+    </div>
+
+    <div class="card span6">
+      <h3>Benzodiazepines / BzRAs: phenotype-based principle</h3>
+      <ul>
+        <li><strong>Short-acting:</strong> generally preferred when sleep initiation is the dominant problem.</li>
+        <li><strong>Intermediate-acting:</strong> may be selected when sleep maintenance is the dominant problem.</li>
+        <li><strong>Long-acting:</strong> may be selected for early-morning awakening.</li>
+        <li>Intermediate/long-acting agents can produce residual daytime effects and somnolence.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Drug & brand/pricing table</h3>
+      <p class="small">Up to five commonly listed Indian brands are shown per drug. <strong>Tap the button under the drug name</strong> for the current pricing snapshot.</p>
+
+      <div class="drug-table-wrap">
+        <table class="drug-table">
+          <thead>
+            <tr>
+              <th>Drug / brands</th>
+              <th>Half-life</th>
+              <th>Dose/day</th>
+              <th>Key OPD point</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Oxazepam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('oxazepam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>3–20 h</td>
+              <td><span class="drug-dose">10–30 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Short/intermediate acting.</li><li>Watch for memory lapses, daytime sleepiness, ataxia and falls.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Triazolam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('triazolam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>1.5–5.5 h</td>
+              <td><span class="drug-dose">0.5–1 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Short acting.</li><li>Useful phenotype: predominant sleep-initiation difficulty.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Lorazepam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('lorazepam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>10–20 h</td>
+              <td><span class="drug-dose">1–4 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Intermediate acting.</li><li>Assess dependence risk and residual sedation.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Alprazolam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('alprazolam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>6–20 h</td>
+              <td><span class="drug-dose">0.25–1 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Benzodiazepine; avoid using as a default chronic-insomnia strategy.</li><li>Plan for dependence and withdrawal risk.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Diazepam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('diazepam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>20–50 h</td>
+              <td><span class="drug-dose">5–20 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Long acting.</li><li>Residual daytime sedation is a major concern, especially in older adults.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Clonazepam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('clonazepam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>18–40 h</td>
+              <td><span class="drug-dose">0.5–2 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Longer acting.</li><li>Monitor sedation, cognitive effects, falls and dependence.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Nitrazepam</strong></div>
+                  <button class="brand-btn" onclick="openBrand('nitrazepam')">View 5 brands</button>
+                </div>
+              </td>
+              <td>30–40 h</td>
+              <td><span class="drug-dose">5–10 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Long half-life.</li><li>Avoid reflexive use in older or frail patients.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Zaleplon</strong></div>
+                  <button class="brand-btn" onclick="openBrand('zaleplon')">View 5 brands</button>
+                </div>
+              </td>
+              <td>~1 h</td>
+              <td><span class="drug-dose">5–10 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Very short acting.</li><li>Watch for memory lapses, hallucinations and paradoxical excitement.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Eszopiclone</strong></div>
+                  <button class="brand-btn" onclick="openBrand('eszopiclone')">View 5 brands</button>
+                </div>
+              </td>
+              <td>~5 h</td>
+              <td><span class="drug-dose">1–2 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Watch for memory lapses, hallucinations and paradoxical excitement.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Zolpidem</strong></div>
+                  <button class="brand-btn" onclick="openBrand('zolpidem')">View 5 brands</button>
+                </div>
+              </td>
+              <td>2–4 h</td>
+              <td><span class="drug-dose">5–10 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Short acting prescription hypnotic.</li><li>Assess dependence risk and next-day impairment.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Melatonin</strong></div>
+                  <button class="brand-btn" onclick="openBrand('melatonin')">View 5 brands</button>
+                </div>
+              </td>
+              <td>—</td>
+              <td><span class="drug-dose">3 mg</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Primarily a chronobiotic rather than a conventional hypnotic.</li><li>Useful when circadian timing is part of the problem.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Ramelteon</strong></div>
+                  <button class="brand-btn" onclick="openBrand('ramelteon')">View 5 brands</button>
+                </div>
+              </td>
+              <td>3–4 h</td>
+              <td><span class="drug-dose">8–24 mg/day</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Short-acting melatonin-receptor agonist.</li><li>Improves sleep-onset time with relatively few adverse effects reported.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Agomelatine</strong></div>
+                  <button class="brand-btn" onclick="openBrand('agomelatine')">View 5 brands</button>
+                </div>
+              </td>
+              <td>1–2 h</td>
+              <td><span class="drug-dose">25–50 mg/day</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Melatonin-receptor agonist + 5-HT2C antagonist.</li><li>Liver monitoring is clinically relevant.</li></ul></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="drug-name">
+                  <div class="drug-label"><strong>Suvorexant</strong></div>
+                  <button class="brand-btn" onclick="openBrand('suvorexant')">View listing</button>
+                </div>
+              </td>
+              <td>—</td>
+              <td><span class="drug-dose">10–40 mg/day</span></td>
+              <td class="drug-point"><ul class="compact-list"><li>Orexin-receptor antagonist.</li><li>Current Indian retail listing was not reliably verified in the search.</li></ul></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note"><strong>Quick use:</strong> the green dose badge shows the dose range; the blue button under each drug opens the Indian brand/pricing snapshot.</div>
+    </div>
+
+    <div class="card span6">
+      <h3>Sedating antidepressants</h3>
+      <p>
+        Trazodone, mirtazapine and tricyclics may be considered when there is
+        a comorbid psychiatric disorder that warrants their use, or when
+        benzodiazepine/BzRA adverse effects are not tolerated.
+        The guideline notes <strong>insufficient evidence for their efficacy in insomnia</strong>.
+      </p>
+    </div>
+
+    <div class="card span6">
+      <h3>Antihistamines</h3>
+      <p>
+        Commonly used for self-medication, but efficacy data are limited.
+        Low-dose doxepin (10 mg) is described as primarily acting at H1 receptors.
+      </p>
+    </div>
+
+    <div class="card span6">
+      <h3>Antipsychotics</h3>
+      <p>
+        Chlorpromazine, clozapine, olanzapine and quetiapine are described as
+        off-label insomnia treatments, but efficacy data as hypnotics are lacking.
+        Adverse effects include metabolic syndrome and extrapyramidal symptoms.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="callout danger">
+        <strong>Prescribing safety:</strong>
+        brand availability and price are procurement information, not a reason to
+        choose a hypnotic. For chronic insomnia, the therapeutic decision remains
+        driven by diagnosis, CBT-I, comorbidity, age, interaction burden,
+        pharmacokinetics and adverse-effect profile.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="elderly" class="section">
+  <div class="section-title"><h2>7. Insomnia in the elderly</h2><span class="badge">SAFETY FIRST</span></div>
+  <div class="grid">
+    <div class="card span6">
+      <h3>Elderly: key safety point</h3>
+      <div class="callout danger">
+        <strong>Pharmacotherapy should be used cautiously in elderly patients</strong> because of drug interactions and the adverse-effect profile.
+      </div>
+      <ul class="compact-list"><li>Daytime sedation, cognitive problems, ataxia and falls can outweigh the benefit of “more sleep”.</li><li>Review the indication and risk–benefit balance before escalating sedatives.</li></ul>
+    </div>
+    <div class="card span6">
+      <h3>Geriatric OPD safety screen</h3>
+      <div class="checklist">
+        <label><input type="checkbox"> Falls / gait instability / frailty</label>
+        <label><input type="checkbox"> Cognitive impairment or dementia</label>
+        <label><input type="checkbox"> Polypharmacy and interaction burden</label>
+        <label><input type="checkbox"> Daytime sleepiness</label>
+        <label><input type="checkbox"> Snoring / suspected OSA</label>
+        <label><input type="checkbox"> RLS / nocturnal movements</label>
+        <label><input type="checkbox"> Nocturia / BPH / CKD</label>
+        <label><input type="checkbox"> Pain / GERD / constipation / cardiopulmonary symptoms</label>
+      </div>
+    </div>
+    <div class="card span4">
+      <h3>Why long-acting sedatives are problematic</h3>
+      <ul class="compact-list"><li>Residual daytime effects are more likely with intermediate/long-acting agents.</li><li>Watch for memory lapses, daytime sleepiness, ataxia and falls.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>Practical geriatric principle</h3>
+      <ul class="compact-list"><li><strong>First ask: “Why is this older patient awake?”</strong></li><li>Look for medical disease, nocturia, pain, RLS, OSA, medication effects, circadian change and neurocognitive disorder.</li><li>Address reversible contributors before adding sedatives.</li></ul>
+    </div>
+    <div class="card span4">
+      <h3>CBT-I feasibility</h3>
+      <ul class="compact-list"><li>CBT-I may be less feasible with neurocognitive deficits or poor adherence.</li><li>Assess motivation and adapt the behavioural plan.</li><li>Use caregiver support when appropriate.</li></ul>
+    </div>
+    <div class="card">
+      <div class="callout warn">
+        <strong>Important source limitation:</strong> the 2017 CPG gives a general “use pharmacotherapy cautiously in the elderly” statement but does <strong>not</strong> provide a dedicated geriatric drug hierarchy, geriatric dose table, or modern Beers/STOPP-START-based prescribing recommendations. Do not interpret this page as a geriatric prescribing guideline beyond what the CPG supports.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="algorithm" class="section">
+  <div class="section-title"><h2>8. One-page treatment algorithm</h2><span class="badge">CLINIC FLOW</span></div>
+  <div class="card">
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div><strong>Confirm insomnia phenotype</strong><br><span class="small">Adequate opportunity + nighttime sleep complaint + daytime symptoms/impairment + ≥3 nights/week.</span></div></div>
+      <div class="step"><div class="num">2</div><div><strong>Exclude mimics and contributors</strong><br><span class="small">OSA/CSA, RLS, parasomnia, seizures, circadian disorder, medical illness, substances, medications and environmental factors.</span></div></div>
+      <div class="step"><div class="num">3</div><div><strong>Determine duration</strong><br><span class="small">&lt;3 months → short-term pattern. ≥3 months → chronic/persistent insomnia.</span></div></div>
+      <div class="step"><div class="num">4</div><div><strong>Start behavioural treatment</strong><br><span class="small">For chronic insomnia, CBT-I is the preferred treatment. Do not prescribe “sleep hygiene alone” as the entire intervention.</span></div></div>
+      <div class="step"><div class="num">5</div><div><strong>If medication is needed, choose deliberately</strong><br><span class="small">Match phenotype, age, comorbidity, pharmacokinetics, interactions and adverse-effect burden. Keep pharmacotherapy short-term when possible.</span></div></div>
+      <div class="step"><div class="num">6</div><div><strong>Review with sleep diary</strong><br><span class="small">Assess sleep-onset latency, awakenings, total sleep time, daytime symptoms, adherence and adverse effects.</span></div></div>
+      <div class="step"><div class="num">7</div><div><strong>Move toward CBT-I maintenance</strong><br><span class="small">When medication is used alongside CBT-I, taper gradually while maintaining CBT-I.</span></div></div>
+      <div class="step"><div class="num">8</div><div><strong>Escalate investigation if refractory</strong><br><span class="small">Use actigraphy when objective data are needed; for refractory chronic insomnia, consider video-synchronised 24-channel polysomnography.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="followup" class="section">
+  <div class="section-title"><h2>9. Follow-up: what to measure</h2><span class="badge">OUTCOME TRACKING</span></div>
+  <div class="grid">
+    <div class="card span4"><h3>Night</h3><ul><li>Sleep-onset latency</li><li>Number/duration of awakenings</li><li>Wake time after sleep onset</li><li>Total sleep time</li><li>Sleep efficiency</li></ul></div>
+    <div class="card span4"><h3>Day</h3><ul><li>Fatigue vs sleepiness</li><li>Mood</li><li>Daytime functioning</li><li>Unintended sleep</li><li>Quality of sleep</li></ul></div>
+    <div class="card span4"><h3>Treatment</h3><ul><li>CBT-I adherence</li><li>Sleep-diary completion</li><li>Medication benefit</li><li>Residual sedation</li><li>Adverse effects / interactions</li></ul></div>
+    <div class="card">
+      <h3>When to stop</h3>
+      <ul class="compact-list"><li>For short-term insomnia, intermittent drug holidays may be used; restart treatment if symptoms recur.</li><li>CBT-I may be discontinued after sleep remains stable for ≥4 weeks.</li><li>The 4-week threshold is acknowledged as arbitrary.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="checklist" class="section">
+  <div class="section-title"><h2>10. OPD prescription checklist</h2><span class="badge">COPY INTO CASE SHEET</span></div>
+  <div class="card">
+    <div class="checklist">
+      <label><input type="checkbox"> Diagnosis/phenotype established</label>
+      <label><input type="checkbox"> Duration documented</label>
+      <label><input type="checkbox"> Daytime impairment documented</label>
+      <label><input type="checkbox"> Adequate opportunity for sleep confirmed</label>
+      <label><input type="checkbox"> EDS excluded</label>
+      <label><input type="checkbox"> OSA / RLS / parasomnia / circadian disorder screened</label>
+      <label><input type="checkbox"> Medical causes reviewed</label>
+      <label><input type="checkbox"> Medication + substance history reviewed</label>
+      <label><input type="checkbox"> Sleep diary advised</label>
+      <label><input type="checkbox"> Dysfunctional beliefs / sleep worry assessed</label>
+      <label><input type="checkbox"> CBT-I plan documented</label>
+      <label><input type="checkbox"> If drug used: indication + intended duration documented</label>
+      <label><input type="checkbox"> Elderly: sedation/fall/interactions/cognition specifically reviewed</label>
+      <label><input type="checkbox"> Follow-up date and outcome measures documented</label>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Quick clinical pearls</h2><span class="badge">REMEMBER</span></div>
+  <div class="grid">
+    <div class="card span6"><h3>“More sedation” ≠ “better insomnia treatment”</h3><p>The treatment target is improved sleep and daytime function with sustained benefit—not simply unconsciousness.</p></div>
+    <div class="card span6"><h3>Chronic insomnia → think CBT-I first</h3><p><strong>CBT-I is the mainstay.</strong> Pharmacotherapy is not routinely recommended as the primary treatment for chronic insomnia.</p></div>
+    <div class="card span6"><h3>Older patient + insomnia = investigate before sedating</h3><p><strong>Age increases the importance of interactions and adverse-effect burden.</strong> Use sedating medication cautiously and investigate reversible contributors first.</p></div>
+    <div class="card span6"><h3>Use the sleep diary as your objective anchor</h3><p>It helps identify sleep pattern, behavioural perpetuators and circadian misalignment, and provides a practical way to track response.</p></div>
+  </div>
+</section>
+
+
+<!-- =========================
+     BRAND / PRICE MODAL
+========================= -->
+
+<div
+  id="brandModal"
+  class="brand-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="brandTitle"
+>
+
+  <div class="brand-box">
+
+    <div class="brand-head">
+
+      <div>
+        <h3 id="brandTitle">Brand options</h3>
+        <p id="brandSubtitle"></p>
+      </div>
+
+      <button
+        class="close-brand"
+        onclick="closeBrand()"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="brandBody"
+      class="brand-body"
+    ></div>
+
+  </div>
+
+</div>
+
+<div class="sticky-tools">
+  <button class="tool primary" id="topBtn">Back to top</button>
+  <button class="tool" id="printBtn">Print / Save PDF</button>
+  <button class="tool" id="clearBtn">Clear checkboxes</button>
+</div>
+
+<div class="footer">
+  Educational clinical reference derived from Gupta et al., “Clinical Practice Guidelines for Sleep Disorders,” Indian Journal of Psychiatry, 2017.
+  Use clinical judgment and current local prescribing requirements. This page intentionally does not add recommendations not contained in the supplied CPG.
+</div>
+</main>
+</div>
+</div>
+
+<script>
+const search = document.getElementById('search');
+const cards = [...document.querySelectorAll('.card')];
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  cards.forEach(card => {
+    card.classList.toggle('hidden', q && !card.innerText.toLowerCase().includes(q));
+  });
+});
+document.getElementById('topBtn').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+document.getElementById('printBtn').onclick = () => window.print();
+document.getElementById('clearBtn').onclick = () => {
+  document.querySelectorAll('input[type="checkbox"]').forEach(x => x.checked=false);
+};
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    search.value='';
+    cards.forEach(c => c.classList.remove('hidden'));
+  });
+});
+
+/* =========================
+   BRAND DATA
+   Price snapshot:
+   September 2026 web search.
+========================= */
+
+const brandData = {
+
+  oxazepam: {
+    title:"Oxazepam",
+    subtitle:"10 mg examples where current listing was verified",
+    rows:[
+      ["Azenap-10","10 mg × 10","₹67.50","Apollo Pharmacy"],
+      ["Oxanxit-10","10 mg × 10","₹90","Apollo Pharmacy"],
+      ["Anxoneu-10","10 mg × 10","₹98","Apollo Pharmacy"],
+      ["Oxnz 10 mg","10 mg × 10","₹111","Apollo Pharmacy"],
+      ["Anxozap 10","10 mg × 10","₹129","Apollo Pharmacy"]
+    ],
+    note:"Apollo listings were shown as out of stock/not for online sale at the time of the search."
+  },
+
+  triazolam: {
+    title:"Triazolam",
+    subtitle:"Indian retail availability check",
+    rows:[],
+    note:"No current, reliably priced Indian retail listing was located in the searched 1mg/Apollo results for triazolam. Do not infer non-availability from this search alone."
+  },
+
+  lorazepam: {
+    title:"Lorazepam",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Ativan","1 mg variants","₹73–₹89","1mg"],
+      ["Benj","1 mg variants","₹21–₹28","1mg"],
+      ["Trapex","1 mg variants","₹24–₹30","1mg"],
+      ["T Lor","1 mg variants","₹13–₹28","1mg"],
+      ["Loranza","1 mg variants","₹15–₹26","1mg"]
+    ],
+    note:"1mg displays ranges across variants/pack sizes; verify the exact strength and pack before prescribing."
+  },
+
+  alprazolam: {
+    title:"Alprazolam",
+    subtitle:"0.25 mg examples",
+    rows:[
+      ["Alprazol","0.25 mg","₹7.20","1mg"],
+      ["Alpraz","0.25 mg","₹13.50","1mg"],
+      ["Alprax","0.25 mg variants","Price varies by variant","1mg"],
+      ["Alprax-T","combination / not equivalent","Check current listing","1mg"],
+      ["Alprax-SR","SR formulation / not equivalent","Check current listing","1mg"]
+    ],
+    note:"Do not treat SR or combination products as interchangeable with plain alprazolam 0.25 mg."
+  },
+
+  diazepam: {
+    title:"Diazepam",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Valium","diazepam variants","₹15–₹107","1mg"],
+      ["Calmpose","diazepam variants","₹11–₹21","1mg"],
+      ["Paxum","diazepam variants","₹11–₹13","1mg"],
+      ["Shipam","diazepam variants","₹11–₹13","1mg"],
+      ["Equipam","diazepam variants","₹8–₹16","1mg"]
+    ],
+    note:"1mg price ranges cover the variants listed on its diazepam page; confirm exact strength/pack."
+  },
+
+  clonazepam: {
+    title:"Clonazepam",
+    subtitle:"0.5 mg examples — exact pack/variant should be checked",
+    rows:[
+      ["Clonaz","0.5 mg","₹28.40","1mg"],
+      ["Zapiz","0.5 mg","₹32.50 / 10 tabs in Apollo example","Apollo Pharmacy"],
+      ["Petril","0.5 mg","₹32.50 / 10 tabs in Apollo example","Apollo Pharmacy"],
+      ["Lonazep","clonazepam variants","₹16–₹140","1mg"],
+      ["Clonotril","clonazepam variants","₹20–₹225","1mg"]
+    ],
+    note:"Apollo's comparison page also listed Lonazep MD, Clonafit and Clonax; prices vary by formulation."
+  },
+
+  nitrazepam: {
+    title:"Nitrazepam",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Nitrosun","nitrazepam variants","₹54–₹73","1mg"],
+      ["Nitravet","nitrazepam variants","₹15–₹116","1mg"],
+      ["Nite","nitrazepam variants","₹35–₹45","1mg"],
+      ["Nitcalm","nitrazepam variants","₹32–₹37","1mg"],
+      ["Nitab","nitrazepam variants","₹29–₹46","1mg"]
+    ],
+    note:"The 1mg listing covers multiple strengths/pack sizes; verify the exact 5 mg/10 mg product."
+  },
+
+  zaleplon: {
+    title:"Zaleplon",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Andant","zaleplon variants","₹25","1mg"],
+      ["Stilnite","zaleplon variants","₹33","1mg"],
+      ["Zaplon","zaleplon variants","₹32–₹72","1mg"],
+      ["Zapsign","zaleplon variants","₹60","1mg"],
+      ["Zanlop","zaleplon variants","₹26–₹45","1mg"]
+    ],
+    note:"Exact 5 mg/10 mg strength and pack should be checked before purchase."
+  },
+
+  eszopiclone: {
+    title:"Eszopiclone",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Fulnite","eszopiclone variants","₹67–₹173","1mg"],
+      ["Zunestar","eszopiclone variants","₹72–₹79","1mg"],
+      ["Zopipure","eszopiclone variants","₹40–₹61","1mg"],
+      ["Justsleep","eszopiclone variants","₹43–₹74","1mg"],
+      ["Hypnite","eszopiclone variants","₹48–₹75","1mg"]
+    ],
+    note:"The 1mg page reports these as ranges across variants. Exact 1 mg pack price may differ."
+  },
+
+  zolpidem: {
+    title:"Zolpidem",
+    subtitle:"5 mg examples",
+    rows:[
+      ["Zolfree 5","5 mg × 10","₹42","Apollo Pharmacy"],
+      ["Adsleep-5","5 mg × 10","₹55","Apollo Pharmacy"],
+      ["Zolpirest 5","5 mg × 10","₹59","Apollo Pharmacy"],
+      ["Zolmoon-5","5 mg × 14","₹81","Apollo Pharmacy"],
+      ["Zolfresh","zolpidem variants","₹94–₹222","1mg"]
+    ],
+    note:"Apollo also listed Fulsleep 5 at ₹48 and Zolpicap-5 at ₹50.50 in its current comparison."
+  },
+
+  melatonin: {
+    title:"Melatonin",
+    subtitle:"Indicative Indian listings — strength varies by product",
+    rows:[
+      ["Meloset","melatonin variants","₹65–₹135","1mg"],
+      ["Noctura","melatonin variants","₹52–₹230","1mg"],
+      ["Melokalm","melatonin variant","₹37","1mg"],
+      ["Lifotonin","melatonin variant","₹94","1mg"],
+      ["Criq","melatonin variant","₹79","1mg"]
+    ],
+    note:"The CPG refers to a 3 mg formulation. Brand pages may include multiple strengths; verify 3 mg before selecting a product."
+  },
+
+  ramelteon: {
+    title:"Ramelteon",
+    subtitle:"Current 1mg listing located",
+    rows:[
+      ["Ramitax","ramelteon","₹112","1mg"]
+    ],
+    note:"Only one current 1mg brand listing was located in this search."
+  },
+
+  agomelatine: {
+    title:"Agomelatine",
+    subtitle:"Indicative 1mg listings",
+    rows:[
+      ["Agoprex","agomelatine variant","₹166","1mg"],
+      ["Noveltin","agomelatine variant","₹95","1mg"],
+      ["Agopose","agomelatine variant","₹75","1mg"],
+      ["Agodep","agomelatine variant","₹67","1mg"],
+      ["Agonin","agomelatine variant","₹130","1mg"]
+    ],
+    note:"The CPG dose is 25–50 mg/day. Confirm the exact strength before purchase."
+  },
+
+  suvorexant: {
+    title:"Suvorexant",
+    subtitle:"Indian retail availability check",
+    rows:[],
+    note:"No current, reliably priced Indian retail listing was located in the searched 1mg/Apollo results. Do not infer non-availability from this search alone."
+  }
+
+};
+
+
+/* =========================
+   OPEN BRAND POPUP
+========================= */
+
+function openBrand(key){
+
+  const data = brandData[key];
+
+  if(!data) return;
+
+  const modal =
+    document.getElementById("brandModal");
+
+  const title =
+    document.getElementById("brandTitle");
+
+  const subtitle =
+    document.getElementById("brandSubtitle");
+
+  const body =
+    document.getElementById("brandBody");
+
+  title.textContent =
+    data.title + " — Indian brands";
+
+  subtitle.textContent =
+    data.subtitle;
+
+  if(!data.rows.length){
+
+    body.innerHTML = `
+      <div class="no-listing">
+        ${data.note}
+      </div>
+      <span class="source-tag">
+        Search checked: 1mg + Apollo Pharmacy
+      </span>
+    `;
+
+  }else{
+
+    body.innerHTML = `
+
+      <table class="brand-table">
+
+        <thead>
+
+          <tr>
+            <th>Brand</th>
+            <th>Strength / variant</th>
+            <th>Indicative price</th>
+            <th>Source</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${data.rows.map(row => `
+
+            <tr>
+
+              <td>
+                <strong>${row[0]}</strong>
+              </td>
+
+              <td>
+                ${row[1]}
+              </td>
+
+              <td class="price">
+                ${row[2]}
+              </td>
+
+              <td>
+                ${row[3]}
+              </td>
+
+            </tr>
+
+          `).join("")}
+
+        </tbody>
+
+      </table>
+
+      <div class="small" style="margin-top:12px">
+        ${data.note}
+      </div>
+
+      <span class="source-tag">
+        Indicative web listing — verify live price, pack and stock before dispensing
+      </span>
+
+    `;
+
+  }
+
+  modal.classList.add("show");
+
+}
+
+
+/* =========================
+   CLOSE BRAND POPUP
+========================= */
+
+function closeBrand(){
+
+  document
+    .getElementById("brandModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   CLICK OUTSIDE MODAL
+========================= */
+
+document
+  .getElementById("brandModal")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(event.target === this){
+        closeBrand();
+      }
+
+    }
+  );
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+      closeBrand();
+    }
+
+  }
+);
+
+</script>
+</body>
+</html>

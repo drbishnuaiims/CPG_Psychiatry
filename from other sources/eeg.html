@@ -1,0 +1,5916 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EEG Basics — A Practical Learning Guide</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #667085;
+    --primary: #3157d5;
+    --primary-dark: #203fa8;
+    --border: #e4e7ec;
+    --yellow: #fff1a8;
+    --yellow-dark: #f2cf35;
+    --green: #067647;
+    --green-bg: #ecfdf3;
+    --red: #b42318;
+    --red-bg: #fef3f2;
+    --blue-bg: #eef4ff;
+    --shadow: 0 10px 30px rgba(16,24,40,0.07);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.16), transparent 30%),
+        linear-gradient(135deg, #172554, #3157d5);
+    color: white;
+    padding: 70px 24px 85px;
+}
+
+.hero-inner {
+    max-width: 1180px;
+    margin: auto;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: .78;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    max-width: 850px;
+}
+
+.hero p {
+    max-width: 760px;
+    font-size: 18px;
+    opacity: .9;
+    margin: 0;
+}
+
+
+/* =========================================================
+   STICKY NAV
+========================================================= */
+
+.nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1180px;
+    margin: auto;
+    padding: 12px 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.nav a {
+    white-space: nowrap;
+    text-decoration: none;
+    color: #475467;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 999px;
+}
+
+.nav a:hover {
+    background: var(--blue-bg);
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 55px 20px 100px;
+}
+
+.intro-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 70px;
+}
+
+.intro-card h2 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+    margin-bottom: 90px;
+    scroll-margin-top: 80px;
+}
+
+.section-header {
+    margin-bottom: 34px;
+}
+
+.section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.section-header p {
+    color: var(--muted);
+    max-width: 760px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   VERTICAL LEARNING FLOW
+========================================================= */
+
+.learning-flow {
+    position: relative;
+}
+
+.learning-flow::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #d8deed;
+    transform: translateX(-50%);
+}
+
+.lesson {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 70px;
+    align-items: center;
+}
+
+.lesson:nth-child(even) .visual {
+    order: 2;
+}
+
+.lesson:nth-child(even) .content {
+    order: 1;
+}
+
+.visual,
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   IMAGE CARD
+========================================================= */
+
+.image-card {
+    min-height: 300px;
+    background: #edf1f8;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+   IMAGE SETUP
+
+   Replace:
+
+   src="#image_url_01"
+
+   with:
+
+   src="https://your-image-url.com/image.jpg"
+
+   OR a local image:
+
+   src="images/eeg-schematic.jpg"
+*/
+
+.image-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    display: block;
+    background: #f9fafb;
+}
+
+
+/*
+   If you are still building the page and the image URL
+   is not yet available, this class gives a clean placeholder.
+*/
+
+.image-placeholder {
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    color: #667085;
+    font-size: 14px;
+    background:
+        linear-gradient(45deg, #eef1f6 25%, transparent 25%),
+        linear-gradient(-45deg, #eef1f6 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eef1f6 75%),
+        linear-gradient(-45deg, transparent 75%, #eef1f6 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+}
+
+.image-caption {
+    background: white;
+    padding: 14px 17px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475467;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+========================================================= */
+
+.content-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.content-card h3 {
+    margin: 0 0 15px;
+    font-size: 23px;
+    line-height: 1.25;
+}
+
+.content-card h4 {
+    margin: 24px 0 8px;
+    font-size: 16px;
+}
+
+.content-card p {
+    margin: 10px 0;
+}
+
+.content-card ul,
+.content-card ol {
+    padding-left: 22px;
+}
+
+.content-card li {
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   CENTER NODE
+========================================================= */
+
+.lesson::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 4px solid var(--bg);
+    background: var(--primary);
+    border-radius: 50%;
+    left: 50%;
+    top: 38px;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlight {
+    background: var(--yellow);
+    padding: 2px 5px;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.highlight-block {
+    background: #fff9d6;
+    border-left: 5px solid var(--yellow-dark);
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.key-point {
+    background: var(--blue-bg);
+    border-left: 5px solid var(--primary);
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.warning {
+    background: var(--red-bg);
+    border-left: 5px solid #d92d20;
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.success {
+    background: var(--green-bg);
+    border-left: 5px solid #12b76a;
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+
+/* =========================================================
+   KEYWORDS
+========================================================= */
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 20px;
+}
+
+.keyword {
+    background: #f2f4f7;
+    border: 1px solid #e4e7ec;
+    color: #344054;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 580px;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f8fafc;
+    font-size: 13px;
+}
+
+td {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MINI CARDS
+========================================================= */
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.mini-card {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fafbfc;
+}
+
+.mini-card strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   FINAL SUMMARY
+========================================================= */
+
+.final-summary {
+    background: linear-gradient(135deg, #172554, #3157d5);
+    color: white;
+    border-radius: 25px;
+    padding: 40px;
+    margin-top: 70px;
+}
+
+.final-summary h2 {
+    margin-top: 0;
+}
+
+.final-summary ul {
+    padding-left: 22px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        padding: 48px 20px 60px;
+    }
+
+    .container {
+        padding-top: 35px;
+    }
+
+    .learning-flow::before {
+        display: none;
+    }
+
+    .lesson {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 45px;
+    }
+
+    .lesson:nth-child(even) .visual,
+    .lesson:nth-child(even) .content {
+        order: initial;
+    }
+
+    .lesson::after {
+        display: none;
+    }
+
+    .image-card img,
+    .image-placeholder {
+        height: 220px;
+    }
+
+    .mini-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-card {
+        padding: 22px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="eyebrow">
+            Clinical Neurophysiology Learning Module
+        </div>
+
+        <h1>Understanding EEG</h1>
+
+        <p>
+            A practical, step-by-step guide to EEG waveforms,
+            montages, normal and abnormal findings, seizures,
+            EEG reports, artifacts, limitations and clinical
+            correlation.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<div class="nav-wrap">
+
+    <nav class="nav">
+
+        <a href="#what-is-eeg">What is EEG?</a>
+        <a href="#montage">Montage</a>
+        <a href="#waves">Wave Basics</a>
+        <a href="#normal">Normal EEG</a>
+        <a href="#sleep">Sleep</a>
+        <a href="#activation">Activation</a>
+        <a href="#epileptiform">Epileptiform</a>
+        <a href="#seizure">Seizure</a>
+        <a href="#report">EEG Report</a>
+        <a href="#limitations">Limitations</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#uses">Clinical Uses</a>
+        <a href="#localization">Localization</a>
+        <a href="#pnes">PNES</a>
+        <a href="#interictal">Interictal EEG</a>
+
+    </nav>
+
+</div>
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<div class="intro-card">
+
+    <h2>How to use this module</h2>
+
+    <p>
+        Think of EEG interpretation as a sequence of questions:
+    </p>
+
+    <ol>
+
+        <li>What exactly is the EEG recording?</li>
+
+        <li>
+            Where are the electrodes and what does each channel represent?
+        </li>
+
+        <li>What does the normal background look like?</li>
+
+        <li>
+            How fast, how tall and how sharp are the waves?
+        </li>
+
+        <li>
+            Does the patient remain awake or enter sleep?
+        </li>
+
+        <li>
+            What happens during activation procedures?
+        </li>
+
+        <li>
+            Are there epileptiform abnormalities?
+        </li>
+
+        <li>
+            Is there an actual seizure?
+        </li>
+
+        <li>
+            Could what we are seeing be artifact?
+        </li>
+
+        <li>
+            How should all of this be translated into an EEG report?
+        </li>
+
+        <li>
+            What can—and importantly, what cannot—the EEG tell us?
+        </li>
+
+        <li>
+            How does the EEG fit with the clinical picture and imaging?
+        </li>
+
+    </ol>
+
+    <div class="highlight-block">
+
+        <strong>Core principle:</strong>
+
+        EEG is not interpreted in isolation.
+        The patient's clinical symptoms and the EEG findings
+        have to be considered together.
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECTION 1 — WHAT IS EEG
+========================================================= -->
+
+<section class="section" id="what-is-eeg">
+
+    <div class="section-header">
+
+        <div class="section-number">01</div>
+
+        <h2>What exactly is an EEG?</h2>
+
+        <p>
+            Start with the fundamental question: what is being measured?
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- LESSON 1 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <!-- IMAGE 01 -->
+
+                    <img
+                        src="https://blogger.googleusercontent.com/img/a/AVvXsEj0X15Fj9vgpy0WTiaweksnz2vz1fvOTEem70v-dtBQRMdmdSjVFWG_BQUPOYBEPKz7Wpsa8UmY2Oxcd2YaDsspWh8zop45YY8yy-iW40NZSQ1BSf63ppTYebH6FnwfIzMpGP8rAOI-yZYNUsvK81A1cEXfX2OJ3Pqf8WmFLpO2ZxREsXfvE8VDn4mLnO4"
+                        alt="EEG schematic showing scalp electrodes and brain electrical activity"
+                    >
+
+                    <div class="image-caption">
+                        Scalp electrodes recording electrical activity generated by neurons
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Electroencephalogram = electrical activity of the brain
+                    </h3>
+
+                    <p>
+                        EEG stands for
+                        <strong>electroencephalogram</strong>.
+                    </p>
+
+                    <p>
+                        The term
+                        <strong>encephalo / encephal</strong>
+                        refers to the brain.
+                    </p>
+
+                    <p>
+                        EEG therefore records the
+                        <strong>electrical activity of the brain</strong>.
+                    </p>
+
+                    <div class="key-point">
+
+                        <strong>Two major things EEG can show:</strong>
+
+                        <ul>
+
+                            <li>
+                                Electrical activity during a seizure.
+                            </li>
+
+                            <li>
+                                The brain's electrical background
+                                between seizures.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <p>
+                        A seizure can be thought of as an
+                        <strong>abnormal burst of electrical activity</strong>,
+                        involving excessive or overly synchronous
+                        electrical activity.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>Important:</strong>
+
+                        EEG is not only about finding seizures.
+                        The background brain activity between seizures
+                        can provide important diagnostic information.
+
+                    </div>
+
+                    <div class="keywords">
+
+                        <span class="keyword">EEG</span>
+                        <span class="keyword">Electrical activity</span>
+                        <span class="keyword">Neurons</span>
+                        <span class="keyword">Seizure</span>
+                        <span class="keyword">Background</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LESSON 2 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <!-- IMAGE 02 -->
+
+                    <img
+                        src="#image_url_02"
+                        alt="EEG electrical signal pathway from neurons to scalp electrodes"
+                    >
+
+                    <div class="image-caption">
+                        Electrical activity travels from neurons to scalp electrodes
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        What is the EEG actually detecting?
+                    </h3>
+
+                    <p>
+                        The EEG electrodes sit on the
+                        <strong>surface of the scalp</strong>,
+                        but the electrical activity of interest originates
+                        much deeper, at the level of brain cells
+                        called <strong>neurons</strong>.
+                    </p>
+
+                    <p>
+                        The electrical signal therefore has to pass through
+                        multiple structures before being detected by the
+                        scalp electrodes.
+                    </p>
+
+                    <ul>
+
+                        <li>Skin</li>
+
+                        <li>Skull / bone</li>
+
+                        <li>Lining of the brain</li>
+
+                        <li>Normal fluid-filled spaces / CSF</li>
+
+                        <li>Blood vessels</li>
+
+                        <li>
+                            Brain tissue containing neurons
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        <strong>Conceptual takeaway:</strong>
+
+                        EEG is a surface recording of electrical activity
+                        generated much deeper inside the brain.
+
+                    </div>
+
+                    <p>
+                        This becomes extremely important later when
+                        understanding why a seizure can occasionally occur
+                        without producing a clear scalp EEG abnormality.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 2 — MONTAGE
+========================================================= -->
+
+<section class="section" id="montage">
+
+    <div class="section-header">
+
+        <div class="section-number">02</div>
+
+        <h2>Understanding the EEG montage</h2>
+
+        <p>
+            Before interpreting squiggly lines, understand where
+            the electrodes are and how the channels are organized.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- LESSON 3 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <!-- IMAGE 03 -->
+
+                    <img
+                        src="#image_url_03"
+                        alt="Standard EEG 10-20 electrode placement diagram"
+                    >
+
+                    <div class="image-caption">
+                        Standard scalp electrode placement
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        What is an EEG montage?
+                    </h3>
+
+                    <p>
+                        The <strong>montage</strong> refers to the arrangement
+                        of EEG electrodes and the way their recordings are
+                        displayed.
+                    </p>
+
+                    <p>
+                        The standard setup uses selected electrode positions
+                        on the scalp.
+                    </p>
+
+                    <div class="mini-grid">
+
+                        <div class="mini-card">
+                            <strong>Left side</strong>
+                            Odd numbers
+                        </div>
+
+                        <div class="mini-card">
+                            <strong>Right side</strong>
+                            Even numbers
+                        </div>
+
+                        <div class="mini-card">
+                            <strong>F</strong>
+                            Frontal
+                        </div>
+
+                        <div class="mini-card">
+                            <strong>O</strong>
+                            Occipital
+                        </div>
+
+                    </div>
+
+                    <p>
+                        This gives us a standard language for describing
+                        where abnormal activity is occurring.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LESSON 4 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <!-- IMAGE 04 -->
+
+                    <img
+                        src="#image_url_04"
+                        alt="EEG montage showing left right and front back orientation"
+                    >
+
+                    <div class="image-caption">
+                        Reading direction: left/right and front/back
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        How to orient yourself on the EEG screen
+                    </h3>
+
+                    <p>
+                        Imagine standing at the head of the patient's bed
+                        while the patient is lying in front of you.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Patient's <strong>left ear</strong>
+                            is on the left.
+                        </li>
+
+                        <li>
+                            Patient's <strong>right ear</strong>
+                            is on the right.
+                        </li>
+
+                        <li>
+                            Left side = <strong>odd numbers</strong>.
+                        </li>
+
+                        <li>
+                            Right side = <strong>even numbers</strong>.
+                        </li>
+
+                        <li>
+                            Electrodes are interpreted
+                            <strong>front-to-back</strong>.
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        <strong>Screen orientation in the example:</strong>
+
+                        <br><br>
+
+                        Top of screen → left side of brain
+
+                        <br>
+
+                        Bottom of screen → right side of brain
+
+                    </div>
+
+                    <p>
+                        The letters identify anatomical regions:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>F</strong> = frontal
+                        </li>
+
+                        <li>
+                            <strong>O</strong> = occipital / back
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        Each dark vertical line in the example represents
+                        approximately <strong>1 second</strong>.
+                    </p>
+
+                    <p>
+                        Thus, a page can display roughly
+                        <strong>13 seconds</strong> of EEG in the illustrated
+                        example.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 3 — WAVES
+========================================================= -->
+
+<section class="section" id="waves">
+
+    <div class="section-header">
+
+        <div class="section-number">03</div>
+
+        <h2>
+            Squiggly Lines 101: How to read a waveform
+        </h2>
+
+        <p>
+            Three basic characteristics are repeatedly assessed:
+            frequency, amplitude and morphology.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 05 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_05"
+                        alt="Normal awake EEG waveform"
+                    >
+
+                    <div class="image-caption">
+                        Normal awake background
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>The three questions</h3>
+
+                    <ol>
+
+                        <li>
+                            <strong>How fast are the waves?</strong>
+                            → Frequency
+                        </li>
+
+                        <li>
+                            <strong>How tall are the waves?</strong>
+                            → Amplitude
+                        </li>
+
+                        <li>
+                            <strong>What is their shape?</strong>
+                            → Morphology / sharpness
+                        </li>
+
+                    </ol>
+
+                    <div class="highlight-block">
+
+                        <strong>When looking at an EEG, constantly ask:</strong>
+
+                        <br><br>
+
+                        How fast?
+
+                        <br>
+
+                        How tall?
+
+                        <br>
+
+                        How sharp?
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 06 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_06"
+                        alt="Posterior dominant alpha rhythm EEG"
+                    >
+
+                    <div class="image-caption">
+                        Posterior dominant alpha activity
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Frequency: count the waves
+                    </h3>
+
+                    <p>
+                        Frequency describes how many waves occur
+                        in a second.
+                    </p>
+
+                    <p>
+                        In the normal awake example, the occipital leads
+                        provide an easy place to count the waves.
+                    </p>
+
+                    <p>
+                        The example contains approximately
+                        <strong>11–12 waves per second</strong>.
+                    </p>
+
+                    <p>
+                        This is approximately an
+                        <strong>11 Hz alpha frequency</strong>.
+                    </p>
+
+                    <div class="key-point">
+
+                        <strong>Alpha frequency:</strong>
+
+                        approximately 8–13 Hz, represented in the
+                        example by a well-formed posterior rhythm.
+
+                    </div>
+
+                    <p>
+                        Other frequency ranges include:
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Pattern</th>
+
+                                    <th>Relative speed</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Beta</td>
+
+                                    <td>Faster activity</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Alpha</td>
+
+                                    <td>
+                                        Normal posterior awake rhythm
+                                        in the example
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Theta</td>
+
+                                    <td>Slower activity</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Delta</td>
+
+                                    <td>Even slower activity</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 07 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_07"
+                        alt="Beta alpha theta and delta EEG frequency comparison"
+                    >
+
+                    <div class="image-caption">
+                        Frequency comparison
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Amplitude and symmetry
+                    </h3>
+
+                    <p>
+                        Amplitude refers to the
+                        <strong>height of the waves</strong>.
+                    </p>
+
+                    <p>
+                        One important comparison is between the
+                        left and right sides of the brain.
+                    </p>
+
+                    <p>
+                        In a normal background, the amplitude is
+                        generally reasonably symmetric between the two sides.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>Look for asymmetry:</strong>
+
+                        Does one side consistently look very different
+                        from the other?
+
+                    </div>
+
+                    <p>
+                        In addition to frequency and amplitude,
+                        morphology matters.
+                    </p>
+
+                    <p>
+                        A waveform may have a smooth appearance or may
+                        contain distinctly sharp or spiky components.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 08 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_08"
+                        alt="EEG spike and sharp wave morphology"
+                    >
+
+                    <div class="image-caption">
+                        Sharp and spiky morphology
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        What does "spiky" actually mean?
+                    </h3>
+
+                    <p>
+                        When EEG readers describe a waveform as
+                        <strong>sharp</strong> or <strong>spiky</strong>,
+                        they are describing its morphology.
+                    </p>
+
+                    <p>
+                        Literally imagine something that looks
+                        <strong>pointed, sharp and pokey</strong>.
+                    </p>
+
+                    <div class="warning">
+
+                        Sharp waves and spikes can be
+                        <strong>abnormal epileptiform findings</strong>,
+                        but a sharp-looking waveform is not automatically
+                        a seizure.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 4 — NORMAL EEG
+========================================================= -->
+
+<section class="section" id="normal">
+
+    <div class="section-header">
+
+        <div class="section-number">04</div>
+
+        <h2>Normal awake EEG</h2>
+
+        <p>
+            Establish the background before looking for abnormalities.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <!-- IMAGE 09 -->
+
+                    <img
+                        src="#image_url_09"
+                        alt="Normal awake relaxed EEG background"
+                    >
+
+                    <div class="image-caption">
+                        Awake, relaxed background
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        What does a normal relaxed EEG look like?
+                    </h3>
+
+                    <p>
+                        A patient who is awake, relaxed and lying still
+                        should have an organized background.
+                    </p>
+
+                    <p>
+                        The posterior region is particularly useful for
+                        appreciating the normal alpha rhythm.
+                    </p>
+
+                    <ul>
+
+                        <li>Reasonably organized background</li>
+
+                        <li>Posterior alpha activity</li>
+
+                        <li>Symmetry between hemispheres</li>
+
+                        <li>
+                            No prominent pathological spikes or sharps
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        The background is not merely "filler".
+                        It is itself an important part of EEG interpretation.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 5 — SLEEP
+========================================================= -->
+
+<section class="section" id="sleep">
+
+    <div class="section-header">
+
+        <div class="section-number">05</div>
+
+        <h2>
+            How the EEG changes during sleep
+        </h2>
+
+        <p>
+            Normal sleep produces major changes in the EEG background.
+            Some normal sleep waveforms can even look sharp.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 10 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_10"
+                        alt="EEG during drowsiness"
+                    >
+
+                    <div class="image-caption">
+                        Transition from wakefulness to drowsiness
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>Drowsiness</h3>
+
+                    <p>
+                        As the patient becomes drowsy,
+                        the EEG becomes calmer and less active.
+                    </p>
+
+                    <p>
+                        The patient stops blinking because the eyes
+                        are closing.
+                    </p>
+
+                    <p>
+                        The EEG may develop a slower, undulating pattern
+                        corresponding to <strong>roving eye movements</strong>.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>Do not overcall sleep:</strong>
+
+                        Some waveforms that appear sharp during sleep
+                        are normal sleep patterns.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 11 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_11"
+                        alt="Slow wave sleep EEG"
+                    >
+
+                    <div class="image-caption">
+                        Deeper / slow-wave sleep
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>Deeper sleep</h3>
+
+                    <p>
+                        As sleep becomes deeper, the background becomes
+                        progressively slower.
+                    </p>
+
+                    <p>
+                        <strong>Slow-wave sleep</strong> is characterized
+                        by prominent slow activity.
+                    </p>
+
+                    <p>
+                        These are normal physiological sleep patterns.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 12 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_12"
+                        alt="REM sleep EEG with rapid eye movements"
+                    >
+
+                    <div class="image-caption">
+                        REM sleep with rapid eye movements
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>REM sleep</h3>
+
+                    <p>
+                        During REM sleep
+                        (<strong>rapid eye movement sleep</strong>),
+                        the EEG begins to look more like wakefulness
+                        or drowsiness.
+                    </p>
+
+                    <p>
+                        Some apparently spiky-looking activity in
+                        the frontal leads may actually represent
+                        <strong>rapid eye movements</strong>.
+                    </p>
+
+                    <div class="key-point">
+
+                        Normal EEG changes dramatically across sleep stages.
+
+                        Interpretation therefore requires knowing whether
+                        the patient is awake, drowsy or asleep.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 6 — ACTIVATION
+========================================================= -->
+
+<section class="section" id="activation">
+
+    <div class="section-header">
+
+        <div class="section-number">06</div>
+
+        <h2>Activation procedures</h2>
+
+        <p>
+            EEG is not always recorded passively.
+            Certain procedures deliberately challenge the brain's
+            electrical system.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 13 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_13"
+                        alt="Photic stimulation EEG"
+                    >
+
+                    <div class="image-caption">
+                        Flashing-light / photic stimulation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>Photic stimulation</h3>
+
+                    <p>
+                        Photic stimulation is the
+                        <strong>flashing-light test</strong>.
+                    </p>
+
+                    <p>
+                        In the example, the lights flash at approximately
+                        <strong>6 times per second</strong>.
+                    </p>
+
+                    <p>
+                        A normal response is for the occipital EEG activity
+                        to show a rhythm that follows or matches the
+                        frequency of the flashing light.
+                    </p>
+
+                    <div class="success">
+
+                        This is a normal photic driving response.
+
+                    </div>
+
+                    <h4>
+                        Why perform photic stimulation?
+                    </h4>
+
+                    <p>
+                        An EEG may appear otherwise normal, but flashing
+                        lights can sometimes provoke epileptiform activity.
+                    </p>
+
+                    <p>
+                        It may reveal:
+                    </p>
+
+                    <ul>
+
+                        <li>Abnormal sharp/spiky activity</li>
+
+                        <li>Photosensitivity</li>
+
+                        <li>Electrical activity associated with seizures</li>
+
+                        <li>
+                            Markers suggesting increased seizure risk
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        The flashing light test therefore serves as
+                        an activation procedure designed to expose
+                        abnormalities that may not be obvious in the
+                        resting EEG.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 14 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_14"
+                        alt="Hyperventilation EEG example"
+                    >
+
+                    <div class="image-caption">
+                        Hyperventilation / deep breathing
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>Hyperventilation</h3>
+
+                    <p>
+                        Hyperventilation is another activation procedure.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Younger children may blow on a pinwheel.
+                        </li>
+
+                        <li>
+                            Older children can take deep breaths for
+                            approximately two minutes.
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        During hyperventilation, the EEG can become
+                        substantially slower.
+                    </p>
+
+                    <p>
+                        In the example, only around
+                        <strong>3–4 waves per second</strong>
+                        are visible, corresponding to delta-range slowing.
+                    </p>
+
+                    <div class="success">
+
+                        This can be a normal response to hyperventilation.
+
+                    </div>
+
+                    <p>
+                        The slowing is particularly reassuring when
+                        it is <strong>generalized and symmetric</strong>.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        The important distinction is not simply
+                        "there is slowing".
+
+                        <br><br>
+
+                        Ask:
+
+                        <strong>
+                            Is the slowing generalized and symmetric,
+                            or is one side disproportionately slow?
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        The example contains no epileptiform spikes or sharps.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 7 — EPILEPTIFORM
+========================================================= -->
+
+<section class="section" id="epileptiform">
+
+    <div class="section-header">
+
+        <div class="section-number">07</div>
+
+        <h2>Epileptiform abnormalities</h2>
+
+        <p>
+            Spikes and sharp waves can indicate increased seizure risk.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 15 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_15"
+                        alt="Epileptiform EEG spike"
+                    >
+
+                    <div class="image-caption">
+                        Example of an epileptiform spike
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        What does "epileptiform" mean?
+                    </h3>
+
+                    <p>
+                        <strong>Epileptiform</strong> refers to EEG findings
+                        suggesting increased risk for seizures.
+                    </p>
+
+                    <p>
+                        These findings represent abnormal electrical activity
+                        that could potentially develop into a seizure.
+                    </p>
+
+                    <div class="warning">
+
+                        <strong>
+                            Epileptiform discharge ≠ seizure.
+                        </strong>
+
+                        <br><br>
+
+                        It is a marker of increased seizure risk,
+                        not necessarily an actual seizure occurring
+                        at that moment.
+
+                    </div>
+
+                    <p>
+                        The most common epileptiform abnormalities discussed
+                        are:
+                    </p>
+
+                    <ul>
+
+                        <li>Spikes</li>
+
+                        <li>Sharp waves</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 16 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_16"
+                        alt="Left frontal epileptiform spike"
+                    >
+
+                    <div class="image-caption">
+                        Left frontal epileptiform discharge
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Localizing an epileptiform discharge
+                    </h3>
+
+                    <p>
+                        The electrode naming convention can tell us
+                        where the abnormal activity is most prominent.
+                    </p>
+
+                    <p>
+                        For example, an epileptiform spike that is best
+                        formed over the <strong>left frontal region</strong>
+                        suggests increased electrical activity in that region.
+                    </p>
+
+                    <p>
+                        The right frontal region may look comparatively
+                        less sharp and more normal.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        EEG localization provides a clue about where
+                        seizures may be originating, particularly when
+                        the finding is clearly focal.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 17 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_17"
+                        alt="Right temporal sharp waves during sleep"
+                    >
+
+                    <div class="image-caption">
+                        Frequent right temporal sharp waves
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Sleep can make epileptiform abnormalities more obvious
+                    </h3>
+
+                    <p>
+                        In the example, the patient is asleep.
+                    </p>
+
+                    <p>
+                        Sharp waves appear repeatedly in the
+                        <strong>right temporal region</strong>.
+                    </p>
+
+                    <p>
+                        They may occur every second or two.
+                    </p>
+
+                    <div class="warning">
+
+                        Despite the frequency of these sharp waves,
+                        <strong>this is not itself a seizure</strong>.
+
+                    </div>
+
+                    <p>
+                        It represents frequent evidence of increased
+                        electrical activity and increased seizure risk,
+                        particularly in the right temporal region.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 18 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_18"
+                        alt="Spike versus sharp wave EEG comparison"
+                    >
+
+                    <div class="image-caption">
+                        Spike versus sharp wave
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Spike vs sharp wave
+                    </h3>
+
+                    <p>
+                        The distinction is primarily descriptive.
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Finding</th>
+
+                                    <th>Traditional duration</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Spike</td>
+
+                                    <td>
+                                        Less than 200 microseconds
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Sharp wave</td>
+
+                                    <td>
+                                        More than 200 microseconds
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="highlight-block">
+
+                        <strong>Clinical point:</strong>
+
+                        The distinction between spike and sharp wave
+                        generally does not substantially change what it
+                        means for the patient or treatment.
+
+                    </div>
+
+                    <p>
+                        The terminology is useful because it helps EEG
+                        specialists describe the waveform morphology
+                        to each other.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 8 — SEIZURE
+========================================================= -->
+
+<section class="section" id="seizure">
+
+    <div class="section-header">
+
+        <div class="section-number">08</div>
+
+        <h2>
+            When does an epileptiform discharge become a seizure?
+        </h2>
+
+        <p>
+            This is one of the most important distinctions in EEG interpretation.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 19 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_19"
+                        alt="Generalized three hertz spike wave absence seizure EEG"
+                    >
+
+                    <div class="image-caption">
+                        Generalized ~3 Hz spike-wave seizure
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        A seizure is more than a spike
+                    </h3>
+
+                    <p>
+                        Spike waves can occur without an actual seizure.
+                    </p>
+
+                    <p>
+                        A seizure occurs when abnormal electrical activity
+                        becomes sufficiently organized, rhythmic, persistent
+                        and clinically relevant.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>Think:</strong>
+
+                        <br><br>
+
+                        Organized + rhythmic + sufficiently sustained
+                        electrical activity → seizure pattern
+
+                    </div>
+
+                    <p>
+                        A seizure can occasionally be visible on EEG
+                        without obvious clinical symptoms, but there are
+                        specific criteria for interpreting such events.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 20 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_20"
+                        alt="Absence seizure EEG and clinical behavioral arrest"
+                    >
+
+                    <div class="image-caption">
+                        EEG change occurring with behavioral arrest
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Classic absence seizure example
+                    </h3>
+
+                    <p>
+                        The example represents a common seizure type in children:
+                        an <strong>absence seizure</strong>.
+                    </p>
+
+                    <p>
+                        Clinically, the patient suddenly:
+                    </p>
+
+                    <ul>
+
+                        <li>Stops</li>
+
+                        <li>Stares</li>
+
+                        <li>Pauses activity</li>
+
+                        <li>
+                            May show subtle behavioral changes
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        On EEG, the normal background suddenly changes to
+                        a highly rhythmic spike-wave pattern.
+                    </p>
+
+                    <p>
+                        The example is approximately
+                        <strong>3 waves per second</strong>.
+                    </p>
+
+                    <p>
+                        The pattern lasts for several seconds and then
+                        ends, followed by return to the normal background
+                        and clinical alertness.
+                    </p>
+
+                    <div class="key-point">
+
+                        The EEG change and the clinical behavioral change
+                        occur together.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 21 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_21"
+                        alt="EEG evolution during seizure"
+                    >
+
+                    <div class="image-caption">
+                        Evolution of seizure activity
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Evolution is a key feature of seizures
+                    </h3>
+
+                    <p>
+                        EEG readers often use the term
+                        <strong>evolve</strong>.
+                    </p>
+
+                    <p>
+                        A seizure does not simply remain a static isolated
+                        spike. It may:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Spread into additional electrodes / regions
+                        </li>
+
+                        <li>
+                            Become faster or slower
+                        </li>
+
+                        <li>
+                            Become more rhythmic
+                        </li>
+
+                        <li>
+                            Change morphology
+                        </li>
+
+                        <li>
+                            Develop a progressively different waveform pattern
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        <strong>Static sharp wave:</strong>
+
+                        may represent an interictal epileptiform discharge.
+
+                        <br><br>
+
+                        <strong>Rhythmic evolving activity:</strong>
+
+                        raises concern for an ictal seizure pattern.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 22 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_22"
+                        alt="Clinical severity versus EEG appearance"
+                    >
+
+                    <div class="image-caption">
+                        EEG severity and clinical severity are not always proportional
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        EEG appearance does not always equal clinical severity
+                    </h3>
+
+                    <p>
+                        A very dramatic EEG can occur with relatively subtle
+                        clinical symptoms.
+                    </p>
+
+                    <p>
+                        Conversely, a clinically concerning event may not
+                        necessarily produce a dramatic scalp EEG pattern.
+                    </p>
+
+                    <div class="warning">
+
+                        <strong>
+                            How "scary" an EEG looks does not always correspond
+                            directly to how severe the patient's symptoms are.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 9 — EEG REPORT
+========================================================= -->
+
+<section class="section" id="report">
+
+    <div class="section-header">
+
+        <div class="section-number">09</div>
+
+        <h2>
+            How to understand an EEG report
+        </h2>
+
+        <p>
+            The raw EEG is translated into a standardized written report.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 23 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_23"
+                        alt="Sample EEG report background section"
+                    >
+
+                    <div class="image-caption">
+                        Structure of an EEG report
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        1. Background
+                    </h3>
+
+                    <p>
+                        The report usually begins by describing
+                        the EEG background.
+                    </p>
+
+                    <p>
+                        The reader asks:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Is the background organized?
+                        </li>
+
+                        <li>
+                            Is the rhythm normal?
+                        </li>
+
+                        <li>
+                            Is there appropriate symmetry?
+                        </li>
+
+                        <li>
+                            Does one side look different?
+                        </li>
+
+                        <li>
+                            Is there generalized slowing?
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        The first part of the report describes
+                        <strong>
+                            what the EEG looks like before focusing
+                            on abnormalities
+                        </strong>.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 24 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_24"
+                        alt="Epileptiform abnormalities in EEG report"
+                    >
+
+                    <div class="image-caption">
+                        Abnormal findings and localization
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        2. Abnormal findings
+                    </h3>
+
+                    <p>
+                        After the background, the report describes
+                        what stands out as abnormal.
+                    </p>
+
+                    <p>
+                        This may include:
+                    </p>
+
+                    <ul>
+
+                        <li>Spikes</li>
+
+                        <li>Sharp waves</li>
+
+                        <li>Other epileptiform discharges</li>
+
+                        <li>Focal slowing</li>
+
+                        <li>Generalized slowing</li>
+
+                        <li>Other abnormalities</li>
+
+                    </ul>
+
+                    <p>
+                        The report should describe
+                        <strong>where</strong> abnormalities occur.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 25 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_25"
+                        alt="Photic stimulation and hyperventilation EEG report section"
+                    >
+
+                    <div class="image-caption">
+                        Activation procedures
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        3. Activation procedures
+                    </h3>
+
+                    <p>
+                        The report may describe the response to:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Photic stimulation
+                        </li>
+
+                        <li>
+                            Hyperventilation
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 26 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_26"
+                        alt="Single lead ECG recorded during EEG"
+                    >
+
+                    <div class="image-caption">
+                        ECG recorded simultaneously with EEG
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        4. ECG / cardiac rhythm
+                    </h3>
+
+                    <p>
+                        A single-lead ECG is commonly recorded simultaneously.
+                    </p>
+
+                    <p>
+                        This provides information about the heart rhythm
+                        during the EEG.
+                    </p>
+
+                    <p>
+                        It can also be extremely useful when determining
+                        whether an apparent EEG waveform may actually
+                        represent a pulse artifact.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 27 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_27"
+                        alt="EEG interpretation and clinical correlation section"
+                    >
+
+                    <div class="image-caption">
+                        Clinical interpretation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        5. Interpretation / clinical correlation
+                    </h3>
+
+                    <p>
+                        After the technical description, the report
+                        provides a summary or interpretation.
+                    </p>
+
+                    <p>
+                        It generally addresses:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Is the EEG normal or abnormal?
+                        </li>
+
+                        <li>
+                            Was the patient awake or asleep?
+                        </li>
+
+                        <li>
+                            What did the background look like?
+                        </li>
+
+                        <li>
+                            Were there epileptiform abnormalities?
+                        </li>
+
+                        <li>
+                            Where were they located?
+                        </li>
+
+                        <li>
+                            Is there evidence suggesting increased
+                            seizure risk?
+                        </li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            Clinical correlation is critical.
+                        </strong>
+
+                        The technical EEG language is primarily designed
+                        for communication between epilepsy specialists
+                        and neurophysiology professionals.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 10 — LIMITATIONS
+========================================================= -->
+
+<section class="section" id="limitations">
+
+    <div class="section-header">
+
+        <div class="section-number">10</div>
+
+        <h2>
+            What EEG cannot tell you
+        </h2>
+
+        <p>
+            A major part of good EEG interpretation is understanding
+            its limitations.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 28 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_28"
+                        alt="Normal EEG despite epilepsy"
+                    >
+
+                    <div class="image-caption">
+                        A normal routine EEG does not exclude epilepsy
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Normal EEG does NOT rule out epilepsy
+                    </h3>
+
+                    <p>
+                        This is one of the most important clinical points.
+                    </p>
+
+                    <div class="warning">
+
+                        <strong>
+                            A normal EEG does not rule out epilepsy.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        A patient with definite, documented epilepsy can
+                        have a portion of their EEG that looks completely normal.
+                    </p>
+
+                    <p>
+                        This is especially relevant when the EEG is short.
+                    </p>
+
+                    <p>
+                        A routine EEG may only last approximately
+                        <strong>30–60 minutes</strong>.
+                    </p>
+
+                    <p>
+                        A person with epilepsy can certainly go
+                        30–60 minutes without showing an abnormality.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        A routine EEG is therefore a useful screening
+                        / initial investigation, but its sensitivity is
+                        limited by the duration and nature of the recording.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 29 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_29"
+                        alt="Epileptiform discharge without seizure"
+                    >
+
+                    <div class="image-caption">
+                        Abnormal EEG does not automatically equal epilepsy
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Abnormal EEG does NOT automatically mean epilepsy
+                    </h3>
+
+                    <p>
+                        A person can have spikes or sharp waves suggesting
+                        increased seizure risk without ever having a
+                        clinical seizure.
+                    </p>
+
+                    <div class="warning">
+
+                        <strong>
+                            Do not diagnose or treat solely from the EEG.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        In most circumstances, treatment decisions are
+                        based on the EEG together with the
+                        <strong>clinical presentation</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 30 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_30"
+                        alt="Scalp EEG limitation schematic"
+                    >
+
+                    <div class="image-caption">
+                        Scalp EEG samples electrical activity indirectly
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Why can EEG miss abnormalities?
+                    </h3>
+
+                    <p>
+                        Remember the basic anatomy:
+                        the electrodes are on the scalp, while the
+                        electrical activity is generated deep inside
+                        the brain.
+                    </p>
+
+                    <p>
+                        EEG may miss activity because:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            The electrical activity is too deep.
+                        </li>
+
+                        <li>
+                            The affected region is too small.
+                        </li>
+
+                        <li>
+                            The electrical signal does not propagate
+                            strongly enough to the scalp.
+                        </li>
+
+                        <li>
+                            The abnormal activity occurs too infrequently
+                            to be captured during the recording.
+                        </li>
+
+                        <li>
+                            Recording duration may simply be insufficient.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 31 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_31"
+                        alt="Deep cortical seizure potentially missed by scalp EEG"
+                    >
+
+                    <div class="image-caption">
+                        Small deep seizure potentially missed by scalp electrodes
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Even an actual seizure may occasionally be invisible
+                        on scalp EEG
+                    </h3>
+
+                    <p>
+                        The brain contains many folds and deep crevices.
+                    </p>
+
+                    <p>
+                        If seizure activity remains extremely small
+                        and confined to a deep fold, its electrical signal
+                        may not reach the surface electrodes sufficiently
+                        to be detected.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            "Normal scalp EEG during an event" does not
+                            automatically prove that the event is non-epileptic.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        Clinical characterization of the event therefore
+                        remains essential.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 11 — ARTIFACTS
+========================================================= -->
+
+<section class="section" id="artifacts">
+
+    <div class="section-header">
+
+        <div class="section-number">11</div>
+
+        <h2>
+            EEG artifacts: things that mimic abnormalities
+        </h2>
+
+        <p>
+            Not every sharp-looking or rhythmic waveform comes from the brain.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 32 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_32"
+                        alt="Eye blink EEG artifact"
+                    >
+
+                    <div class="image-caption">
+                        Frontal eye-blink artifact
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Eye-blink artifact
+                    </h3>
+
+                    <p>
+                        The eyeballs themselves have an electrical field.
+                    </p>
+
+                    <p>
+                        When the eyes blink and roll upward,
+                        this electrical activity is detected by
+                        the frontal electrodes.
+                    </p>
+
+                    <p>
+                        The result can be large sharp deflections
+                        in the frontal leads.
+                    </p>
+
+                    <div class="key-point">
+
+                        Experienced EEG readers recognize this characteristic
+                        pattern as an eye-blink artifact rather than
+                        epileptiform activity.
+
+                    </div>
+
+                    <p>
+                        The remainder of the EEG background may remain normal.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 33 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_33"
+                        alt="Pulse artifact with ECG correlation"
+                    >
+
+                    <div class="image-caption">
+                        Pulse artifact synchronized with heartbeat
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Pulse artifact
+                    </h3>
+
+                    <p>
+                        Another fascinating artifact occurs when an EEG
+                        electrode picks up the effects associated with
+                        blood pulsing through nearby vessels.
+                    </p>
+
+                    <p>
+                        It can appear:
+                    </p>
+
+                    <ul>
+
+                        <li>Rhythmic</li>
+
+                        <li>Sharp-looking</li>
+
+                        <li>Potentially seizure-like</li>
+
+                    </ul>
+
+                    <p>
+                        However, the waveform may line up perfectly
+                        with the heartbeat on the simultaneous ECG channel.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            If an apparent rhythmic EEG abnormality
+                            is synchronized with the ECG, consider pulse artifact.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        Repositioning the head/electrode may sometimes
+                        reduce or eliminate the artifact.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 34 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_34"
+                        alt="Common EEG artifact examples"
+                    >
+
+                    <div class="image-caption">
+                        Common sources of non-cerebral EEG signal
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Why artifacts matter
+                    </h3>
+
+                    <p>
+                        EEG is an electrical recording, so the electrodes
+                        can pick up signals that are not generated by
+                        pathological brain activity.
+                    </p>
+
+                    <p>
+                        Potential influences include:
+                    </p>
+
+                    <ul>
+
+                        <li>Eye movements / blinking</li>
+
+                        <li>Muscle activity</li>
+
+                        <li>Cardiac pulsation</li>
+
+                        <li>Electrode-related effects</li>
+
+                        <li>Skull defects</li>
+
+                        <li>Extra fluid</li>
+
+                        <li>Blood vessels</li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        The EEG reader must distinguish
+                        <strong>true cerebral abnormalities</strong>
+                        from artifacts introduced by the recording environment
+                        and anatomy.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 12 — CLINICAL USES
+========================================================= -->
+
+<section class="section" id="uses">
+
+    <div class="section-header">
+
+        <div class="section-number">12</div>
+
+        <h2>
+            What can we actually do with EEG information?
+        </h2>
+
+        <p>
+            Despite its limitations, EEG provides clinically valuable information.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 35 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_35"
+                        alt="EEG in first seizure diagnostic pathway"
+                    >
+
+                    <div class="image-caption">
+                        EEG as part of initial epilepsy evaluation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        1. Initial diagnosis of epilepsy
+                    </h3>
+
+                    <p>
+                        Consider someone who has experienced their
+                        <strong>first seizure-like event</strong>.
+                    </p>
+
+                    <p>
+                        The event might instead represent:
+                    </p>
+
+                    <ul>
+
+                        <li>A true epileptic seizure</li>
+
+                        <li>Syncope / fainting</li>
+
+                        <li>An abnormal movement</li>
+
+                        <li>Another non-epileptic event</li>
+
+                    </ul>
+
+                    <p>
+                        EEG can provide evidence of increased seizure risk
+                        through epileptiform abnormalities.
+                    </p>
+
+                    <div class="key-point">
+
+                        Clinical event + EEG evidence of increased
+                        seizure risk can strengthen the diagnosis
+                        of epilepsy and help guide management.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 36 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_36"
+                        alt="Focal versus generalized epilepsy EEG"
+                    >
+
+                    <div class="image-caption">
+                        Focal versus generalized electrical activity
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        2. Help determine seizure / epilepsy type
+                    </h3>
+
+                    <p>
+                        EEG can provide clues regarding whether the
+                        electrical abnormality is:
+                    </p>
+
+                    <div class="mini-grid">
+
+                        <div class="mini-card">
+
+                            <strong>Focal</strong>
+
+                            Activity begins in or is most prominent
+                            in one region.
+
+                        </div>
+
+                        <div class="mini-card">
+
+                            <strong>Generalized</strong>
+
+                            Abnormal activity involves the brain
+                            more broadly at the same time.
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        For example, focal right temporal or frontal
+                        sharp waves may suggest a focal epilepsy.
+                    </p>
+
+                    <p>
+                        Generalized approximately 3-Hz spike-wave activity
+                        is characteristic of the absence-seizure example
+                        discussed earlier.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 37 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_37"
+                        alt="Follow-up EEG during epilepsy treatment"
+                    >
+
+                    <div class="image-caption">
+                        EEG in longitudinal epilepsy management
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        3. Follow-up after treatment
+                    </h3>
+
+                    <p>
+                        Repeat EEGs may be performed after epilepsy
+                        treatment has started.
+                    </p>
+
+                    <p>
+                        The timing is individualized depending on:
+                    </p>
+
+                    <ul>
+
+                        <li>Type of epilepsy</li>
+
+                        <li>Response to treatment</li>
+
+                        <li>Clinical course</li>
+
+                        <li>Other circumstances</li>
+
+                    </ul>
+
+                    <p>
+                        EEG can potentially show whether electrical
+                        abnormalities appear more active or less active.
+                    </p>
+
+                    <p>
+                        It may also identify subtle electrographic
+                        seizures that are not clinically obvious.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            The patient's clinical response remains more important
+                            than EEG normalization alone.
+                        </strong>
+
+                        Fewer seizures, improved function and tolerability
+                        of treatment remain central clinical outcomes.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 38 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_38"
+                        alt="EEG localization for epilepsy surgery"
+                    >
+
+                    <div class="image-caption">
+                        Localizing the epileptogenic region
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        4. Localizing seizure onset
+                    </h3>
+
+                    <p>
+                        If seizures are focal, an important question becomes:
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            Where are the seizures coming from?
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        This becomes particularly important when
+                        medications are no longer adequately controlling
+                        seizures.
+                    </p>
+
+                    <p>
+                        If a consistent seizure-producing region can be
+                        identified and it is safe to remove, surgery may
+                        become a treatment option.
+                    </p>
+
+                    <p>
+                        In carefully selected cases, removal of the
+                        epileptogenic region can potentially
+                        <strong>cure the epilepsy</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 13 — EEG + MRI + PET
+========================================================= -->
+
+<section class="section" id="localization">
+
+    <div class="section-header">
+
+        <div class="section-number">13</div>
+
+        <h2>
+            EEG + MRI + PET: localization becomes powerful
+        </h2>
+
+        <p>
+            EEG can become much more informative when several independent
+            modalities point toward the same brain region.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 39 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_39"
+                        alt="Right temporal MRI subtle asymmetry"
+                    >
+
+                    <div class="image-caption">
+                        Subtle right temporal asymmetry
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        MRI correlation
+                    </h3>
+
+                    <p>
+                        Consider the example with frequent
+                        <strong>right temporal sharp waves</strong>.
+                    </p>
+
+                    <p>
+                        MRI may show a subtle structural asymmetry
+                        in the same region.
+                    </p>
+
+                    <p>
+                        The deep right temporal region may appear:
+                    </p>
+
+                    <ul>
+
+                        <li>A little larger</li>
+
+                        <li>Somewhat chunkier</li>
+
+                        <li>
+                            Brighter compared with the opposite side
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        Such differences can be subtle enough that
+                        they may not be immediately obvious even
+                        to a trained observer.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        The finding becomes much more meaningful when
+                        it <strong>matches the EEG localization</strong>.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 40 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_40"
+                        alt="PET scan showing reduced right temporal glucose metabolism"
+                    >
+
+                    <div class="image-caption">
+                        PET showing reduced glucose metabolism
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        PET scan: looking at brain metabolism
+                    </h3>
+
+                    <p>
+                        PET provides a different type of information.
+                    </p>
+
+                    <p>
+                        It can assess the brain's
+                        <strong>resting metabolic activity</strong>.
+                    </p>
+
+                    <p>
+                        The brain requires substantial energy even when
+                        it is simply resting, and this energy is largely
+                        derived from glucose.
+                    </p>
+
+                    <p>
+                        Areas with reduced metabolic activity may therefore
+                        show reduced glucose uptake.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        In the example, the right temporal region
+                        shows <strong>reduced glucose uptake</strong>
+                        compared with the opposite side.
+
+                    </div>
+
+                    <p>
+                        This can provide another clue regarding where
+                        seizures may be originating.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 41 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_41"
+                        alt="EEG MRI and PET convergence for seizure localization"
+                    >
+
+                    <div class="image-caption">
+                        EEG + MRI + PET convergence
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Convergence of evidence
+                    </h3>
+
+                    <p>
+                        In the illustrative case, three findings
+                        point toward the same region:
+                    </p>
+
+                    <ol>
+
+                        <li>
+
+                            <strong>EEG:</strong>
+
+                            excessive electrical activity in the
+                            right temporal region.
+
+                        </li>
+
+                        <li>
+
+                            <strong>MRI:</strong>
+
+                            subtle structural asymmetry in the
+                            right temporal region.
+
+                        </li>
+
+                        <li>
+
+                            <strong>PET:</strong>
+
+                            reduced glucose metabolism in that
+                            same region.
+
+                        </li>
+
+                    </ol>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            When EEG, structural imaging and metabolic imaging
+                            converge on the same region, localization becomes
+                            considerably more compelling.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        If the region is determined to be safely removable,
+                        this information can help guide epilepsy surgery.
+                    </p>
+
+                    <div class="warning">
+
+                        PET is not always abnormal in epilepsy.
+                        The example represents a particularly useful
+                        case rather than a universal pattern.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 14 — PNES
+========================================================= -->
+
+<section class="section" id="pnes">
+
+    <div class="section-header">
+
+        <div class="section-number">14</div>
+
+        <h2>
+            Clinical events with no EEG correlate:
+            epilepsy vs PNES
+        </h2>
+
+        <p>
+            Video-EEG is particularly valuable when the clinical event
+            and EEG need to be correlated in real time.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 42 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_42"
+                        alt="Video EEG monitoring setup"
+                    >
+
+                    <div class="image-caption">
+                        Simultaneous video and EEG recording
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Why video-EEG matters
+                    </h3>
+
+                    <p>
+                        The most useful tool for evaluating an event
+                        is often simultaneous:
+                    </p>
+
+                    <ul>
+
+                        <li>Clinical observation</li>
+
+                        <li>Video recording</li>
+
+                        <li>EEG recording</li>
+
+                    </ul>
+
+                    <p>
+                        This allows the clinician to ask:
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            What is the patient doing clinically at the exact
+                            moment the EEG changes?
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        This temporal correlation is critical when
+                        evaluating possible epileptic and
+                        non-epileptic events.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 43 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_43"
+                        alt="Bilateral tonic clonic movement with scalp EEG"
+                    >
+
+                    <div class="image-caption">
+                        Clinical patterns expected to produce scalp EEG changes
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        When a normal scalp EEG during an event is highly informative
+                    </h3>
+
+                    <p>
+                        Some clinical patterns are expected to produce
+                        a detectable scalp EEG abnormality.
+                    </p>
+
+                    <p>
+                        For example, if a patient has
+                        <strong>
+                            bilateral rhythmic jerking with
+                            tonic-clonic movements
+                        </strong>,
+                        one would generally expect a corresponding
+                        surface EEG change.
+                    </p>
+
+                    <p>
+                        If the scalp EEG remains completely normal
+                        during such an event, confidence increases
+                        that the event is non-epileptic.
+                    </p>
+
+                    <p>
+                        Such events may be termed
+                        <strong>
+                            psychogenic non-epileptic seizures (PNES)
+                        </strong>
+                        or non-epileptic spells.
+                    </p>
+
+                    <div class="warning">
+
+                        However, this reasoning is not applicable
+                        in the same way to every subtle clinical event,
+                        because small deep seizures can occasionally
+                        escape scalp EEG detection.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 44 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_44"
+                        alt="Subtle focal seizure without clear scalp EEG correlate"
+                    >
+
+                    <div class="image-caption">
+                        Small focal events may be difficult to classify
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        The difficult cases
+                    </h3>
+
+                    <p>
+                        The problem becomes more complicated when the
+                        clinical symptoms are subtle.
+                    </p>
+
+                    <p>
+                        Examples include:
+                    </p>
+
+                    <ul>
+
+                        <li>A strange sensation / aura</li>
+
+                        <li>Brief staring</li>
+
+                        <li>Lip smacking</li>
+
+                        <li>Subtle behavioral change</li>
+
+                    </ul>
+
+                    <p>
+                        A small seizure could theoretically remain confined
+                        to a small deep region and fail to produce a clear
+                        surface EEG correlate.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        The clinical pattern therefore has to be considered
+                        alongside the EEG rather than simply saying
+                        "no EEG change = PNES."
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 45 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_45"
+                        alt="Long term video EEG monitoring"
+                    >
+
+                    <div class="image-caption">
+                        Prolonged monitoring can capture multiple event types
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Why prolonged monitoring helps
+                    </h3>
+
+                    <p>
+                        Longer recordings increase the opportunity to
+                        capture events and observe whether an initially
+                        subtle event eventually develops a detectable
+                        EEG pattern.
+                    </p>
+
+                    <p>
+                        Monitoring may extend to:
+                    </p>
+
+                    <ul>
+
+                        <li>Several hours</li>
+
+                        <li>Overnight recordings</li>
+
+                        <li>Several days</li>
+
+                        <li>
+                            Approximately seven days in some situations
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        A patient may have multiple event types:
+                        one type may remain too small to detect, while
+                        another may spread and become clearly visible
+                        on scalp EEG.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        Longer monitoring can therefore help capture
+                        both the <strong>clinical event</strong> and
+                        its <strong>electrical evolution</strong>.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 15 — INTERICTAL
+========================================================= -->
+
+<section class="section" id="interictal">
+
+    <div class="section-header">
+
+        <div class="section-number">15</div>
+
+        <h2>
+            Interictal EEG: what happens between seizures?
+        </h2>
+
+        <p>
+            EEG abnormalities outside an actual seizure can still
+            carry important clinical information.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 46 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_46"
+                        alt="Interictal epileptiform discharges"
+                    >
+
+                    <div class="image-caption">
+                        Interictal epileptiform discharges
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Interictal epileptiform discharges
+                    </h3>
+
+                    <p>
+                        "Interictal" means occurring
+                        <strong>between seizures</strong>.
+                    </p>
+
+                    <p>
+                        Spikes and sharp waves between seizures can
+                        indicate an increased tendency toward seizures.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        Interictal epileptiform discharges are
+                        <strong>markers of seizure risk</strong>,
+                        not seizures themselves.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 47 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_47"
+                        alt="Diffuse generalized EEG slowing"
+                    >
+
+                    <div class="image-caption">
+                        Diffuse slowing / encephalopathy pattern
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Diffuse background slowing
+                    </h3>
+
+                    <p>
+                        Sometimes the EEG does not primarily show
+                        spikes and sharps.
+                    </p>
+
+                    <p>
+                        Instead, the entire brain may appear
+                        <strong>too slow</strong>.
+                    </p>
+
+                    <p>
+                        There may be excessive theta and delta activity
+                        and insufficient normal alpha activity.
+                    </p>
+
+                    <p>
+                        Technical terminology used in the report may include:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>Encephalopathy</strong>
+                        </li>
+
+                        <li>
+                            <strong>Diffuse cerebral dysfunction</strong>
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        Such findings can fit with a clinical picture
+                        involving global developmental problems,
+                        including developmental delay or autism spectrum
+                        disorder.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        The EEG finding itself does not necessarily establish
+                        that one condition is causing another. It may instead
+                        be consistent with the broader clinical picture.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 48 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_48"
+                        alt="Focal EEG slowing"
+                    >
+
+                    <div class="image-caption">
+                        Focal slowing and structural correlation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Focal slowing
+                    </h3>
+
+                    <p>
+                        If one region of the brain is slower than the other,
+                        this is called <strong>focal slowing</strong>.
+                    </p>
+
+                    <p>
+                        For example, the right hemisphere may show
+                        substantially slower waves than the left.
+                    </p>
+
+                    <div class="highlight-block">
+
+                        <strong>
+                            Focal slowing suggests the possibility of a
+                            structural abnormality in that region.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        Causes can include:
+                    </p>
+
+                    <ul>
+
+                        <li>Tumor</li>
+
+                        <li>Previous brain injury</li>
+
+                        <li>Scarring</li>
+
+                        <li>Other structural abnormalities</li>
+
+                    </ul>
+
+                    <p>
+                        Therefore, focal slowing generally prompts
+                        consideration of <strong>MRI brain imaging</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 49 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_49"
+                        alt="Sleep activated epileptiform activity ESES"
+                    >
+
+                    <div class="image-caption">
+                        Markedly increased spike activity during sleep
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Extreme sleep activation: when spikes themselves
+                        may cause symptoms
+                    </h3>
+
+                    <p>
+                        A particularly interesting phenomenon occurs when
+                        epileptiform discharges become dramatically more
+                        frequent during sleep.
+                    </p>
+
+                    <p>
+                        The EEG may look relatively acceptable during
+                        wakefulness, but after the patient falls asleep,
+                        there may be <strong>continuous or near-continuous
+                        spiking</strong>.
+                    </p>
+
+                    <p>
+                        This is the type of phenomenon discussed in relation
+                        to <strong>ESES</strong> / sleep-activated epileptiform
+                        activity.
+                    </p>
+
+                    <p>
+                        In some cases, excessive sleep-related epileptiform
+                        activity can be associated with:
+                    </p>
+
+                    <ul>
+
+                        <li>Language regression</li>
+
+                        <li>Other developmental regression</li>
+
+                        <li>
+                            Clinical cognitive / behavioral consequences
+                        </li>
+
+                    </ul>
+
+                    <div class="warning">
+
+                        <strong>
+                            This represents a relatively unusual situation
+                            where the EEG abnormality itself may become a
+                            treatment target.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        The concern is that the enormous amount of
+                        epileptiform activity during sleep may itself
+                        contribute to clinical symptoms even though
+                        it is not necessarily producing conventional
+                        clinical seizures.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 16 — EVENTS
+========================================================= -->
+
+<section class="section" id="events">
+
+    <div class="section-header">
+
+        <div class="section-number">16</div>
+
+        <h2>
+            When a patient's event may or may not appear on EEG
+        </h2>
+
+        <p>
+            Clinical correlation becomes especially important for subtle symptoms.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 50 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_50"
+                        alt="EEG event marker push button"
+                    >
+
+                    <div class="image-caption">
+                        Marking subtle clinical events during monitoring
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Why the event button matters
+                    </h3>
+
+                    <p>
+                        If a patient or family member notices a subtle event
+                        that may represent a seizure, it is useful to mark
+                        the time of the event.
+                    </p>
+
+                    <p>
+                        Examples include:
+                    </p>
+
+                    <ul>
+
+                        <li>Lip quivering</li>
+
+                        <li>Tongue movements</li>
+
+                        <li>Zoning out</li>
+
+                        <li>Brief behavioral change</li>
+
+                    </ul>
+
+                    <div class="highlight-block">
+
+                        Marking the event allows the EEG reader to go back
+                        to that exact moment and determine whether there
+                        is an electrical correlate.
+
+                    </div>
+
+                    <p>
+                        This can be particularly important because a subtle
+                        clinical event may be impossible to identify reliably
+                        by visually scanning hours of EEG without a time marker.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 51 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_51"
+                        alt="Spectrum of subtle to obvious clinical seizure manifestations"
+                    >
+
+                    <div class="image-caption">
+                        Events range from subtle focal symptoms to obvious seizures
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        There is a huge spectrum
+                    </h3>
+
+                    <p>
+                        EEG abnormalities can range from:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            A tiny focal seizure / aura
+                        </li>
+
+                        <li>
+                            A subtle staring episode
+                        </li>
+
+                        <li>
+                            Lip smacking
+                        </li>
+
+                        <li>
+                            More obvious focal seizures
+                        </li>
+
+                        <li>
+                            Generalized seizures with striking EEG changes
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        The electrical appearance and the clinical
+                        appearance do not always scale together.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 17 — EEG READING TIME & AI
+========================================================= -->
+
+<section class="section" id="duration">
+
+    <div class="section-header">
+
+        <div class="section-number">17</div>
+
+        <h2>
+            How long does it take to read an EEG?
+        </h2>
+
+        <p>
+            Interpretation time depends heavily on the duration and complexity
+            of the recording.
+        </p>
+
+    </div>
+
+
+    <div class="learning-flow">
+
+
+        <!-- IMAGE 52 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_52"
+                        alt="EEG duration timeline"
+                    >
+
+                    <div class="image-caption">
+                        From routine EEG to prolonged monitoring
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Recording duration determines workload
+                    </h3>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Recording</th>
+
+                                    <th>
+                                        Approximate reading burden
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Normal routine EEG
+                                    </td>
+
+                                    <td>
+                                        May take only a few minutes to interpret
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Routine EEG with uncertainty
+                                    </td>
+
+                                    <td>
+                                        May take longer because normal variants
+                                        and artifacts need careful assessment
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Several-hour EEG
+                                    </td>
+
+                                    <td>
+                                        May take substantially longer,
+                                        especially if events or abnormalities occur
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        ~12-hour segment
+                                    </td>
+
+                                    <td>
+                                        Can require at least approximately
+                                        30 minutes per patient in the example workflow
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Overnight / prolonged EEG
+                                    </td>
+
+                                    <td>
+                                        Potentially much longer depending
+                                        on abnormalities and events
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        A normal EEG is not necessarily always easy to read.
+                        A reader must avoid both:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Calling normal activity abnormal
+                        </li>
+
+                        <li>
+                            Missing subtle abnormalities
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 53 -->
+
+        <article class="lesson">
+
+            <div class="visual">
+
+                <div class="image-card">
+
+                    <img
+                        src="#image_url_53"
+                        alt="Machine learning assisted EEG interpretation"
+                    >
+
+                    <div class="image-caption">
+                        Computer-assisted EEG interpretation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content">
+
+                <div class="content-card">
+
+                    <h3>
+                        Can machine learning help?
+                    </h3>
+
+                    <p>
+                        Software can assist with:
+                    </p>
+
+                    <ul>
+
+                        <li>Identifying spikes</li>
+
+                        <li>Identifying sharp waves</li>
+
+                        <li>Highlighting asymmetry</li>
+
+                        <li>
+                            Drawing attention to potentially abnormal regions
+                        </li>
+
+                    </ul>
+
+                    <div class="warning">
+
+                        <strong>
+                            Automated EEG detection is not perfect.
+                        </strong>
+
+                    </div>
+
+                    <p>
+                        A practical workflow described in the transcript
+                        is for the EEG specialist to first review the EEG
+                        independently and then use software as an additional
+                        tool to investigate specific questions or double-check
+                        suspicious findings.
+                    </p>
+
+                    <p>
+                        This is particularly important in children because
+                        pediatric EEGs can look substantially different
+                        from adult EEGs.
+                    </p>
+
+                    <p>
+                        Some software has been developed predominantly
+                        using adult data and may therefore
+                        <strong>
+                            overcall normal pediatric sleep patterns
+                            as abnormal
+                        </strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 18 — FRAMEWORK
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">18</div>
+
+        <h2>
+            The EEG interpretation framework
+        </h2>
+
+        <p>
+            A practical mental checklist for approaching an EEG.
+        </p>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+
+                <strong>1. Orientation</strong>
+
+                Left vs right; frontal vs posterior.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>2. State</strong>
+
+                Awake, drowsy, NREM sleep or REM sleep?
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>3. Background</strong>
+
+                Organization, rhythm and symmetry.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>4. Frequency</strong>
+
+                Alpha, beta, theta, delta.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>5. Amplitude</strong>
+
+                How tall are the waves?
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>6. Morphology</strong>
+
+                Smooth vs sharp vs spiky.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>7. Epileptiform activity</strong>
+
+                Spikes and sharp waves.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>8. Seizure?</strong>
+
+                Rhythmic, organized, evolving activity?
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>9. Localization</strong>
+
+                Where is the abnormality maximal?
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>10. Artifacts</strong>
+
+                Eyes, muscle, pulse, electrodes, anatomy.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>11. Activation</strong>
+
+                Photic stimulation and hyperventilation.
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <strong>12. Clinical correlation</strong>
+
+                What was the patient actually doing?
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SECTION 19 — HIGH YIELD
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">19</div>
+
+        <h2>
+            High-yield distinctions
+        </h2>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Finding</th>
+
+                        <th>What it suggests</th>
+
+                        <th>
+                            What it does NOT automatically mean
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <tr>
+
+                        <td>
+                            Normal EEG
+                        </td>
+
+                        <td>
+                            No abnormality captured during that recording
+                        </td>
+
+                        <td>
+                            Does not rule out epilepsy
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Spike / sharp wave
+                        </td>
+
+                        <td>
+                            Increased seizure risk / epileptiform activity
+                        </td>
+
+                        <td>
+                            Does not necessarily mean a seizure is occurring
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Rhythmic evolving EEG pattern
+                        </td>
+
+                        <td>
+                            May represent ictal activity
+                        </td>
+
+                        <td>
+                            Still requires appropriate clinical / EEG context
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Diffuse slowing
+                        </td>
+
+                        <td>
+                            Possible diffuse cerebral dysfunction / encephalopathy
+                        </td>
+
+                        <td>
+                            Does not independently establish a specific diagnosis
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Focal slowing
+                        </td>
+
+                        <td>
+                            Possible structural abnormality
+                        </td>
+
+                        <td>
+                            Does not itself identify the exact lesion
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Normal EEG during bilateral convulsive event
+                        </td>
+
+                        <td>
+                            Can strongly support a non-epileptic event
+                        </td>
+
+                        <td>
+                            Should not be generalized automatically to every subtle event
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Sharp-looking waveform
+                        </td>
+
+                        <td>
+                            Could be epileptiform
+                        </td>
+
+                        <td>
+                            Could also be normal sleep or artifact
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL SUMMARY
+========================================================= -->
+
+<div class="final-summary">
+
+    <h2>
+        The big picture
+    </h2>
+
+    <p>
+        EEG interpretation is essentially the process of connecting
+        electrical activity with anatomy, time, physiology and clinical
+        behavior.
+    </p>
+
+    <ul>
+
+        <li>
+            EEG records electrical activity generated by neurons,
+            using electrodes placed on the scalp.
+        </li>
+
+        <li>
+            Always establish the montage and anatomical orientation first.
+        </li>
+
+        <li>
+            Evaluate the background before focusing on abnormalities.
+        </li>
+
+        <li>
+            Think in terms of
+            <strong>frequency, amplitude and morphology</strong>.
+        </li>
+
+        <li>
+            Normal EEG changes substantially during drowsiness and sleep.
+        </li>
+
+        <li>
+            Photic stimulation and hyperventilation are activation procedures
+            designed to expose abnormalities.
+        </li>
+
+        <li>
+            Spikes and sharp waves are epileptiform markers of increased
+            seizure risk, not seizures by themselves.
+        </li>
+
+        <li>
+            A seizure generally demonstrates organized, rhythmic,
+            evolving electrical activity and may have a clinical correlate.
+        </li>
+
+        <li>
+            A normal routine EEG does not rule out epilepsy.
+        </li>
+
+        <li>
+            An abnormal EEG does not automatically establish epilepsy.
+        </li>
+
+        <li>
+            Artifacts—including eye movements, muscle activity and pulse—
+            can mimic abnormalities.
+        </li>
+
+        <li>
+            Clinical context is essential, particularly when an event
+            has no obvious EEG correlate.
+        </li>
+
+        <li>
+            Video-EEG allows simultaneous assessment of clinical behavior
+            and electrical activity.
+        </li>
+
+        <li>
+            Prolonged monitoring can improve the chance of capturing
+            intermittent or subtle abnormalities.
+        </li>
+
+        <li>
+            Interictal abnormalities can provide useful information even
+            when no seizure occurs during the recording.
+        </li>
+
+        <li>
+            Diffuse slowing may suggest diffuse cerebral dysfunction,
+            while focal slowing may suggest a structural lesion.
+        </li>
+
+        <li>
+            EEG can help with diagnosis, classification, follow-up
+            and seizure localization.
+        </li>
+
+        <li>
+            When EEG localization agrees with MRI and PET findings,
+            the combined information can become particularly valuable
+            in evaluating patients for epilepsy surgery.
+        </li>
+
+    </ul>
+
+
+    <div class="highlight-block" style="color:#172033;">
+
+        <strong>
+            The single most important principle:
+        </strong>
+
+        EEG findings must be interpreted in the context of
+        <strong>
+            what the patient is actually experiencing.
+        </strong>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    EEG Basics · Interactive Clinical Learning Module
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const lessons = document.querySelectorAll(".lesson");
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                    "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.08
+    }
+);
+
+
+lessons.forEach(lesson => {
+
+    lesson.style.opacity = "0";
+
+    lesson.style.transform =
+        "translateY(25px)";
+
+    lesson.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+    observer.observe(lesson);
+
+});
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(".section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav a");
+
+
+const sectionObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navLinks.forEach(link => {
+
+                        link.style.color = "";
+                        link.style.background = "";
+
+                    });
+
+
+                    const active =
+                        document.querySelector(
+                            `.nav a[href="#${entry.target.id}"]`
+                        );
+
+
+                    if (active) {
+
+                        active.style.color =
+                            "#3157d5";
+
+                        active.style.background =
+                            "#eef4ff";
+
+                    }
+
+                }
+
+            });
+
+        },
+        {
+            rootMargin:
+                "-25% 0px -65% 0px"
+        }
+    );
+
+
+sections.forEach(section => {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   IMAGE URL SYSTEM
+=========================================================
+
+   You only need to replace the image src.
+
+   Example:
+
+   BEFORE:
+
+   <img
+       src="#image_url_01"
+       alt="EEG schematic"
+   >
+
+
+   AFTER:
+
+   <img
+       src="https://example.com/eeg-schematic.jpg"
+       alt="EEG schematic"
+   >
+
+
+   LOCAL IMAGE EXAMPLE:
+
+   <img
+       src="images/eeg-schematic.jpg"
+       alt="EEG schematic"
+   >
+
+
+   GITHUB EXAMPLE:
+
+   <img
+       src="https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/images/eeg.jpg"
+       alt="EEG schematic"
+   >
+
+========================================================= */
+
+
+/* =========================================================
+   BROKEN IMAGE HANDLING
+========================================================= */
+
+document.querySelectorAll(".image-card img").forEach(img => {
+
+    img.addEventListener("error", function() {
+
+        this.style.display = "none";
+
+        const placeholder =
+            document.createElement("div");
+
+        placeholder.className =
+            "image-placeholder";
+
+        placeholder.innerHTML =
+            "Image not added yet<br><br>" +
+            "Replace the src URL in VS Code";
+
+        this.parentElement.insertBefore(
+            placeholder,
+            this.nextElementSibling
+        );
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parkinson’s Foundation Expert Briefing | Medications 101</title>
+<meta name="description" content="Interactive educational companion to the Parkinson’s Foundation expert briefing: Parkinson’s Medications 101, disease progression, motor fluctuations, non-motor symptoms, advanced therapies, lifestyle and Q&A.">
+<style>
+:root{
+  --bg:#f6faf8;--surface:#ffffff;--surface2:#edf6f2;--ink:#183a36;--muted:#647773;
+  --teal:#4d9588;--teal2:#2f756a;--sage:#8eaa9d;--gold:#c49a55;--line:#dce9e4;
+  --danger:#a35d5d;--shadow:0 18px 50px rgba(34,76,67,.10);--radius:22px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(circle at 5% 0%,rgba(77,149,136,.13),transparent 28%),
+radial-gradient(circle at 95% 15%,rgba(196,154,85,.10),transparent 25%),var(--bg);color:var(--ink);line-height:1.65}
+a{color:inherit}.container{width:min(1180px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{text-decoration:none;font-weight:850;font-size:18px;letter-spacing:-.4px}.brand span{color:var(--teal)}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{text-decoration:none;font-size:13px;color:var(--muted);font-weight:700}.navlinks a:hover{color:var(--teal2)}
+.hero{padding:88px 0 62px;text-align:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#e6f3ef;color:var(--teal2);padding:8px 14px;border-radius:99px;font-size:12px;font-weight:800}
+.dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 0 5px rgba(77,149,136,.12)}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-3.2px;margin:22px auto 18px;max-width:900px}
+h1 span{color:var(--teal)}
+.hero p{max-width:760px;margin:auto;color:var(--muted);font-size:17px}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:12px 17px;border-radius:13px;text-decoration:none;font-weight:750;font-size:13px;box-shadow:0 8px 25px rgba(30,70,62,.06)}
+.btn.primary{background:var(--teal2);color:white;border-color:var(--teal2)}
+.progress{height:4px;background:#dfece7;position:fixed;top:72px;left:0;z-index:60;width:0}
+.section{padding:52px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.kicker{color:var(--teal2);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1.4px}
+h2{font-size:32px;line-height:1.15;letter-spacing:-1.3px;margin:6px 0}.lead{color:var(--muted);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:rgba(255,255,255,.91);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 35px rgba(33,70,63,.055);transition:.25s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:19px}.card p{margin:7px 0;color:var(--muted)}
+.icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:var(--surface2);color:var(--teal2);font-weight:900;margin-bottom:14px}
+.callout{padding:20px 22px;border-left:4px solid var(--teal);background:#edf7f3;border-radius:0 16px 16px 0;margin:20px 0}
+.callout strong{color:var(--teal2)}.warning{border-left-color:var(--gold);background:#fbf6eb}.danger{border-left-color:var(--danger);background:#fbefef}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.pill{background:#eef5f2;border:1px solid var(--line);padding:5px 9px;border-radius:99px;font-size:12px;font-weight:750;color:#41655e}
+.timeline{display:grid;gap:12px}.step{display:grid;grid-template-columns:86px 1fr;gap:18px;align-items:start}.year{background:#e8f3ef;color:var(--teal2);border-radius:14px;padding:10px;text-align:center;font-weight:900;font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+th,td{padding:14px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf6f2;color:var(--teal2);font-size:13px}td{font-size:14px;color:#526762}tr:last-child td{border-bottom:0}
+.highlight{font-weight:850;color:var(--teal2)}.key{background:#fff7e9;border-radius:5px;padding:1px 5px;color:#765b28;font-weight:800}
+.search{display:flex;gap:10px;background:white;border:1px solid var(--line);padding:8px;border-radius:16px;box-shadow:var(--shadow);margin-bottom:18px}.search input{flex:1;border:0;outline:0;padding:10px;font-size:15px;background:transparent}
+.qa{border:1px solid var(--line);background:#fff;border-radius:17px;margin:10px 0;overflow:hidden}.qa button{width:100%;border:0;background:transparent;text-align:left;padding:18px 20px;font:inherit;font-weight:800;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;gap:20px}.answer{display:none;padding:0 20px 18px;color:var(--muted)}.qa.open .answer{display:block}.qa.open button{color:var(--teal2)}
+.quiz{display:grid;gap:15px}.qbox{background:white;border:1px solid var(--line);border-radius:18px;padding:20px}.options{display:grid;gap:8px;margin-top:12px}.option{border:1px solid var(--line);background:#f9fcfb;border-radius:11px;padding:10px 12px;cursor:pointer;text-align:left}.option.correct{border-color:#5c9d86;background:#e8f5ef}.option.wrong{border-color:#c78383;background:#fbefef}.explain{display:none;color:var(--muted);font-size:13px;margin-top:10px}.qbox.done .explain{display:block}.score{font-weight:900;color:var(--teal2)}
+.pearl{position:relative;padding-left:30px}.pearl:before{content:"✦";position:absolute;left:0;color:var(--gold);font-weight:900}
+footer{margin-top:50px;padding:45px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.show{opacity:1;transform:none}
+.backtop{position:fixed;right:18px;bottom:18px;border:1px solid var(--line);background:white;width:44px;height:44px;border-radius:50%;cursor:pointer;box-shadow:var(--shadow);display:none}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.navlinks{display:none}}
+@media(max-width:600px){.container{width:min(100% - 26px,1180px)}.hero{padding:65px 0 45px}h1{letter-spacing:-2px}.grid{grid-template-columns:1fr}.section{padding:38px 0}.step{grid-template-columns:65px 1fr}.section-head{display:block}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">Parkinson’s <span>Medications 101</span></a>
+    <nav class="navlinks">
+      <a href="#overview">Overview</a><a href="#medications">Medications</a><a href="#fluctuations">Fluctuations</a>
+      <a href="#nonmotor">Non-motor</a><a href="#advanced">Advanced</a><a href="#qa">Q&A</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Parkinson’s Foundation Expert Briefing</div>
+    <h1>Parkinson’s <span>Medications 101</span></h1>
+    <p>A comprehensive, interactive learning page based on the supplied expert briefing transcript with Dr. Danny Bega and Dr. James Beck — covering medications, disease progression, motor fluctuations, non-motor symptoms, lifestyle, advanced therapies and audience Q&A.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#medications">Explore medications</a>
+      <a class="btn" href="#qa">Open Q&A</a>
+      <a class="btn" href="#quiz">Test yourself</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="overview">
+<div class="container">
+<div class="section-head"><div><div class="kicker">01 · Foundation</div><h2>The big picture</h2></div></div>
+<div class="grid">
+<div class="card reveal"><div class="icon">PD</div><h3>A “snowflake” disease</h3><p>Parkinson’s is a neurodegenerative disease with combinations of <span class="highlight">motor and non-motor symptoms</span> that differ in severity and progression from person to person.</p><div class="pills"><span class="pill">Tremor</span><span class="pill">Stiffness</span><span class="pill">Slowness</span><span class="pill">Walking</span><span class="pill">Mood</span><span class="pill">Cognition</span><span class="pill">Fatigue</span></div></div>
+<div class="card reveal"><div class="icon">D</div><h3>Dopamine is central</h3><p>Dopamine depletion and impaired dopamine release contribute to the motor symptoms of Parkinsonism — particularly <b>tremor, bradykinesia, rigidity and walking problems.</b></p></div>
+<div class="card reveal"><div class="icon">QOL</div><h3>Practical treatment goal</h3><p>The current day-to-day goal is <span class="highlight">symptom improvement and quality of life</span>. Disease-stopping or disease-slowing treatments remain a research goal.</p></div>
+</div>
+
+<div class="callout warning reveal"><strong>Educational framing:</strong> The briefing was intended as general information, not individualized medical recommendations. Treatment decisions should be individualized with the person’s neurologist/healthcare team.</div>
+
+<div class="grid2">
+<div class="card reveal"><h3>Severity is a spectrum</h3>
+<div class="timeline">
+<div class="step"><div class="year">Very early</div><div><b>~5 years before to ~5 years after diagnosis</b><br><span class="muted">Mild symptoms may not interfere with daily activities; medication may not yet be necessary for some people.</span></div></div>
+<div class="step"><div class="year">Mild</div><div><b>Diagnosis to ~10 years</b><br>Symptoms increasingly interfere with activities, often with a good smooth medication response.</div></div>
+<div class="step"><div class="year">Moderate</div><div><b>~5–20 years</b><br>Medication responses become less adequate/shorter; therapeutic window narrows; disability, balance and gait issues can accumulate.</div></div>
+<div class="step"><div class="year">Advanced</div><div><b>~10–20+ years</b><br>More fluctuations, freezing, falls and non-motor complications; dementia may occur in some people.</div></div>
+</div></div>
+<div class="card reveal"><h3>Medication philosophy</h3><p class="pearl">Use medications when symptoms are meaningfully affecting quality of life.</p><p class="pearl">Use the <b>lowest amount needed</b> to obtain the desired benefit while limiting adverse effects.</p><p class="pearl">Treatment should evolve as the disease and the person’s priorities evolve.</p><p class="pearl">Lifestyle, rehabilitation and education remain important at every stage.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="medications">
+<div class="container">
+<div class="section-head"><div><div class="kicker">02 · Pharmacology</div><h2>The medication toolbox</h2><p class="lead">The briefing emphasized that levodopa remains the most effective core treatment for Parkinsonian motor symptoms, while several other classes can be useful in selected situations.</p></div></div>
+
+<table class="reveal">
+<thead><tr><th>Class / example</th><th>Main role discussed</th><th>Important points / adverse effects</th></tr></thead>
+<tbody>
+<tr><td><b>Levodopa + carbidopa</b><br>e.g. Sinemet</td><td><span class="highlight">Gold standard</span> for motor symptoms. Levodopa is converted to dopamine.</td><td>Nausea; dyskinesia; fluctuations as disease advances. Carbidopa helps reduce nausea. Response should generally be robust in classic PD.</td></tr>
+<tr><td><b>Dopamine agonists</b><br>pramipexole, ropinirole, rotigotine</td><td>Stimulate dopamine receptors and can treat motor symptoms.</td><td>Sleepiness, dizziness, nausea, confusion and <b>impulse-control disorders</b>. Less dyskinesia than levodopa in the comparison discussed.</td></tr>
+<tr><td><b>Anticholinergics</b><br>trihexyphenidyl, benztropine</td><td>Useful particularly for tremor and dystonia in selected people.</td><td>Cognitive adverse effects and other anticholinergic burden; therefore less commonly used.</td></tr>
+<tr><td><b>MAO-B inhibitors</b><br>rasagiline, selegiline, safinamide</td><td>Slow dopamine/levodopa breakdown; modest symptomatic benefit; can extend levodopa effect.</td><td>Generally well tolerated but effects are smaller than levodopa. Safinamide was discussed particularly as an adjunct for fluctuations.</td></tr>
+<tr><td><b>COMT inhibitors</b><br>entacapone, opicapone</td><td>Extend duration/effect of carbidopa-levodopa.</td><td>Can improve wearing-off but may increase dyskinesia.</td></tr>
+<tr><td><b>Amantadine</b></td><td>Can reduce tremor and especially <span class="highlight">levodopa-induced dyskinesia</span>.</td><td>Confusion/hallucinations, particularly in older people; leg edema and skin changes/livedo reticularis can occur.</td></tr>
+<tr><td><b>A2A antagonist</b></td><td>Can be added to extend levodopa benefit / address off periods.</td><td>Discussed as one of the adjunctive options; individual tolerability matters.</td></tr>
+</tbody></table>
+
+<div class="grid2" style="margin-top:18px">
+<div class="card reveal"><h3>Why levodopa remains “gold standard”</h3><p>It directly supplies the precursor that is converted to dopamine. In the comparative study shown in the briefing, levodopa produced greater motor benefit than the dopamine agonist used for comparison.</p><p><b>Key principle:</b> if symptoms are reducing quality of life, delaying levodopa simply to “save” it for later can mean losing a year of symptomatic benefit.</p></div>
+<div class="card reveal"><h3>Young vs older patients</h3><p>The speaker described a practical age-sensitive approach: in younger people with mild symptoms, a dopamine agonist or anticholinergic may sometimes be considered selectively; if benefit is inadequate, levodopa can be introduced.</p><p>For older patients, the practical tendency is more often <b>levodopa-first</b>, given tolerability and cognitive considerations.</p></div>
+</div>
+
+<div class="callout reveal"><strong>Levodopa does not “wear out” because the medication becomes weak.</strong> The briefing emphasized that motor fluctuations are more closely related to <b>progression of Parkinson’s and the brain’s changing ability to buffer dopamine</b>, rather than the drug simply losing its intrinsic effectiveness.</div>
+
+<div class="card reveal">
+<h3>Why might levodopa seem not to work?</h3>
+<div class="grid2">
+<p>• Dose may be too low.<br>• The symptom may be less levodopa-responsive.<br>• A non-motor symptom such as fatigue may have another cause.<br>• Gastrointestinal absorption may be inconsistent.<br>• The duration of benefit may be too short.<br>• Side effects may limit dose escalation.<br>• The diagnosis may be atypical if there is not a robust response at an adequate dose.</p>
+<p>• Individual body size, genetics, absorption and other factors affect response.<br>• Walking and balance can become less dopamine-responsive later.<br>• The therapeutic threshold differs among people.<br>• Keeping a medication diary can help the clinician identify the actual pattern.</p>
+</div></div>
+</div>
+</section>
+
+<section class="section" id="optimization">
+<div class="container">
+<div class="section-head"><div><div class="kicker">03 · Practical use</div><h2>Getting the most from levodopa</h2></div></div>
+<div class="grid">
+<div class="card reveal"><div class="icon">01</div><h3>Be consistent</h3><p>Take medication at the prescribed times rather than repeatedly changing the schedule independently. Consistency makes it possible to understand what is helping and what is causing side effects.</p></div>
+<div class="card reveal"><div class="icon">02</div><h3>Keep a diary</h3><p>Record dose times, when medication starts working, when it wears off, dyskinesia, sleep and other symptoms. A consistent pattern gives the clinician something actionable to adjust.</p></div>
+<div class="card reveal"><div class="icon">03</div><h3>Think about meals</h3><p>Levodopa is absorbed in the GI tract. The briefing discussed taking it away from food when tolerated, and avoiding protein around doses when food is necessary because protein can compete with absorption.</p></div>
+</div>
+<div class="callout warning reveal"><strong>Individualization matters:</strong> Some people become nauseated on an empty stomach and need a small amount of food. Dietitians can help design a schedule that preserves adequate nutrition and protein while optimizing medication timing.</div>
+<div class="grid2">
+<div class="card reveal"><h3>Carbidopa and nausea</h3><p>Nausea is a common levodopa adverse effect. The carbidopa component reduces peripheral conversion of levodopa and thereby helps with nausea. The speaker explained the historical association of the name “Sinemet” with “no nausea.”</p></div>
+<div class="card reveal"><h3>Formulations</h3><p>Immediate-release carbidopa-levodopa is commonly used early. Longer-acting formulations can become attractive as dosing frequency increases. The speaker described considering extended-release preparations when a person is needing medication more than roughly three times daily, particularly as convenience and stability become important.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="fluctuations">
+<div class="container">
+<div class="section-head"><div><div class="kicker">04 · Disease evolution</div><h2>Wearing-off, “on”, “off” and dyskinesia</h2></div></div>
+<div class="grid2">
+<div class="card reveal"><h3>What changes over time?</h3><p>Early in Parkinson’s, levodopa often provides a smooth and sustained benefit. With progression, the response can become <b>shorter and less efficient</b>.</p><p>Carbidopa-levodopa has a short pharmacokinetic half-life (the briefing gave approximately <b>90 minutes</b> for immediate-release Sinemet), while the clinical benefit can initially last considerably longer.</p></div>
+<div class="card reveal"><h3>The “bumpy road”</h3><p><b>Off:</b> Parkinson symptoms return as medication effect fades.</p><p><b>On:</b> Medication is working, sometimes with excessive involuntary movement.</p><p><b>Dyskinesia:</b> Abnormal extra movement that can look like fidgeting, dancing or restless movement.</p></div>
+</div>
+<div class="card reveal" style="margin-top:18px">
+<h3>Strategies for wearing-off and dyskinesia</h3>
+<table>
+<thead><tr><th>Strategy</th><th>Concept</th></tr></thead>
+<tbody>
+<tr><td><b>Fractionate the dose</b></td><td>Give smaller doses more frequently to maintain benefit without simply increasing the total daily amount. Example discussed: moving from two tablets four times daily toward one-and-a-half tablets five times daily.</td></tr>
+<tr><td><b>Longer-acting levodopa</b></td><td>Extended/delayed-release formulations can lengthen coverage and simplify frequent dosing.</td></tr>
+<tr><td><b>Food timing</b></td><td>Optimize GI absorption and reduce food/protein interference when feasible.</td></tr>
+<tr><td><b>Add adjunctive medication</b></td><td>Dopamine agonist, MAO-B inhibitor, COMT inhibitor or A2A antagonist can extend levodopa effect; increased dyskinesia can be the trade-off.</td></tr>
+<tr><td><b>On-demand rescue</b></td><td>Inhaled levodopa or injectable apomorphine can provide an occasional boost rather than changing the entire daily regimen.</td></tr>
+<tr><td><b>Amantadine ER</b></td><td>The briefing described extended-release amantadine as an option that can improve off time while also reducing dyskinesia in appropriate patients.</td></tr>
+</tbody></table></div>
+<div class="grid2" style="margin-top:18px">
+<div class="card reveal"><h3>How common are motor complications?</h3><p>The speaker cited an approximate pattern of <b>~50% by five years</b> and <b>~90% by 10+ years</b> experiencing motor complications such as fluctuations/dyskinesia. The emphasis was that these are related more to disease duration/severity and individual factors than simply to the calendar date levodopa was started.</p></div>
+<div class="card reveal"><h3>Off time vs dyskinesia</h3><p>The majority of people in the speaker’s experience are more bothered by <b>off-time Parkinson symptoms</b> than by dyskinesia. The right target is the person’s own “sweet spot”: enough levodopa to function well without unacceptable involuntary movement.</p></div>
+</div>
+<div class="callout reveal"><strong>Morning “off”:</strong> The Q&A discussed selected severe early-morning immobility where a family member may give an early dose around 4–5 AM so that the person can become mobile by their usual waking time. This is a clinician-directed strategy, not a universal recommendation.</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head"><div><div class="kicker">05 · Dyskinesia</div><h2>When the medication itself causes movement</h2></div></div>
+<div class="grid">
+<div class="card reveal"><h3>Recognize it</h3><p>Dyskinesia may appear as choreiform, fidgeting or “dancing” movements involving limbs or trunk, often during medication “on” periods.</p></div>
+<div class="card reveal"><h3>First approach</h3><p>If dyskinesia is troublesome, reducing the individual levodopa dose can help. The goal is not automatically to remove all movement, but to find the most functional balance.</p></div>
+<div class="card reveal"><h3>Amantadine</h3><p>Amantadine is the key medication discussed for levodopa-induced dyskinesia. Immediate-release and extended-release forms were mentioned; older people require particular caution for confusion/hallucinations.</p></div>
+</div>
+<div class="callout warning reveal"><strong>Amantadine safety points from the briefing:</strong> hallucinations, cognitive problems, sleep disruption, leg swelling and livedo reticularis/skin changes. Avoid unnecessarily late dosing when sleep is affected. Withdrawal should be gradual rather than abrupt.</div>
+</div>
+</section>
+
+<section class="section" id="nonmotor">
+<div class="container">
+<div class="section-head"><div><div class="kicker">06 · Whole-person care</div><h2>Parkinson’s is more than dopamine</h2><p class="lead">The briefing repeatedly emphasized that motor and non-motor symptoms must be balanced. Dopamine can help some symptoms while worsening others.</p></div></div>
+<div class="grid">
+<div class="card reveal"><div class="icon">M</div><h3>Mood</h3><p>Depression, anxiety and apathy are common. SSRIs and medications such as mirtazapine were mentioned, along with counseling, exercise and mind-body activities.</p></div>
+<div class="card reveal"><div class="icon">A</div><h3>Autonomic symptoms</h3><p>Orthostatic hypotension, sweating, drooling/runny nose, erectile dysfunction, constipation and urinary symptoms may require separate treatment.</p></div>
+<div class="card reveal"><div class="icon">S</div><h3>Sleep & fatigue</h3><p>Sleep quality can strongly influence next-day physical function. Sleep hygiene and cognitive-behavioral approaches may be useful; treatment depends on the specific sleep problem.</p></div>
+<div class="card reveal"><div class="icon">C</div><h3>Cognition & hallucinations</h3><p>Parkinson medications can worsen hallucinations/confusion in susceptible people. Medication reduction may sometimes be necessary, followed by selected treatments for cognition or psychosis.</p></div>
+<div class="card reveal"><div class="icon">B</div><h3>Balance & freezing</h3><p>These can become less responsive to dopamine later. Physical therapy, balance training, dance, Tai Chi and cueing devices may help.</p></div>
+<div class="card reveal"><div class="icon">G</div><h3>GI & bladder</h3><p>Constipation and urinary frequency/urgency/nocturia are common and should be treated as problems in their own right rather than assuming more dopamine is the answer.</p></div>
+</div>
+<div class="callout reveal"><strong>The dopamine tug-of-war:</strong> More dopamine may improve tremor, dexterity, stiffness and mobility, but can worsen hallucinations, confusion or low blood pressure. In some situations, the safer choice is to lower Parkinson medication even if a motor symptom remains.</div>
+
+<div class="card reveal">
+<h3>Orthostatic hypotension: approaches discussed</h3>
+<div class="grid2">
+<p><b>Non-drug:</b> hydration, increased salt when appropriate, compression stockings and general medical optimization.</p>
+<p><b>Medication examples:</b> midodrine, fludrocortisone and droxidopa were mentioned as options that may be used under medical supervision.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head"><div><div class="kicker">07 · Lifestyle</div><h2>Non-medication treatment is not optional</h2></div></div>
+<div class="grid">
+<div class="card reveal"><h3>Aerobic activity</h3><p>Regular aerobic exercise was presented as part of a broad Parkinson’s exercise prescription.</p></div>
+<div class="card reveal"><h3>Strength</h3><p>Strength-building activity complements aerobic work and helps preserve physical function.</p></div>
+<div class="card reveal"><h3>Balance</h3><p>Balance training becomes particularly important as gait and postural stability are affected.</p></div>
+<div class="card reveal"><h3>Mind-body practice</h3><p>Tai Chi, yoga, dance, improv/creative activities and other enjoyable mind-body practices can address motor and non-motor domains together.</p></div>
+<div class="card reveal"><h3>Social + goal-based</h3><p>Choose activities that are enjoyable, social, appropriately challenging and ideally supervised by instructors familiar with Parkinson’s.</p></div>
+<div class="card reveal"><h3>General health</h3><p>Sleep, diet, mental health and management of other medical conditions can substantially influence Parkinson’s function.</p></div>
+</div>
+<div class="callout reveal"><strong>Exercise prescription from the briefing:</strong> combine <b>aerobic activity + strength + balance training</b>. Goal-based learning of a new skill can benefit both physical and cognitive function.</div>
+<div class="card reveal"><h3>Cognitive health</h3><p>The speaker referenced research in older adults suggesting that the combination of diet, exercise, cognitive training and vascular risk-factor reduction is associated with better cognitive function over time.</p></div>
+</div>
+</section>
+
+<section class="section" id="advanced">
+<div class="container">
+<div class="section-head"><div><div class="kicker">08 · Advanced therapies</div><h2>When oral medication is no longer enough</h2><p class="lead">The goal of advanced therapy is to make the “bumpy road” smoother when fluctuations become difficult despite optimized oral regimens.</p></div></div>
+<div class="grid2">
+<div class="card reveal"><h3>Continuous levodopa through the gut</h3><p>Duopa/Duodopa was described as a surgically placed pump delivering levodopa continuously into the gut, reducing reliance on repeated oral pulses.</p></div>
+<div class="card reveal"><h3>Subcutaneous infusion</h3><p>Newer subcutaneous approaches can deliver levodopa-based therapy or apomorphine continuously through the skin. This avoids exclusive reliance on GI absorption but requires training, device management and skin care.</p></div>
+<div class="card reveal"><h3>Subcutaneous foslevodopa/foscarbidopa</h3><p>The briefing described study results showing roughly <b>3 hours of improved off time</b> versus oral levodopa and nearly <b>4 hours more medication-on time without troublesome dyskinesia</b>, with improved morning control in people receiving continuous overnight therapy.</p></div>
+<div class="card reveal"><h3>Practical limitations</h3><p>Potential skin irritation/infection, pump management, home nursing, carrying the device, medication filling and an initiation session to determine settings were highlighted.</p></div>
+</div>
+
+<div class="grid2" style="margin-top:18px">
+<div class="card reveal"><h3>Deep brain stimulation (DBS)</h3><p>For selected people with advanced Parkinson’s who remain levodopa-responsive but have disabling fluctuations/dyskinesia or medication limitations. DBS can be adjusted and reversed and can treat both sides and multiple motor symptoms.</p><p><b>Dementia is an important contraindication/caution</b> because DBS is brain surgery and cognition can worsen.</p></div>
+<div class="card reveal"><h3>Focused ultrasound</h3><p>An incisionless lesioning procedure. At the time described in the briefing, the main approved use discussed was <b>unilateral tremor control</b> in Parkinson’s disease or essential tremor.</p><p>It requires suitable skull characteristics and is not adjustable/reversible like DBS.</p></div>
+</div>
+
+<table class="reveal" style="margin-top:18px">
+<thead><tr><th></th><th>DBS</th><th>Focused ultrasound</th></tr></thead>
+<tbody>
+<tr><td>Procedure</td><td>Actual surgery with implanted device</td><td>Incisionless lesion</td></tr>
+<tr><td>Adjustable/reversible</td><td><b>Yes</b></td><td><b>No</b></td></tr>
+<tr><td>Targets</td><td>Both sides; tremor, stiffness and slowness among appropriate indications</td><td>At the time of briefing: mainly one-sided tremor</td></tr>
+<tr><td>Long-term experience</td><td>Much longer experience</td><td>Newer; less long-term evidence</td></tr>
+</tbody></table>
+
+<div class="callout warning reveal"><strong>Advanced-therapy concept:</strong> The speaker described considering advanced therapy when oral options are exhausted, overly complicated, limited by side effects, or no longer feasible — rather than waiting until the person is completely disabled.</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head"><div><div class="kicker">09 · Research</div><h2>Where the field is heading</h2></div></div>
+<div class="grid">
+<div class="card reveal"><h3>Genetics</h3><p>PD GENEration was highlighted as a Parkinson’s Foundation initiative offering genetic testing and counseling for eligible people with Parkinson’s, with the goal of identifying biological targets and advancing research.</p></div>
+<div class="card reveal"><h3>Alpha-synuclein</h3><p>Alpha-synuclein accumulation is a major research target. Strategies include preventing accumulation, clearing the protein or otherwise altering its disease-related effects.</p></div>
+<div class="card reveal"><h3>Stem cells</h3><p>Another research direction is replacing/regenerating dopamine-producing neurons — effectively attempting to repair the “factory” rather than continuously supplement dopamine.</p></div>
+</div>
+<div class="callout reveal"><strong>Hope + realism:</strong> The speaker emphasized that current treatments primarily improve symptoms; disease-modifying therapies remain an active research goal and clinical trials take time.</div>
+</div>
+</section>
+
+<section class="section" id="qa">
+<div class="container">
+<div class="section-head"><div><div class="kicker">10 · Audience Q&A</div><h2>Questions from the briefing</h2><p class="lead">Search the questions below or open any item. Answers preserve the framing and scope of the supplied transcript.</p></div></div>
+<div class="search"><span>⌕</span><input id="qaSearch" placeholder="Search Q&A: levodopa, gastric bypass, DBS, hallucinations…"></div>
+<div id="qaList"></div>
+</div>
+</section>
+
+<section class="section" id="quiz">
+<div class="container">
+<div class="section-head"><div><div class="kicker">11 · Check your understanding</div><h2>Quick clinical recall</h2></div></div>
+<div class="quiz" id="quizBox"></div>
+<div class="card" style="margin-top:16px;text-align:center"><span class="score" id="score">Score: 0 / 0</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head"><div><div class="kicker">12 · Rapid recall</div><h2>24 pearls from the session</h2></div></div>
+<div class="grid2">
+<div class="card reveal"><p class="pearl"><b>Parkinson’s is individualized</b>: motor + non-motor symptoms vary widely.</p><p class="pearl"><b>Dopamine</b> is central to the motor story, but not the entire disease.</p><p class="pearl"><b>Levodopa is the gold standard</b> for motor symptom treatment.</p><p class="pearl">Do not delay needed treatment merely to “save” levodopa.</p><p class="pearl">Motor complications are more related to <b>disease duration/progression</b> than to levodopa being “used up.”</p><p class="pearl">Consistency and medication diaries improve troubleshooting.</p><p class="pearl">Food and protein can affect levodopa absorption.</p><p class="pearl">Fractionating doses can smooth wearing-off.</p><p class="pearl">Adjuncts can extend levodopa effect but may increase dyskinesia.</p><p class="pearl">Amantadine is important for dyskinesia.</p><p class="pearl">Dopamine agonists require screening for <b>impulse-control disorders</b>.</p><p class="pearl">Older patients may be more vulnerable to confusion/hallucinations from some agents.</p></div>
+<div class="card reveal"><p class="pearl">Freezing and balance may become less dopamine-responsive.</p><p class="pearl">Exercise is a core part of Parkinson’s care.</p><p class="pearl">Sleep quality can alter next-day physical function.</p><p class="pearl">Orthostatic hypotension may need both medication and non-medication management.</p><p class="pearl">Hallucinations/confusion may require reducing dopaminergic burden.</p><p class="pearl">Psychosis treatment requires avoiding most dopamine-blocking antipsychotics.</p><p class="pearl">Advanced therapies aim to smooth fluctuations.</p><p class="pearl">DBS is adjustable/reversible; focused ultrasound is not.</p><p class="pearl">Continuous infusion can help people with difficult fluctuations but changes lifestyle.</p><p class="pearl">Genetics, alpha-synuclein and stem-cell approaches are major research directions.</p><p class="pearl">Non-medication interventions are a core component of care.</p><p class="pearl">The ultimate practical target is <b>function and quality of life</b>.</p></div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<b>Source & clinical-use note</b><br>
+This webpage is an educational restructuring of the supplied Parkinson’s Foundation Expert Briefing transcript featuring Dr. James Beck and Dr. Danny Bega. It preserves the webinar’s examples, approximate figures, medication names, research framing and clinical opinions rather than silently replacing them with current guidelines. Verify current prescribing information, approvals, contraindications and evidence before clinical use.
+<br><br>
+Parkinson’s Foundation resources mentioned in the briefing: Parkinson’s Foundation website, helpline and educational programs. The transcript also mentioned UCB Pharmaceuticals as the educational grant sponsor for the briefing.
+</div>
+</footer>
+
+<button class="backtop" id="backtop" title="Back to top">↑</button>
+
+<script>
+/* =========================================================
+   INTERACTIVE Q&A
+========================================================= */
+const qaData = [
+["What is the practical goal of Parkinson’s treatment?","The day-to-day goal is to improve symptoms and quality of life. Disease-slowing and disease-stopping treatments remain research goals."],
+["Why is levodopa still used after so many decades?","Because it is exceptionally effective: levodopa is converted to dopamine and directly addresses the dopamine deficiency underlying many motor symptoms. Newer advances increasingly focus on delivering levodopa more continuously and efficiently."],
+["Is there hope beyond levodopa?","Yes. The speaker highlighted research in genetics, alpha-synuclein targeting and stem-cell approaches. These aim at mechanisms of disease rather than only symptom control."],
+["How can someone get maximum benefit from medication?","Take it consistently as prescribed, keep a diary of dose times and effects, discuss patterns with the clinician, and consider food/protein timing because GI absorption can affect levodopa response."],
+["Should levodopa be delayed because it will wear off?","The briefing argued against delaying needed treatment merely to preserve levodopa. If symptoms are impairing quality of life, treatment can provide meaningful benefit now; later fluctuations are more related to disease progression."],
+["Can gastric bypass affect levodopa?","Yes. Gastric bypass can alter gut motility and medication absorption. Most levodopa absorption occurs in the proximal small intestine, so altered GI transit may affect consistency. Non-oral rescue or continuous subcutaneous approaches may be considered in selected cases."],
+["What if constipation causes poor medication absorption?","Constipation and GI dysfunction should be actively treated. The briefing also discussed inhaled levodopa, injectable apomorphine and newer subcutaneous infusions as ways of reducing exclusive dependence on GI absorption."],
+["When should immediate-release be changed to extended-release levodopa?","The speaker commonly considers longer-acting formulations as dosing becomes more frequent — particularly around more than three times daily — for convenience and more stable coverage. Cost and access also influence the choice."],
+["What is the general principle for levodopa dose?","Use the lowest dose that gives the desired quality of life and symptom control. Higher doses can increase the potential for adverse effects, but the appropriate dose is individualized."],
+["Why might levodopa not work well in one person?","Possible explanations include inadequate dose, a less levodopa-responsive symptom, poor GI absorption, short duration, side-effect limitations, or an atypical Parkinsonian disorder."],
+["What is fractionation?","Giving smaller doses more frequently to smooth the medication effect while trying not to substantially increase the total daily dose. The briefing gave the example of replacing two tablets four times daily with one-and-a-half tablets five times daily."],
+["What are on-demand therapies?","Inhaled levodopa and injectable apomorphine were discussed as options that can provide an occasional rescue/boost rather than changing the entire scheduled regimen."],
+["What is the role of amantadine?","It can reduce levodopa-induced dyskinesia and may also help tremor. Extended-release amantadine was discussed as an option that can improve off time while reducing dyskinesia in appropriate patients."],
+["What adverse effects matter with amantadine?","Confusion and hallucinations are important, particularly in older people. Leg edema, livedo reticularis/skin changes and sleep disturbance can also occur. The briefing advised gradual withdrawal."],
+["What should be screened for with dopamine agonists?","Sleepiness, dizziness, nausea, confusion and especially impulse-control disorders such as compulsive gambling, spending, sexual behavior or eating."],
+["What is the dopamine tug-of-war?","Increasing dopamine may improve motor symptoms but can worsen hallucinations, confusion or low blood pressure. Treatment sometimes requires choosing which problem is safer or more important to prioritize."],
+["What non-motor symptoms were emphasized?","Mood problems, autonomic dysfunction, cognitive problems, hallucinations, fatigue, sleep problems, urinary symptoms, constipation, sweating, drooling/runny nose and sexual dysfunction were among those discussed."],
+["How is orthostatic hypotension approached?","The briefing mentioned hydration, salt when appropriate, compression stockings and medical optimization, with drugs such as midodrine, fludrocortisone or droxidopa as possible treatments."],
+["What can help freezing and balance problems?","Exercise, physical therapy, balance training, Tai Chi, dance and cueing devices such as laser-based visual cues can be useful, particularly because these symptoms may become less dopamine-responsive."],
+["What is the role of mind-body activities?","They can simultaneously address motor and non-motor domains. Examples included Tai Chi, yoga, dance, improv/creative activities, boxing and physical therapy. They complement rather than replace medication."],
+["What is continuous levodopa infusion?","Duopa/Duodopa delivers levodopa continuously into the gut through a surgically placed pump. Newer subcutaneous levodopa formulations deliver therapy through the skin."],
+["What was discussed about subcutaneous foslevodopa/foscarbidopa?","The briefing described approximately three hours of improved off time and nearly four hours more medication-on time without troublesome dyskinesia versus oral levodopa, with potential improvement in morning control. Device and skin-care burdens remain important."],
+["When is DBS considered?","For selected people with advanced Parkinson’s who remain levodopa-responsive but have disabling fluctuations, dyskinesia or medication limitations despite optimized therapy. Dementia is an important contraindication/caution."],
+["How does focused ultrasound differ from DBS?","Focused ultrasound is incisionless and does not implant a device, but the lesion is not adjustable or reversible. At the time of the briefing, its main discussed indication was unilateral tremor control."],
+["What is the difference between DBS and focused ultrasound in targeting?","DBS can be bilateral and target multiple motor symptoms such as tremor, stiffness and slowness. Focused ultrasound was described as mainly unilateral tremor treatment at the time of the briefing."],
+["What are the major disease-modifying research areas?","Genetic targeting, alpha-synuclein approaches and stem-cell/neural replacement strategies were highlighted."],
+["What is the key message about exercise?","Exercise is a core component of Parkinson’s care. The briefing emphasized aerobic activity, strength and balance training, ideally in enjoyable, goal-based, social and Parkinson-aware settings."],
+["Can sleep affect Parkinson’s symptoms?","Yes. The speaker noted that many people function physically better after a good night’s sleep and worse after poor sleep, making sleep assessment and treatment an important part of care."],
+["What should be done if hallucinations emerge?","The briefing emphasized reviewing and potentially reducing Parkinson medications that can worsen hallucinations/confusion, then using selected treatments for Parkinson-related psychosis when necessary."],
+["What is the final practical message?","Parkinson’s care must be individualized and comprehensive. Levodopa remains the motor-symptom gold standard, but the best outcomes require attention to non-motor symptoms, exercise, sleep, mental health, rehabilitation, advanced therapies and the person’s own quality-of-life goals."]
+];
+
+const qaList=document.getElementById("qaList");
+function renderQA(filter=""){
+  qaList.innerHTML="";
+  const f=filter.toLowerCase().trim();
+  const items=qaData.filter(x=>(x[0]+" "+x[1]).toLowerCase().includes(f));
+  items.forEach((item,i)=>{
+    const el=document.createElement("div");
+    el.className="qa";
+    el.innerHTML=`<button aria-expanded="false"><span>${escapeHTML(item[0])}</span><span>＋</span></button><div class="answer">${escapeHTML(item[1])}</div>`;
+    el.querySelector("button").onclick=()=>{
+      el.classList.toggle("open");
+      el.querySelector("button").setAttribute("aria-expanded",el.classList.contains("open"));
+      el.querySelector("button span:last-child").textContent=el.classList.contains("open")?"−":"＋";
+    };
+    qaList.appendChild(el);
+  });
+  if(!items.length) qaList.innerHTML=`<div class="card"><b>No matching questions.</b><p>Try another keyword.</p></div>`;
+}
+renderQA();
+document.getElementById("qaSearch").addEventListener("input",e=>renderQA(e.target.value));
+
+/* =========================================================
+   QUIZ
+========================================================= */
+const quizData=[
+["Which medication was described as the gold standard for motor symptoms?","Levodopa + carbidopa",["Levodopa + carbidopa","Amantadine","Benztropine","Droxidopa"],"Levodopa is the most effective core medication for Parkinsonian motor symptoms in the briefing."],
+["Which adverse effect is particularly important to screen for with dopamine agonists?","Impulse-control disorders",["Dry mouth","Impulse-control disorders","Livedo reticularis","Protein malabsorption"],"The briefing emphasized gambling, compulsive spending, sexual behavior, eating and related impulse-control problems."],
+["What is dyskinesia?","Abnormal involuntary extra movement","Abnormal involuntary extra movement","Loss of smell","Low blood pressure","Constipation"],"The briefing described dyskinesia as extra movements that can look like fidgeting, dancing or restless movement."],
+["What is fractionation of levodopa?","Smaller doses given more frequently","One large dose at bedtime","Stopping levodopa on weekends","Replacing levodopa with an anticholinergic"],"Fractionation aims to smooth coverage without simply increasing the total daily amount."],
+["Which medication was highlighted for levodopa-induced dyskinesia?","Amantadine",["Amantadine","Midodrine","Rivastigmine","Droxidopa"],"Amantadine was the key anti-dyskinesia medication discussed."],
+["Which advanced treatment is adjustable and reversible?","DBS",["DBS","Focused ultrasound","Neither","Both equally"],"DBS uses an implanted stimulator that can be adjusted and reversed; focused ultrasound creates a lesion that is not adjustable/reversible."],
+["What can interfere with levodopa absorption?","Food/protein in some circumstances",["Food/protein in some circumstances","Water","Exercise","Sleep"],"The speaker discussed GI absorption and protein competition as reasons to consider medication-meal timing."],
+["What is a major reason to consider non-drug therapies?","They address motor and non-motor health together","They replace every medication","They cure Parkinson’s","They prevent all falls"],"Exercise, rehabilitation and mind-body activities were presented as core parts of comprehensive care."],
+["Which research strategy attempts to target a disease mechanism?","Alpha-synuclein targeting",["Alpha-synuclein targeting","Taking levodopa later","Compression stockings","Protein restriction"],"Alpha-synuclein, genetics and stem-cell approaches were highlighted as research directions."],
+["What is the central practical goal of treatment?","Improve symptoms and quality of life","Eliminate all dopamine","Avoid all medications","Guarantee no progression"],"The briefing repeatedly framed current treatment around symptom control and quality of life."]
+];
+const quizBox=document.getElementById("quizBox"),scoreEl=document.getElementById("score");
+let correct=0,answered=0;
+function renderQuiz(){
+ quizData.forEach((q,qi)=>{
+  const box=document.createElement("div");box.className="qbox";
+  box.innerHTML=`<b>${qi+1}. ${escapeHTML(q[0])}</b><div class="options"></div><div class="explain"></div>`;
+  const opts=box.querySelector(".options");
+  const arr=q[2].slice();
+  // Ensure the correct answer is always present and identify by text
+  arr.sort(()=>Math.random()-.5);
+  arr.forEach(opt=>{
+    const b=document.createElement("button");b.className="option";b.textContent=opt;
+    b.onclick=()=>{
+      if(box.classList.contains("done"))return;
+      box.classList.add("done");answered++;
+      if(opt===q[1]){b.classList.add("correct");correct++}
+      else{
+        b.classList.add("wrong");
+        [...opts.children].find(x=>x.textContent===q[1])?.classList.add("correct");
+      }
+      box.querySelector(".explain").textContent=q[3];
+      scoreEl.textContent=`Score: ${correct} / ${answered}`;
+    };
+    opts.appendChild(b);
+  });
+  quizBox.appendChild(box);
+ });
+}
+renderQuiz();
+
+/* =========================================================
+   UTILITIES / ANIMATION
+========================================================= */
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+
+window.addEventListener("scroll",()=>{
+ const h=document.documentElement.scrollHeight-innerHeight;
+ document.getElementById("progress").style.width=(h>0?(scrollY/h)*100:0)+"%";
+ document.getElementById("backtop").style.display=scrollY>500?"block":"none";
+});
+document.getElementById("backtop").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+</script>
+</body>
+</html>
